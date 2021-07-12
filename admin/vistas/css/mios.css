@@ -1,0 +1,159 @@
+#particles-js {
+	height: 100%; 
+	width: 100%;
+    position: fixed;
+    z-index: -1;
+}
+
+
+
+.form{
+	width: 100%;
+	height: 50px;
+	max-width: 100%;
+	position: relative;
+	overflow: hidden;
+}
+.form input{
+	width: 100%;
+	height: 100%;
+    
+	background: none;
+	color: rgb(90, 90, 90);
+	padding-top: 5px;
+	border: none;
+	outline: 0px;
+}
+.form .lbl-nombre{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+	border-bottom: 1px solid #c7c7c7;
+}
+
+.form .lbl-nombre:after{
+	content: '';
+	position: absolute;
+	left: 0;
+	bottom: -1px;
+	width: 100%;
+	height: 100%;
+	border-bottom: 3px solid #2b96fa;
+	transform: translateX(-100%);
+	transition: all 0.3s ease;
+}
+.text-nomb{
+	position: absolute;
+	bottom: 5px;
+	left: 0;
+	transition: all 0.3s ease;
+	color: rgb(145, 145, 145);
+}
+.form input:focus + .lbl-nombre .text-nomb,.form input:valid + .lbl-nombre .text-nomb{
+	transform: translateY(-100%);
+	font-size: 14px;
+	color: #2b96fa;
+}
+.form input:focus + .lbl-nombre:after, .form input:valid + .lbl-nombre:after{
+	transform: translateX(0%);
+}
+
+
+.form .spanIcon{
+	transform: translateY(+50%);
+}
+
+.form input:focus + .lbl-nombre .spanIcon,.form input:valid + .lbl-nombre .spanIcon{
+	
+	color: #2b96fa;
+}
+
+
+
+
+
+
+/*** ESTILOS BOTÓN SLIDE TOP ***/
+.ov-btn-slide-top {
+	margin-top: 10px;
+	background: #fff; /* color de fondo */
+	width: 100%;
+	color: #2b96fa; /* color de fuente */
+	border: 2px solid #2b96fa; /* tamaño y color de borde */
+	padding: 10px 10px;
+	border-radius: 3px; /* redondear bordes */
+	position: relative;
+	z-index: 1;
+	overflow: hidden;
+	display: inline-block;
+	text-align: center;
+}
+.ov-btn-slide-top:hover {
+    color: #fff; /* color de fuente hover */
+}
+.ov-btn-slide-top::after {
+    content: "";
+    background: #2b96fa; /* color de fondo hover */
+    position: absolute;
+    z-index: -1;
+    padding: 16px 20px;
+    display: block;
+    left: 0;
+    right: 0;
+    top: -100%;
+    bottom: 100%;
+    -webkit-transition: all 0.35s;
+    transition: all 0.35s;
+    }
+    .ov-btn-slide-top:hover::after {
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    -webkit-transition: all 0.35s;
+    transition: all 0.35s;
+}
+
+
+/*BOTON CERRAR*/
+
+.botonCerrar {
+    margin-left: -15px;
+	margin-right: 10px;
+	border-radius: 100px;
+	padding-left: 9px;
+	padding-right: 9px;
+	font-size: 15px;
+}
+
+
+.centrado {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/*BOTON FILE*/
+
+.SelIM[type="file"]{
+	display: none;
+}
+
+.fileButton{
+	color: white;
+	height: 40px;
+	width: 100%;
+	background-color: #d3394c;
+	margin-bottom: 10px;
+	font-size: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 5px;
+	cursor: pointer;
+}
