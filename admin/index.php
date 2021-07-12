@@ -27,8 +27,6 @@ require_once "controladores/notificaciones.controladorM.php";
 
 require_once "controladores/articulos.controlador.php";
 
-
-
 require_once "modelos/administradores.modelo.php";
 //require_once "modelos/banner.modelo.php";
 //require_once "modelos/categorias.modelo.php";
