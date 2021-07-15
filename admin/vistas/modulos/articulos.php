@@ -1,261 +1,224 @@
+<!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
-
-  <section class="content-header">
-
-   <h1>
-      Gestor Articulos
-    </h1>
-
-    <!-- BARRA DE NAV-->
-    <ol class="breadcrumb">
-
-      <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
-
-      <li class="active">Gestor Articulos</li>
-
-    </ol>
-    
-  </section>
-
-
-
-
-  <section class="content">
-
-    <div class="box">
-       
-      <div class="box-header with-border">
-         
-       <!--
-        <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarArticulo">
-          
-          Agregar Articulo
-
-        </button>
--->
-
-        <button class="ov-btn-slide-topBut" data-toggle="modal" data-target="#modalAgregarArticulo">
-
-          Agregar Articulo
-
-        </button>
-
-      </div>
-
-      <div class="box-body">
-
-        <table class="table table-bordered table-striped dt-responsive tablaArticulos" width="100%">
-        
-          <thead>
-         
-            <tr>
-             
-               <th style="width:10px">#</th>
-               <th style="width:55px">Estado</th>
-               <th>Titulo</th>
-               <th>Categoria</th>
-               <th>Palabras Clave</th>
-               <th>Portada</th>
-               <th>Descripción</th>
-               <th>Prestados</th>
-               <th>Peso</th>
-               <th>Precio</th>
-               <th style="width:80px">Acciones</th>
-
-            </tr> 
-
-          </thead>   
-     
-        </table>
-          
-      </div>
-
-    </div>
-
-  </section>
-
-
-
-
-
-  <section class="content-header">
-
-  <h1>
-    Gestor Categorias
-  </h1>
-
-  </section>
-
-  <section class="content">
-
-  <div class="box">
-    
-    <div class="box-header with-border">
-      
-        <!--
-        <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarCategoriaM">
-          
-          Agregar Nueva Categoria
-
-        </button>
--->
-        <button class="ov-btn-slide-topBut" data-toggle="modal" data-target="#modalAgregarCategoriaM">
-
-          Agregar Nueva Categoria
-
-        </button>
-
-    </div>
-
-    <div class="box-body">
-
-      <table class="table table-bordered table-striped dt-responsive tablaCategoriasM" width="100%">
-      
-        <thead>
-      
-          <tr>
-          
-            <th style="width:10px">#</th>
-            <th>Titulo</th>
-            <th style="width:10px">Acciones</th>
-
-          </tr> 
-
-        </thead>   
-  
-      </table>
-        
-    </div>
-
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 class="m-0">PARAMETROS</h1>
+        </div><!-- /.col -->
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="inicio">Inicio</a></li>
+            <li class="breadcrumb-item active">PARAMETROS</li>
+          </ol>
+        </div><!-- /.col -->
+      </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
   </div>
+  <!-- /.content-header -->
 
-  </section>
-  
-  <div class="container">
-    <div class="row">
-      <div class="col-md-3">
-        <div class="form-group">
-          <label for="numero-parcelas">Numero parcelas</label>
-          <select name="form-control" id="numero-parcelas" name="numero-parcelas" oninput="camposParcela();">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-            <option value="11">11</option>
-            <option value="12">12</option>
-            <option value="13">13</option>
-            <option value="14">14</option>
-            <option value="15">15</option>
-          </select>
-        </div>
-      </div>
-    </div>
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid">
 
-    <div class="row" id="lista-parcelas"></div>
 
-    <span id="span-modelo" style="display:none;">
+
+      <!-- Main row -->
       <div class="row">
-        <div class="col-md-3">
-          <div class="form-group">
-            <label for="parcela-0">Valor (R$)</label>
-            <input type="text" class="form-control" name="parcela-0" id="parcela-0">
+        <!-- Left col -->
+        <div class="col-lg-12">
+          
+
+
+          <!-- TABLE: LATEST ORDERS -->
+          <div class="card">
+
+            <div class="card-header border-transparent">
+              <h3 class="card-title">EVENTOS DE ADMISION</h3>
+
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                  <i class="fas fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-tool" data-card-widget="maximize">
+                  <i class="fas fa-expand"></i>
+                </button>
+              </div>
+            </div>
+            <!-- /.card-header -->
+
+            <div class="card-body p-0">
+
+
+                  <!-- Main content -->
+                <section class="content">
+                        <div class="container-fluid">
+                          <div class="row">
+                            <div class="col-12">
+
+                              <div class="card">
+                                
+                                
+
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                  <table id="tablaArticulo" class="table table-bordered table-striped">
+                                    <thead>
+                                    <tr>
+                                      <th style="width:10px">#</th>
+                                      <th style="width:55px">ESTADO</th>
+                                      <th>TITULO</th>
+                                      <th>CATEGORIA</th>
+                                      <th>PALABRAS CLAVE</th>
+                                      <th>PORTADA</th>
+                                      <th>DESCRIPCION</th>
+                                      <th>PRESTADOS</th>
+                                      <th>PESO</th>
+                                      <th>PRECIO</th>
+                                      <th style="width:80px">OP</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    
+                                    <?php
+                                            
+                                            $idCat = array();
+                                            
+                                            $categoria = ControladorCategoria::ctrMostrarCategoria(null, null);
+                                            
+                                            for($i = 0; $i < count($categoria); $i++){
+                                            
+                                              $idCat[$categoria[$i]["idCategoria"]] = $categoria[$i]["titulo"];
+                                            
+                                            }
+
+                                            $articulos = ControladorArticulos::ctrMostrarArticulos(null, null);
+
+                                            foreach ($articulos as $key => $value) {
+                                              
+                                              /*=============================================
+                                              AGREGAR ETIQUETAS DE ESTADO
+                                              =============================================*/
+
+                                              if($articulos[$key]["disponible"] == 0){
+
+                                                $colorEstado = "btn-danger";
+                                                $textoEstado = "Desactivado";
+                                                $estadoArticulo = 1;
+                                        
+                                              }else{
+                                        
+                                                $colorEstado = "btn-success";
+                                                $textoEstado = "Activado";
+                                                $estadoArticulo = 0;
+                                        
+                                              }
+                                        
+                                              $disponible = "<button class='btn btn-xs btnActivar ".$colorEstado."' idArticulo='".$articulos[$key]["idDetalleArticulo"]."' estadoArticulo='".$estadoArticulo."'>".$textoEstado."</button>";
+                                              
+                                              $imagenPrincipal = "<a href='".$articulos[$key]["ruta"]."'><img src='".$articulos[$key]["portada"]."' class='img-thumbnail imgTablaPrincipal' width='100px'></a>";
+                                              
+                                              $acciones = "<div class='btn-group'><button class='btn btn-warning btnEditarArticulo' idArticulo='".$articulos[$key]["idDetalleArticulo"]."' data-toggle='modal' data-target='#modalEditarArticulo'><i class='fa fa-edit'></i></button><button class='btn btn-danger btnEliminarArticulo' idArticulo='".$articulos[$key]["idDetalleArticulo"]."' rutaCabecera='".$articulos[$key]["ruta"]."' imgPrincipal='".$articulos[$key]["portada"]."'><i class='fa fa-times'></i></button></div>";
+
+                                              $accionesFinal = "<div class='btn-group'><a href='".$articulos[$key]["ruta"]."'><button class='btn btn-success' ><i class='fa fa-eye'></i></button></a><button class='btn btn-warning btnEditarArticulo' idArticulo='".$articulos[$key]["idDetalleArticulo"]."' data-toggle='modal' data-target='#modalEditarArticulo'><i class='fa fa-edit'></i></button></div>";
+
+                                              echo '<tr>';
+                                                echo '<td>'.$key.'</td>';
+                                                echo '<td>'.$disponible.'</td>';
+                                                echo '<td>'.$articulos[$key]["titulo"].'</td>';
+                                                echo '<td>'.$idCat[$articulos[$key]["idCategoria"]].'</td>';
+                                                echo '<td>'.$articulos[$key]["palabrasClave"].'</td>';
+                                                echo '<td>'.$imagenPrincipal.'</td>';
+                                                echo '<td>'.$articulos[$key]["descripcion"].'</td>';
+                                                echo '<td>'.$articulos[$key]["prestados"].'</td>';
+                                                echo '<td>'.$articulos[$key]["peso"].'</td>';
+                                                echo '<td>'.$articulos[$key]["precio"].'</td>';
+                                                echo '<td>'.$acciones.'</td>';
+                                              echo '</tr>';
+
+                                            }
+                                    ?>
+
+                                    </tbody>
+                                    <tfoot>
+                                    <tr>
+                                      <th>#</th>
+                                      <th>ESTADO</th>
+                                      <th>TITULO</th>
+                                      <th>CATEGORIA</th>
+                                      <th>PALABRAS CLAVE</th>
+                                      <th>PORTADA</th>
+                                      <th>DESCRIPCION</th>
+                                      <th>PRESTADOS</th>
+                                      <th>PESO</th>
+                                      <th>PRECIO</th>
+                                      <th>OP</th>
+                                    </tr>
+                                    </tfoot>
+                                  </table>
+                                </div>
+                                <!-- /.card-body -->
+                              </div>
+                              <!-- /.card -->
+                            </div>
+                            <!-- /.col -->
+                          </div>
+                          <!-- /.row -->
+                        </div>
+                        <!-- /.container-fluid -->
+                  </section>
+                      <!-- /.content -->
+
+
+
+
+
+            </div>
+            <!-- /.card-body -->
+            <div class="card-footer clearfix">
+
+              <a class="btn btn-sm btn-info float-right" data-toggle="modal" data-target="#modalAgregarArticulo">AGREGAR NUEVO EVENTO DE ADMISION</a>
+              
+            </div>
+            <!-- /.card-footer -->
           </div>
+          <!-- /.card -->
+
+
+
         </div>
+        <!-- /.col -->
       </div>
-    </span>
-
-    <span id="span-real"></span>
-
-  </div>
-
-</div>
+      <!-- /.row -->
 
 
-
-<script>
-  
-  function camposParcela(){
-    var spantestemodelo = $('#span-modelo').html();
-    var spantestemodelo_strinf = spantestemodelo.toString();
-    var campos = $('#numero-parcelas').val();
-
-    var i;
-
-    i=1;
-
-    var texto = '';
-    while(i<=campos){
-      texto = texto + spantestemodelo_strinf.replace(/-0/g,'-' + i.toString());
-      i = i + 1; 
-    }
-
-    $("#span-real").html(texto);
-  }
-
-  camposParcela();
-
-</script>
-
-
-
-
-<!--
-<div class="content-wrapper">
-
-  <section class="content-header">
-
-    <h1>
-      Gestor Categorias
-    </h1>
-    
+    </div><!--/. container-fluid -->
   </section>
-
-  <section class="content">
-
-    <div class="box">
-       
-      <div class="box-header with-border">
-         
-        <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarCategoriaM">
-          
-          Agregar Nueva Categoria
-
-        </button>
-
-      </div>
-
-      <div class="box-body">
-
-        <table class="table table-bordered table-striped dt-responsive tablaCategoriasM" width="100%">
-        
-          <thead>
-         
-            <tr>
-             
-               <th style="width:10px">#</th>
-               <th>Titulo</th>
-               <th style="width:10px">Acciones</th>
-
-            </tr> 
-
-          </thead>   
-     
-        </table>
-          
-      </div>
-
-    </div>
-
-  </section>
-
+  <!-- /.content -->
 </div>
--->
+<!-- /.content-wrapper -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -276,17 +239,10 @@ MODAL AGREGAR NUEVO ARTICULO
         ======================================-->
         <div class="modal-header" style="background:#2b96fa; color:white">
 
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-
+          
           <h4 class="modal-title">AGREGAR ARTICULO</h4>
 
         </div>
-
-
-
-
-
-
 
         <!--=====================================
         CUERPO DEL MODAL
@@ -304,8 +260,6 @@ MODAL AGREGAR NUEVO ARTICULO
               
                 <div class="input-group">
               
-                  <span class="input-group-addon"><i class="fa fa-product-hunt"></i></span> 
-
                   <input type="text" class="form-control input-lg validarArticulo tituloArticulo"  placeholder="Ingresar título producto">
 
                 </div>
@@ -320,8 +274,6 @@ MODAL AGREGAR NUEVO ARTICULO
               
                 <div class="input-group">
               
-                  <span class="input-group-addon"><i class="fa fa-link"></i></span> 
-
                   <input type="text" class="form-control input-lg rutaArticulo" placeholder="Ruta url del producto" readonly>
 
                 </div>
@@ -366,8 +318,6 @@ MODAL AGREGAR NUEVO ARTICULO
                 
                 <div class="input-group">
               
-                  <span class="input-group-addon"><i class="fa fa-th"></i></span> 
-
                   <select class="form-control input-lg seleccionarCategoria">
                   
                     <option value="">Selecionar categoría</option>
@@ -421,8 +371,6 @@ MODAL AGREGAR NUEVO ARTICULO
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-pencil"></i></span> 
-
                 <textarea type="text" maxlength="320" rows="3" class="form-control input-lg descripcionArticulo" placeholder="Ingresar descripción del articulo"></textarea>
 
               </div>
@@ -438,8 +386,6 @@ MODAL AGREGAR NUEVO ARTICULO
               
                 <div class="input-group">
               
-                  <span class="input-group-addon"><i class="fa fa-key"></i></span> 
-
                   <input type="text" class="form-control input-lg tagsInput pClavesArticulo" data-role="tagsinput"  placeholder="Ingresar palabras claves">
 
                 </div>
@@ -520,8 +466,6 @@ MODAL AGREGAR NUEVO ARTICULO
                 
                 <div class="input-group">
                 
-                  <span class="input-group-addon"><i class="ion ion-social-usd"></i></span> 
-
                   <input type="number" class="form-control input-lg precio" min="0" step="any" value="0">
 
                 </div>
@@ -536,8 +480,6 @@ MODAL AGREGAR NUEVO ARTICULO
               
                 <div class="input-group">
               
-                  <span class="input-group-addon"><i class="fa fa-balance-scale"></i></span> 
-
                   <input type="number" class="form-control input-lg peso" min="0" step="any" value="0">
 
                 </div>
@@ -552,8 +494,6 @@ MODAL AGREGAR NUEVO ARTICULO
               
                 <div class="input-group">
               
-                  <span class="input-group-addon"><i class="fa fa-truck"></i></span> 
-
                   <!--<input type="number" class="form-control input-lg disponible" min="0" max="2" value="1">
                     -->
                   <select class="form-control input-lg disponible">
@@ -641,8 +581,6 @@ MODAL EDITAR ARTICULO
         ======================================-->
         <div class="modal-header" style="background:#3c8dbc; color:white">
 
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-
           <h4 class="modal-title">Editar Articulo</h4>
 
         </div>
@@ -672,8 +610,6 @@ MODAL EDITAR ARTICULO
               
                 <div class="input-group">
               
-                  <span class="input-group-addon"><i class="fa fa-product-hunt"></i></span> 
-
                   <input type="text" class="form-control input-lg validarArticulo tituloArticulo" readonly>
 
                   <input type="hidden" class="idArticulo">
@@ -690,8 +626,6 @@ MODAL EDITAR ARTICULO
               
                 <div class="input-group">
               
-                  <span class="input-group-addon"><i class="fa fa-link"></i></span> 
-
                   <input type="text" class="form-control input-lg rutaArticulo" readonly>
 
                 </div>
@@ -736,8 +670,6 @@ MODAL EDITAR ARTICULO
                 
                 <div class="input-group">
               
-                  <span class="input-group-addon"><i class="fa fa-th"></i></span> 
-
                   <select class="form-control input-lg seleccionarCategoria">
                   
                     <option class="optionEditarCategoria"></option>
@@ -790,8 +722,6 @@ MODAL EDITAR ARTICULO
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-pencil"></i></span> 
-
                 <textarea type="text" maxlength="320" rows="3" class="form-control input-lg descripcionArticulo"></textarea>
 
               </div>
@@ -859,6 +789,7 @@ MODAL EDITAR ARTICULO
 
             <div class="form-group agregarMultimedia"> 
               
+            
               <div class="row previsualizarImgAdd"></div>
               
              <!-- <div class="panel">SUBIR IMAGENES DEL ARTICULO</div>  -->
@@ -892,8 +823,6 @@ MODAL EDITAR ARTICULO
                 
                 <div class="input-group">
                 
-                  <span class="input-group-addon"><i class="ion ion-social-usd"></i></span> 
-
                   <input type="number" class="form-control input-lg precio" min="0" step="any" value="0">
 
                 </div>
@@ -908,8 +837,6 @@ MODAL EDITAR ARTICULO
               
                 <div class="input-group">
               
-                  <span class="input-group-addon"><i class="fa fa-balance-scale"></i></span> 
-
                   <input type="number" class="form-control input-lg peso" min="0" step="any" value="0">
 
                 </div>
@@ -924,8 +851,6 @@ MODAL EDITAR ARTICULO
               
                 <div class="input-group">
               
-                  <span class="input-group-addon"><i class="fa fa-truck"></i></span> 
-
                   <!--<input type="number" class="form-control input-lg disponible" min="0" max="2" value="1">
                   -->
                   <select class="form-control input-lg disponible">
@@ -972,215 +897,3 @@ MODAL EDITAR ARTICULO
   $eliminarArticulo -> ctrEliminarArticulo();
 
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--==============================================================================================================================================================================================================================
-MODAL AGREGAR NUEVA CATEGORIA
-===============================================================================================================================================================================================================================-->
-
-<div id="modalAgregarCategoriaM" class="modal fade" role="dialog">
-  
-   <div class="modal-dialog">
-     
-     <div class="modal-content">
-       
-       <!-- <form role="form" method="post" enctype="multipart/form-data"> -->
-         
-         <!--=====================================
-        CABEZA DEL MODAL
-        ======================================-->
-        <div class="modal-header" style="background:#3c8dbc; color:white">
-
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-
-          <h4 class="modal-title">Agregar Categoria</h4>
-
-        </div>
-
-        <!--=====================================
-        CUERPO DEL MODAL
-        ======================================-->
-
-        <div class="modal-body">
-
-          <div class="box-body">
-
-            <!--=====================================
-            ENTRADA PARA EL TÍTULO
-            ======================================-->
-
-            <div class="form-group">
-              
-                <div class="input-group">
-              
-                  <span class="input-group-addon"><i class="fa fa-product-hunt"></i></span> 
-
-                  <input type="text" class="form-control input-lg validarCategoriaM tituloCategoriaM"  placeholder="Ingresar título de la categoria">
-
-                </div>
-
-            </div>
-
-            <!--=====================================
-            ENTRADA PARA LA RUTA DEL PRODUCTO
-            ======================================-->
-
-            <div class="form-group">
-              
-                <div class="input-group">
-              
-                  <span class="input-group-addon"><i class="fa fa-link"></i></span> 
-
-                  <input type="text" class="form-control input-lg rutaCategoriaM" placeholder="Ruta url de la categoria" readonly>
-
-                </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-        <!--=====================================
-        PIE DEL MODAL
-        ======================================-->
-
-        <div class="modal-footer">
-  
-          <button type="button" class="btn btn-primary guardarCategoriaM" style="width:100%;">GUARDAR CATEGORIA</button>
-
-        </div>
-
-       <!-- </form> -->
-
-     </div>
-
-   </div>
-
-</div>
-
-
-
-
-
-
-
-<!--=====================================
-MODAL EDITAR CATEGORIA
-======================================-->
-
-<div id="modalEditarCategoriaM" class="modal fade" role="dialog">
-  
-   <div class="modal-dialog">
-     
-     <div class="modal-content">
-       
-       <!-- <form role="form" method="post" enctype="multipart/form-data"> -->
-         
-         <!--=====================================
-        CABEZA DEL MODAL
-        ======================================-->
-        <div class="modal-header" style="background:#3c8dbc; color:white">
-
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-
-          <h4 class="modal-title">Editar Categoria</h4>
-
-        </div>
-
-        <!--=====================================
-        CUERPO DEL MODAL
-        ======================================-->
-
-        <div class="modal-body">
-
-          <div class="box-body">
-
-            <!--=====================================
-            ENTRADA PARA EL TÍTULO
-            ======================================-->
-
-            <div class="form-group">
-              
-                <div class="input-group">
-              
-                  <span class="input-group-addon"><i class="fa fa-product-hunt"></i></span> 
-
-                  <input type="text" class="form-control input-lg validarCategoriaM tituloCategoriaM">
-                  
-                  <input type="hidden" class="idCategoriaM">
-
-                </div>
-
-            </div>
-
-            <!--=====================================
-            ENTRADA PARA LA RUTA DEL PRODUCTO
-            ======================================-->
-
-            <div class="form-group">
-              
-                <div class="input-group">
-              
-                  <span class="input-group-addon"><i class="fa fa-link"></i></span> 
-
-                  <input type="text" class="form-control input-lg rutaCategoriaM" readonly>
-
-                </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-        <!--=====================================
-        PIE DEL MODAL
-        ======================================-->
-
-        <div class="modal-footer">
-  
-          <button type="button" class="btn btn-primary guardarCambiosCategoriaM" style="width:100%;">GUARDAR CAMBIOS</button>
-
-        </div>
-
-       <!-- </form> -->
-
-     </div>
-
-   </div>
-
-</div>
-
-
-
-<?php
-
-  $eliminarCategoriaM = new ControladorCategoria();
-  $eliminarCategoriaM -> ctrEliminarCategoria();
-
-?>
-
-
-
-
-

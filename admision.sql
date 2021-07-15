@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-07-2021 a las 00:00:36
+-- Tiempo de generación: 15-07-2021 a las 07:13:26
 -- Versión del servidor: 10.4.14-MariaDB
 -- Versión de PHP: 7.2.34
 
@@ -37,6 +37,7 @@ CREATE TABLE `administradores` (
   `password` text COLLATE utf8_spanish_ci NOT NULL,
   `perfil` text COLLATE utf8_spanish_ci NOT NULL,
   `estado` int(11) NOT NULL,
+  `dark` tinyint(1) NOT NULL,
   `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
@@ -44,10 +45,12 @@ CREATE TABLE `administradores` (
 -- Volcado de datos para la tabla `administradores`
 --
 
-INSERT INTO `administradores` (`id`, `dniAdmin`, `userAdmin`, `nombre`, `email`, `foto`, `password`, `perfil`, `estado`, `fecha`) VALUES
-(5, '12345674', '', 'Alex Escalante ONE', 'admin@gmail.com', 'vistas/img/perfiles/448.jpg', '$2a$07$asxx54ahjppf45sd87a5aunxs9bkpyGmGE/.vekdjFg83yRec789S', 'administrador', 1, '2021-01-31 02:01:50'),
-(7, '12345678', '', 'Fredy ONE', 'fredy@gmail.com', 'vistas/img/perfiles/719.jpg', '$2a$07$asxx54ahjppf45sd87a5au8yKTE0AUTJwdRPIDIsqXT2Utnq6TZtq', 'administrador', 1, '2021-01-31 01:59:29'),
-(8, '12345678', '', 'Jose Marin', 'laboratorista@gmail.com', 'vistas/img/perfiles/897.jpg', '$2a$07$asxx54ahjppf45sd87a5auBMC0hyDzSIj.ET6H5mmag4zkgE6FuWe', 'laboral', 1, '2021-07-06 06:44:29');
+INSERT INTO `administradores` (`id`, `dniAdmin`, `userAdmin`, `nombre`, `email`, `foto`, `password`, `perfil`, `estado`, `dark`, `fecha`) VALUES
+(5, '73104785', '', 'Alex Escalante ONE', 'admin@gmail.com', 'vistas/img/perfiles/138.jpg', '$2a$07$asxx54ahjppf45sd87a5aunxs9bkpyGmGE/.vekdjFg83yRec789S', 'administrador', 1, 1, '2021-07-15 03:15:21'),
+(162, '73104795', '', 'Alex Escalante TWO', 'alexescalante921@gmail.com', 'vistas/img/perfiles/844.png', '$2a$07$asxx54ahjppf45sd87a5aubFblDrx5VgsL7udWc9pTLp1r8BxczhK', 'administrador', 1, 0, '2021-07-12 04:54:55'),
+(165, '73545894', '', 'Fredy Marin Rojas', 'laboral@gmail.com', 'vistas/img/perfiles/972.jpg', '$2a$07$asxx54ahjppf45sd87a5auR6AmIR5N5CndGl8MnjTyLo5SYcp56Qe', 'laboratorista', 1, 1, '2021-07-11 18:18:54'),
+(166, '15489562', '', 'Ana Maria', 'ana@gmail.com', 'vistas/img/perfiles/600.jpg', '$2a$07$asxx54ahjppf45sd87a5auzGfz9GaOjSPJ5jEDpHii9vSQEEqY1Zm', 'administrador', 1, 1, '2021-07-15 02:32:14'),
+(167, '111111111111', '', 'maryluz', 'mary@gmail.com', 'vistas/img/perfiles/682.jpg', '$2a$07$asxx54ahjppf45sd87a5auMcTRI4HvWlwXRGDf6MnH7be2S/RDDFa', 'administrador', 1, 0, '2021-07-15 03:13:41');
 
 -- --------------------------------------------------------
 
@@ -70,29 +73,7 @@ CREATE TABLE `articulos` (
 
 INSERT INTO `articulos` (`idArticulo`, `estado`, `estadoPendiente`, `fecha`, `idDetalleArticulo`, `codigoPatrimonial`) VALUES
 (120, 0, 0, '2021-02-15 14:02:14', 222, '213123213'),
-(121, 0, 0, '2021-02-15 14:02:29', 222, '567567755'),
-(122, 2, 0, '2021-02-15 14:02:34', 222, '324234234'),
-(123, 0, 0, '2021-02-15 14:02:42', 222, '234342888'),
-(124, 0, 0, '2021-02-15 14:02:49', 222, '123465879'),
-(125, 0, 0, '2021-02-15 14:02:58', 222, '151548221'),
-(126, 3, 0, '2021-02-15 14:03:06', 222, '111111222'),
-(127, 3, 0, '2021-02-15 14:03:18', 222, '432423444'),
-(128, 3, 0, '2021-02-15 14:03:25', 222, '788998798'),
-(129, 1, 0, '2021-02-15 14:03:36', 222, '787878879'),
-(130, 2, 0, '2021-02-15 14:03:42', 222, '789897899'),
-(131, 1, 0, '2021-02-15 14:03:49', 222, '888900908'),
-(132, 2, 0, '2021-02-15 14:28:17', 222, '323423444'),
-(133, 1, 0, '2021-02-15 19:01:21', 253, '123412433'),
-(134, 0, 0, '2021-02-15 19:01:28', 253, '322344444'),
-(135, 1, 0, '2021-02-15 19:01:35', 253, '344334343'),
-(136, 1, 0, '2021-02-15 19:01:44', 253, '897897877'),
-(137, 0, 0, '2021-02-15 19:13:36', 253, '546456456'),
-(138, 1, 0, '2021-02-15 22:40:02', 251, '541515484'),
-(139, 0, 0, '2021-02-18 18:04:13', 253, '162895234'),
-(140, 2, 0, '2021-02-21 19:07:20', 236, '123412343'),
-(141, 2, 0, '2021-02-21 19:07:27', 236, '657756777'),
-(142, 3, 0, '2021-03-02 08:18:06', 222, '123123546'),
-(143, 1, 0, '2021-07-06 01:51:15', 253, '123456789');
+(121, 0, 0, '2021-02-15 14:02:29', 222, '567567755');
 
 -- --------------------------------------------------------
 
@@ -168,14 +149,14 @@ INSERT INTO `cupos` (`idCupos`, `cupoBeca`, `cupoNormal`, `cupoTrasladosI`, `cup
 (41, 30, 80, 0, 0, 1900, 6, 42),
 (42, 20, 80, 0, 0, 1400, 11, 42),
 (43, 10, 80, 0, 0, 1700, 10, 42),
-(44, 19, 90, 0, 0, 1800, 5, 43),
-(45, 30, 30, 0, 0, 1300, 6, 43),
-(46, 40, 20, 0, 0, 1200, 11, 43),
-(47, 40, 40, 0, 0, 1400, 10, 43),
-(224, 9, 5, 0, 0, 1, 5, 88),
-(225, 10, 6, 0, 0, 2, 6, 88),
-(226, 11, 7, 0, 0, 3, 11, 88),
-(227, 12, 8, 0, 0, 4, 10, 88);
+(44, 30, 60, 0, 0, 1500, 5, 43),
+(45, 20, 60, 0, 0, 1300, 6, 43),
+(46, 10, 60, 0, 0, 1400, 11, 43),
+(47, 10, 70, 0, 0, 1200, 10, 43),
+(719, 0, 0, 0, 0, 0, 5, 157),
+(720, 0, 0, 0, 0, 0, 6, 157),
+(721, 0, 0, 0, 0, 0, 11, 157),
+(722, 0, 0, 0, 0, 0, 10, 157);
 
 -- --------------------------------------------------------
 
@@ -279,9 +260,11 @@ CREATE TABLE `eventoadmision` (
 --
 
 INSERT INTO `eventoadmision` (`idAdmision`, `ruta`, `titulo`, `fecha`, `estado`) VALUES
-(42, 'examen-enero-2021', 'EXAMEN ENERO 2021', '2021-07-04 04:15:31', 1),
+(42, 'examen-enero-2021', 'EXAMEN ENERO 2021', '2021-07-04 04:15:31', 0),
 (43, 'examen-junio-2022', 'EXAMEN JUNIO 2022', '2021-07-04 04:15:45', 1),
-(88, 'examen-mayo-2021-becados', 'EXAMEN MAYO 2021 BECADOS', '2021-07-05 02:28:33', 0);
+(155, 'hello-da', 'HELLO DA', '2021-07-11 17:44:43', 1),
+(156, 'examen-enero-2022', 'EXAMEN ENERO 2022', '2021-07-12 20:24:37', 0),
+(157, 'examen-2023', 'EXAMEN 2023', '2021-07-12 20:32:02', 0);
 
 -- --------------------------------------------------------
 
@@ -304,9 +287,10 @@ CREATE TABLE `examen` (
 INSERT INTO `examen` (`idExamen`, `ruta`, `titulo`, `cantidad`, `idAdmision`) VALUES
 (82, '', 'TIPO A', 2, 43),
 (87, '', 'TIPO A', 60, 42),
-(88, '', 'TIPO B', 60, 43),
-(89, '', 'TIPO C', 60, 43),
-(90, '', 'TIPO D', 60, 43);
+(88, '', 'TIPO B', 2, 43),
+(111, '', 'TIPO A', 60, 155),
+(112, '', 'TIPO C', 60, 43),
+(113, '', 'TIPO A', 60, 156);
 
 -- --------------------------------------------------------
 
@@ -498,8 +482,10 @@ CREATE TABLE `problemas` (
 --
 
 INSERT INTO `problemas` (`idProblemas`, `num`, `descripcion`, `Ra`, `Rb`, `Rc`, `Rd`, `Re`, `idExamen`) VALUES
-(53, 1, 'Abel, Boris, Carlos y Daniel tienen cada uno una sola ocupación: uno de ellos es pintor, otro es cantante, otro es vendedor y otro es zapatero. Se sabe lo siguiente: – Abel y el pintor están enojados con Daniel. \n– Boris es amigo del cantante.\n– El zapatero es amigo de Daniel. \n– El vendedor es muy amigo de Carlos y del cantante. \n– Abel es zapatero desde muy joven. ¿Quién es el vendedor y cuál es la ocupación de Daniel?', 'Boris ‒ cantante', 'Boris ‒ vendedor', 'Carlos ‒ pintor', 'Daniel ‒ vendedor ', 'Carlos ‒ albañil', 82),
-(54, 2, 'Sobre las edades de Tomás, Juana y Joaquín se sabe lo siguiente: – Si Tomás no tiene la misma edad que Juana, entonces Tomás no tiene 18 años. – Si Juana no es menor de edad, entonces Joaquín tiene la misma edad que Juana. Si, además, se sabe que Tomás tiene 18 años, entonces es verdad que?...', 'Juana es mayor de edad.', 'Joaquín no tiene la misma edad que Tomás.', 'Tomás no tiene la misma edad que Juana.', 'Juana es menor de edad.', 'Joaquín tiene 18 años.', 82);
+(97, 1, 'HOLA', '1a', '12', '33', '4r', '78y', 88),
+(98, 2, 'MUNDO', 'a1', '12', '3s', '56', 'd4', 88),
+(105, 1, 'Abel, Boris, Carlos y Daniel tienen cada uno una sola ocupación: uno de ellos es pintor, otro es cantante, otro es vendedor y otro es zapatero. Se sabe lo siguiente: – Abel y el pintor están enojados con Daniel. \n– Boris es amigo del cantante.\n– El zapatero es amigo de Daniel. \n– El vendedor es muy amigo de Carlos y del cantante. \n– Abel es zapatero desde muy joven. ¿Quién es el vendedor y cuál es la ocupación de Daniel?', 'Boris ‒ cantante', 'Boris ‒ vendedor', 'Carlos ‒ pintor', 'Daniel ‒ vendedor ', 'Carlos ‒ albañila', 82),
+(106, 2, 'Sobre las edades de Tomás, Juana y Joaquín se sabe lo siguiente: – Si Tomás no tiene la misma edad que Juana, entonces Tomás no tiene 18 años. – Si Juana no es menor de edad, entonces Joaquín tiene la misma edad que Juana. Si, además, se sabe que Tomás tiene 18 años, entonces es verdad que?...', 'Alex el mejor xd', 'Joaquín no tiene la misma edad que Tomás.', 'Tomás no tiene la misma edad que Juana.', 'Juana es menor de edad.', 'Joaquín tiene 18 años.', 82);
 
 -- --------------------------------------------------------
 
@@ -519,8 +505,10 @@ CREATE TABLE `solucion` (
 --
 
 INSERT INTO `solucion` (`idSolucion`, `num`, `sol`, `idExamen`) VALUES
-(279, 1, 2, 82),
-(280, 2, 5, 82);
+(323, 1, 2, 88),
+(324, 2, 4, 88),
+(331, 1, 5, 82),
+(332, 2, 1, 82);
 
 -- --------------------------------------------------------
 
@@ -670,13 +658,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `administradores`
 --
 ALTER TABLE `administradores`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=168;
 
 --
 -- AUTO_INCREMENT de la tabla `articulos`
 --
 ALTER TABLE `articulos`
-  MODIFY `idArticulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=144;
+  MODIFY `idArticulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=145;
 
 --
 -- AUTO_INCREMENT de la tabla `categoria`
@@ -694,31 +682,31 @@ ALTER TABLE `comentarios`
 -- AUTO_INCREMENT de la tabla `cupos`
 --
 ALTER TABLE `cupos`
-  MODIFY `idCupos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=237;
+  MODIFY `idCupos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=723;
 
 --
 -- AUTO_INCREMENT de la tabla `detallearticulo`
 --
 ALTER TABLE `detallearticulo`
-  MODIFY `idDetalleArticulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=257;
+  MODIFY `idDetalleArticulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=266;
 
 --
 -- AUTO_INCREMENT de la tabla `especialidad`
 --
 ALTER TABLE `especialidad`
-  MODIFY `idEspecialidad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `idEspecialidad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT de la tabla `eventoadmision`
 --
 ALTER TABLE `eventoadmision`
-  MODIFY `idAdmision` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
+  MODIFY `idAdmision` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=158;
 
 --
 -- AUTO_INCREMENT de la tabla `examen`
 --
 ALTER TABLE `examen`
-  MODIFY `idExamen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
+  MODIFY `idExamen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=114;
 
 --
 -- AUTO_INCREMENT de la tabla `notificacion`
@@ -748,13 +736,13 @@ ALTER TABLE `prestamosarticulos`
 -- AUTO_INCREMENT de la tabla `problemas`
 --
 ALTER TABLE `problemas`
-  MODIFY `idProblemas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `idProblemas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
 
 --
 -- AUTO_INCREMENT de la tabla `solucion`
 --
 ALTER TABLE `solucion`
-  MODIFY `idSolucion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=281;
+  MODIFY `idSolucion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=333;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`

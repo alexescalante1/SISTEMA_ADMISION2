@@ -38,9 +38,9 @@ session_start();
   PLUGINS DE CSS
   ======================================-->
  
-  <!-- Dropzone -->
+  
+  <!-- dropzonejs -->
   <link rel="stylesheet" href="vistas/plugins/dropzone/dropzone.css">
-
   <!--=====================================
   CSS PERSONALIZADO
   ======================================-->
@@ -59,10 +59,10 @@ session_start();
   <script src="vistas/plugins/sweetalert2/sweetalert2.min.js"></script>
   <!-- Toastr -->
   <script src="vistas/plugins/toastr/toastr.min.js"></script>
-
-   <!-- Dropzone http://www.dropzonejs.com/-->
+ 
+  <!-- dropzonejs -->
   <script src="vistas/plugins/dropzone/dropzone.js"></script>
-
+    
 </head>
 
 
@@ -120,15 +120,9 @@ session_start();
 
         if($_GET["ruta"]== "inicio" ||
            $_GET["ruta"]== "usuarios" ||
-           $_GET["ruta"]== "mensajes" ||
            $_GET["ruta"]== "perfiles" ||
-           $_GET["ruta"]== "perfil" ||
            $_GET["ruta"]== "articulos" ||
            $_GET["ruta"]== "evento" ||
-           $_GET["ruta"]== "prestar" ||
-           $_GET["ruta"]== "prestamos" ||
-           $_GET["ruta"]== "registrodeprestamos" ||
-           $_GET["ruta"]== "notificacionesM" ||
            $_GET["ruta"]== "salir"){
 
           include "modulos/".$_GET["ruta"].".php";
@@ -296,7 +290,6 @@ session_start();
                   "responsive": true, "lengthChange": false, "autoWidth": false,
                   "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
                 }).buttons().container().appendTo('#tablaAdmision_wrapper .col-md-6:eq(0)');
-
                 
                 $("#tablaAdmin").DataTable({
                   "responsive": true, "lengthChange": false, "autoWidth": false,
@@ -317,6 +310,11 @@ session_start();
                   "responsive": true, "lengthChange": false, "autoWidth": false,
                   "buttons": ["copy", "excel", "pdf", "print", "colvis"]
                 }).buttons().container().appendTo('#tablaColegios_wrapper .col-md-6:eq(0)');
+
+                $("#tablaArticulo").DataTable({
+                  "responsive": true, "lengthChange": false, "autoWidth": false,
+                  "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+                }).buttons().container().appendTo('#tablaArticulo_wrapper .col-md-6:eq(0)');
 
               });
 

@@ -4,14 +4,6 @@ require_once "../controladores/categorias.controladorM.php";
 require_once "../modelos/categorias.modeloM.php";
 
 
-
-
-// require_once "../controladores/subcategorias.controlador.php";
-require_once "../modelos/subcategorias.modelo.php";
-
-// require_once "../controladores/productos.controlador.php";
-require_once "../modelos/productos.modelo.php";
-
 class AjaxCategoria{
 
   /*=============================================

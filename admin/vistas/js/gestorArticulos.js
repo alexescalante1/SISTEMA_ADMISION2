@@ -19,7 +19,7 @@ var SelectOp = $('#IDCODPRODET').val();
 /*=============================================
 ACTIVAR ARTICULO
 =============================================*/
-$('.tablaArticulos tbody').on("click", ".btnActivar", function(){
+$('#tablaArticulo').on("click", ".btnActivar", function(){
 
 	var idArticulo = $(this).attr("idArticulo");
 	var estadoArticulo = $(this).attr("estadoArticulo");
@@ -576,25 +576,24 @@ function agregarMiArticulo(imagen){
 
 					if(respuesta == "ok"){
 
-						swal({
-						  type: "success",
-						  title: "El articulo ha sido guardado correctamente",
-						  showConfirmButton: true,
-						  confirmButtonText: "Cerrar"
-						  }).then(function(result){
-							if (result.value) {
-
-							window.location = "articulos";
-
+						Swal.fire({
+							title: 'Se Guardo Correctamente',
+							icon: 'success',
+							confirmButtonColor: '#3085d6',
+							confirmButtonText: 'Continuar'
+						  }).then((result) => {
+							if (result.isConfirmed) {
+							  window.location = "articulos";
 							}
-						})
+						  })
+
 					}else{
-						swal({
-							type: "error",
-							title: "El articulo no se ha guardado correctamente",
-							showConfirmButton: true,
-							confirmButtonText: "Cerrar"
-							})
+
+						Swal.fire({
+							icon: 'error',
+							title: 'Oops...',
+							text: 'Algo Salio Mal!'
+						  })
 					}
 
 				}
@@ -638,7 +637,7 @@ function agregarMiArticulo(imagen){
 EDITAR ARTICULO
 =============================================*/
 
-$('.tablaArticulos tbody').on("click", ".btnEditarArticulo", function(){
+$('#tablaArticulo').on("click", ".btnEditarArticulo", function(){
 	
 	$(".previsualizarImgAdd").html("");
 
@@ -662,35 +661,6 @@ $('.tablaArticulos tbody').on("click", ".btnEditarArticulo", function(){
 			$("#modalEditarArticulo .tituloArticulo").val(respuesta[0]["titulo"]);
 			$("#modalEditarArticulo .rutaArticulo").val(respuesta[0]["ruta"]);
 			$("#modalEditarArticulo .descripcionArticulo").val(respuesta[0]["descripcion"]);
-
-			if(respuesta[0]["palabrasClave"] != null){
-				
-				
-				
-				$("#modalEditarArticulo .editarPalabrasClavesA").html('<div class="input-group">'+
-	  
-				'<span class="input-group-addon"><i class="fa fa-key"></i></span>'+ 
-
-				'<input type="text" style="width:100%;" class="form-control input-lg tagsInput pClavesArticulo" value="'+respuesta[0]["palabrasClave"]+'" data-role="tagsinput">'+
-				
-
-				'</div>');
-
-				$("#modalEditarArticulo .pClavesArticulo").tagsinput('items');
-
-			}else{
-
-				$("#modalEditarArticulo .editarPalabrasClavesA").html('<div class="input-group">'+
-	  
-				'<span class="input-group-addon"><i class="fa fa-key"></i></span>'+ 
-
-				'<input type="text" class="form-control input-lg tagsInput pClavesArticulo" value="" data-role="tagsinput">'+
-
-				'</div>');
-
-				$("#modalEditarArticulo .pClavesArticulo").tagsinput('items');
-
-			}
 
 			if(respuesta[0]["multimedia"] != ""){
 				
@@ -737,6 +707,32 @@ $('.tablaArticulos tbody').on("click", ".btnEditarArticulo", function(){
 
 			}
 
+
+			
+			if(respuesta[0]["palabrasClave"] != null){
+				
+				$("#modalEditarArticulo .editarPalabrasClavesA").html('<div class="input-group">'+
+
+				'<input type="text" style="width:100%;" class="form-control input-lg tagsInput pClavesArticulo" value="'+respuesta[0]["palabrasClave"]+'" data-role="tagsinput">'+
+				
+
+				'</div>');
+
+				$("#modalEditarArticulo .pClavesArticulo").val(respuesta[0]["palabrasClave"]);
+
+			}else{
+
+				$("#modalEditarArticulo .editarPalabrasClavesA").html('<div class="input-group">'+
+
+				'<input type="text" class="form-control input-lg tagsInput pClavesArticulo" value="" data-role="tagsinput">'+
+
+				'</div>');
+
+				$("#modalEditarArticulo .pClavesArticulo").val(respuesta[0]["palabrasClave"]);
+
+			}
+
+			
 			/*=============================================
 			TRAEMOS LA CATEGORIA
 			=============================================*/
@@ -745,8 +741,6 @@ $('.tablaArticulos tbody').on("click", ".btnEditarArticulo", function(){
 			
 				var datosCategoria = new FormData();
 				datosCategoria.append("idCategoria", respuesta[0]["idCategoria"]);
-				
-
 				$.ajax({
 
 						url:"ajax/categorias.ajaxM.php",
@@ -987,26 +981,26 @@ function editarMiArticulo(imagen){
 				
 				if(respuesta == "ok"){
 
-					swal({
-					  type: "success",
-					  title: "El articulo ha sido cambiado correctamente",
-					  showConfirmButton: true,
-					  confirmButtonText: "Cerrar"
-					  }).then(function(result){
-						if (result.value) {
-
-						localStorage.removeItem("multimediaAdd");
-						localStorage.clear();
-						window.location = "articulos";
-
+					Swal.fire({
+						title: 'Se Cambio Correctamente',
+						icon: 'success',
+						confirmButtonColor: '#3085d6',
+						confirmButtonText: 'Continuar'
+					  }).then((result) => {
+						if (result.isConfirmed) {
+						  localStorage.removeItem("multimediaAdd");
+						  localStorage.clear();
+						  window.location = "articulos";
 						}
-					})
+					  })
+
 				}else{
-					swal({
-						title: "ERROR...",
-					      type: "error",
-					      confirmButtonText: "¡Cerrar!"
-						});
+					
+					Swal.fire({
+						icon: 'error',
+						title: 'Oops...',
+						text: 'Algo Salio Mal!'
+						})
 				}
 
 			}
@@ -1020,32 +1014,28 @@ function editarMiArticulo(imagen){
 ELIMINAR ARTICULO
 =============================================*/
 
-$('.tablaArticulos tbody').on("click", ".btnEliminarArticulo", function(){
+$('#tablaArticulo').on("click", ".btnEliminarArticulo", function(){
 
 
 	var idArticulo = $(this).attr("idArticulo");
 	var rutaCabecera = $(this).attr("rutaCabecera");
 	var imgPrincipal = $(this).attr("imgPrincipal");
-  
-	swal({
-	  title: '¿Está seguro de borrar el articulo?',
-	  text: "¡Si no lo está puede cancelar la accíón!",
-	  type: 'warning',
-	  showCancelButton: true,
-	  confirmButtonColor: '#3085d6',
+	
+	Swal.fire({
+		title: 'Esta Seguro?',
+		text: "¡Si no lo está puede cancelar la accíón!",
+		icon: 'warning',
+		showCancelButton: true,
+		confirmButtonColor: '#3085d6',
 		cancelButtonColor: '#d33',
-		cancelButtonText: 'Cancelar',
-		confirmButtonText: 'Si, borrar articulo!'
-	}).then(function(result){
-  
-	  if(result.value){
-  
-		window.location = "index.php?ruta=articulos&idArticulo="+idArticulo+"&rutaCabecera="+rutaCabecera+"&imgPrincipal="+imgPrincipal;
-  
-	  }
-  
-	})
-  
+		confirmButtonText: 'Si, Borrar!'
+	  }).then((result) => {
+		if (result.isConfirmed) {
+
+			window.location = "index.php?ruta=articulos&idArticulo="+idArticulo+"&rutaCabecera="+rutaCabecera+"&imgPrincipal="+imgPrincipal;
+		
+		}
+	  })
 
   
   })

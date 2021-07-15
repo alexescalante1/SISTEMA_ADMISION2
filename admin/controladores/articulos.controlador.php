@@ -580,24 +580,15 @@ class ControladorArticulos{
 
 			}
 
-			$respuesta = ModeloArticulos::mdlEliminarArticulo("detallearticulo", $datos);
+			$respuestaA = ModeloArticulos::mdlEliminarArticulo("detallearticulo", $datos);
 
-			if($respuesta == "ok"){
+			if($respuestaA == "ok"){
 
 				echo'<script>
 
-				swal({
-					  type: "success",
-					  title: "El articulo ha sido borrado correctamente",
-					  showConfirmButton: true,
-					  confirmButtonText: "Cerrar"
-					  }).then(function(result){
-								if (result.value) {
+				
+					window.location = "articulos";
 
-								window.location = "articulos";
-
-								}
-							})
 
 				</script>';
 
