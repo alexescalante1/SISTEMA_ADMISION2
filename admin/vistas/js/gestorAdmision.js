@@ -395,7 +395,37 @@ function editarEspecialidad(){
 
 
 
+/*=============================================
+// FUNCIÓN PARA CAMBIAR HORARIO
+=============================================*/
 
+$("#guardarHorario").click(function(){
+
+	const convertTime12to24 = (time12h) => {
+		const [time, modifier] = time12h.split(' ');
+		
+		let [hours, minutes] = time.split(':');
+		
+		if (hours === '12') {
+			hours = '00';
+		}
+		
+		if (modifier === 'PM') {
+			hours = parseInt(hours, 10) + 12;
+		}
+		
+		return `${hours}:${minutes}:00`;
+	}
+	  
+	
+
+	var Hini = convertTime12to24($("#Hini").val());
+	var Hfin = convertTime12to24($("#Hfin").val());
+
+	console.log(Hini);
+	console.log(Hfin);
+
+})
 
 
 
@@ -440,6 +470,42 @@ $("#guardarCuposEspeci").click(function(){
 		cambiarCupEspecialidad();
 	}
 
+	
+	var idEAdmis = $("#idEventAd").val();
+	var FINIT = $("#FINIT").val();
+    var FFINIT = moment(FINIT, "MM/DD/YYYY").format("YYYY-MM-DD");
+	var FFIN = $("#FFIN").val();
+    var FFFIN = moment(FFIN, "MM/DD/YYYY").format("YYYY-MM-DD");
+
+	console.log(idEAdmis);
+    console.log(FFINIT);
+	console.log(FFFIN);
+
+	var datosFec = new FormData();
+	datosFec.append("MidEAdmi", idEAdmis);
+	datosFec.append("Finit", FFINIT);
+	datosFec.append("Ffin", FFFIN);
+	$.ajax({
+
+		url:"ajax/admision.ajax.php",
+		method: "POST",
+		data: datosFec,
+		cache: false,
+		contentType: false,
+		processData: false,
+		success: function(respuesta){
+			
+			if(respuesta == "ok"){
+				
+				console.log("OKS");
+			
+			}
+							
+		}
+
+	})
+
+
 })
 
 function cambiarCupEspecialidad(){
@@ -463,6 +529,7 @@ function cambiarCupEspecialidad(){
 			
 			if(respuesta == "ok"){
 				
+				console.log("OKA");
 				Swal.fire({
 					icon: 'success',
 					title: 'Se Guardo Correctamente',

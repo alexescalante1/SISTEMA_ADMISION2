@@ -326,6 +326,26 @@ class ControladorAdmision{
 		
 	}
 
+	/*=============================================
+	EDITAR FECHA EVENTO
+	=============================================*/
 
+	static public function ctrEditarFechaEvent($datos){
+		
+		if(isset($datos["idAdmision"])){
+
+				$datosF = array(
+					"idAdmision"=>$datos["idAdmision"],
+					"finit"=>$datos["finit"],
+					"ffin"=>$datos["ffin"]
+				);
+
+				$respuesta = ModeloAdmision::mdlEditarFEvento("eventoadmision", $datosF);
+
+				return $respuesta;
+
+		}
+		
+	}
 
 }

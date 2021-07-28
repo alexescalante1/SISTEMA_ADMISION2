@@ -5,7 +5,10 @@
     z-index: -1;
 }
 
-
+.centradoH{
+	display: flex;
+	justify-content: center;
+}
 
 .form{
 	width: 100%;

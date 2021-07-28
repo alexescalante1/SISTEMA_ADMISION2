@@ -48,7 +48,7 @@ MENU
 
     <li class="nav-item">
       <a href="inscripcion" class="nav-link">
-        <i class="nav-icon fas fa-th"></i>
+        <i class="nav-icon fas fa-edit"></i>
         <p>
           Gestor de inscripcion
         </p>
@@ -57,7 +57,7 @@ MENU
 
     <li class="nav-item">
       <a href="reportes" class="nav-link">
-        <i class="nav-icon fas fa-th"></i>
+        <i class="nav-icon fas fa-clipboard-check"></i>
         <p>
           Reportes
           <span class="right badge badge-success">New</span>
@@ -126,7 +126,7 @@ MENU
           
           <li class="nav-item">
             <a href="usuarios" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
+              <i class="nav-icon fas fa-users"></i>
               <p>
                 Gestor de Usuarios
               </p>
@@ -135,7 +135,7 @@ MENU
 
           <li class="nav-item">
             <a href="perfiles" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
+              <i class="nav-icon fas fa-users"></i>
               <p>
                 Gestor de Perfiles
               </p>

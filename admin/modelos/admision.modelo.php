@@ -387,6 +387,33 @@ class ModeloAdmision{
 
 	}
 
+	/*=============================================
+	EDITAR FECHA EVENTO
+	=============================================*/
+
+	static public function mdlEditarFEvento($tabla, $datos){
+		
+		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET finit = :finit, ffin = :ffin WHERE idAdmision = :idAdmision");
+
+		$stmt -> bindParam(":idAdmision", $datos["idAdmision"], PDO::PARAM_INT);
+		$stmt->bindParam(":finit", $datos["finit"], PDO::PARAM_STR);
+		$stmt->bindParam(":ffin", $datos["ffin"], PDO::PARAM_STR);
+		
+		if($stmt->execute()){
+
+			return "ok";
+
+		}else{
+
+			return "error";
+		
+		}
+
+		$stmt->close();
+		$stmt = null;
+
+	}
+
 
 	/*=============================================
 	CREAR TIPO PRUEBA

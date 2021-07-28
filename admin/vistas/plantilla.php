@@ -32,8 +32,16 @@ session_start();
   <link rel="stylesheet" href="vistas/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
   <!-- Toastr -->
   <link rel="stylesheet" href="vistas/plugins/toastr/toastr.min.css">
+  
+  <!-- iCheck for checkboxes and radio inputs -->
+  <link rel="stylesheet" href="vistas/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
 
+  <!-- Tempusdominus Bootstrap 4 -->
+  <link rel="stylesheet" href="vistas/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
 
+  <!-- BS Stepper -->
+  <link rel="stylesheet" href="vistas/plugins/bs-stepper/css/bs-stepper.min.css">
+  
   <!--=====================================
   PLUGINS DE CSS
   ======================================-->
@@ -46,6 +54,7 @@ session_start();
   ======================================-->
 
   <link rel="stylesheet" href="vistas/css/mios.css">
+  <link rel="stylesheet" href="vistas/css/validar.css">
 
 
   <!--=====================================
@@ -101,7 +110,9 @@ session_start();
      =============================================*/
 
      $rutas = array();
-     $infoEventos = null;
+     $idReferenc = null;
+     $NameReferenc = null;
+
      $infoArticulos = null;
      $infoArticulosP = null;
 
@@ -119,44 +130,71 @@ session_start();
         $rutaEventos = ControladorAdmision::ctrMostrarInfoAdmision($item, $rutas[0]);
 
         if($_GET["ruta"]== "inicio" ||
+           $_GET["ruta"]== "inscripcion" ||
+           $_GET["ruta"]== "evento" ||
            $_GET["ruta"]== "usuarios" ||
            $_GET["ruta"]== "perfiles" ||
            $_GET["ruta"]== "articulos" ||
-           $_GET["ruta"]== "evento" ||
            $_GET["ruta"]== "salir"){
 
           include "modulos/".$_GET["ruta"].".php";
 
-        }else if($rutas[0] == $rutaEventos["ruta"]){
+        }else if(isset($rutaEventos)){
 
-          $infoEventos = $rutas[0];
-          include "modulos/infoadmision.php";
+          if($rutas[0] == $rutaEventos["ruta"]){
 
-        }else if(isset($rutaArticulos)){
+            $idReferenc = $rutaEventos["idAdmision"];
+            include "modulos/infoadmision.php";
 
-          if($rutas[0] == $rutaArticulos["ruta"]){
-
-            $infoArticulos = $rutas[0];
-            include "modulos/infoarticulos.php";
-  
           }else{
+
+            $newphrase = str_replace("-inscribir", "", $rutas[0]);
   
-            $newphrase = str_replace("-prestamo", "", $rutas[0]);
-  
-            $rutaArticulos = ControladorArticulos::ctrMostrarInfoArticulo($item, $newphrase);
+            $rutaEventos = ControladorAdmision::ctrMostrarInfoAdmision($item, $newphrase);
            
-            if($newphrase == $rutaArticulos["ruta"]){
+            if($newphrase == $rutaEventos["ruta"]){
               
-              $infoArticulosP = $rutaArticulos["ruta"];
-              include "modulos/infoarticulos-prestamo.php";
+              $idReferenc = $rutaEventos["idAdmision"];
+              $NameReferenc = $rutaEventos["titulo"];
+              include "modulos/inscribir-postulante.php";
   
             }else{
 
-              include "modulos/error404.php";
+
+
+
+
+              if($rutas[0] == $rutaArticulos["ruta"]){
+
+                $infoArticulos = $rutas[0];
+                include "modulos/infoarticulos.php";
+      
+              }else{
+      
+                $newphrase = str_replace("-prestamo", "", $rutas[0]);
+      
+                $rutaArticulos = ControladorArticulos::ctrMostrarInfoArticulo($item, $newphrase);
+               
+                if($newphrase == $rutaArticulos["ruta"]){
+                  
+                  $infoArticulosP = $rutaArticulos["ruta"];
+                  include "modulos/infoarticulos-prestamo.php";
+      
+                }else{
+    
+                  include "modulos/error404.php";
+        
+                }
+                
+              }
+
+
+
     
             }
-            
+
           }
+
         }else{
 
           include "modulos/error404.php";
@@ -172,33 +210,13 @@ session_start();
       */
      }
 
-     
-
     /*=============================================
     FOOTER
     =============================================*/
+    include "modulos/footer.php";
 
 
-    echo '
-    
-    
-        <!-- Control Sidebar -->
-        <aside class="control-sidebar control-sidebar-dark">
-          <!-- Control sidebar content goes here -->
-        </aside>
-        <!-- /.control-sidebar -->
-
-        <!-- Main Footer -->
-        <footer class="main-footer">
-          <strong>Copyright &copy; 2014-2021 <a href="#">Alex Fredy Escalante Maron</a>.</strong>
-          All rights reserved.
-          <div class="float-right d-none d-sm-inline-block">
-            <b>Version</b> 3.1.0
-          </div>
-        </footer>
-    
-    
-    </div>';
+    echo '</div>';
 
 
  }else{
@@ -226,10 +244,13 @@ session_start();
 
         <!--<script src="vistas/js/plantilla.js"></script>-->
         <script src="vistas/js/gestorAdmision.js"></script>
+        <script src="vistas/js/gestorInscripcion.js"></script>
+        <script src="vistas/js/gestorAdministradores.js"></script>
+
         <script src="vistas/js/gestorArticulos.js"></script>
         <script src="vistas/js/gestorUsuarios.js"></script>
-        <script src="vistas/js/gestorAdministradores.js"></script>
         <script src="vistas/js/gestorNotificaciones.js"></script>
+        
         <!-- ./wrapper -->
 
 
@@ -264,9 +285,14 @@ session_start();
 
 
 
+        
 
 
 
+
+
+
+        
         <!-- DataTables  & Plugins -->
         <script src="vistas/plugins/datatables/jquery.dataTables.min.js"></script>
         <script src="vistas/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
@@ -281,74 +307,19 @@ session_start();
         <script src="vistas/plugins/datatables-buttons/js/buttons.print.min.js"></script>
         <script src="vistas/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 
+        <!-- Bootstrap Switch -->
+        <script src="vistas/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+
+        <!-- InputMask -->
+        <script src="vistas/plugins/moment/moment.min.js"></script>
+
+        <!-- Tempusdominus Bootstrap 4 -->
+        <script src="vistas/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+
+        <script src="vistas/js/complementos.js"></script>
        
-        <script>
-
-              $(function () {
-
-                $("#tablaAdmision").DataTable({
-                  "responsive": true, "lengthChange": false, "autoWidth": false,
-                  "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-                }).buttons().container().appendTo('#tablaAdmision_wrapper .col-md-6:eq(0)');
-                
-                $("#tablaAdmin").DataTable({
-                  "responsive": true, "lengthChange": false, "autoWidth": false,
-                  "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-                }).buttons().container().appendTo('#tablaAdmin_wrapper .col-md-6:eq(0)');
-
-                $('#tablaEspecialidad').DataTable({
-                  "paging": true,
-                  "lengthChange": false,
-                  "searching": false,
-                  "ordering": true,
-                  "info": true,
-                  "autoWidth": false,
-                  "responsive": true,
-                });
-
-                $("#tablaColegios").DataTable({
-                  "responsive": true, "lengthChange": false, "autoWidth": false,
-                  "buttons": ["copy", "excel", "pdf", "print", "colvis"]
-                }).buttons().container().appendTo('#tablaColegios_wrapper .col-md-6:eq(0)');
-
-                $("#tablaArticulo").DataTable({
-                  "responsive": true, "lengthChange": false, "autoWidth": false,
-                  "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-                }).buttons().container().appendTo('#tablaArticulo_wrapper .col-md-6:eq(0)');
-
-              });
-
-
-
-              $("#refress").click(function(){
-                  
-                  $('#RecargarCole').load('vistas/modulos/tablas/admision.php');
-   
-                   /*
-                   setTimeout(() => { 
-                   }, 2000);
-                   $(document).ready(function(){
-                       setInterval(
-                       function(){
-                         $('#RecargarCole').load('vistas/modulos/tablas/admision.php');
-                       },3000
-                       );
-                   });
-                   */
-   
-              });
-
-              $(document).ready(function(){
-                  setInterval(
-                  function(){
-                    $('#RecargarCole').load('vistas/modulos/tablas/admision.php');
-                  },2000
-                  );
-              });
-              
-        </script>
-
-
+        <!-- BS-Stepper -->
+        <script src="vistas/plugins/bs-stepper/js/bs-stepper.min.js"></script>
 
 </body>
 </html>

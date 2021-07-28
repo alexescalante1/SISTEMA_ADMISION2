@@ -215,6 +215,27 @@ class AjaxAdmision{
 
 	}
 
+	/*=============================================
+	EDITAR FECHAS EVENTO
+	=============================================*/	
+	public $idEAdm;
+	public $Mfini;
+	public $Mffin;
+
+	public function  ajaxMEAdmision(){
+
+		$datos = array(
+			"idAdmision"=>$this->idEAdm,
+			"finit"=>$this->Mfini,
+			"ffin"=>$this->Mffin
+			);
+
+		$respuesta = ControladorAdmision::ctrEditarFechaEvent($datos);
+	
+		echo $respuesta;
+
+	}
+
 
 	/*=============================================
 	GUARDAR PRUEBA
@@ -631,6 +652,19 @@ if(isset($_POST["idEjerM"])){
 	$MoS = new AjaxAdmision();
 	$MoS -> idEM = $_POST["idEjerM"];
 	$MoS -> ajaxMosEjerc();
+
+}
+
+/*=============================================
+EDIT FECHA EVENTO
+=============================================*/
+if(isset($_POST["MidEAdmi"])){
+
+	$MeAd = new AjaxAdmision();
+	$MeAd -> idEAdm = $_POST["MidEAdmi"];
+	$MeAd -> Mfini = $_POST["Finit"];
+	$MeAd -> Mffin = $_POST["Ffin"];
+	$MeAd -> ajaxMEAdmision();
 
 }
 

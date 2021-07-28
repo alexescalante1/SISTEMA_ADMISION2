@@ -1,6 +1,4 @@
 
-<input style="display:none" id="IDCODPRODET" name="IDCODPRODET" <?php echo 'value="'.$infoEventos.'"'; ?> >
-
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     
@@ -16,17 +14,11 @@
 			<div class="col-lg-6">
 				
 				<div class="card-body">
-					
-					
-
-
-
+				
 					<?php
 						
 						$url = Ruta::ctrRutaServidor();
-						$item =  "ruta";
-					
-						$infoAdmision = ControladorAdmision::ctrMostrarInfoAdmision($item, $infoEventos);
+						$infoAdmision = ControladorAdmision::ctrMostrarInfoAdmision("idAdmision", $idReferenc);
 
 						echo '
 						
@@ -325,32 +317,42 @@
 					
 
 					<div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
-						<div class="form-group">
-							<div class="input-group">
-							
-								<div class="input-group-prepend">
-									<span class="input-group-text"><i class="fas fa-code" style="width:20px"></i></span>
-								</div>
-							
-								<input type="date" class="form-control" id="fAini">
 
-							</div>
-						</div>
+						
+									<!-- Date -->
+									<div class="form-group">
+										<div class="input-group date" id="reservationdateINIT" data-target-input="nearest">
+											<div class="input-group-append" data-target="#reservationdateINIT" data-toggle="datetimepicker">
+												<div class="input-group-text"><i class="fa fa-calendar"></i>&nbsp;&nbsp;FECHA INICIAL</div>
+											</div>	
+										<input type="text" value="<?php if($infoAdmision["finit"]>0){echo date("m/d/Y", strtotime($infoAdmision["finit"]));} ?>" class="form-control datetimepicker-input" id="FINIT" data-target="#reservationdateINIT" data-toggle="datetimepicker"/>
+											
+										</div>
+									</div>
+									<!-- Date and time -->
+                
+						
 					</div>
 
 
 					<div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
-						<div class="form-group">
-							<div class="input-group">
-							
-								<div class="input-group-prepend">
-									<span class="input-group-text"><i class="fas fa-code" style="width:20px"></i></span>
-								</div>
-							
-								<input type="date" class="form-control" id="fAfin">
+								
+					
 
-							</div>
-						</div>
+
+									<!-- Date -->
+									<div class="form-group">
+										<div class="input-group date" id="reservationdateEND" data-target-input="nearest">
+											<div class="input-group-append" data-target="#reservationdateEND" data-toggle="datetimepicker">
+												<div class="input-group-text"><i class="fa fa-calendar"></i>&nbsp;&nbsp;FECHA FINAL</div>
+											</div>
+										<input type="text" value="<?php if($infoAdmision["ffin"]>0){echo date("m/d/Y", strtotime($infoAdmision["ffin"]));} ?>" class="form-control datetimepicker-input" id="FFIN" data-target="#reservationdateEND" data-toggle="datetimepicker"/>
+											
+										</div>
+									</div>
+									<!-- Date and time -->
+
+
 					</div>
 
 
@@ -361,9 +363,6 @@
 				<input style="display:none" id="rutaEvent" <?php echo 'value="'.$infoAdmision[1].'"'; ?> >
 				<input style="display:none" id="idEventAd" <?php echo 'value="'.$infoAdmision[0].'"'; ?> >
 				
-					
-
-
 				
 				</div>
 				<!-- /.card-body -->

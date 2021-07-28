@@ -230,7 +230,7 @@ MODAL AGREGAR PERFIL
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-bolt" style="width:20px"></i></span>
               </div>
-              <input type="number" class="form-control" name="nuevoDNI" placeholder="DNI" required>
+              <input type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="8" class="form-control" name="nuevoDNI" placeholder="DNI" required>
               <!--<input type="text" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" class="form-control validarAdmision tituloAdmision" placeholder="TITULO">-->
             </div>
           </div>

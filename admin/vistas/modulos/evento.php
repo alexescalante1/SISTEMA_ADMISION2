@@ -9,7 +9,7 @@
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="inicio">Inicio</a></li>
+            <li class="breadcrumb-item"><a href="inicio">INICIO</a></li>
             <li class="breadcrumb-item active">PARAMETROS</li>
           </ol>
         </div><!-- /.col -->
@@ -31,194 +31,118 @@
           
 
 
-          <!-- TABLE: LATEST ORDERS -->
-          <div class="card">
+            <!-- TABLE: LATEST ORDERS -->
+            <div class="card">
 
-            <div class="card-header border-transparent">
-              <h3 class="card-title">EVENTOS DE ADMISION</h3>
+              <div class="card-header border-transparent">
+                <h3 class="card-title">EVENTOS DE ADMISION</h3>
 
-              <div class="card-tools">
-                <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                  <i class="fas fa-minus"></i>
-                </button>
-                <button type="button" class="btn btn-tool" data-card-widget="maximize">
-                  <i class="fas fa-expand"></i>
-                </button>
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="maximize">
+                    <i class="fas fa-expand"></i>
+                  </button>
+                </div>
               </div>
-            </div>
-            <!-- /.card-header -->
+              <!-- /.card-header -->
 
-            <div class="card-body p-0">
-
-
-                  <!-- Main content -->
-                <section class="content">
-                        <div class="container-fluid">
-                          <div class="row">
-                            <div class="col-12">
-
-                              <div class="card">
-                                
-                                
-
-                                <!-- /.card-header -->
-                                <div class="card-body">
-                                  <table id="tablaAdmision" class="table table-bordered table-striped">
-                                    <thead>
-                                    <tr>
-                                      <th style="width:5px">#</th>
-                                      <th style="width:10px">ESTADO</th>
-                                      <th>TITULO</th>
-                                      <th style="width:80px">FECHA</th>
-                                      <th style="width:10px">OP</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    
-                                    <?php
-                                            $admicion = ControladorAdmision::ctrMostrarAdmision(null,null);
-
-                                            foreach ($admicion as $key => $value) {
-
-                                              if($admicion[$key]["estado"] == 0){
-
-                                                $colorEstado = "btn-danger";
-                                                $textoEstado = "NO VISIBLE";
-                                                $estadoArticulo = 1;
-                                        
-                                              }else{
-                                        
-                                                $colorEstado = "btn-success";
-                                                $textoEstado = "VISIBLE";
-                                                $estadoArticulo = 0;
-                                        
-                                              }
-                                        
-                                              $estado = "<button class='btn btn-xs btnActivar ".$colorEstado."' style='width:70px;' idAdmision='".$admicion[$key]["idAdmision"]."' estadoAdmision='".$estadoArticulo."'>".$textoEstado."</button>";
-                                              
-                                              $accionesFinal = "<div class='btn-group'><a href='".$admicion[$key]["ruta"]."'><button class='btn btn-block btn-success'><i class='fa fa-eye'></i></button></a></div>";
-
-                                              echo '<tr>';
-                                                echo '<td>'.$key.'</td>';
-                                                echo '<td>'.$estado.'</td>';
-                                                echo '<td>'.$admicion[$key]["titulo"].'</td>';
-                                                echo '<td>'.$admicion[$key]["fecha"].'</td>';
-                                                echo '<td>'.$accionesFinal.'</td>';
-                                              echo '</tr>';
-                                            }
-                                    ?>
-
-                                    </tbody>
-                                    <tfoot>
-                                    <tr>
-                                      <th>#</th>
-                                      <th>ESTADO</th>
-                                      <th>TITULO</th>
-                                      <th>FECHA</th>
-                                      <th>OP</th>
-                                    </tr>
-                                    </tfoot>
-                                  </table>
-                                </div>
-                                <!-- /.card-body -->
-                              </div>
-                              <!-- /.card -->
-                            </div>
-                            <!-- /.col -->
-                          </div>
-                          <!-- /.row -->
-                        </div>
-                        <!-- /.container-fluid -->
-                  </section>
-                      <!-- /.content -->
+              <div class="card-body p-0">
 
 
-
-
-
-            </div>
-            <!-- /.card-body -->
-            <div class="card-footer clearfix">
-              <a class="btn btn-sm btn-info float-right" data-toggle="modal" data-target="#modalAgregarAdmision">AGREGAR NUEVO EVENTO DE ADMISION</a>
-
-            </div>
-            <!-- /.card-footer -->
-          </div>
-          <!-- /.card -->
-
-
-
-
-
-
-
-
-
-          <!-- TABLE: LATEST ORDERS -->
-          <div class="card">
-
-            <div class="card-header border-transparent">
-              <h3 class="card-title">HORARIO DE ATENCION</h3>
-
-              <div class="card-tools">
-                <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                  <i class="fas fa-minus"></i>
-                </button>
-                
-              </div>
-            </div>
-            <!-- /.card-header -->
-
-            <div class="card-body p-0">
-                  <!-- Main content -->
+                    <!-- Main content -->
                   <section class="content">
-                        <div class="container-fluid">
-                          <div class="row">
-                                        
+                          <div class="container-fluid">
+                            <div class="row">
+                              <div class="col-12">
 
-
-
-                            <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
-                              <div class="form-group">
-                                <div class="input-group">
+                                <div class="card">
                                   
-                                  <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="fas fa-code" style="width:20px"></i></span>
-                                  </div>
-                                  <input type="time" class="form-control" id="fAini">
-
-                                </div>
-                              </div>
-                            </div>
-
-                            <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
-                              <div class="form-group">
-                                <div class="input-group">
                                   
-                                  <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="fas fa-code" style="width:20px"></i></span>
+
+                                  <!-- /.card-header -->
+                                  <div class="card-body">
+                                    <table id="tablaAdmision" class="table table-bordered table-striped">
+                                      <thead>
+                                      <tr>
+                                        <th style="width:5px">#</th>
+                                        <th style="width:10px">ESTADO</th>
+                                        <th>TITULO</th>
+                                        <th style="width:80px">FECHA</th>
+                                        <th style="width:10px">OP</th>
+                                      </tr>
+                                      </thead>
+                                      <tbody>
+                                      
+                                      <?php
+                                              $admicion = ControladorAdmision::ctrMostrarAdmision(null,null);
+
+                                              foreach ($admicion as $key => $value) {
+
+                                                if($admicion[$key]["estado"] == 0){
+
+                                                  $colorEstado = "btn-danger";
+                                                  $textoEstado = "NO VISIBLE";
+                                                  $estadoArticulo = 1;
+                                          
+                                                }else{
+                                          
+                                                  $colorEstado = "btn-success";
+                                                  $textoEstado = "VISIBLE";
+                                                  $estadoArticulo = 0;
+                                          
+                                                }
+                                          
+                                                $estado = "<button class='btn btn-xs btnActivar ".$colorEstado."' style='width:70px;' idAdmision='".$admicion[$key]["idAdmision"]."' estadoAdmision='".$estadoArticulo."'>".$textoEstado."</button>";
+                                                
+                                                $accionesFinal = "<div class='btn-group'><a href='".$admicion[$key]["ruta"]."'><button class='btn btn-block btn-success'><i class='fa fa-eye'></i></button></a></div>";
+
+                                                echo '
+                                                <tr>
+                                                  <td>'.$key.'</td>
+                                                  <td>'.$estado.'</td>
+                                                  <td>'.$admicion[$key]["titulo"].'</td>
+                                                  <td>'.$admicion[$key]["fecha"].'</td>
+                                                  <td>'.$accionesFinal.'</td>
+                                                </tr>
+                                                ';
+                                              }
+                                      ?>
+
+                                      </tbody>
+                                      <tfoot>
+                                      <tr>
+                                        <th>#</th>
+                                        <th>ESTADO</th>
+                                        <th>TITULO</th>
+                                        <th>FECHA</th>
+                                        <th>OP</th>
+                                      </tr>
+                                      </tfoot>
+                                    </table>
                                   </div>
-                                  <input type="time" class="form-control" id="fAfin">
-
+                                  <!-- /.card-body -->
                                 </div>
+                                <!-- /.card -->
                               </div>
+                              <!-- /.col -->
                             </div>
-
-
-
-
-                              
+                            <!-- /.row -->
                           </div>
-                          <!-- /.row -->
-                        </div>
-                        <!-- /.container-fluid -->
-                      </section>
-                      <!-- /.content -->
+                          <!-- /.container-fluid -->
+                    </section>
+                        <!-- /.content -->
+
+
+
+
+
               </div>
               <!-- /.card-body -->
               <div class="card-footer clearfix">
-                <a class="btn btn-sm btn-info float-right">GUARDAR</a>
-            
+                <a class="btn btn-sm btn-info float-right" data-toggle="modal" data-target="#modalAgregarAdmision">AGREGAR NUEVO EVENTO DE ADMISION</a>
+
               </div>
               <!-- /.card-footer -->
             </div>
@@ -228,17 +152,109 @@
 
 
 
+            <!-- TABLE: LATEST ORDERS -->
+            <div class="card">
 
-          </div>
-          <!-- /.col -->
+              <div class="card-header border-transparent">
+                <h3 class="card-title">HORARIO DE ATENCION</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  
+                </div>
+              </div>
+              <!-- /.card-header -->
+
+              <div class="card-body p-0">
+                    <!-- Main content -->
+                    <section class="content">
+                          <div class="container-fluid">
+                            <div class="row">
+                                          
+
+
+
+                              <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                                
+
+                                          <!-- time Picker -->
+                                          <div class="bootstrap-timepicker">
+                                            <div class="form-group">
+
+                                              <div class="input-group date" id="timepickerHini" data-target-input="nearest">
+                                                <div class="input-group-append" data-target="#timepickerHini" data-toggle="datetimepicker">
+                                                    <div class="input-group-text"><i class="far fa-clock"></i>&nbsp;&nbsp;INICIO</div>
+                                                </div>
+                                                <input type="text" id="Hini" value="7:00:00" class="form-control datetimepicker-input" data-target="#timepickerHini" data-toggle="datetimepicker"/>
+                                                <div class="input-group-append" data-target="#timepickerHini" data-toggle="datetimepicker">
+                                                    <div class="input-group-text"><i class="far fa-clock"></i></div>
+                                                </div>
+                                              </div>
+                                              <!-- /.input group -->
+                                            </div>
+                                            <!-- /.form group -->
+                                          </div>
+
+
+                              </div>
+
+
+
+
+                              <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                                
+                              
+                                          <!-- time Picker -->
+                                          <div class="bootstrap-timepicker">
+                                            <div class="form-group">
+
+                                              <div class="input-group date" id="timepickerHfin" data-target-input="nearest">
+                                                <div class="input-group-append" data-target="#timepickerHfin" data-toggle="datetimepicker">
+                                                    <div class="input-group-text"><i class="far fa-clock"></i>&nbsp;&nbsp;FIN</div>
+                                                </div>
+                                                <input type="text" id="Hfin" value="19:00:00" class="form-control datetimepicker-input" data-target="#timepickerHfin" data-toggle="datetimepicker"/>
+                                                <div class="input-group-append" data-target="#timepickerHfin" data-toggle="datetimepicker">
+                                                    <div class="input-group-text"><i class="far fa-clock"></i></div>
+                                                </div>
+                                              </div>
+                                              <!-- /.input group -->
+                                            </div>
+                                            <!-- /.form group -->
+                                          </div>
+
+
+                              </div>
+
+
+
+
+                                
+                            </div>
+                            <!-- /.row -->
+                          </div>
+                          <!-- /.container-fluid -->
+                        </section>
+                        <!-- /.content -->
+                </div>
+                <!-- /.card-body -->
+                <div class="card-footer clearfix">
+
+                  <a class="btn btn-sm btn-info float-right" id="guardarHorario">GUARDAR</a>
+              
+                </div>
+                <!-- /.card-footer -->
+            </div>
+              <!-- /.card -->
 
 
 
 
 
 
-
-
+        </div>
+        <!-- /.col -->
 
 
         <div class="col-lg-12 col-xl-5">
@@ -299,11 +315,13 @@
 
                                               $acciones = "<div class='btn-group'><button class='btn btn-block btn-warning btnEditarEspecialidad' idEspecialidad='".$especialidad[$key]["idEspecialidad"]."' data-toggle='modal' data-target='#modalEditarEspecialidad'><i class='fa fa-edit'></i></button></div>";
 
-                                              echo '<tr>';
-                                                echo '<td>'.$key.'</td>';
-                                                echo '<td>'.$especialidad[$key]["titulo"].'</td>';
-                                                echo '<td>'.$acciones.'</td>';
-                                              echo '</tr>';
+                                              echo '
+                                              <tr>
+                                                <td>'.$key.'</td>
+                                                <td>'.$especialidad[$key]["titulo"].'</td>
+                                                <td>'.$acciones.'</td>
+                                              </tr>
+                                              ';
                                             }
                                     ?>
 
@@ -359,113 +377,115 @@
 
 
 
-            <!-- TABLE: LATEST ORDERS -->
-            <div class="card">
+          <!-- TABLE: LATEST ORDERS -->
+          <div class="card">
 
-              <div class="card-header border-transparent">
-                <h3 class="card-title">COLEGIOS</h3>
+            <div class="card-header border-transparent">
+              <h3 class="card-title">COLEGIOS</h3>
 
-                <div class="card-tools">
-                  
-                  <!--<button type="button" id="refress" class="btn btn-tool" data-card-widget="card-refresh" data-source="vistas/modulos/test.php" data-source-selector="#card-refresh-content" data-load-on-init="false">-->
-                  <button type="button" id="refress" class="btn btn-tool">
-                    <i class="fas fa-sync-alt"></i>
-                  </button>
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                    <i class="fas fa-minus"></i>
-                  </button>
-                  <button type="button" class="btn btn-tool" data-card-widget="maximize">
-                    <i class="fas fa-expand"></i>
-                  </button>
+              <div class="card-tools">
+                
+                <!--<button type="button" id="refress" class="btn btn-tool" data-card-widget="card-refresh" data-source="vistas/modulos/test.php" data-source-selector="#card-refresh-content" data-load-on-init="false">-->
+                <button type="button" id="refress" class="btn btn-tool">
+                  <i class="fas fa-sync-alt"></i>
+                </button>
+                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                  <i class="fas fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-tool" data-card-widget="maximize">
+                  <i class="fas fa-expand"></i>
+                </button>
 
-                </div>
               </div>
-              <!-- /.card-header -->
+            </div>
+            <!-- /.card-header -->
 
-              <div class="card-body p-0">
-
-
-
-
-                    <!-- Main content -->
-                    <section class="content">
-                          <div class="container-fluid">
-                            <div class="row">
-                              <div class="col-12">
-
-                                <div class="card" id="RecargarCole">
-                                  
-                                  <!-- /.card-header -->
-                                  <div class="card-body">
-                                    <table id="tablaColegios" class="table table-bordered table-striped">
-                                      <thead>
-                                      <tr>
-                                        <th style="width:5px">#</th>
-                                        <th style="width:10px">ESTADO</th>
-                                        <th>TITULO</th>
-                                        <th style="width:80px">FECHA</th>
-                                        <th style="width:10px">OP</th>
-                                      </tr>
-                                      </thead>
-                                      <tbody>
-                                      
-                                      <?php
-                                              $admicion = ControladorAdmision::ctrMostrarAdmision(null,null);
-
-                                              foreach ($admicion as $key => $value) {
-
-                                                if($admicion[$key]["estado"] == 0){
-
-                                                  $colorEstado = "btn-danger";
-                                                  $textoEstado = "NO VISIBLE";
-                                                  $estadoArticulo = 1;
-                                          
-                                                }else{
-                                          
-                                                  $colorEstado = "btn-success";
-                                                  $textoEstado = "VISIBLE";
-                                                  $estadoArticulo = 0;
-                                          
-                                                }
-                                          
-                                                $estado = "<button class='btn btn-xs btnActivar ".$colorEstado."' style='width:70px;' idAdmision='".$admicion[$key]["idAdmision"]."' estadoAdmision='".$estadoArticulo."'>".$textoEstado."</button>";
-                                                
-                                                $accionesFinal = "<div class='btn-group'><a href='".$admicion[$key]["ruta"]."'><button class='btn btn-success' ><i class='fa fa-eye'></i></button></a></div>";
+            <div class="card-body p-0">
 
 
-                                                echo '<tr>';
-                                                  echo '<td>'.$key.'</td>';
-                                                  echo '<td>'.$estado.'</td>';
-                                                  echo '<td>'.$admicion[$key]["titulo"].'</td>';
-                                                  echo '<td>'.$admicion[$key]["fecha"].'</td>';
-                                                  echo '<td>'.$accionesFinal.'</td>';
-                                                echo '</tr>';
+
+
+                  <!-- Main content -->
+                  <section class="content">
+                        <div class="container-fluid">
+                          <div class="row">
+                            <div class="col-12">
+
+                              <div class="card" id="RecargarCole">
+                                
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                  <table id="tablaColegios" class="table table-bordered table-striped">
+                                    <thead>
+                                    <tr>
+                                      <th style="width:5px">#</th>
+                                      <th style="width:10px">ESTADO</th>
+                                      <th>TITULO</th>
+                                      <th style="width:80px">FECHA</th>
+                                      <th style="width:10px">OP</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    
+                                    <?php
+                                            $admicion = ControladorAdmision::ctrMostrarAdmision(null,null);
+
+                                            foreach ($admicion as $key => $value) {
+
+                                              if($admicion[$key]["estado"] == 0){
+
+                                                $colorEstado = "btn-danger";
+                                                $textoEstado = "NO VISIBLE";
+                                                $estadoArticulo = 1;
+                                        
+                                              }else{
+                                        
+                                                $colorEstado = "btn-success";
+                                                $textoEstado = "VISIBLE";
+                                                $estadoArticulo = 0;
+                                        
                                               }
-                                      ?>
+                                        
+                                              $estado = "<button class='btn btn-xs btnActivar ".$colorEstado."' style='width:70px;' idAdmision='".$admicion[$key]["idAdmision"]."' estadoAdmision='".$estadoArticulo."'>".$textoEstado."</button>";
+                                              
+                                              $accionesFinal = "<div class='btn-group'><a href='".$admicion[$key]["ruta"]."'><button class='btn btn-success' ><i class='fa fa-eye'></i></button></a></div>";
 
-                                      </tbody>
-                                      <tfoot>
-                                      <tr>
-                                        <th>#</th>
-                                        <th>ESTADO</th>
-                                        <th>TITULO</th>
-                                        <th>FECHA</th>
-                                        <th>OP</th>
-                                      </tr>
-                                      </tfoot>
-                                    </table>
-                                  </div>
-                                  <!-- /.card-body -->
+
+                                              echo '
+                                              <tr>
+                                                <td>'.$key.'</td>
+                                                <td>'.$estado.'</td>
+                                                <td>'.$admicion[$key]["titulo"].'</td>
+                                                <td>'.$admicion[$key]["fecha"].'</td>
+                                                <td>'.$accionesFinal.'</td>
+                                              </tr>
+                                              ';
+                                            }
+                                    ?>
+
+                                    </tbody>
+                                    <tfoot>
+                                    <tr>
+                                      <th>#</th>
+                                      <th>ESTADO</th>
+                                      <th>TITULO</th>
+                                      <th>FECHA</th>
+                                      <th>OP</th>
+                                    </tr>
+                                    </tfoot>
+                                  </table>
                                 </div>
-                                <!-- /.card -->
+                                <!-- /.card-body -->
                               </div>
-                              <!-- /.col -->
+                              <!-- /.card -->
                             </div>
-                            <!-- /.row -->
+                            <!-- /.col -->
                           </div>
-                          <!-- /.container-fluid -->
-                        </section>
-                        <!-- /.content -->
+                          <!-- /.row -->
+                        </div>
+                        <!-- /.container-fluid -->
+                      </section>
+                      <!-- /.content -->
 
 
 
@@ -482,28 +502,29 @@
 
 
 
-
-              </div>
-              <!-- /.card-body -->
-              <div class="card-footer clearfix">
-
-                <a href="#" class="btn btn-sm btn-secondary float-left">VER MAS</a>
-
-                <a class="btn btn-sm btn-info float-right" data-toggle="modal" data-target="#modalAgregarAdmision">AGREGAR NUEVO EVENTO DE ADMISION</a>
-
-
-
-
-              </div>
-              <!-- /.card-footer -->
 
             </div>
-            <!-- /.card -->
+            <!-- /.card-body -->
+            <div class="card-footer clearfix">
+
+              <a href="#" class="btn btn-sm btn-secondary float-left">VER MAS</a>
+
+              <a class="btn btn-sm btn-info float-right" data-toggle="modal" data-target="#modalAgregarAdmision">AGREGAR NUEVO EVENTO DE ADMISION</a>
+
+
+
+
+            </div>
+            <!-- /.card-footer -->
+
+          </div>
+          <!-- /.card -->
 
 
 
         </div>
         <!-- /.col -->
+
       </div>
       <!-- /.row -->
     </div><!--/. container-fluid -->

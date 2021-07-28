@@ -42,13 +42,15 @@ require_once "../../../modelos/admision.modelo.php";
                 
                 $accionesFinal = "<div class='btn-group'><a href='".$admicion[$key]["ruta"]."'><button class='btn btn-block btn-success'><i class='fa fa-eye'></i></button></a></div>";
 
-                echo '<tr>';
-                echo '<td>'.$key.'</td>';
-                echo '<td>'.$estado.'</td>';
-                echo '<td>'.$admicion[$key]["titulo"].'</td>';
-                echo '<td>'.$admicion[$key]["fecha"].'</td>';
-                echo '<td>'.$accionesFinal.'</td>';
-                echo '</tr>';
+                echo '
+                <tr>
+                    <td>'.$key.'</td>
+                    <td>'.$estado.'</td>
+                    <td>'.$admicion[$key]["titulo"].'</td>
+                    <td>'.$admicion[$key]["fecha"].'</td>
+                    <td>'.$accionesFinal.'</td>
+                </tr>
+                ';
             }
     ?>
 
