@@ -110,11 +110,9 @@ session_start();
      =============================================*/
 
      $rutas = array();
-     $idReferenc = null;
-     $NameReferenc = null;
 
-     $infoArticulos = null;
-     $infoArticulosP = null;
+     $infoArticulos = null;//ELIMINAR
+     $infoArticulosP = null;//ELIMINAR
 
      if(isset($_GET["ruta"])){
 
@@ -143,50 +141,60 @@ session_start();
 
           if($rutas[0] == $rutaEventos["ruta"]){
 
-            $idReferenc = $rutaEventos["idAdmision"];
             include "modulos/infoadmision.php";
 
           }else{
 
             $newphrase = str_replace("-inscribir", "", $rutas[0]);
-  
             $rutaEventos = ControladorAdmision::ctrMostrarInfoAdmision($item, $newphrase);
            
             if($newphrase == $rutaEventos["ruta"]){
               
-              $idReferenc = $rutaEventos["idAdmision"];
-              $NameReferenc = $rutaEventos["titulo"];
               include "modulos/inscribir-postulante.php";
   
             }else{
 
-
-
-
-
-              if($rutas[0] == $rutaArticulos["ruta"]){
-
-                $infoArticulos = $rutas[0];
-                include "modulos/infoarticulos.php";
-      
-              }else{
-      
-                $newphrase = str_replace("-prestamo", "", $rutas[0]);
-      
-                $rutaArticulos = ControladorArticulos::ctrMostrarInfoArticulo($item, $newphrase);
-               
-                if($newphrase == $rutaArticulos["ruta"]){
-                  
-                  $infoArticulosP = $rutaArticulos["ruta"];
-                  include "modulos/infoarticulos-prestamo.php";
-      
-                }else{
-    
-                  include "modulos/error404.php";
-        
-                }
+              $newphrase = str_replace("-ver", "", $rutas[0]);
+              $rutaEventos = ControladorAdmision::ctrMostrarInfoAdmision($item, $newphrase);
+             
+              if($newphrase == $rutaEventos["ruta"]){
                 
+                include "modulos/ver-inscripcion.php";
+    
+              }else{
+
+                  if($rutas[0] == $rutaArticulos["ruta"]){
+
+                    $infoArticulos = $rutas[0];
+                    include "modulos/infoarticulos.php";
+          
+                  }else{
+          
+                    $newphrase = str_replace("-prestamo", "", $rutas[0]);
+          
+                    $rutaArticulos = ControladorArticulos::ctrMostrarInfoArticulo($item, $newphrase);
+                  
+                    if($newphrase == $rutaArticulos["ruta"]){
+                      
+                      $infoArticulosP = $rutaArticulos["ruta"];
+                      include "modulos/infoarticulos-prestamo.php";
+          
+                    }else{
+        
+                      include "modulos/error404.php";
+            
+                    }
+                    
+                  }
+
               }
+
+
+
+
+
+
+
 
 
 

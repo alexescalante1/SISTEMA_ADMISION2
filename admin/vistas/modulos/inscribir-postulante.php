@@ -11,13 +11,13 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0">INSCRIPCIONES - <?php echo $NameReferenc; ?></h1>
+          <h1 class="m-0">INSCRIPCIONES - <?php echo $rutaEventos["titulo"]; ?></h1>
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="inicio">INICIO</a></li>
             <li class="breadcrumb-item"><a href="inscripcion">INSCRIPCIONES</a></li>
-            <li class="breadcrumb-item active"><?php echo $NameReferenc; ?></li>
+            <li class="breadcrumb-item active"><?php echo $rutaEventos["titulo"]; ?></li>
           </ol>
         </div><!-- /.col -->
       </div><!-- /.row -->
@@ -142,9 +142,10 @@
 
                                             <div class="form-group">
                                                 <label>INSCRIPCION EN:</label>
-                                                <input type="text" class="form-control def-input" value="<?php echo $NameReferenc; ?>" readonly>
-                                                <input style="display:none" id="IDEVENTINSCRIP" <?php echo 'value="'.$idReferenc.'"'; ?> >
+                                                <input type="text" class="form-control def-input" value="<?php echo $rutaEventos["titulo"]; ?>" readonly>
+                                                <input style="display:none" id="IDEVENTINSCRIP" <?php echo 'value="'.$rutaEventos["idAdmision"].'"'; ?> >
                                                 <input style="display:none" id="IDATTADMIN" <?php echo 'value="'.$_SESSION["id"].'"'; ?> >
+                                                <input style="display:none" id="RUTAEVENT" <?php echo 'value="'.$rutaEventos["ruta"].'"'; ?> >
                                             </div>
 
                                         </div>
@@ -295,7 +296,7 @@
                                                     <input type="file" id="filePT" class="SelIM fotoPerfilT" accept="image/*">
                                                     
                                                     <label for="filePT" class="fileButton">
-                                                        <i class="fas fa-file-image"></i> &nbsp; ADD (10MB) 4:4
+                                                        <i class="fas fa-file-image"></i> &nbsp; ADD (10MB)
                                                     </label>
 
                                                     <img src="vistas/img/perfiles/default/anonymous.png" class="previsualizarPerfilT" width="100%" style="border-radius:5px;border: 2px solid rgba(0, 0, 0, 0.3);">
@@ -621,7 +622,7 @@
                                                     <input type="file" id="fileVP" class="SelIM fotoVaucherP" accept="image/*">
                                                     
                                                     <label for="fileVP" class="fileButton">
-                                                        <i class="fas fa-file-image"></i> &nbsp; ADD 4:4 (10MB)
+                                                        <i class="fas fa-file-image"></i> &nbsp; ADD (10MB)
                                                     </label>
 
                                                     <img src="vistas/img/perfiles/default/anonymous.png" class="previsualizarVaucherP" width="100%" style="border-radius:5px;border: 2px solid rgba(0, 0, 0, 0.3);">
@@ -657,6 +658,120 @@
 
 
 
+
+        <?php 
+            $Objetos = ControladorInscripcion::ctrMostrar("inscripciones", "idInscripcion", "idAdmision", $rutaEventos["idAdmision"], 0, 3, "DESC");
+        ?>
+
+
+
+
+        <div class="card">
+
+            <div class="card-header">
+                <h3 style="font-weight: bold;" class="card-title">INSCRITOS RECIENTEMENTE</h3>
+                <div class="card-tools">
+
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+
+                </div>
+                <!-- /.card-tools -->
+            </div>
+
+            <!-- /.card-header -->
+            <div class="card-body">
+                
+
+
+
+                
+                <!-- Main content -->
+                <section class="content">
+                        <div class="container-fluid">
+                          <div class="row">
+                            <div class="col-12">
+
+                              <div class="card">
+                                
+                                
+
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                  <table id="tablaInscritos" class="table table-bordered table-striped">
+                                    <thead>
+                                    <tr>
+                                      <th style="width:10px">#</th>
+                                      <th style="width:50px">TIPO</th>
+                                      <th style="width:50px">DNI</th>
+                                      <th>NOMBRES</th>
+                                      <th style="width:50px">ESTADO</th>
+                                      <th style="width:120px">FECHA</th>
+                                      <th style="width:10px">OP</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    
+                                    <?php  
+                                        
+                                        foreach($Objetos as $key => $value){
+
+                                            $Objetos2 = ControladorInscripcion::ctrMostrarInfo("postulante", "idPostulante", $value["idPostulante"]);
+                                            
+                                            if($value["estado"] == 0){
+                                                $colorEstado = "btn-danger";
+                                                $textoEstado = "INACTIVO";
+                                                $estadoI = 1;
+                                            }else{
+                                                $colorEstado = "btn-success";
+                                                $textoEstado = "ACTIVO";
+                                                $estadoI = 0;
+                                            }
+                                    
+                                            $estado = "<button class='btn btn-xs btnActivar ".$colorEstado."' style='width:70px;' idInscripcion='".$value["idInscripcion"]."' estadoInscripcion='".$estadoI."'>".$textoEstado."</button>";
+                                            $acciones = "<div class='btn-group'><button class='btn btn-success btnVerInscripcion' idPostulante='".$value["idPostulante"]."' data-toggle='modal' data-target='#modalVerInscripcion'><i class='fa fa-eye'></i></button><button class='btn btn-warning btnEditarInscripcion' idPostulante='".$value["idPostulante"]."' data-toggle='modal' data-target='#modalEditarInscripcion'><i class='fa fa-edit'></i></button></div>";
+
+                                            echo '
+                                              <tr>
+                                                <td>'.$key.'</td>
+                                                <td style="text-transform:uppercase;">'.$value["Tpostulacion"].'</td>
+                                                <td>'.$Objetos2["dni"].'</td>
+                                                <td>'.$Objetos2["nombre"].', '.$Objetos2["apellidoPat"].' '.$Objetos2["apellidoMat"].'</td>
+                                                <td>'.$estado.'</td>
+                                                <td>'.$value["fecha"].'</td>
+                                                <td>'.$acciones.'</td>
+                                              </tr>
+                                              ';
+                                        }
+                                        
+                                    ?>
+
+                                    </tbody>
+                                    
+                                  </table>
+                                </div>
+                                <!-- /.card-body -->
+                              </div>
+                              <!-- /.card -->
+                            </div>
+                            <!-- /.col -->
+                          </div>
+                          <!-- /.row -->
+                        </div>
+                        <!-- /.container-fluid -->
+                </section>
+                      <!-- /.content -->
+
+
+            </div>
+            <!-- /.card-body -->
+            <div class="card-footer clearfix">
+                <a class="btn btn-default float-right" href="<?php echo $rutaEventos["ruta"]; ?>-ver">Mostrar Más ...</a>
+            </div>
+            <!-- /.card-footer -->
+        </div>
+        <!-- /.card -->
 
 
 

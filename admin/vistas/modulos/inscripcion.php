@@ -79,7 +79,7 @@
                                                     $admicion = ControladorAdmision::ctrMostrar("eventoadmision","estado",1);
 
                                                     foreach ($admicion as $key => $value) {
-                                                        $accionesFinal = "<div class='btn-group'><a href='".$admicion[$key]["ruta"]."-inscribir'><button class='btn btn-block btn-success'><i class='fa fa-eye'></i></button></a></div>";
+                                                        $accionesFinal = "<div class='btn-group'><a href='".$admicion[$key]["ruta"]."-inscribir'><button class='btn btn-block btn-success'><i class='fa fa-edit'></i></button></a><a href='".$admicion[$key]["ruta"]."-ver' style='margin-left:-2px;'><button class='btn btn-block btn-info'><i class='fa fa-bars'></i></button></a></div>";
                                                         echo '
                                                         <tr>
                                                             <td>'.$accionesFinal.'</td>

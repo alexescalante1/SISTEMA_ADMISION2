@@ -123,16 +123,6 @@ MENU
       if($_SESSION["perfil"] == "administrador"){
 
         echo '
-          
-          <li class="nav-item">
-            <a href="usuarios" class="nav-link">
-              <i class="nav-icon fas fa-users"></i>
-              <p>
-                Gestor de Usuarios
-              </p>
-            </a>
-          </li>
-
           <li class="nav-item">
             <a href="perfiles" class="nav-link">
               <i class="nav-icon fas fa-users"></i>

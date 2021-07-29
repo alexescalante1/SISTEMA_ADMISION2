@@ -1,3 +1,5 @@
+
+
 const formulario = document.getElementById('formulario');
 const inputs = document.querySelectorAll('#formulario input');
 
@@ -219,10 +221,13 @@ inputs.forEach((input) => {
 	input.addEventListener('blur', validarFormulario);
 });
 
-formulario.addEventListener('submit', (e) => {
-	e.preventDefault();
-});
+$(function () {
 
+	formulario.addEventListener('submit', (e) => {
+		e.preventDefault();
+	});
+
+});
 /*=============================================
 SUBIENDO FOTOS
 =============================================*/
@@ -359,7 +364,7 @@ $("#next2").click(function(){
 
 $("#next3").click(function(){
  
-    if(campos.nombreR && campos.dniR && campos.correoR && campos.Rparentesco && campos.direccionR && campos.telefonoR1){
+    if(campos.nombreR && campos.dniR && campos.Rparentesco && campos.telefonoR1){
         stepper.next();
 	} else {
         toastr.error('Todos los campos requeridos deben estar llenos.');
@@ -369,7 +374,7 @@ $("#next3").click(function(){
 
 $("#next4").click(function(){
  
-    if(campos.nombreCole && campos.TEstAcademico && campos.especialiAcadm && campos.calAcadm){
+    if(campos.nombreCole && campos.TEstAcademico && campos.calAcadm){
         stepper.next();
 	} else {
         toastr.error('Todos los campos requeridos deben estar llenos.');
@@ -385,6 +390,7 @@ $("#guardarPostulant").click(function(){
 
 	var idEvento = $("#IDEVENTINSCRIP").val();
     var idAttAdmin = $("#IDATTADMIN").val();
+	var rutaEvento = $("#RUTAEVENT").val();
 
     var Tpostulante = $("#Tpostulante").val();
     var Tpopcion = $("#Pespecialidad").val();
@@ -394,6 +400,8 @@ $("#guardarPostulant").click(function(){
     var apellidoTP = $("#apellidoTP").val();
     var apellidoTM = $("#apellidoTM").val();
     var fechaT = $("#IfechaNacT").val();
+
+    var fechaTT = moment(fechaT, "MM/DD/YYYY").format("YYYY-MM-DD");
 
     console.log(idEvento);
     console.log(idAttAdmin);
@@ -405,17 +413,19 @@ $("#guardarPostulant").click(function(){
     console.log(apellidoTP);
     console.log(apellidoTM);
     console.log(fechaT);
+	console.log(fechaTT);
     console.log(imagenfotoPerfilT);
 
 
 
-    var generoT = $("#generoT").val();   
-    console.log(generoT);
+    var generoTT = null;
     const genero = document.getElementById('generoT');
     console.log(genero.checked);
     if(genero.checked){
+		generoTT = "Hombre";
         console.log("ES HOMBRE");
     }else{
+		generoTT = "Mujer";
         console.log("ES MUJER");
     }
 
@@ -438,12 +448,14 @@ $("#guardarPostulant").click(function(){
 
     var nombreR = $("#nombreR").val();
     var dniR = $("#dniR").val();
+	var correoR = $("#correoR").val();
     var Rparentesco = $("#Rparentesco").val();
     var direccionR = $("#direccionR").val();
     var telefonoR1 = $("#telefonoR1").val();
 
     console.log(nombreR);
     console.log(dniR);
+	console.log(correoR);
     console.log(Rparentesco);
     console.log(direccionR);
     console.log(telefonoR1);
@@ -461,34 +473,150 @@ $("#guardarPostulant").click(function(){
 
 
 
-
-
-
-
     var fotoVP = $("#fileVP").val();
-
     console.log(imagenfotoVaucherP);
+
+
+
 
     if(!fotoVP){
         toastr.warning('Adjunte la foto del Vaucher.')
     }else{
 
-        Swal.fire({
-            title: 'Se ha Registrado Correctamente',
-            icon: 'success',
-            confirmButtonColor: '#3085d6',
-            confirmButtonText: 'Continuar'
-          }).then((result) => {
-            if (result.isConfirmed) {
-              //window.location = ruta;
-            }
-          })
+		var datosInscr = new FormData();
+		datosInscr.append("idIEvento", idEvento);
+		datosInscr.append("idAttAdmin", idAttAdmin);
+		datosInscr.append("Tpostulante", Tpostulante);
+		datosInscr.append("Tpopcion", Tpopcion);
+		datosInscr.append("Tsopcion", Tsopcion);
 
-        stepper.previous();
-        stepper.previous();
-        stepper.previous();
-        stepper.previous();
+		datosInscr.append("dniT", dniT);
+		datosInscr.append("nombreT", nombreT);
+		datosInscr.append("apellidoTP", apellidoTP);
+		datosInscr.append("apellidoTM", apellidoTM);
+		datosInscr.append("fechaTT", fechaTT); ///FEHA
+
+		
+		datosInscr.append("imagenfotoPerfilT", imagenfotoPerfilT);
+
+		datosInscr.append("generoT", generoTT);
+		datosInscr.append("correoT", correoT);
+		datosInscr.append("telefonoT1", telefonoT1);
+		datosInscr.append("telefonoT2", telefonoT2);
+		datosInscr.append("direccionT", direccionT);
+		datosInscr.append("departamentoT", departamentoT);
+		datosInscr.append("provinciaT", provinciaT);
+		datosInscr.append("distritoT", distritoT);
+
+		datosInscr.append("nombreR", nombreR);
+		datosInscr.append("dniR", dniR);
+		datosInscr.append("correoR", correoR);
+		datosInscr.append("Rparentesco", Rparentesco);
+		datosInscr.append("direccionR", direccionR);
+		datosInscr.append("telefonoR1", telefonoR1);
+
+		datosInscr.append("nombreCole", nombreCole);
+		datosInscr.append("TEstAcademico", TEstAcademico);
+		datosInscr.append("especialiAcadm", especialiAcadm);
+		datosInscr.append("calAcadm", calAcadm);
+
+		datosInscr.append("imagenfotoVaucherP", imagenfotoVaucherP);
+
+	   $.ajax({
+			url:"ajax/inscripcion.ajax.php",
+			method: "POST",
+			data: datosInscr,
+			cache: false,
+			contentType: false,
+			processData: false,
+			success: function(respuesta){
+
+				console.log("RESPUESTA");
+				console.log(respuesta);
+
+				if(respuesta == "ok"){
+
+					Swal.fire({
+						title: 'Se ha Registrado Correctamente',
+						icon: 'success',
+						confirmButtonColor: '#3085d6',
+						confirmButtonText: 'Continuar'
+					}).then((result) => {
+						
+						window.location = rutaEvento+"-inscribir";
+						
+					})
+
+				}else{
+					Swal.fire({
+						icon: 'error',
+						title: 'Oops...',
+						text: 'Algo Salio Mal!'
+						})
+				}
+
+			}
+
+	   })
 
     }
 
 })
+
+
+
+
+/*=============================================
+ACTIVAR INSCRIPC
+=============================================*/
+$('#tablaInscritos').on("click", ".btnActivar", function(){
+
+	console.log("SI");
+
+	var idInscripcion = $(this).attr("idInscripcion");
+	var estadoInscripcion = $(this).attr("estadoInscripcion");
+
+	var datos = new FormData();
+ 	datos.append("activarIdI", idInscripcion);
+  	datos.append("activarInscrip", estadoInscripcion);
+
+  	$.ajax({
+
+	  url:"ajax/inscripcion.ajax.php",
+	  method: "POST",
+	  data: datos,
+	  cache: false,
+      contentType: false,
+      processData: false,
+      success: function(respuesta){    
+          
+          // console.log("respuesta", respuesta);
+
+      }
+
+  	})
+
+	if(estadoInscripcion == 0){
+
+  		$(this).removeClass('btn-success');
+  		$(this).addClass('btn-danger');
+  		$(this).html('INACTIVO');
+  		$(this).attr('estadoInscripcion',1);
+
+  	}else{
+
+  		$(this).addClass('btn-success');
+  		$(this).removeClass('btn-danger');
+  		$(this).html('ACTIVO');
+  		$(this).attr('estadoInscripcion',0);
+
+  	}
+
+})
+
+
+
+
+
+
+

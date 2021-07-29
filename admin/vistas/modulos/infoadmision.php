@@ -18,8 +18,7 @@
 					<?php
 						
 						$url = Ruta::ctrRutaServidor();
-						$infoAdmision = ControladorAdmision::ctrMostrarInfoAdmision("idAdmision", $idReferenc);
-
+						
 						echo '
 						
 						<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -91,21 +90,14 @@
 
 						/*=============================================
 						TITULO
-						=============================================*/				
+						=============================================*/
 
-						$fecha = date('Y-m-d');
-						$fechaActual = strtotime('-30 day', strtotime($fecha));
-						$fechaNueva = date('Y-m-d', $fechaActual);
-
-						echo '<h1 class="text-muted text-uppercase" style="font-weight: bold;">'.$infoAdmision["titulo"].'</h1>';
+						echo '<h1 class="text-muted text-uppercase" style="font-weight: bold;">'.$rutaEventos["titulo"].'</h1>';
 
 						/*=============================================
 						DESCRIPCIÓN
 						=============================================*/
 						
-						
-						
-
 
 					?>
 							<div class="form-group">
@@ -121,7 +113,7 @@
 													540 POSTULANTES EN TOTAL | 
 
 													<i class="fa fa-calendar" style="margin:0px 5px"></i>
-													'.$infoAdmision["fecha"].'
+													'.$rutaEventos["fecha"].'
 													
 												</span>
 
@@ -241,7 +233,7 @@
 						$idEsp[$Mespecialidad[$i]["idEspecialidad"]] = $Mespecialidad[$i]["titulo"];
 					}
 
-					$cup = ControladorAdmision::ctrMostrar("cupos","idAdmision", $infoAdmision[0]);
+					$cup = ControladorAdmision::ctrMostrar("cupos","idAdmision", $rutaEventos[0]);
 
 					for($i = 0; $i < count($cup); $i++){
 						
@@ -325,7 +317,7 @@
 											<div class="input-group-append" data-target="#reservationdateINIT" data-toggle="datetimepicker">
 												<div class="input-group-text"><i class="fa fa-calendar"></i>&nbsp;&nbsp;FECHA INICIAL</div>
 											</div>	
-										<input type="text" value="<?php if($infoAdmision["finit"]>0){echo date("m/d/Y", strtotime($infoAdmision["finit"]));} ?>" class="form-control datetimepicker-input" id="FINIT" data-target="#reservationdateINIT" data-toggle="datetimepicker"/>
+										<input type="text" value="<?php if($rutaEventos["finit"]>0){echo date("m/d/Y", strtotime($rutaEventos["finit"]));} ?>" class="form-control datetimepicker-input" id="FINIT" data-target="#reservationdateINIT" data-toggle="datetimepicker"/>
 											
 										</div>
 									</div>
@@ -346,7 +338,7 @@
 											<div class="input-group-append" data-target="#reservationdateEND" data-toggle="datetimepicker">
 												<div class="input-group-text"><i class="fa fa-calendar"></i>&nbsp;&nbsp;FECHA FINAL</div>
 											</div>
-										<input type="text" value="<?php if($infoAdmision["ffin"]>0){echo date("m/d/Y", strtotime($infoAdmision["ffin"]));} ?>" class="form-control datetimepicker-input" id="FFIN" data-target="#reservationdateEND" data-toggle="datetimepicker"/>
+										<input type="text" value="<?php if($rutaEventos["ffin"]>0){echo date("m/d/Y", strtotime($rutaEventos["ffin"]));} ?>" class="form-control datetimepicker-input" id="FFIN" data-target="#reservationdateEND" data-toggle="datetimepicker"/>
 											
 										</div>
 									</div>
@@ -360,8 +352,8 @@
 
 
 				<input style="display:none" id="cantEspe" <?php echo 'value="'.count($cup).'"'; ?> >
-				<input style="display:none" id="rutaEvent" <?php echo 'value="'.$infoAdmision[1].'"'; ?> >
-				<input style="display:none" id="idEventAd" <?php echo 'value="'.$infoAdmision[0].'"'; ?> >
+				<input style="display:none" id="rutaEvent" <?php echo 'value="'.$rutaEventos[1].'"'; ?> >
+				<input style="display:none" id="idEventAd" <?php echo 'value="'.$rutaEventos[0].'"'; ?> >
 				
 				
 				</div>
@@ -444,7 +436,7 @@
 						
 							<?php
 
-								$examen = ControladorAdmision::ctrMostrar("examen","idAdmision", $infoAdmision[0]);
+								$examen = ControladorAdmision::ctrMostrar("examen","idAdmision", $rutaEventos[0]);
 
 								if($examen){
 									echo '<input style="display:none" id="idTIPOPRB" value="'.$examen[0]["idExamen"].'">

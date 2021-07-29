@@ -306,7 +306,7 @@ PÁGINA DE INICIO
 
               if($_SESSION["perfil"] == "administrador"){
 
-                include "inicio/ultimos-usuarios.php";
+                //include "inicio/ultimos-usuarios.php";
 
               }
 
