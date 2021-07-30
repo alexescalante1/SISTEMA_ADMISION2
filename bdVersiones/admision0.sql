@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-07-2021 a las 20:40:30
+-- Tiempo de generación: 15-07-2021 a las 07:13:26
 -- Versión del servidor: 10.4.14-MariaDB
 -- Versión de PHP: 7.2.34
 
@@ -46,11 +46,11 @@ CREATE TABLE `administradores` (
 --
 
 INSERT INTO `administradores` (`id`, `dniAdmin`, `userAdmin`, `nombre`, `email`, `foto`, `password`, `perfil`, `estado`, `dark`, `fecha`) VALUES
-(5, '73104785', '', 'Alex Escalante ONE', 'admin@gmail.com', 'vistas/img/perfiles/138.jpg', '$2a$07$asxx54ahjppf45sd87a5aunxs9bkpyGmGE/.vekdjFg83yRec789S', 'administrador', 1, 0, '2021-07-30 16:46:50'),
-(162, '73104795', '', 'Alex Escalante TWO', 'alexescalante921@gmail.com', 'vistas/img/perfiles/844.png', '$2a$07$asxx54ahjppf45sd87a5aubFblDrx5VgsL7udWc9pTLp1r8BxczhK', 'administrador', 1, 0, '2021-07-28 05:10:03'),
+(5, '73104785', '', 'Alex Escalante ONE', 'admin@gmail.com', 'vistas/img/perfiles/138.jpg', '$2a$07$asxx54ahjppf45sd87a5aunxs9bkpyGmGE/.vekdjFg83yRec789S', 'administrador', 1, 1, '2021-07-15 03:15:21'),
+(162, '73104795', '', 'Alex Escalante TWO', 'alexescalante921@gmail.com', 'vistas/img/perfiles/844.png', '$2a$07$asxx54ahjppf45sd87a5aubFblDrx5VgsL7udWc9pTLp1r8BxczhK', 'administrador', 1, 0, '2021-07-12 04:54:55'),
 (165, '73545894', '', 'Fredy Marin Rojas', 'laboral@gmail.com', 'vistas/img/perfiles/972.jpg', '$2a$07$asxx54ahjppf45sd87a5auR6AmIR5N5CndGl8MnjTyLo5SYcp56Qe', 'laboratorista', 1, 1, '2021-07-11 18:18:54'),
-(166, '15489562', '', 'Ana Maria', 'ana@gmail.com', 'vistas/img/perfiles/600.jpg', '$2a$07$asxx54ahjppf45sd87a5auzGfz9GaOjSPJ5jEDpHii9vSQEEqY1Zm', 'administrador', 0, 1, '2021-07-16 04:37:29'),
-(167, '111111111111', '', 'maryluz', 'mary@gmail.com', 'vistas/img/perfiles/682.jpg', '$2a$07$asxx54ahjppf45sd87a5auMcTRI4HvWlwXRGDf6MnH7be2S/RDDFa', 'administrador', 0, 0, '2021-07-16 04:37:28');
+(166, '15489562', '', 'Ana Maria', 'ana@gmail.com', 'vistas/img/perfiles/600.jpg', '$2a$07$asxx54ahjppf45sd87a5auzGfz9GaOjSPJ5jEDpHii9vSQEEqY1Zm', 'administrador', 1, 1, '2021-07-15 02:32:14'),
+(167, '111111111111', '', 'maryluz', 'mary@gmail.com', 'vistas/img/perfiles/682.jpg', '$2a$07$asxx54ahjppf45sd87a5auMcTRI4HvWlwXRGDf6MnH7be2S/RDDFa', 'administrador', 1, 0, '2021-07-15 03:13:41');
 
 -- --------------------------------------------------------
 
@@ -145,26 +145,18 @@ CREATE TABLE `cupos` (
 --
 
 INSERT INTO `cupos` (`idCupos`, `cupoBeca`, `cupoNormal`, `cupoTrasladosI`, `cupoTrasladosE`, `puntaje`, `idEspecialidad`, `idAdmision`) VALUES
-(723, 0, 0, 0, 0, 0, 5, 158),
-(724, 0, 0, 0, 0, 0, 6, 158),
-(725, 0, 0, 0, 0, 0, 11, 158),
-(726, 0, 0, 0, 0, 1540, 10, 158),
-(727, 123, 741, 0, 0, 144, 5, 159),
-(728, 1, 32, 0, 0, 1800, 6, 159),
-(729, 2, 33, 0, 0, 1200, 11, 159),
-(730, 3, 123, 0, 0, 1900, 10, 159),
-(731, 0, 0, 0, 0, 0, 5, 160),
-(732, 0, 0, 0, 0, 0, 6, 160),
-(733, 0, 0, 0, 0, 0, 11, 160),
-(734, 0, 0, 0, 0, 1700, 10, 160),
-(735, 0, 0, 0, 0, 0, 5, 161),
-(736, 0, 0, 0, 0, 0, 6, 161),
-(737, 0, 0, 0, 0, 0, 11, 161),
-(738, 0, 0, 0, 0, 0, 10, 161),
-(739, 1, 7, 0, 0, 56, 5, 162),
-(740, 1, 6, 0, 0, 5, 6, 162),
-(741, 2, 5, 0, 0, 34, 11, 162),
-(742, 3, 4, 0, 0, 5644, 10, 162);
+(40, 15, 60, 0, 0, 2500, 5, 42),
+(41, 30, 80, 0, 0, 1900, 6, 42),
+(42, 20, 80, 0, 0, 1400, 11, 42),
+(43, 10, 80, 0, 0, 1700, 10, 42),
+(44, 30, 60, 0, 0, 1500, 5, 43),
+(45, 20, 60, 0, 0, 1300, 6, 43),
+(46, 10, 60, 0, 0, 1400, 11, 43),
+(47, 10, 70, 0, 0, 1200, 10, 43),
+(719, 0, 0, 0, 0, 0, 5, 157),
+(720, 0, 0, 0, 0, 0, 6, 157),
+(721, 0, 0, 0, 0, 0, 11, 157),
+(722, 0, 0, 0, 0, 0, 10, 157);
 
 -- --------------------------------------------------------
 
@@ -260,8 +252,6 @@ CREATE TABLE `eventoadmision` (
   `ruta` text NOT NULL,
   `titulo` text NOT NULL,
   `fecha` timestamp NOT NULL DEFAULT current_timestamp(),
-  `finit` date NOT NULL,
-  `ffin` date NOT NULL,
   `estado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -269,12 +259,12 @@ CREATE TABLE `eventoadmision` (
 -- Volcado de datos para la tabla `eventoadmision`
 --
 
-INSERT INTO `eventoadmision` (`idAdmision`, `ruta`, `titulo`, `fecha`, `finit`, `ffin`, `estado`) VALUES
-(158, 'examen-octubre-2021', 'EXAMEN OCTUBRE 2021', '2021-07-15 23:51:26', '2021-07-01', '2021-07-31', 0),
-(159, 'examen-noviembre-2021', 'EXAMEN NOVIEMBRE 2021', '2021-07-16 00:52:40', '2002-05-31', '1999-03-31', 1),
-(160, 'examen-enero-2022', 'EXAMEN ENERO 2022', '2021-07-17 11:58:43', '2021-07-17', '2021-07-31', 0),
-(161, 'examen-noviembre-2030', 'EXAMEN NOVIEMBRE 2030', '2021-07-20 01:37:16', '0000-00-00', '0000-00-00', 0),
-(162, 'examen-enero-2023', 'EXAMEN ENERO 2023', '2021-07-29 19:35:43', '2021-07-01', '2021-07-31', 1);
+INSERT INTO `eventoadmision` (`idAdmision`, `ruta`, `titulo`, `fecha`, `estado`) VALUES
+(42, 'examen-enero-2021', 'EXAMEN ENERO 2021', '2021-07-04 04:15:31', 0),
+(43, 'examen-junio-2022', 'EXAMEN JUNIO 2022', '2021-07-04 04:15:45', 1),
+(155, 'hello-da', 'HELLO DA', '2021-07-11 17:44:43', 1),
+(156, 'examen-enero-2022', 'EXAMEN ENERO 2022', '2021-07-12 20:24:37', 0),
+(157, 'examen-2023', 'EXAMEN 2023', '2021-07-12 20:32:02', 0);
 
 -- --------------------------------------------------------
 
@@ -295,47 +285,12 @@ CREATE TABLE `examen` (
 --
 
 INSERT INTO `examen` (`idExamen`, `ruta`, `titulo`, `cantidad`, `idAdmision`) VALUES
-(115, '', 'TIPO A', 2, 159),
-(116, '', 'TIPO A', 60, 158),
-(117, '', 'TIPO B', 60, 159),
-(121, '', 'TIPO C', 60, 159),
-(122, '', 'TIPO A', 2, 162),
-(123, '', 'TIPO B', 60, 162);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `inscripciones`
---
-
-CREATE TABLE `inscripciones` (
-  `idInscripcion` int(11) NOT NULL,
-  `Tpostulacion` text NOT NULL,
-  `Popcion` int(11) NOT NULL,
-  `Sopcion` int(11) NOT NULL,
-  `vaucher` text NOT NULL,
-  `estado` int(11) NOT NULL,
-  `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `idAdmision` int(11) NOT NULL,
-  `idPostulante` int(11) NOT NULL,
-  `idAdmin` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `inscripciones`
---
-
-INSERT INTO `inscripciones` (`idInscripcion`, `Tpostulacion`, `Popcion`, `Sopcion`, `vaucher`, `estado`, `fecha`, `idAdmision`, `idPostulante`, `idAdmin`) VALUES
-(6, 'beca', 5, 6, 'vistas/img/vaucher/6.png', 1, '2021-07-29 06:45:49', 159, 20, 5),
-(7, 'normal', 5, 10, 'vistas/img/vaucher/7.png', 1, '2021-07-29 17:09:46', 159, 21, 5),
-(8, 'beca', 11, 5, 'vistas/img/vaucher/8.jpg', 1, '2021-07-29 17:01:48', 159, 22, 5),
-(9, 'beca', 5, 11, 'vistas/img/vaucher/9.jpg', 1, '2021-07-29 17:33:24', 159, 23, 5),
-(10, 'trasIn', 5, 6, 'vistas/img/vaucher/10.jpg', 1, '2021-07-29 17:33:24', 159, 24, 5),
-(11, 'normal', 5, 6, 'vistas/img/vaucher/11.jpg', 1, '2021-07-30 16:12:04', 159, 25, 5),
-(12, 'normal', 6, 5, 'vistas/img/vaucher/12.jpg', 1, '2021-07-29 19:41:48', 162, 26, 5),
-(13, 'normal', 5, 11, 'vistas/img/vaucher/13.jpg', 1, '2021-07-30 17:43:05', 159, 27, 5),
-(14, 'normal', 6, 5, 'vistas/img/vaucher/14.jpg', 1, '2021-07-30 17:46:27', 159, 28, 5),
-(15, 'beca', 5, 6, 'vistas/img/vaucher/15.jpg', 1, '2021-07-30 18:37:59', 159, 29, 5);
+(82, '', 'TIPO A', 2, 43),
+(87, '', 'TIPO A', 60, 42),
+(88, '', 'TIPO B', 2, 43),
+(111, '', 'TIPO A', 60, 155),
+(112, '', 'TIPO C', 60, 43),
+(113, '', 'TIPO A', 60, 156);
 
 -- --------------------------------------------------------
 
@@ -384,95 +339,25 @@ INSERT INTO `notificacion` (`idNotificacion`, `tipoDocTitular`, `numDocTitular`,
 
 CREATE TABLE `plantilla` (
   `id` int(11) NOT NULL,
+  `barraSuperior` text COLLATE utf8_spanish_ci NOT NULL,
+  `textoSuperior` text COLLATE utf8_spanish_ci NOT NULL,
+  `colorFondo` text COLLATE utf8_spanish_ci NOT NULL,
+  `colorTexto` text COLLATE utf8_spanish_ci NOT NULL,
   `logo` text COLLATE utf8_spanish_ci NOT NULL,
   `icono` text COLLATE utf8_spanish_ci NOT NULL,
-  `Hini` time NOT NULL,
-  `Hfin` time NOT NULL
+  `redesSociales` text COLLATE utf8_spanish_ci NOT NULL,
+  `apiFacebook` text COLLATE utf8_spanish_ci NOT NULL,
+  `pixelFacebook` text COLLATE utf8_spanish_ci NOT NULL,
+  `googleAnalytics` text COLLATE utf8_spanish_ci NOT NULL,
+  `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `plantilla`
 --
 
-INSERT INTO `plantilla` (`id`, `logo`, `icono`, `Hini`, `Hfin`) VALUES
-(1, 'vistas/img/plantilla/logo.png', 'vistas/img/plantilla/icono.png', '22:33:24', '07:36:22');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `postulante`
---
-
-CREATE TABLE `postulante` (
-  `idPostulante` int(11) NOT NULL,
-  `dni` text NOT NULL,
-  `nombre` text NOT NULL,
-  `apellidoPat` text NOT NULL,
-  `apellidoMat` text NOT NULL,
-  `fecha` date NOT NULL,
-  `foto` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `postulante`
---
-
-INSERT INTO `postulante` (`idPostulante`, `dni`, `nombre`, `apellidoPat`, `apellidoMat`, `fecha`, `foto`) VALUES
-(20, '73104785', 'ALEX FREDY', 'ESCALANTE', 'MARON', '2021-07-20', 'vistas/img/postulantes/20.jpg'),
-(21, '73104895', 'MARIA FLORES', 'GONZALES', 'APAZA', '1999-03-26', 'vistas/img/postulantes/21.jpg'),
-(22, '84759632', 'JAVIER', 'ESCALANTE', 'MARON', '2004-02-11', 'vistas/img/postulantes/22.jpg'),
-(23, '73104796', 'ANA', 'FLORES', 'FLORES', '2021-07-03', 'vistas/img/postulantes/23.jpg'),
-(24, '97845612', 'EDUARDO', 'LUJAN', 'BENITES', '2021-06-30', 'vistas/img/postulantes/24.jpg'),
-(25, '48484515', 'AXEL', 'MARCO', 'LIJAN', '2021-07-20', 'vistas/img/postulantes/25.png'),
-(26, '84795621', 'ROCIO', 'MARTINEZ', 'AZADA', '2015-05-06', 'vistas/img/postulantes/26.png'),
-(27, '84995567', 'CARLA', 'TINTAYA', 'ESQUIEL', '2025-05-07', 'vistas/img/postulantes/27.jpg'),
-(28, '88777744', 'NICOLAS', 'TESLA', 'ZUQUEMBER', '2021-07-21', 'vistas/img/postulantes/28.jpg'),
-(29, '99999965', 'ENRIQUE', 'ESCALANTE', 'CHOQUE', '2021-12-31', 'vistas/img/postulantes/29.jpg');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `postulantedetalle`
---
-
-CREATE TABLE `postulantedetalle` (
-  `idPostulanteD` int(11) NOT NULL,
-  `idPostulante` int(11) NOT NULL,
-  `genero` text NOT NULL,
-  `correo` text NOT NULL,
-  `celularOne` text NOT NULL,
-  `celularTwo` text NOT NULL,
-  `direccion` text NOT NULL,
-  `departamento` text NOT NULL,
-  `provincia` text NOT NULL,
-  `distrito` text NOT NULL,
-  `representante` text NOT NULL,
-  `dniR` text NOT NULL,
-  `correoR` text NOT NULL,
-  `parentescoR` text NOT NULL,
-  `direccionR` text NOT NULL,
-  `celularR` text NOT NULL,
-  `colegio` text NOT NULL,
-  `Ctipo` text NOT NULL,
-  `Cespecialidad` text NOT NULL,
-  `Cnota` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `postulantedetalle`
---
-
-INSERT INTO `postulantedetalle` (`idPostulanteD`, `idPostulante`, `genero`, `correo`, `celularOne`, `celularTwo`, `direccion`, `departamento`, `provincia`, `distrito`, `representante`, `dniR`, `correoR`, `parentescoR`, `direccionR`, `celularR`, `colegio`, `Ctipo`, `Cespecialidad`, `Cnota`) VALUES
-(11, 20, 'Hombre', 'alex@gmail.com', '978308584', '', 'AV. ORGULLO AYMARA Nº542 JAYLLIHUAYA', 'PUNO', 'PUNO', 'PUNO', 'LOURDES MARON MAMANI', '78451269', 'lourdes@gmail.com', 'madre', 'AV. ORGULLO AYMARA Nº542 JAYLLIHUAYA', '784515966', 'GRAN UNIDAD ESCOLAR SAN CARLOS PUNO', 'publico', 'ELECTRONICA', 15),
-(12, 21, 'Mujer', 'maria@gmail.com', '847596215', '', 'AV. LOS MANZANOS Nº632', 'PUNO', 'PUNO', 'JULIACA', 'JOSE CARLOS MANZANO LOPEZ', '78945615', 'jose@gmail.com', 'padre', 'AV. LAS MANZANAS', '784595621', 'SONTA ROSA', 'publico', '', 18),
-(13, 22, 'Hombre', 'javier@gmail.com', '784845454', '', 'AV. ORGULLO AYMARA Nº452 JAYLLIHUAYA', 'PUNO', 'PUNO', 'PUNO', 'ENRIQUE', '48516945', '', 'padre', '', '487515488', 'GLORIOSO SAN CARLOS', 'publico', '', 14),
-(14, 23, 'Mujer', 'ana@gmail.com', '784595555', '', 'AV.ORGULLO NUEVA ESPERANZA Nº675', 'PUNO', 'PUNO', 'PUNO', 'JOSE JOSE ANCANTARA', '84754122', '', 'padreP', '', '874544444', 'MIGUEL GRAU', 'particular', '', 18),
-(15, 24, 'Hombre', 'iets@gmail.com', '121231231', '', 'AV. EXAMPLE Nº231', 'PUNO', 'PUNO', 'PUNO', 'MARI', '78954545', '', 'hermano', '', '487855956', 'MARIA AUXILIADORA', 'publico', '', 19),
-(16, 25, 'Hombre', 'google@gmail.com', '874545454', '', 'AV. TRINIDAD Nº321', 'PUNO', 'PUNO', 'JULIACA', 'NICOLAS BERRAUNDE TITO', '78454545', '', 'padre', '', '488745455', 'DIVINO MAESTRO LA PRE', 'particular', '', 14),
-(17, 26, 'Mujer', 'rocio@gmail.com', '231231231', '234332423', 'AV. LOS ANDES Nº432', 'PUNO', 'PUNO', 'JULIACA', 'MARIA ROSA GUADALUPE', '78454896', '', 'madre', '', '875445454', 'SANTA ROSA DE LIMA', 'publico', '', 14),
-(18, 27, 'Mujer', 'CARLA@GMAIL.COM', '784584884', '878458484', 'AV. HOMEPAGE Nº453', 'PUNO', 'PUNO', 'PUNO', 'JHON POL VELEZ', '15478454', 'jhon@gmail.com', 'padre', 'AV. ORGULLO Nº122', '847885555', 'Nº 45', 'publico', 'NINGUNA', 11),
-(19, 28, 'Hombre', 'nicolas@gmil.com', '878787878', '', 'AV.LOS FLORALES', 'PUNO', 'PUNO', 'PUNO', 'JUAN FLORES RIQUELME', '88887777', '', 'padre', '', '124587564', 'ADVENTISTA', 'publico', '', 15),
-(20, 29, 'Hombre', 'enrique@gmail.com', '784545454', '', 'AV. ORGULLO AYMARA Nº452', 'PUNO', 'PNUO', 'PUNO', 'FROILAN MARON MAMANI', '88454125', 'froilan@gmail.com', 'tio', 'AV. LIMA Nº123', '789545454', 'GRAN UNIDAD ESCOLAR SAN CARLOS', 'publico', 'CARPINTERIA', 15);
+INSERT INTO `plantilla` (`id`, `barraSuperior`, `textoSuperior`, `colorFondo`, `colorTexto`, `logo`, `icono`, `redesSociales`, `apiFacebook`, `pixelFacebook`, `googleAnalytics`, `fecha`) VALUES
+(1, '#000000', '#ffffff', 'rgb(0, 160, 253)', '#ffffff', 'vistas/img/plantilla/logo.png', 'vistas/img/plantilla/icono.png', '[{\"red\":\"fa-facebook\",\"estilo\":\"facebookBlanco\",\"url\":\"http://facebook.com/\",\"activo\":1},{\"red\":\"fa-youtube\",\"estilo\":\"youtubeBlanco\",\"url\":\"http://youtube.com/\",\"activo\":1},{\"red\":\"fa-twitter\",\"estilo\":\"twitterBlanco\",\"url\":\"http://twitter.com/\",\"activo\":1},{\"red\":\"fa-google-plus\",\"estilo\":\"google-plusBlanco\",\"url\":\"http://google.com/\",\"activo\":1},{\"red\":\"fa-instagram\",\"estilo\":\"instagramBlanco\",\"url\":\"http://instagram.com/\",\"activo\":1}]', '\r\n      		<script>   window.fbAsyncInit = function() {     FB.init({       appId      : \'131737410786111\',       cookie     : true,       xfbml      : true,       version    : \'v2.10\'     });            FB.AppEvents.logPageView();             };    (function(d, s, id){      var js, fjs = d.getElementsByTagName(s)[0];      if (d.getElementById(id)) {return;}      js = d.createElement(s); js.id = id;      js.src = \"https://connect.facebook.net/en_US/sdk.js\";      fjs.parentNode.insertBefore(js, fjs);    }(document, \'script\', \'facebook-jssdk\'));  </script>\r\n      		', '\r\n  			<!-- Facebook Pixel Code --> 	<script> 	  !function(f,b,e,v,n,t,s) 	  {if(f.fbq)return;n=f.fbq=function(){n.callMethod? 	  n.callMethod.apply(n,arguments):n.queue.push(arguments)}; 	  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version=\'2.0\'; 	  n.queue=[];t=b.createElement(e);t.async=!0; 	  t.src=v;s=b.getElementsByTagName(e)[0]; 	  s.parentNode.insertBefore(t,s)}(window, document,\'script\', 	  \'https://connect.facebook.net/en_US/fbevents.js\'); 	  fbq(\'init\', \'131737410786111\'); 	  fbq(\'track\', \'PageView\'); 	</script> 	<noscript><img height=\"1\" width=\"1\" style=\"display:none\" 	  src=\"https://www.facebook.com/tr?id=149877372404434&ev=PageView&noscript=1\" 	/></noscript> <!-- End Facebook Pixel Code -->    \r\n  			', '  \r\n  				<!-- Global site tag (gtag.js) - Google Analytics --> 	<script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-999999-1\"></script> 	<script> 	  window.dataLayer = window.dataLayer || []; 	  function gtag(){dataLayer.push(arguments);} 	  gtag(\'js\', new Date());  	  gtag(\'config\', \'UA-9999999-1\'); 	</script>      \r\n            \r\n            \r\n            \r\n      ', '2021-02-22 02:16:53');
 
 -- --------------------------------------------------------
 
@@ -597,10 +482,10 @@ CREATE TABLE `problemas` (
 --
 
 INSERT INTO `problemas` (`idProblemas`, `num`, `descripcion`, `Ra`, `Rb`, `Rc`, `Rd`, `Re`, `idExamen`) VALUES
-(115, 1, 'alexEsc', 'fredy', 'aaa', 'aaa', 'aaa', 'aaa', 115),
-(116, 2, 'escalante maron', 'maron', 'jjkhuu', 'uuu', 'hjhh', 'h', 115),
-(117, 1, 'ESCALANTE', 'ADS', 'ASD', 'DAS', 'ASD', 'ASD', 122),
-(118, 2, 'MARON', 'GHJGH', 'GHF', 'DF', 'FGDFG', 'GH', 122);
+(97, 1, 'HOLA', '1a', '12', '33', '4r', '78y', 88),
+(98, 2, 'MUNDO', 'a1', '12', '3s', '56', 'd4', 88),
+(105, 1, 'Abel, Boris, Carlos y Daniel tienen cada uno una sola ocupación: uno de ellos es pintor, otro es cantante, otro es vendedor y otro es zapatero. Se sabe lo siguiente: – Abel y el pintor están enojados con Daniel. \n– Boris es amigo del cantante.\n– El zapatero es amigo de Daniel. \n– El vendedor es muy amigo de Carlos y del cantante. \n– Abel es zapatero desde muy joven. ¿Quién es el vendedor y cuál es la ocupación de Daniel?', 'Boris ‒ cantante', 'Boris ‒ vendedor', 'Carlos ‒ pintor', 'Daniel ‒ vendedor ', 'Carlos ‒ albañila', 82),
+(106, 2, 'Sobre las edades de Tomás, Juana y Joaquín se sabe lo siguiente: – Si Tomás no tiene la misma edad que Juana, entonces Tomás no tiene 18 años. – Si Juana no es menor de edad, entonces Joaquín tiene la misma edad que Juana. Si, además, se sabe que Tomás tiene 18 años, entonces es verdad que?...', 'Alex el mejor xd', 'Joaquín no tiene la misma edad que Tomás.', 'Tomás no tiene la misma edad que Juana.', 'Juana es menor de edad.', 'Joaquín tiene 18 años.', 82);
 
 -- --------------------------------------------------------
 
@@ -620,10 +505,10 @@ CREATE TABLE `solucion` (
 --
 
 INSERT INTO `solucion` (`idSolucion`, `num`, `sol`, `idExamen`) VALUES
-(341, 2, 4, 115),
-(342, 1, 5, 115),
-(343, 1, 2, 122),
-(344, 2, 3, 122);
+(323, 1, 2, 88),
+(324, 2, 4, 88),
+(331, 1, 5, 82),
+(332, 2, 1, 82);
 
 -- --------------------------------------------------------
 
@@ -720,15 +605,6 @@ ALTER TABLE `examen`
   ADD KEY `examen-admision` (`idAdmision`);
 
 --
--- Indices de la tabla `inscripciones`
---
-ALTER TABLE `inscripciones`
-  ADD PRIMARY KEY (`idInscripcion`),
-  ADD KEY `inscripAdmision` (`idAdmision`),
-  ADD KEY `inscripPostulant` (`idPostulante`),
-  ADD KEY `inscripAdmin` (`idAdmin`);
-
---
 -- Indices de la tabla `notificacion`
 --
 ALTER TABLE `notificacion`
@@ -740,19 +616,6 @@ ALTER TABLE `notificacion`
 --
 ALTER TABLE `plantilla`
   ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `postulante`
---
-ALTER TABLE `postulante`
-  ADD PRIMARY KEY (`idPostulante`);
-
---
--- Indices de la tabla `postulantedetalle`
---
-ALTER TABLE `postulantedetalle`
-  ADD PRIMARY KEY (`idPostulanteD`),
-  ADD KEY `postulanteRDetalle` (`idPostulante`);
 
 --
 -- Indices de la tabla `prestamos`
@@ -819,7 +682,7 @@ ALTER TABLE `comentarios`
 -- AUTO_INCREMENT de la tabla `cupos`
 --
 ALTER TABLE `cupos`
-  MODIFY `idCupos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=743;
+  MODIFY `idCupos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=723;
 
 --
 -- AUTO_INCREMENT de la tabla `detallearticulo`
@@ -837,19 +700,13 @@ ALTER TABLE `especialidad`
 -- AUTO_INCREMENT de la tabla `eventoadmision`
 --
 ALTER TABLE `eventoadmision`
-  MODIFY `idAdmision` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=163;
+  MODIFY `idAdmision` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=158;
 
 --
 -- AUTO_INCREMENT de la tabla `examen`
 --
 ALTER TABLE `examen`
-  MODIFY `idExamen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=124;
-
---
--- AUTO_INCREMENT de la tabla `inscripciones`
---
-ALTER TABLE `inscripciones`
-  MODIFY `idInscripcion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `idExamen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=114;
 
 --
 -- AUTO_INCREMENT de la tabla `notificacion`
@@ -862,18 +719,6 @@ ALTER TABLE `notificacion`
 --
 ALTER TABLE `plantilla`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT de la tabla `postulante`
---
-ALTER TABLE `postulante`
-  MODIFY `idPostulante` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
-
---
--- AUTO_INCREMENT de la tabla `postulantedetalle`
---
-ALTER TABLE `postulantedetalle`
-  MODIFY `idPostulanteD` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de la tabla `prestamos`
@@ -891,13 +736,13 @@ ALTER TABLE `prestamosarticulos`
 -- AUTO_INCREMENT de la tabla `problemas`
 --
 ALTER TABLE `problemas`
-  MODIFY `idProblemas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=119;
+  MODIFY `idProblemas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
 
 --
 -- AUTO_INCREMENT de la tabla `solucion`
 --
 ALTER TABLE `solucion`
-  MODIFY `idSolucion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=345;
+  MODIFY `idSolucion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=333;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
@@ -935,24 +780,10 @@ ALTER TABLE `examen`
   ADD CONSTRAINT `examen-admision` FOREIGN KEY (`idAdmision`) REFERENCES `eventoadmision` (`idAdmision`);
 
 --
--- Filtros para la tabla `inscripciones`
---
-ALTER TABLE `inscripciones`
-  ADD CONSTRAINT `inscripAdmin` FOREIGN KEY (`idAdmin`) REFERENCES `administradores` (`id`) ON DELETE SET NULL,
-  ADD CONSTRAINT `inscripAdmision` FOREIGN KEY (`idAdmision`) REFERENCES `eventoadmision` (`idAdmision`),
-  ADD CONSTRAINT `inscripPostulant` FOREIGN KEY (`idPostulante`) REFERENCES `postulante` (`idPostulante`);
-
---
 -- Filtros para la tabla `notificacion`
 --
 ALTER TABLE `notificacion`
   ADD CONSTRAINT `notf-art` FOREIGN KEY (`idDetalleArticulo`) REFERENCES `detallearticulo` (`idDetalleArticulo`) ON DELETE SET NULL ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `postulantedetalle`
---
-ALTER TABLE `postulantedetalle`
-  ADD CONSTRAINT `postulanteRDetalle` FOREIGN KEY (`idPostulante`) REFERENCES `postulante` (`idPostulante`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `prestamosarticulos`
