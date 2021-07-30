@@ -252,7 +252,7 @@ session_start();
 
         <!--<script src="vistas/js/plantilla.js"></script>-->
         <script src="vistas/js/gestorAdmision.js"></script>
-        <script src="vistas/js/gestorInscripcion.js"></script>
+
         <script src="vistas/js/gestorAdministradores.js"></script>
 
         <script src="vistas/js/gestorArticulos.js"></script>

@@ -1,7 +1,9 @@
 
-
 const formulario = document.getElementById('formulario');
 const inputs = document.querySelectorAll('#formulario input');
+
+const formularioE = document.getElementById('formularioE');
+const inputsE = document.querySelectorAll('#formularioE input');
 
 const expresiones = {
     dniT: /^\d{8,9}$/,
@@ -115,6 +117,68 @@ const validarFormulario = (e) => {
 	}
 }
 
+const validarFormularioE = (e) => {
+	switch (e.target.name) {
+		case "correoTE":
+			validarCampo(expresiones.correoT, e.target, 'correoTE');
+		break;
+		case "telefonoT1E":
+			validarCampo(expresiones.telefonoT1, e.target, 'telefonoT1E');
+		break;
+		case "telefonoT2E":
+			validarCampo(expresiones.telefonoT2, e.target, 'telefonoT2E');
+		break;
+        case "dniTE":
+			validarCampo(expresiones.dniT, e.target, 'dniTE');
+		break;
+		case "nombreTE":
+			validarCampo(expresiones.nombreT, e.target, 'nombreTE');
+		break;
+		case "apellidoTPE":
+			validarCampo(expresiones.apellidoTP, e.target, 'apellidoTPE');
+		break;
+		case "apellidoTME":
+			validarCampo(expresiones.apellidoTM, e.target, 'apellidoTME');
+		break;
+		case "direccionTE":
+			validarCampo(expresiones.direccionT, e.target, 'direccionTE');
+		break;
+		case "departamentoTE":
+			validarCampo(expresiones.departamentoT, e.target, 'departamentoTE');
+		break;
+		case "provinciaTE":
+			validarCampo(expresiones.provinciaT, e.target, 'provinciaTE');
+		break;
+		case "distritoTE":
+			validarCampo(expresiones.distritoT, e.target, 'distritoTE');
+		break;
+		case "nombreRE":
+			validarCampo(expresiones.nombreR, e.target, 'nombreRE');
+		break;
+		case "dniRE":
+			validarCampo(expresiones.dniR, e.target, 'dniRE');
+		break;
+		case "correoRE":
+			validarCampo(expresiones.correoR, e.target, 'correoRE');
+		break;
+		case "direccionRE":
+			validarCampo(expresiones.direccionR, e.target, 'direccionRE');
+		break;
+		case "telefonoR1E":
+			validarCampo(expresiones.telefonoR1, e.target, 'telefonoR1E');
+		break;
+		case "nombreColeE":
+			validarCampo(expresiones.nombreCole, e.target, 'nombreColeE');
+		break;
+		case "especialiAcadmE":
+			validarCampo(expresiones.especialiAcadm, e.target, 'especialiAcadmE');
+		break;
+		case "calAcadmE":
+			validarCampo(expresiones.calAcadm, e.target, 'calAcadmE');
+		break;
+	}
+}
+
 const validarCampo = (expresion, input, campo) => {
 	if(expresion.test(input.value)){
 		document.getElementById(`grupo__${campo}`).classList.remove('formulario__grupo-incorrecto');
@@ -132,6 +196,11 @@ const validarCampo = (expresion, input, campo) => {
 		campos[campo] = false;
 	}
 }
+
+
+/*======================================
+VARLIDA INGRESAR POSTULANTE
+======================================*/
 
 $("#Pespecialidad").change(function(){
     
@@ -202,6 +271,83 @@ $("#TEstAcademico").change(function(){
 	}
 })
 
+/*======================================
+VARLIDA EDITAR POSTULANTE
+======================================*/
+
+$("#PespecialidadE").change(function(){
+    
+	if($(this).val()==""){
+		document.getElementById(`grupo__PespecialidadE`).classList.add('formulario__grupo-incorrecto');
+		document.getElementById(`grupo__PespecialidadE`).classList.remove('formulario__grupo-correcto');
+		document.querySelector(`#grupo__PespecialidadE .formulario__input-error2`).classList.remove('formulario__input-error-activo');
+		document.querySelector(`#grupo__PespecialidadE .formulario__input-error`).classList.add('formulario__input-error-activo');
+        campos["Tpopcion"] = false;
+	}else if($(this).val()==$("#SespecialidadE").val()){
+		document.getElementById(`grupo__PespecialidadE`).classList.add('formulario__grupo-incorrecto');
+		document.getElementById(`grupo__PespecialidadE`).classList.remove('formulario__grupo-correcto');
+		document.querySelector(`#grupo__PespecialidadE .formulario__input-error`).classList.remove('formulario__input-error-activo');
+		document.querySelector(`#grupo__PespecialidadE .formulario__input-error2`).classList.add('formulario__input-error-activo');
+        campos["Tpopcion"] = false;
+	}else{
+		document.getElementById(`grupo__PespecialidadE`).classList.remove('formulario__grupo-incorrecto');
+		document.getElementById(`grupo__PespecialidadE`).classList.add('formulario__grupo-correcto');
+		document.querySelector(`#grupo__PespecialidadE .formulario__input-error`).classList.remove('formulario__input-error-activo');
+		document.querySelector(`#grupo__PespecialidadE .formulario__input-error2`).classList.remove('formulario__input-error-activo');
+        campos["Tpopcion"] = true;
+	}
+})
+
+$("#SespecialidadE").change(function(){
+	if($(this).val()==""){
+		document.getElementById(`grupo__SespecialidadE`).classList.add('formulario__grupo-incorrecto');
+		document.getElementById(`grupo__SespecialidadE`).classList.remove('formulario__grupo-correcto');
+		document.querySelector(`#grupo__SespecialidadE .formulario__input-error2`).classList.remove('formulario__input-error-activo');
+		document.querySelector(`#grupo__SespecialidadE .formulario__input-error`).classList.add('formulario__input-error-activo');
+        campos["Tsopcion"] = false;
+	}else if($(this).val()==$("#PespecialidadE").val()){
+		document.getElementById(`grupo__SespecialidadE`).classList.add('formulario__grupo-incorrecto');
+		document.getElementById(`grupo__SespecialidadE`).classList.remove('formulario__grupo-correcto');
+		document.querySelector(`#grupo__SespecialidadE .formulario__input-error`).classList.remove('formulario__input-error-activo');
+		document.querySelector(`#grupo__SespecialidadE .formulario__input-error2`).classList.add('formulario__input-error-activo');
+        campos["Tsopcion"] = false;
+	}else{
+		document.getElementById(`grupo__SespecialidadE`).classList.remove('formulario__grupo-incorrecto');
+		document.getElementById(`grupo__SespecialidadE`).classList.add('formulario__grupo-correcto');
+		document.querySelector(`#grupo__SespecialidadE .formulario__input-error`).classList.remove('formulario__input-error-activo');
+		document.querySelector(`#grupo__SespecialidadE .formulario__input-error2`).classList.remove('formulario__input-error-activo');
+        campos["Tsopcion"] = true;
+	}
+})
+
+$("#TpostulanteE").change(function(){
+	if($(this).val()==""){
+		validarCampoSelect(0, 'TpostulanteE');
+	}else{
+		validarCampoSelect(1, 'TpostulanteE');
+	}
+})
+
+$("#RparentescoE").change(function(){
+	if($(this).val()==""){
+		validarCampoSelect(0, 'RparentescoE');
+	}else{
+		validarCampoSelect(1, 'RparentescoE');
+	}
+})
+
+$("#TEstAcademicoE").change(function(){
+	if($(this).val()==""){
+		validarCampoSelect(0, 'TEstAcademicoE');
+	}else{
+		validarCampoSelect(1, 'TEstAcademicoE');
+	}
+})
+
+/*======================================
+VARLIDA CAMPOS SELECT
+======================================*/
+
 const validarCampoSelect = (val, campo) => {
 	if(val){
 		document.getElementById(`grupo__${campo}`).classList.remove('formulario__grupo-incorrecto');
@@ -221,13 +367,25 @@ inputs.forEach((input) => {
 	input.addEventListener('blur', validarFormulario);
 });
 
+inputsE.forEach((input) => {
+	input.addEventListener('keyup', validarFormularioE);
+	input.addEventListener('blur', validarFormularioE);
+});
+
+
 $(function () {
 
 	formulario.addEventListener('submit', (e) => {
 		e.preventDefault();
 	});
 
+	formularioE.addEventListener('submit', (e) => {
+		e.preventDefault();
+	});
+
 });
+
+
 /*=============================================
 SUBIENDO FOTOS
 =============================================*/
@@ -618,9 +776,7 @@ $('#tablaInscritos').on("click", ".btnActivar", function(){
 
 
 
-
-
-$(".btnVerInscripcion").click(function(){
+$('#tablaInscritos').on("click", ".btnVerInscripcion", function(){
 
 	var idInscripcion = $(this).attr("idInscripcion");
 
@@ -726,23 +882,15 @@ $(".btnVerInscripcion").click(function(){
 	})
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 })
+
+
+
+
+
+
+
+
+
+
+

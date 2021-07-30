@@ -625,7 +625,7 @@
                                                         <i class="fas fa-file-image"></i> &nbsp; ADD (10MB)
                                                     </label>
 
-                                                    <img src="vistas/img/perfiles/default/anonymous.png" class="previsualizarVaucherP" width="100%" style="border-radius:5px;border: 2px solid rgba(0, 0, 0, 0.3);">
+                                                    <img src="vistas/img/vaucher/default/Default.png" class="previsualizarVaucherP" width="100%" style="border-radius:5px;border: 2px solid rgba(0, 0, 0, 0.3);">
 
                                                 </div>
                                             </div>
@@ -1068,3 +1068,7 @@ document.addEventListener('DOMContentLoaded', function () {
   <!-- /.modal-dialog -->
 </div>
 <!-- /.modal -->
+
+
+
+<script src="vistas/js/gestorInscripcion.js"></script>
