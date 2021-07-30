@@ -620,3 +620,129 @@ $('#tablaInscritos').on("click", ".btnActivar", function(){
 
 
 
+$(".btnVerInscripcion").click(function(){
+
+	var idInscripcion = $(this).attr("idInscripcion");
+
+	var datos = new FormData();
+	datos.append("Ttabla", "inscripciones");
+	datos.append("Titem", "idInscripcion");
+	datos.append("TidV", idInscripcion);
+
+	$.ajax({
+
+		url:"ajax/inscripcion.ajax.php",
+		method: "POST",
+		data: datos,
+		cache: false,
+		contentType: false,
+		processData: false,
+		dataType: "json",
+		success: function(respuesta){
+			
+			var datos2 = new FormData();
+			datos2.append("Ttabla", "postulante");
+			datos2.append("Titem", "idPostulante");
+			datos2.append("TidV", respuesta["idPostulante"]);
+
+			$.ajax({
+
+				url:"ajax/inscripcion.ajax.php",
+				method: "POST",
+				data: datos2,
+				cache: false,
+				contentType: false,
+				processData: false,
+				dataType: "json",
+				success: function(resp){
+					
+					var datos3 = new FormData();
+					datos3.append("Ttabla", "postulantedetalle");
+					datos3.append("Titem", "idPostulante");
+					datos3.append("TidV", respuesta["idPostulante"]);
+
+					$.ajax({
+
+						url:"ajax/inscripcion.ajax.php",
+						method: "POST",
+						data: datos3,
+						cache: false,
+						contentType: false,
+						processData: false,
+						dataType: "json",
+						success: function(respDet){
+							
+							$("#modalVerInscripcion .Popcion").val(respuesta["Popcion"]);
+							$("#modalVerInscripcion .Sopcion").val(respuesta["Sopcion"]);
+							$("#modalVerInscripcion .Tpostulacion").val(respuesta["Tpostulacion"]);
+							$("#modalVerInscripcion .previsualizarVaucherP").attr("src", respuesta["vaucher"]);
+
+							$("#modalVerInscripcion .previsualizarPerfilT").attr("src", resp["foto"]);
+
+							const genero = document.getElementById('generoTT');
+							if(respDet["genero"]=="Mujer"){
+								if(genero.checked){
+									$("#modalVerInscripcion #generoTT").trigger("click");
+								}
+							}else{
+								if(!genero.checked){
+									$("#modalVerInscripcion #generoTT").trigger("click");
+								}
+							}
+
+							$("#modalVerInscripcion .nombresApellidos").val(resp["nombre"]+ " "+resp["apellidoPat"]+" "+resp["apellidoMat"]);
+							$("#modalVerInscripcion .dniT").val(resp["dni"]);
+							$("#modalVerInscripcion .fechaT").val(resp["fecha"]);
+							
+							$("#modalVerInscripcion .correoT").val(respDet	["correo"]);
+							$("#modalVerInscripcion .cel1T").val(respDet["celularOne"]);
+							$("#modalVerInscripcion .cel2T").val(respDet["celularTwo"]);
+							$("#modalVerInscripcion .direccionT").val(respDet["direccion"]);
+							$("#modalVerInscripcion .localizaT").val(respDet["departamento"]+" - "+respDet["provincia"]+" - "+respDet["distrito"]);
+							$("#modalVerInscripcion .nombreR").val(respDet["representante"]);
+							$("#modalVerInscripcion .parentescoR").val(respDet["parentescoR"]);
+							$("#modalVerInscripcion .correoR").val(respDet["correoR"]);
+							$("#modalVerInscripcion .direccionR").val(respDet["direccionR"]);
+							$("#modalVerInscripcion .dniR").val(respDet["dniR"]);
+							$("#modalVerInscripcion .celR").val(respDet["celularR"]);
+
+							$("#modalVerInscripcion .colegio").val(respDet["colegio"]);
+							$("#modalVerInscripcion .Ctipo").val(respDet["Ctipo"]);
+							$("#modalVerInscripcion .Cespecialidad").val(respDet["Cespecialidad"]);
+							$("#modalVerInscripcion .nota").val(respDet["Cnota"]);
+
+						}
+
+					})
+
+					
+							
+				}
+
+			})
+					
+		}
+
+	})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+})

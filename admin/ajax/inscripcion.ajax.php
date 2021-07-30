@@ -108,6 +108,26 @@ class AjaxInscripcion{
 
 	}
 
+	/*=============================================
+	TRAER INSCRIPCION
+	=============================================*/	
+
+	public $Ttabla;
+	public $Titem;
+	public $TidV;
+
+	public function ajaxTraer(){
+
+		$tabla = $this->Ttabla;
+		$item = $this->Titem;
+		$valor = $this->TidV;
+
+		$respuesta = ControladorInscripcion::ctrMostrarInfo($tabla, $item, $valor);
+
+		echo json_encode($respuesta);
+
+	}
+
  }
 
 
@@ -189,5 +209,19 @@ if(isset($_POST["activarInscrip"])){
 	$actI -> Tpopcion = $_POST["activarInscrip"];
 	$actI -> idEvento = $_POST["activarIdI"];
 	$actI -> ajaxActivarInscripcion();
+
+}
+
+
+/*=============================================
+TRAER INSCRIPCION
+=============================================*/
+if(isset($_POST["Ttabla"])){
+
+	$traerI = new AjaxInscripcion();
+	$traerI -> Ttabla = $_POST["Ttabla"];
+	$traerI -> Titem = $_POST["Titem"];
+	$traerI -> TidV = $_POST["TidV"];
+	$traerI -> ajaxTraer();
 
 }

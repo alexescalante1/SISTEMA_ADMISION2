@@ -1,3 +1,8 @@
+<?php 
+
+    $especiali = ControladorAdmision::ctrMostrar("especialidad",null, null);
+
+?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
@@ -192,26 +197,6 @@
       </div>
       <div class="modal-body">
           
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-          <hr>
-
           <div class="row">
 
             <div class="col-md-10">
@@ -224,17 +209,37 @@
                     </div>
                     <div class="form-group">
                         <label>PRIMERA OPCION</label>
-                        <input type="text" class="form-control def-input" value="" readonly>
+                        <select class="form-control def-input Popcion" disabled="disabled">
+                            <option value="">SELECCIONAR ESPECIALIDAD</option>
+                            <?php
+                                foreach($especiali as $key => $value){
+                                    echo '<option value="'.$value["idEspecialidad"].'">'.$value["titulo"].'</option>';
+                                }
+                            ?>
+                        </select>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>TIPO DE POSTULACION</label>
-                        <input type="text" class="form-control def-input" value="" readonly>
+                        <select class="form-control def-input Tpostulacion" disabled="disabled">
+                            <option value="">SELECCIONAR TIPO</option>
+                            <option value="normal">NORMAL</option>
+                            <option value="beca">BECADO</option>
+                            <option value="trasIn">TRASLADO INTERNO</option>
+                            <option value="trasEx">TRASLADO EXTERNO</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label>SEGUNDA OPCION</label>
-                        <input type="text" class="form-control def-input" value="" readonly>
+                        <select class="form-control def-input Sopcion" disabled="disabled">
+                            <option value="">SELECCIONAR ESPECIALIDAD</option>
+                            <?php
+                                foreach($especiali as $key => $value){
+                                    echo '<option value="'.$value["idEspecialidad"].'">'.$value["titulo"].'</option>';
+                                }
+                            ?>
+                        </select>
                     </div>
                 </div>
 
@@ -262,19 +267,19 @@
                     <div class="col-md-6">
                       <div class="form-group">
                           <label>NOMBRES Y APELLIDOS</label>
-                          <input type="text" class="form-control def-input" value="" readonly>
+                          <input type="text" class="form-control def-input nombresApellidos" value="" readonly>
                       </div>
                     </div>
                     <div class="col-md-3">
                       <div class="form-group">
                           <label>DOCUMENTO DE IDENTIDAD</label>
-                          <input type="text" class="form-control def-input" value="" readonly>
+                          <input type="text" class="form-control def-input dniT" value="" readonly>
                       </div>  
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
                             <label>FECHA DE NACIMIENTO</label>
-                            <input type="text" class="form-control def-input" value="" readonly>
+                            <input type="text" class="form-control def-input fechaT" value="" readonly>
                         </div>      
                     </div>
                 </div>
@@ -283,19 +288,19 @@
                     <div class="col-md-6">
                       <div class="form-group">
                           <label>CORREO ELECTRONICO</label>
-                          <input type="text" class="form-control def-input" value="" readonly>
+                          <input type="text" class="form-control def-input correoT" value="" readonly>
                       </div>
                     </div>
                     <div class="col-md-3">
                       <div class="form-group">
                           <label>CELULAR 1</label>
-                          <input type="text" class="form-control def-input" value="" readonly>
+                          <input type="text" class="form-control def-input cel1T" value="" readonly>
                       </div>
                     </div>
                     <div class="col-md-3">
                       <div class="form-group">
                           <label>CELULAR 2</label>
-                          <input type="text" class="form-control def-input" value="" readonly>
+                          <input type="text" class="form-control def-input cel2T" value="" readonly>
                       </div>
                     </div>
                 </div>
@@ -304,13 +309,13 @@
                     <div class="col-md-6">
                       <div class="form-group">
                           <label>DIRECCION DOMICILIARIA</label>
-                          <input type="text" class="form-control def-input" value="" readonly>
+                          <input type="text" class="form-control def-input direccionT" value="" readonly>
                       </div>  
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
                         <label>LOCALIZACION</label>
-                        <input type="text" class="form-control def-input" value="PUNO-PUNO-PUNO" readonly>
+                        <input type="text" class="form-control def-input localizaT" value="PUNO-PUNO-PUNO" readonly>
                       </div>
                     </div>
                 </div>
@@ -331,7 +336,7 @@
                 <div class="centradoH">
                     <div class="form-group float-right">
                         <div class="input-group mb-3">
-                        <input id="generoT" type="checkbox" name="my-checkbox" checked data-bootstrap-switch data-off-color="danger" data-on-color="info" data-on-text="MASCULINO" data-off-text="FEMENINO" readonly>
+                        <input id="generoTT" type="checkbox" name="my-checkbox" checked data-bootstrap-switch data-off-color="danger" data-on-color="info" data-on-text="MASCULINO" data-off-text="FEMENINO" readonly>
                         </div>
                     </div>
                 </div>
@@ -348,14 +353,24 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <label>NOMBRES Y APELLIDOS DEL REPRESENTANTE</label>
-                      <input type="text" class="form-control def-input" value="" readonly>
+                      <input type="text" class="form-control def-input nombreR" value="" readonly>
                     </div>
                   </div>
 
                   <div class="col-md-6">
                     <div class="form-group">
                       <label>PARENTESCO</label>
-                      <input type="text" class="form-control def-input" value="" readonly>
+                      <select class="formulario__input form-control def-input parentescoR" disabled="disabled">
+                            <option value="">SELECCIONAR</option>
+                            <option value="padre">PADRE</option>
+                            <option value="madre">MADRE</option>
+                            <option value="padreP">PADRE POLITICO</option>
+                            <option value="madreP">MADRE POLITICO</option>
+                            <option value="hermano">HERMAN@</option>
+                            <option value="tio">TIO@ </option>
+                            <option value="otro">OTRO PARENTESCO</option>
+                            <option value="sin">SIN PARENTESCO</option>
+                        </select>
                     </div>
                   </div>
               </div>
@@ -364,14 +379,14 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <label>CORREO ELECTRONICO DEL REPRESENTANTE</label>
-                      <input type="text" class="form-control def-input" value="" readonly>
+                      <input type="text" class="form-control def-input correoR" value="" readonly>
                     </div>
                   </div>
 
                   <div class="col-md-6">
                     <div class="form-group">
                       <label>DIRECCION DOMICILIARIA DEL REPRESENTANTE</label>
-                      <input type="text" class="form-control def-input" value="" readonly>
+                      <input type="text" class="form-control def-input direccionR" value="" readonly>
                     </div>
                   </div>
               </div>
@@ -380,21 +395,25 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <label>COLEGIO EN QUE SE GRADUO</label>
-                      <input type="text" class="form-control def-input" value="" readonly>
+                      <input type="text" class="form-control def-input colegio" value="" readonly>
                     </div>
                   </div>
 
                   <div class="col-md-3">
                     <div class="form-group">
                       <label>TIPO DE ESTABLECIMIENTO</label>
-                      <input type="text" class="form-control def-input" value="" readonly>
+                      <select class="form-control def-input Ctipo" disabled="disabled">
+                            <option value="">SELECCIONAR</option>
+                            <option value="publico">PUBLICO</option>
+                            <option value="particular">PRIVADO</option>
+                        </select>
                     </div>
                   </div>
 
                   <div class="col-md-3">
                     <div class="form-group">
                       <label>ESPECIALIDAD</label>
-                      <input type="text" class="form-control def-input" value="" readonly>
+                      <input type="text" class="form-control def-input Cespecialidad" value="" readonly>
                     </div>
                   </div>
 
@@ -406,48 +425,22 @@
             <div class="col-md-2">
                 <div class="form-group">
                   <label>DNI R</label>
-                  <input type="text" class="form-control def-input" value="" readonly>
+                  <input type="text" class="form-control def-input dniR" value="" readonly>
                 </div>                           
                 <div class="form-group">
                   <label>CELULAR R</label>
-                  <input type="text" class="form-control def-input" value="" readonly>
+                  <input type="text" class="form-control def-input celR" value="" readonly>
                 </div>
 
 
                 <div class="form-group">
                   <label>NOTA</label>
-                  <input type="text" class="form-control def-input" value="" readonly>
+                  <input type="text" class="form-control def-input nota" value="" readonly>
                 </div>
 
             </div>
 
           </div>
-
-
-
-
-
-              <div class="row">
-                  <div class="col-md-8">
-
-                  </div>
-
-                  <div class="col-md-4">
-
-                  </div>
-              </div>
-
-              <div class="row">
-                  <div class="col-md-8">
-
-                  </div>
-
-                  <div class="col-md-4">
-
-                  </div>
-              </div>
-
-
 
         
       </div>

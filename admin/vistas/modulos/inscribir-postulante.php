@@ -730,8 +730,8 @@
                                             }
                                     
                                             $estado = "<button class='btn btn-xs btnActivar ".$colorEstado."' style='width:70px;' idInscripcion='".$value["idInscripcion"]."' estadoInscripcion='".$estadoI."'>".$textoEstado."</button>";
-                                            $acciones = "<div class='btn-group'><button class='btn btn-success btnVerInscripcion' idPostulante='".$value["idPostulante"]."' data-toggle='modal' data-target='#modalVerInscripcion'><i class='fa fa-eye'></i></button><button class='btn btn-warning btnEditarInscripcion' idPostulante='".$value["idPostulante"]."' data-toggle='modal' data-target='#modalEditarInscripcion'><i class='fa fa-edit'></i></button></div>";
-
+                                            
+                                            $acciones = "<div class='btn-group'><button class='btn btn-success btnVerInscripcion' idInscripcion='".$value["idInscripcion"]."' data-toggle='modal' data-target='#modalVerInscripcion'><i class='fa fa-eye'></i></button><button class='btn btn-warning btnEditarInscripcion' idPostulante='".$value["idPostulante"]."' data-toggle='modal' data-target='#modalEditarInscripcion'><i class='fa fa-edit'></i></button></div>";
                                             echo '
                                               <tr>
                                                 <td>'.$key.'</td>
@@ -796,3 +796,275 @@ document.addEventListener('DOMContentLoaded', function () {
 })
 
 </script>
+
+
+
+
+<div class="modal fade" id="modalVerInscripcion">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">POSTULANTE</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          
+          <div class="row">
+
+            <div class="col-md-10">
+              <div class="row">
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>INSCRIPCION EN:</label>
+                        <input type="text" class="form-control def-input" value="<?php echo $rutaEventos["titulo"]; ?>" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>PRIMERA OPCION</label>
+                        <select class="form-control def-input Popcion" disabled="disabled">
+                            <option value="">SELECCIONAR ESPECIALIDAD</option>
+                            <?php
+                                foreach($especiali as $key => $value){
+                                    echo '<option value="'.$value["idEspecialidad"].'">'.$value["titulo"].'</option>';
+                                }
+                            ?>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>TIPO DE POSTULACION</label>
+                        <select class="form-control def-input Tpostulacion" disabled="disabled">
+                            <option value="">SELECCIONAR TIPO</option>
+                            <option value="normal">NORMAL</option>
+                            <option value="beca">BECADO</option>
+                            <option value="trasIn">TRASLADO INTERNO</option>
+                            <option value="trasEx">TRASLADO EXTERNO</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>SEGUNDA OPCION</label>
+                        <select class="form-control def-input Sopcion" disabled="disabled">
+                            <option value="">SELECCIONAR ESPECIALIDAD</option>
+                            <?php
+                                foreach($especiali as $key => $value){
+                                    echo '<option value="'.$value["idEspecialidad"].'">'.$value["titulo"].'</option>';
+                                }
+                            ?>
+                        </select>
+                    </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="col-md-2">
+              <div class="form-group">
+                  <label class="formulario__label">VAUCHER DE PAGO</label>
+                  <div class="input-group mb-3">
+                  
+                      <img src="vistas/img/perfiles/default/anonymous.png" class="previsualizarVaucherP" width="100%" style="border-radius:5px;border: 2px solid rgba(0, 0, 0, 0.3);">
+
+                  </div>
+              </div>
+            </div>
+
+          </div>
+          
+          <div class="row">
+
+            <div class="col-md-10">
+                
+                <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                          <label>NOMBRES Y APELLIDOS</label>
+                          <input type="text" class="form-control def-input nombresApellidos" value="" readonly>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="form-group">
+                          <label>DOCUMENTO DE IDENTIDAD</label>
+                          <input type="text" class="form-control def-input dniT" value="" readonly>
+                      </div>  
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>FECHA DE NACIMIENTO</label>
+                            <input type="text" class="form-control def-input fechaT" value="" readonly>
+                        </div>      
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                          <label>CORREO ELECTRONICO</label>
+                          <input type="text" class="form-control def-input correoT" value="" readonly>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="form-group">
+                          <label>CELULAR 1</label>
+                          <input type="text" class="form-control def-input cel1T" value="" readonly>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="form-group">
+                          <label>CELULAR 2</label>
+                          <input type="text" class="form-control def-input cel2T" value="" readonly>
+                      </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                          <label>DIRECCION DOMICILIARIA</label>
+                          <input type="text" class="form-control def-input direccionT" value="" readonly>
+                      </div>  
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label>LOCALIZACION</label>
+                        <input type="text" class="form-control def-input localizaT" value="PUNO-PUNO-PUNO" readonly>
+                      </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-2">
+
+                <div class="form-group">
+                    <label class="formulario__label">* FOTO DE PERFIL</label>
+                    <div class="input-group mb-3">
+                    
+                        <img src="vistas/img/perfiles/default/anonymous.png" class="previsualizarPerfilT" width="100%" style="border-radius:5px;border: 2px solid rgba(0, 0, 0, 0.3);">
+
+                    </div>
+                </div>
+                
+                <div class="centradoH">
+                    <div class="form-group float-right">
+                        <div class="input-group mb-3">
+                        <input id="generoTT" type="checkbox" name="my-checkbox" checked data-bootstrap-switch data-off-color="danger" data-on-color="info" data-on-text="MASCULINO" data-off-text="FEMENINO" readonly>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+          </div>
+
+          <div class="row">
+
+            <div class="col-md-10">
+              <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>NOMBRES Y APELLIDOS DEL REPRESENTANTE</label>
+                      <input type="text" class="form-control def-input nombreR" value="" readonly>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>PARENTESCO</label>
+                      <select class="formulario__input form-control def-input parentescoR" disabled="disabled">
+                            <option value="">SELECCIONAR</option>
+                            <option value="padre">PADRE</option>
+                            <option value="madre">MADRE</option>
+                            <option value="padreP">PADRE POLITICO</option>
+                            <option value="madreP">MADRE POLITICO</option>
+                            <option value="hermano">HERMAN@</option>
+                            <option value="tio">TIO@ </option>
+                            <option value="otro">OTRO PARENTESCO</option>
+                            <option value="sin">SIN PARENTESCO</option>
+                        </select>
+                    </div>
+                  </div>
+              </div>
+
+              <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>CORREO ELECTRONICO DEL REPRESENTANTE</label>
+                      <input type="text" class="form-control def-input correoR" value="" readonly>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>DIRECCION DOMICILIARIA DEL REPRESENTANTE</label>
+                      <input type="text" class="form-control def-input direccionR" value="" readonly>
+                    </div>
+                  </div>
+              </div>
+
+              <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>COLEGIO EN QUE SE GRADUO</label>
+                      <input type="text" class="form-control def-input colegio" value="" readonly>
+                    </div>
+                  </div>
+
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label>TIPO DE ESTABLECIMIENTO</label>
+                      <select class="form-control def-input Ctipo" disabled="disabled">
+                            <option value="">SELECCIONAR</option>
+                            <option value="publico">PUBLICO</option>
+                            <option value="particular">PRIVADO</option>
+                        </select>
+                    </div>
+                  </div>
+
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label>ESPECIALIDAD</label>
+                      <input type="text" class="form-control def-input Cespecialidad" value="" readonly>
+                    </div>
+                  </div>
+
+
+              </div>
+
+            </div>
+
+            <div class="col-md-2">
+                <div class="form-group">
+                  <label>DNI R</label>
+                  <input type="text" class="form-control def-input dniR" value="" readonly>
+                </div>                           
+                <div class="form-group">
+                  <label>CELULAR R</label>
+                  <input type="text" class="form-control def-input celR" value="" readonly>
+                </div>
+
+
+                <div class="form-group">
+                  <label>NOTA</label>
+                  <input type="text" class="form-control def-input nota" value="" readonly>
+                </div>
+
+            </div>
+
+          </div>
+
+        
+      </div>
+      <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-default" data-dismiss="modal">CERRAR</button>
+        <button type="button" class="btn btn-primary">IMPRIMIR CONSTANCIA</button>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
