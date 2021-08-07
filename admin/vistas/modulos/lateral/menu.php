@@ -6,7 +6,7 @@ MENU
 
 <!-- SidebarSearch Form -->
 <div class="form-inline">
-  <div class="input-group" data-widget="sidebar-search">
+  <div class="input-group" data-widget="sidebar-search"  style="margin-top: 10px;">
     <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
     <div class="input-group-append">
       <button class="btn btn-sidebar">
@@ -89,32 +89,6 @@ MENU
         
       </ul>
     </li>
-    
-
-
-
-
-
-    <li class="nav-header">INVENTARIO</li>
-
-    <?php
-
-      if($_SESSION["perfil"] == "administrador"){
-
-        echo '
-          <li class="nav-item">
-            <a href="articulos" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                Gestor Articulos
-              </p>
-            </a>
-          </li>
-        ';
-
-      }
-
-    ?>
     
 
     <li class="nav-header">GESTOR DE CUENTAS</li>

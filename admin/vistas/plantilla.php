@@ -81,13 +81,13 @@ session_start();
 
  if(isset($_SESSION["validarSesionBackend"]) && $_SESSION["validarSesionBackend"] === "ok"){
 
+  
     echo '<div class="wrapper">
    
     <!-- Preloader -->
     <div class="preloader flex-column justify-content-center align-items-center">
-      <h2 style="font-weight: bold;" class="animation__wobble">LOADING...</h2>
+      <h2 style="font-weight: bold;" class="animation__wobble">:V</h2>
     </div>
-    
     
     ';
 
@@ -111,9 +111,6 @@ session_start();
 
      $rutas = array();
 
-     $infoArticulos = null;//ELIMINAR
-     $infoArticulosP = null;//ELIMINAR
-
      if(isset($_GET["ruta"])){
 
         $rutas = explode("/", $_GET["ruta"]);
@@ -123,16 +120,12 @@ session_start();
         URL'S AMIGABLES IFO ARTICULOS
         =============================================*/
 
-        $rutaArticulos = ControladorArticulos::ctrMostrarInfoArticulo($item, $rutas[0]);
-
         $rutaEventos = ControladorAdmision::ctrMostrarInfoAdmision($item, $rutas[0]);
 
         if($_GET["ruta"]== "inicio" ||
            $_GET["ruta"]== "inscripcion" ||
            $_GET["ruta"]== "evento" ||
-           $_GET["ruta"]== "usuarios" ||
            $_GET["ruta"]== "perfiles" ||
-           $_GET["ruta"]== "articulos" ||
            $_GET["ruta"]== "salir"){
 
           include "modulos/".$_GET["ruta"].".php";
@@ -163,41 +156,9 @@ session_start();
     
               }else{
 
-                  if($rutas[0] == $rutaArticulos["ruta"]){
-
-                    $infoArticulos = $rutas[0];
-                    include "modulos/infoarticulos.php";
-          
-                  }else{
-          
-                    $newphrase = str_replace("-prestamo", "", $rutas[0]);
-          
-                    $rutaArticulos = ControladorArticulos::ctrMostrarInfoArticulo($item, $newphrase);
-                  
-                    if($newphrase == $rutaArticulos["ruta"]){
-                      
-                      $infoArticulosP = $rutaArticulos["ruta"];
-                      include "modulos/infoarticulos-prestamo.php";
-          
-                    }else{
-        
-                      include "modulos/error404.php";
-            
-                    }
-                    
-                  }
-
+                include "modulos/error404.php";
+      
               }
-
-
-
-
-
-
-
-
-
-
     
             }
 
@@ -214,8 +175,6 @@ session_start();
 
        include "modulos/inicio.php";
 
-       /*include "modulos/infoarticulos.php";
-      */
      }
 
     /*=============================================
@@ -237,26 +196,13 @@ session_start();
 ?>
 
 
-
-
-
-
-
-
-
-
-
         <!--=====================================
         JS PERSONALIZADO
         ======================================-->
 
         <!--<script src="vistas/js/plantilla.js"></script>-->
         <script src="vistas/js/gestorAdmision.js"></script>
-
         <script src="vistas/js/gestorAdministradores.js"></script>
-
-        <script src="vistas/js/gestorArticulos.js"></script>
-        <script src="vistas/js/gestorUsuarios.js"></script>
         <script src="vistas/js/gestorNotificaciones.js"></script>
         
         <!-- ./wrapper -->
@@ -287,17 +233,6 @@ session_start();
         <script src="vistas/dist/js/demo2.js"></script>-->
         <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
         <script src="vistas/dist/js/pages/dashboard2.js"></script>
-
-
-
-
-
-
-        
-
-
-
-
 
 
         

@@ -1,18 +1,18 @@
  <?php
 
-$usuarios = ControladorUsuarios::ctrMostrarTotalUsuarios("fecha");
+$admin = ControladorAdministradores::ctrMostrarAdministradores(null, null);
 $url = Ruta::ctrRutaServidor();
 
 ?>
 
 <!--=====================================
-ÚLTIMOS USUARIOS
+ÚLTIMOS admin
 ======================================-->
 
 <!-- USERS LIST -->
 <div class="card">
 	<div class="card-header">
-	<h3 class="card-title">Ultimos Usuarios</h3>
+	<h3 class="card-title">Ultimos admin</h3>
 
 	<div class="card-tools">
 		<span class="badge badge-danger">8 New Members</span>
@@ -29,22 +29,21 @@ $url = Ruta::ctrRutaServidor();
 	<ul class="users-list clearfix">
 
 
-
 		<?php
 
-			if(count($usuarios) > 8){
-				$totalUsuarios = 8;
+			if(count($admin) > 4){
+				$totaladmin = 4;
 			}else{
-				$totalUsuarios = count($usuarios);
+				$totaladmin = count($admin);
 			}
 
-			for($i = 0; $i < $totalUsuarios; $i ++){
+			for($i = 0; $i < $totaladmin; $i ++){
 
-				if($usuarios[$i]["foto"] != ""){
+				if($admin[$i]["foto"] != ""){
 					echo '
 					<li>
-						<img src="'.$url.$usuarios[$i]["foto"].'" alt="User Image">
-						<a class="users-list-name" href="#">'.$usuarios[$i]["nombre"].'</a>
+						<img src="'.$url.$admin[$i]["foto"].'" alt="User Image">
+						<a class="users-list-name" href="#">'.$admin[$i]["nombre"].'</a>
 						<span class="users-list-date">Hoy</span>
 					</li>
 					';
@@ -52,8 +51,8 @@ $url = Ruta::ctrRutaServidor();
 				}else{
 					echo '
 					<li>
-						<img src="vistas/img/usuarios/default/anonymous.png" alt="User Image">
-						<a class="users-list-name" href="#">'.$usuarios[$i]["nombre"].'</a>
+						<img src="vistas/img/perfiles/default/anonymous.png" alt="User Image">
+						<a class="users-list-name" href="#">'.$admin[$i]["nombre"].'</a>
 						<span class="users-list-date">Hoy</span>
 					</li>
 					';
@@ -68,7 +67,7 @@ $url = Ruta::ctrRutaServidor();
 	</div>
 	<!-- /.card-body -->
 	<div class="card-footer text-center">
-	<a href="usuarios">View All Users</a>
+	<a href="perfiles">View All Users</a>
 	</div>
 	<!-- /.card-footer -->
 </div>

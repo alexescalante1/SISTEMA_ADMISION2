@@ -7,9 +7,9 @@ if($_SESSION["perfil"] != "administrador"){
 }
 
 $nuevasNotificaciones = ControladorNotificacionesM::ctrContarNotificaciones("notificacion","visto", 0);
-$usuariosMorosos = ControladorNotificacionesM::ctrContarNotificaciones("usuarios","verificacion", 1);
+$adminBaja = ControladorNotificacionesM::ctrContarNotificaciones("administradores","estado", 0);
 
-$totalNotificaciones = $usuariosMorosos[0] + $nuevasNotificaciones[0];
+$totalNotificaciones = $adminBaja[0] + $nuevasNotificaciones[0];
 
 ?>
 
@@ -32,8 +32,8 @@ NOTIFICACIONES
 	</a>
 
 	<div class="dropdown-divider"></div>
-	<a href="usuarios" class="dropdown-item">
-	<i class="fas fa-users mr-2"></i> <?php  echo $usuariosMorosos[0]; ?> Usuarios Morosos
+	<a href="perfiles" class="dropdown-item">
+	<i class="fas fa-users mr-2"></i> <?php  echo $adminBaja[0]; ?> Admins Baja
 	<span class="float-right text-muted text-sm">12 hours</span>
 	</a>
 
