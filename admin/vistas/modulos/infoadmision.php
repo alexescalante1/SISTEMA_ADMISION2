@@ -745,7 +745,7 @@
 MODAL AGREGAR NUEVO TIPO PRUEBA
 ===============================================================================================================================================================================================================================-->
 
-  <div class="modal fade" id="modalAgregarTipoPrueba">
+<div class="modal fade" id="modalAgregarTipoPrueba">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">

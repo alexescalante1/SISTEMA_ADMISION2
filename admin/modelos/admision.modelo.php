@@ -229,65 +229,6 @@ class ModeloAdmision{
 
 
 	/*=============================================
-	CREAR SOL
-	=============================================*/
-
-	static public function mdlIngresarSol($tabla, $datos){
-
-		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(num, sol, idExamen) VALUES (:num, :sol, :idExamen)");
-
-		$stmt->bindParam(":num", $datos["num"], PDO::PARAM_STR);
-		$stmt->bindParam(":sol", $datos["sol"], PDO::PARAM_STR);
-		$stmt->bindParam(":idExamen", $datos["idExamen"], PDO::PARAM_STR);
-
-		if($stmt->execute()){
-
-			return "ok";
-
-		}else{
-
-			return "error";
-		
-		}
-
-		$stmt->close();
-		$stmt = null;
-
-	}
-
-	/*=============================================
-	CREAR EJERCICIOS
-	=============================================*/
-
-	static public function mdlIngresarEjerc($tabla, $datos){
-
-		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(num, descripcion, Ra, Rb, Rc, Rd, Re, idExamen) VALUES (:num, :descripcion, :Ra, :Rb, :Rc, :Rd, :Re, :idExamen)");
-
-		$stmt->bindParam(":num", $datos["num"], PDO::PARAM_STR);
-		$stmt->bindParam(":descripcion", $datos["descripcion"], PDO::PARAM_STR);
-		$stmt->bindParam(":Ra", $datos["Ra"], PDO::PARAM_STR);
-		$stmt->bindParam(":Rb", $datos["Rb"], PDO::PARAM_STR);
-		$stmt->bindParam(":Rc", $datos["Rc"], PDO::PARAM_STR);
-		$stmt->bindParam(":Rd", $datos["Rd"], PDO::PARAM_STR);
-		$stmt->bindParam(":Re", $datos["Re"], PDO::PARAM_STR);
-		$stmt->bindParam(":idExamen", $datos["idExamen"], PDO::PARAM_STR);
-
-		if($stmt->execute()){
-
-			return "ok";
-
-		}else{
-
-			return "error";
-		
-		}
-
-		$stmt->close();
-		$stmt = null;
-
-	}
-
-	/*=============================================
 	VALIDAR
 	=============================================*/
 

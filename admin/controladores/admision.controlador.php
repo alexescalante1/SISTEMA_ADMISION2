@@ -123,47 +123,6 @@ class ControladorAdmision{
 	}
 
 	/*=============================================
-	CREAR SOL
-	=============================================*/
-
-	static public function ctrCrearSol($datos){
-		
-		$datos = array(
-			"num"=>$datos["num"],
-			"sol"=>$datos["sol"],
-			"idExamen"=>$datos["idExamen"]
-		);
-
-		$respuesta = ModeloAdmision::mdlIngresarSol("solucion", $datos);
-
-		return $respuesta;
-
-	}
-
-	/*=============================================
-	CREAR EJERCICIOS
-	=============================================*/
-
-	static public function ctrCrearEjerc($datos){
-		
-		/*$datos = array(
-			"num"=>$datos["num"],
-			"descripcion"=>$datos["descripcion"],
-			"Ra"=>$datos["Ra"],
-			"Rb"=>$datos["Rb"],
-			"Rc"=>$datos["Rc"],
-			"Rd"=>$datos["Rd"],
-			"Re"=>$datos["Re"],
-			"idExamen"=>$datos["idExamen"]
-		);*/
-
-		$respuesta = ModeloAdmision::mdlIngresarEjerc("problemas", $datos);
-
-		return $respuesta;
-
-	}
-
-	/*=============================================
 	CREAR TIPO PRUEBA
 	=============================================*/
 
@@ -264,38 +223,6 @@ class ControladorAdmision{
 		if(isset($datos["idExamen"])){
 
 			$respuesta = ModeloAdmision::mdlEliminarTipoP("examen", $datos["idExamen"]);
-
-			return "ok";
-
-		}
-
-	}
-
-	/*=============================================
-	ELIMINAR SOLUCION
-	=============================================*/
-
-	static public function ctrEliminarSol($datos){
-
-		if(isset($datos["idExamen"])){
-
-			$respuesta = ModeloAdmision::mdlEliminarTipoP("solucion", $datos["idExamen"]);
-
-			return "ok";
-
-		}
-
-	}
-	
-	/*=============================================
-	ELIMINAR SOLUCION
-	=============================================*/
-
-	static public function ctrEliminarEjer($datos){
-
-		if(isset($datos["idExamen"])){
-
-			$respuesta = ModeloAdmision::mdlEliminarTipoP("problemas", $datos["idExamen"]);
 
 			return "ok";
 

@@ -154,7 +154,7 @@ class AjaxAdmision{
 		$item = "idExamen";
 		$valor = $this->idEspecialidad;
 		$respuesta = ModeloAdmision::mdlMostrar("examen",$item, $valor);
-		echo $respuesta[0]["cantidad"];
+		echo json_encode($respuesta);
 
 	}
 
@@ -274,131 +274,28 @@ class AjaxAdmision{
 	}
 
 	/*=============================================
-	ELIM SOL
-	=============================================*/	
-
-	public function  ajaxElimSol(){
-
-		$datos = array(
-			"idExamen"=>$this->idEprueba
-		);
-
-		$respuesta = ControladorAdmision::ctrEliminarSol($datos);
-
-		echo $respuesta;
-
-	}
-
-	/*=============================================
-	ELIM EJERC
-	=============================================*/	
-
-	public function  ajaxElimEjerc(){
-
-		$datos = array(
-			"idExamen"=>$this->idEprueba
-		);
-
-		$respuesta = ControladorAdmision::ctrEliminarEjer($datos);
-
-		echo $respuesta;
-
-	}
-
-	/*=============================================
   	CAMBIAR CANT EXAM
  	=============================================*/	
-
+	public $Lproblemas;
 	public function ajaxCamCantidad(){
 
 		$tabla = "examen";
 
 		$item1 = "cantidad";
 		$valor1 = $this->activarAdmision;
-
 		$item2 = "idExamen";
 		$valor2 = $this->activarIdAd;
-
 		$respuesta = ModeloAdmision::mdlActualizar($tabla, $item1, $valor1, $item2, $valor2);
-
+		
+		$item1 = "problemas";
+		$valor1 = $this->Lproblemas;
+		$respuesta = ModeloAdmision::mdlActualizar($tabla, $item1, $valor1, $item2, $valor2);
 		echo $respuesta;
 
 	}
 
 
-	/*=============================================
-	GUARDAR SOL
-	=============================================*/	
-	public $numS;
-	public $solS;
-	public $idEM;
-
-	public function  ajaxCrearSol(){
-
-		$datos = array(
-			"num"=>$this->numS,
-			"sol"=>$this->solS,
-			"idExamen"=>$this->idEM
-		);
-
-		$respuesta = ControladorAdmision::ctrCrearSol($datos);
-
-		echo $respuesta;
-
-	}
-
-	public function  ajaxMosSol(){
-
-		$datos = $this->idEM;
-
-		$respuesta = ControladorAdmision::ctrMostrar("solucion","idExamen",$datos);
-
-		echo json_encode($respuesta);
-
-	}
-
-	/*=============================================
-	GUARDAR EJERCICIOS
-	=============================================*/
-
-	public $descrip;
-	public $Eja;
-	public $Ejb;
-	public $Ejc;
-	public $Ejd;
-	public $Eje;
-
-	public function  ajaxCrearEjercicios(){
-
-		$datos = array(
-			"num"=>$this->numS,
-			"descripcion"=>$this->descrip,
-			"Ra"=>$this->Eja,
-			"Rb"=>$this->Ejb,
-			"Rc"=>$this->Ejc,
-			"Rd"=>$this->Ejd,
-			"Re"=>$this->Eje,
-			"idExamen"=>$this->idEM
-		);
-
-		$respuesta = ControladorAdmision::ctrCrearEjerc($datos);
-
-		echo $respuesta;
-
-	}
-
-	public function  ajaxMosEjerc(){
-
-		$datos = $this->idEM;
-
-		$respuesta = ControladorAdmision::ctrMostrar("problemas","idExamen",$datos);
-
-		echo json_encode($respuesta);
-
-	}
-
-
- }
+}
 
 
 /**========================================================================================== */
@@ -457,6 +354,7 @@ if(isset($_POST["idCExam"])){
 	$cnExam = new AjaxAdmision();
 	$cnExam -> activarAdmision = $_POST["cantida"];
 	$cnExam -> activarIdAd = $_POST["idCExam"];
+	$cnExam -> Lproblemas = $_POST["problemas"];
 	$cnExam -> ajaxCamCantidad();
 
 }
@@ -569,28 +467,6 @@ if(isset($_POST["idEprueba"])){
 }
 
 /*=============================================
-ELIMINAR SOL
-=============================================*/
-if(isset($_POST["idEliSol"])){
-
-	$elimSl = new AjaxAdmision();
-	$elimSl -> idEprueba = $_POST["idEliSol"];
-	$elimSl -> ajaxElimSol();
-
-}
-
-/*=============================================
-ELIMINAR EJERC
-=============================================*/
-if(isset($_POST["idEliEjer"])){
-
-	$elimSl = new AjaxAdmision();
-	$elimSl -> idEprueba = $_POST["idEliEjer"];
-	$elimSl -> ajaxElimEjerc();
-
-}
-
-/*=============================================
 VER TIPO EXAMEN
 =============================================*/
 if(isset($_POST["idVExam"])){
@@ -598,60 +474,6 @@ if(isset($_POST["idVExam"])){
 	$Ex = new AjaxAdmision();
 	$Ex -> idEspecialidad = $_POST["idVExam"];
 	$Ex -> ajaxTraerTExam();
-
-}
-
-/*=============================================
-SOL EXAMEN
-=============================================*/
-if(isset($_POST["numS"])){
-
-	$ExS = new AjaxAdmision();
-	$ExS -> numS = $_POST["numS"];
-	$ExS -> solS = $_POST["solS"];
-	$ExS -> idEM = $_POST["idEM"];
-	$ExS -> ajaxCrearSol();
-
-}
-
-/*=============================================
-SOL MOSTRAR ID
-=============================================*/
-if(isset($_POST["idSol"])){
-
-	$MoS = new AjaxAdmision();
-	$MoS -> idEM = $_POST["idSol"];
-	$MoS -> ajaxMosSol();
-
-}
-
-/*=============================================
-EJERCICIOS EXAMEN
-=============================================*/
-if(isset($_POST["numSP"])){
-
-	$ExE = new AjaxAdmision();
-	$ExE -> numS = $_POST["numSP"];
-	$ExE -> descrip = $_POST["descrip"];
-	$ExE -> Eja = $_POST["opciona"];
-	$ExE -> Ejb = $_POST["opcionb"];
-	$ExE -> Ejc = $_POST["opcionc"];
-	$ExE -> Ejd = $_POST["opciond"];
-	$ExE -> Eje = $_POST["opcione"];
-	$ExE -> idEM = $_POST["idEMP"];
-	$ExE -> ajaxCrearEjercicios();
-
-}
-
-
-/*=============================================
-EJERCI MOSTRAR ID
-=============================================*/
-if(isset($_POST["idEjerM"])){
-
-	$MoS = new AjaxAdmision();
-	$MoS -> idEM = $_POST["idEjerM"];
-	$MoS -> ajaxMosEjerc();
 
 }
 

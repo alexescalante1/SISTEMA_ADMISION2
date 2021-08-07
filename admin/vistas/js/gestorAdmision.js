@@ -727,70 +727,27 @@ if($('#idTIPOPRB').val()){
 			cache: false,
 			contentType: false,
 			processData: false,
+			dataType: "json",
 			success: function(respuesta){    
 				
-				$('#numero-ejercicios').val(respuesta);
+				$('#numero-ejercicios').val(respuesta[0]["cantidad"]);
 				camposEjercicio();
 
-				var datosSol = new FormData();
-				datosSol.append("idSol", idPBA);
+				if(respuesta[0]["problemas"]){
+					
+					var lista = JSON.parse(respuesta[0]["problemas"]);
 
-					$.ajax({
+					for(var i = 0; i < lista.length; i++){
+						$('#sol'+lista[i].num).val(lista[i].sol);
 
-						url:"ajax/admision.ajax.php",
-						method: "POST",
-						data: datosSol,
-						cache: false,
-						contentType: false,
-						processData: false,
-						dataType: "json",
-						success: function(MosSol){
-							
-							if(MosSol[0]){
-								
-								for(var i=0;i<respuesta;i++){
-
-									$('#sol'+MosSol[i]["num"]).val(MosSol[i]["sol"]);
-
-								}
-							}
-									
-						}
-
-					})
-
-				var datosEjer = new FormData();
-				datosEjer.append("idEjerM", idPBA);
-
-					$.ajax({
-
-						url:"ajax/admision.ajax.php",
-						method: "POST",
-						data: datosEjer,
-						cache: false,
-						contentType: false,
-						processData: false,
-						dataType: "json",
-						success: function(MosEjR){
-							
-							if(MosEjR[0]){
-								
-								for(var i=0;i<respuesta;i++){
-
-									$('#descrip'+MosEjR[i]["num"]).val(MosEjR[i]["descripcion"]);
-									$('#opciona'+MosEjR[i]["num"]).val(MosEjR[i]["Ra"]);
-									$('#opcionb'+MosEjR[i]["num"]).val(MosEjR[i]["Rb"]);
-									$('#opcionc'+MosEjR[i]["num"]).val(MosEjR[i]["Rc"]);
-									$('#opciond'+MosEjR[i]["num"]).val(MosEjR[i]["Rd"]);
-									$('#opcione'+MosEjR[i]["num"]).val(MosEjR[i]["Re"]);
-
-								}
-							}
-									
-						}
-
-					})
-
+						$('#descrip'+lista[i].num).val(lista[i].descripcion);
+						$('#opciona'+lista[i].num).val(lista[i].Ra);
+						$('#opcionb'+lista[i].num).val(lista[i].Rb);
+						$('#opcionc'+lista[i].num).val(lista[i].Rc);
+						$('#opciond'+lista[i].num).val(lista[i].Rd);
+						$('#opcione'+lista[i].num).val(lista[i].Re);
+					}
+				}
 
 			}
 
@@ -814,69 +771,28 @@ $('.SelectB').on("click", ".tipoPruebaSelc", function(){
 			cache: false,
 			contentType: false,
 			processData: false,
+			dataType: "json",
 			success: function(respuesta){    
 
-				$('#numero-ejercicios').val(respuesta);
+				$('#numero-ejercicios').val(respuesta[0]["cantidad"]);
 				camposEjercicio();
 
-				var datosSol = new FormData();
-				datosSol.append("idSol", idtp);
+				if(respuesta[0]["problemas"]){
+					
+					var lista = JSON.parse(respuesta[0]["problemas"]);
 
-					$.ajax({
+					for(var i = 0; i < lista.length; i++){
+						$('#sol'+lista[i].num).val(lista[i].sol);
 
-						url:"ajax/admision.ajax.php",
-						method: "POST",
-						data: datosSol,
-						cache: false,
-						contentType: false,
-						processData: false,
-						dataType: "json",
-						success: function(MosSol){
-							
-							if(MosSol[0]){
-								
-								for(var i=0;i<respuesta;i++){
+						$('#descrip'+lista[i].num).val(lista[i].descripcion);
+						$('#opciona'+lista[i].num).val(lista[i].Ra);
+						$('#opcionb'+lista[i].num).val(lista[i].Rb);
+						$('#opcionc'+lista[i].num).val(lista[i].Rc);
+						$('#opciond'+lista[i].num).val(lista[i].Rd);
+						$('#opcione'+lista[i].num).val(lista[i].Re);
+					}
+				}
 
-									$('#sol'+MosSol[i]["num"]).val(MosSol[i]["sol"]);
-
-								}
-							}
-									
-						}
-
-					})
-
-				var datosEjer = new FormData();
-				datosEjer.append("idEjerM", idtp);
-
-					$.ajax({
-
-						url:"ajax/admision.ajax.php",
-						method: "POST",
-						data: datosEjer,
-						cache: false,
-						contentType: false,
-						processData: false,
-						dataType: "json",
-						success: function(MosEjR){
-							
-							if(MosEjR[0]){
-								
-								for(var i=0;i<respuesta;i++){
-
-									$('#descrip'+MosEjR[i]["num"]).val(MosEjR[i]["descripcion"]);
-									$('#opciona'+MosEjR[i]["num"]).val(MosEjR[i]["Ra"]);
-									$('#opcionb'+MosEjR[i]["num"]).val(MosEjR[i]["Rb"]);
-									$('#opcionc'+MosEjR[i]["num"]).val(MosEjR[i]["Rc"]);
-									$('#opciond'+MosEjR[i]["num"]).val(MosEjR[i]["Rd"]);
-									$('#opcione'+MosEjR[i]["num"]).val(MosEjR[i]["Re"]);
-
-								}
-							}
-									
-						}
-
-					})
 			}
 
 		})
@@ -888,19 +804,13 @@ $('.SelectB').on("click", ".tipoPruebaSelc", function(){
 /*=============================================
 GUARDAR - CAMBIAR DATOS EJERCICIOS
 =============================================*/
-
+var listEjercicios = null;
 $("#guardarEjerciciosA").click(function(){
+
+	var listaProb = [];
 
 	var idPBA = $('#idTIPOPRB').val();
 	var NumEjercicios = $('#numero-ejercicios').val();
-
-	var listaSol = {};
-	var listaDesc = {};
-	var listaRa = {};
-	var listaRb = {};
-	var listaRc = {};
-	var listaRd = {};
-	var listaRe = {};
 
 	/*=============================================
 	VALIDAR
@@ -909,14 +819,8 @@ $("#guardarEjerciciosA").click(function(){
 
 		if($('#descrip'+k).val()&&$('#opciona'+k).val()&&$('#opcionb'+k).val()&&$('#opcionc'+k).val()&&$('#opciond'+k).val()&&$('#opcione'+k).val()){
 
-			listaSol[k] = $('#sol'+k).val();
-			listaDesc[k] = $('#descrip'+k).val();
-	
-			listaRa[k] = $('#opciona'+k).val();
-			listaRb[k] = $('#opcionb'+k).val();
-			listaRc[k] = $('#opcionc'+k).val();
-			listaRd[k] = $('#opciond'+k).val();
-			listaRe[k] = $('#opcione'+k).val();
+			listaProb.push({"num" : k, "sol" : $('#sol'+k).val(),"descripcion" : $('#descrip'+k).val(),"Ra" : $('#opciona'+k).val(),"Rb" : $('#opcionb'+k).val(),"Rc" : $('#opcionc'+k).val(),"Rd" : $('#opciond'+k).val(),"Re" : $('#opcione'+k).val()})
+			//listEjercicios = JSON.stringify(listaProb);
 
 		}else{
 			Swal.fire({
@@ -929,6 +833,7 @@ $("#guardarEjerciciosA").click(function(){
 		
 	}
 	
+	listEjercicios = JSON.stringify(listaProb);
 
 	/*=============================================
 	CAMBIAR CANTIDAD EJERCICIOS
@@ -937,6 +842,7 @@ $("#guardarEjerciciosA").click(function(){
 	var datos = new FormData();
 	datos.append("idCExam", idPBA);
 	datos.append("cantida", NumEjercicios);
+	datos.append("problemas", listEjercicios);
 
 		$.ajax({
 
@@ -947,116 +853,22 @@ $("#guardarEjerciciosA").click(function(){
 			contentType: false,
 			processData: false,
 			success: function(respuesta){
-
-				//console.log(respuesta);
-
-				/*=============================================
-				BORRAR ANT EJERCICIOS
-				=============================================*/
-				var datosbS = new FormData();
-				datosbS.append("idEliSol", idPBA);
-					$.ajax({
-
-						url:"ajax/admision.ajax.php",
-						method: "POST",
-						data: datosbS,
-						cache: false,
-						contentType: false,
-						processData: false,
-						success: function(ElEj){
-							
-							//console.log(ElEj);
-							
-
-							/*=============================================
-							BORRAR ANT EJERCICIOS
-							=============================================*/
-							var datosbE = new FormData();
-							datosbE.append("idEliEjer", idPBA);
-							$.ajax({
-
-								url:"ajax/admision.ajax.php",
-								method: "POST",
-								data: datosbE,
-								cache: false,
-								contentType: false,
-								processData: false,
-								success: function(ElEjr){
-									
-									//console.log("RES "+ElEjr);
-
-									/*=============================================
-									GUARDAR
-									=============================================*/
-
-									for(var k=1;k<=NumEjercicios;k++){
-
-										//console.log(k+" "+listaSol[k]+" "+idPBA);
-
-										var datosSol = new FormData();
-										datosSol.append("numS", k);
-										datosSol.append("solS", listaSol[k]);
-										datosSol.append("idEM", idPBA);
-										$.ajax({
-											url:"ajax/admision.ajax.php",
-											method: "POST",
-											data: datosSol,
-											cache: false,
-											contentType: false,
-											processData: false,
-											success: function(rspT){
-												
-												//console.log(rspT);
-
-											}
-
-										})
-
-										var datosPrue = new FormData();
-										datosPrue.append("numSP", k);
-										datosPrue.append("descrip", listaDesc[k]);
-										datosPrue.append("opciona", listaRa[k]);
-										datosPrue.append("opcionb", listaRb[k]);
-										datosPrue.append("opcionc", listaRc[k]);
-										datosPrue.append("opciond", listaRd[k]);
-										datosPrue.append("opcione", listaRe[k]);
-										datosPrue.append("idEMP", idPBA);
-										$.ajax({
-											url:"ajax/admision.ajax.php",
-											method: "POST",
-											data: datosPrue,
-											cache: false,
-											contentType: false,
-											processData: false,
-											success: function(iPru){
-												
-												//console.log(iPru);
-
-											}
-
-										})
-
-										
-									}
-
-
-									Swal.fire({
-										icon: 'success',
-										title: 'Se Guardo Correctamente',
-										showConfirmButton: false,
-										timer: 1500
-									  })
-									
-
-
-								}
-
-							})
-							
-											
-						}
-
+				
+				if(respuesta=="ok"){
+					Swal.fire({
+						icon: 'success',
+						title: 'Se Guardo Correctamente',
+						showConfirmButton: false,
+						timer: 1500
 					})
+				}else{
+					Swal.fire({
+						icon: 'error',
+						title: 'Oops...',
+						text: 'Algo ha salido Mal!!'
+					  })
+				}
+
 			}
 
 		})
