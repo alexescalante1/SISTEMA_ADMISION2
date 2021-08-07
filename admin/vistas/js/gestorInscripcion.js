@@ -120,61 +120,61 @@ const validarFormulario = (e) => {
 const validarFormularioE = (e) => {
 	switch (e.target.name) {
 		case "correoTE":
-			validarCampo(expresiones.correoT, e.target, 'correoTE');
+			validarCampoE(expresiones.correoT, e.target, 'correoTE', 'correoT');
 		break;
 		case "telefonoT1E":
-			validarCampo(expresiones.telefonoT1, e.target, 'telefonoT1E');
+			validarCampoE(expresiones.telefonoT1, e.target, 'telefonoT1E', 'telefonoT1');
 		break;
 		case "telefonoT2E":
-			validarCampo(expresiones.telefonoT2, e.target, 'telefonoT2E');
+			validarCampoE(expresiones.telefonoT2, e.target, 'telefonoT2E', 'telefonoT2');
 		break;
         case "dniTE":
-			validarCampo(expresiones.dniT, e.target, 'dniTE');
+			validarCampoE(expresiones.dniT, e.target, 'dniTE', 'dniT');
 		break;
 		case "nombreTE":
-			validarCampo(expresiones.nombreT, e.target, 'nombreTE');
+			validarCampoE(expresiones.nombreT, e.target, 'nombreTE', 'nombreT');
 		break;
 		case "apellidoTPE":
-			validarCampo(expresiones.apellidoTP, e.target, 'apellidoTPE');
+			validarCampoE(expresiones.apellidoTP, e.target, 'apellidoTPE', 'apellidoTP');
 		break;
 		case "apellidoTME":
-			validarCampo(expresiones.apellidoTM, e.target, 'apellidoTME');
+			validarCampoE(expresiones.apellidoTM, e.target, 'apellidoTME', 'apellidoTM');
 		break;
 		case "direccionTE":
-			validarCampo(expresiones.direccionT, e.target, 'direccionTE');
+			validarCampoE(expresiones.direccionT, e.target, 'direccionTE', 'direccionT');
 		break;
 		case "departamentoTE":
-			validarCampo(expresiones.departamentoT, e.target, 'departamentoTE');
+			validarCampoE(expresiones.departamentoT, e.target, 'departamentoTE', 'departamentoT');
 		break;
 		case "provinciaTE":
-			validarCampo(expresiones.provinciaT, e.target, 'provinciaTE');
+			validarCampoE(expresiones.provinciaT, e.target, 'provinciaTE', 'provinciaT');
 		break;
 		case "distritoTE":
-			validarCampo(expresiones.distritoT, e.target, 'distritoTE');
+			validarCampoE(expresiones.distritoT, e.target, 'distritoTE', 'distritoT');
 		break;
 		case "nombreRE":
-			validarCampo(expresiones.nombreR, e.target, 'nombreRE');
+			validarCampoE(expresiones.nombreR, e.target, 'nombreRE', 'nombreR');
 		break;
 		case "dniRE":
-			validarCampo(expresiones.dniR, e.target, 'dniRE');
+			validarCampoE(expresiones.dniR, e.target, 'dniRE', 'dniR');
 		break;
 		case "correoRE":
-			validarCampo(expresiones.correoR, e.target, 'correoRE');
+			validarCampoE(expresiones.correoR, e.target, 'correoRE', 'correoR');
 		break;
 		case "direccionRE":
-			validarCampo(expresiones.direccionR, e.target, 'direccionRE');
+			validarCampoE(expresiones.direccionR, e.target, 'direccionRE', 'direccionR');
 		break;
 		case "telefonoR1E":
-			validarCampo(expresiones.telefonoR1, e.target, 'telefonoR1E');
+			validarCampoE(expresiones.telefonoR1, e.target, 'telefonoR1E', 'telefonoR1');
 		break;
 		case "nombreColeE":
-			validarCampo(expresiones.nombreCole, e.target, 'nombreColeE');
+			validarCampoE(expresiones.nombreCole, e.target, 'nombreColeE', 'nombreCole');
 		break;
 		case "especialiAcadmE":
-			validarCampo(expresiones.especialiAcadm, e.target, 'especialiAcadmE');
+			validarCampoE(expresiones.especialiAcadm, e.target, 'especialiAcadmE', 'especialiAcadm');
 		break;
 		case "calAcadmE":
-			validarCampo(expresiones.calAcadm, e.target, 'calAcadmE');
+			validarCampoE(expresiones.calAcadm, e.target, 'calAcadmE', 'calAcadm');
 		break;
 	}
 }
@@ -197,7 +197,23 @@ const validarCampo = (expresion, input, campo) => {
 	}
 }
 
-
+const validarCampoE = (expresion, input, campo, campoE) => {
+	if(expresion.test(input.value)){
+		document.getElementById(`grupo__${campo}`).classList.remove('formulario__grupo-incorrecto');
+		document.getElementById(`grupo__${campo}`).classList.add('formulario__grupo-correcto');
+		document.querySelector(`#grupo__${campo} i`).classList.add('fa-check-circle');
+		document.querySelector(`#grupo__${campo} i`).classList.remove('fa-times-circle');
+		document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.remove('formulario__input-error-activo');
+		campos[campoE] = true;
+	} else {
+		document.getElementById(`grupo__${campo}`).classList.add('formulario__grupo-incorrecto');
+		document.getElementById(`grupo__${campo}`).classList.remove('formulario__grupo-correcto');
+		document.querySelector(`#grupo__${campo} i`).classList.add('fa-times-circle');
+		document.querySelector(`#grupo__${campo} i`).classList.remove('fa-check-circle');
+		document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.add('formulario__input-error-activo');
+		campos[campoE] = false;
+	}
+}
 /*======================================
 VARLIDA INGRESAR POSTULANTE
 ======================================*/
@@ -828,6 +844,24 @@ $('#tablaInscritos').on("click", ".btnVerInscripcion", function(){
 						dataType: "json",
 						success: function(respDet){
 							
+							var datos4 = new FormData();
+							datos4.append("Ttabla", "administradores");
+							datos4.append("Titem", "id");
+							datos4.append("TidV", respuesta["idAdmin"]);
+							$.ajax({
+								url:"ajax/inscripcion.ajax.php",
+								method: "POST",
+								data: datos4,
+								cache: false,
+								contentType: false,
+								processData: false,
+								dataType: "json",
+								success: function(respAdmin){
+									$("#modalVerInscripcion .RecepAdminV").val(respAdmin["nombre"]);
+								}
+							})
+
+
 							$("#modalVerInscripcion .Popcion").val(respuesta["Popcion"]);
 							$("#modalVerInscripcion .Sopcion").val(respuesta["Sopcion"]);
 							$("#modalVerInscripcion .Tpostulacion").val(respuesta["Tpostulacion"]);
@@ -893,4 +927,372 @@ $('#tablaInscritos').on("click", ".btnVerInscripcion", function(){
 
 
 
+/*=============================================
+EDITAR ARTICULO
+=============================================*/
 
+$('#tablaInscritos').on("click", ".btnEditarInscripcion", function(){
+	
+	campos["Tpostulante"] = true;
+	campos["Tpopcion"] = true;
+	campos["Tsopcion"] = true;
+	campos["Rparentesco"] = true;
+	campos["TEstAcademico"] = true;
+	campos["dniT"] = true;
+	campos["nombreT"] = true;
+	campos["apellidoTP"] = true;
+	campos["apellidoTM"] = true;
+	campos["correoT"] = true;
+	campos["telefonoT1"] = true;
+	campos["telefonoT2"] = true;
+	campos["direccionT"] = true;
+	campos["departamentoT"] = true;
+	campos["provinciaT"] = true;
+	campos["distritoT"] = true;
+	campos["nombreR"] = true;
+	campos["dniR"] = true;
+	campos["correoR"] = true;
+	campos["direccionR"] = true;
+	campos["telefonoR1"] = true;
+	campos["nombreCole"] = true;
+	campos["especialiAcadm"] = true;
+	campos["calAcadm"] = true;
+
+	$(".previsualizarVaucherP").html("");
+	var idInscripcion = $(this).attr("idInscripcion");
+
+	var datos = new FormData();
+	datos.append("Ttabla", "inscripciones");
+	datos.append("Titem", "idInscripcion");
+	datos.append("TidV", idInscripcion);
+
+	$.ajax({
+
+		url:"ajax/inscripcion.ajax.php",
+		method: "POST",
+		data: datos,
+		cache: false,
+		contentType: false,
+		processData: false,
+		dataType: "json",
+		success: function(respuesta){
+			var datos2 = new FormData();
+			datos2.append("Ttabla", "postulante");
+			datos2.append("Titem", "idPostulante");
+			datos2.append("TidV", respuesta["idPostulante"]);
+
+			$.ajax({
+
+				url:"ajax/inscripcion.ajax.php",
+				method: "POST",
+				data: datos2,
+				cache: false,
+				contentType: false,
+				processData: false,
+				dataType: "json",
+				success: function(resp){
+					var datos3 = new FormData();
+					datos3.append("Ttabla", "postulantedetalle");
+					datos3.append("Titem", "idPostulante");
+					datos3.append("TidV", respuesta["idPostulante"]);
+
+					$.ajax({
+
+						url:"ajax/inscripcion.ajax.php",
+						method: "POST",
+						data: datos3,
+						cache: false,
+						contentType: false,
+						processData: false,
+						dataType: "json",
+						success: function(respDet){
+
+							$("#modalEditarInscripcion #IDINSCRITO").val(idInscripcion);
+
+							var datos4 = new FormData();
+							datos4.append("Ttabla", "administradores");
+							datos4.append("Titem", "id");
+							datos4.append("TidV", respuesta["idAdmin"]);
+							$.ajax({
+								url:"ajax/inscripcion.ajax.php",
+								method: "POST",
+								data: datos4,
+								cache: false,
+								contentType: false,
+								processData: false,
+								dataType: "json",
+								success: function(respAdmin){
+									$("#modalEditarInscripcion #adminRecep").val(respAdmin["nombre"]);
+								}
+							})
+
+							$("#modalEditarInscripcion #PespecialidadE").val(respuesta["Popcion"]);
+							$("#modalEditarInscripcion #SespecialidadE").val(respuesta["Sopcion"]);
+							$("#modalEditarInscripcion #TpostulanteE").val(respuesta["Tpostulacion"]);
+							
+							$("#modalEditarInscripcion .previsualizarVaucherP").attr("src", respuesta["vaucher"]);
+							$("#modalEditarInscripcion .antiguaFotoVaucherP").val(respuesta["vaucher"]);
+
+							$("#modalEditarInscripcion .previsualizarPerfilT").attr("src", resp["foto"]);
+							$("#modalEditarInscripcion .antiguaFotoPerfilT").val(resp["foto"]);
+
+							const genero = document.getElementById('generoTE');
+							if(respDet["genero"]=="Mujer"){
+								if(genero.checked){
+									$("#modalEditarInscripcion #generoTE").trigger("click");
+								}
+							}else{
+								if(!genero.checked){
+									$("#modalEditarInscripcion #generoTE").trigger("click");
+								}
+							}
+
+							$("#modalEditarInscripcion #nombreTE").val(resp["nombre"]);
+							$("#modalEditarInscripcion #apellidoTPE").val(resp["apellidoPat"]);
+							$("#modalEditarInscripcion #apellidoTME").val(resp["apellidoMat"]);
+							$("#modalEditarInscripcion #dniTE").val(resp["dni"]);
+
+							var fechaTE = moment(resp["fecha"], "YYYY-MM-DD").format("MM/DD/YYYY");
+							$("#modalEditarInscripcion #IfechaNacTE").val(fechaTE);
+							
+							$("#modalEditarInscripcion #correoTE").val(respDet	["correo"]);
+							$("#modalEditarInscripcion #telefonoT1E").val(respDet["celularOne"]);
+							$("#modalEditarInscripcion #telefonoT2E").val(respDet["celularTwo"]);
+							$("#modalEditarInscripcion #direccionTE").val(respDet["direccion"]);
+							$("#modalEditarInscripcion #departamentoTE").val(respDet["departamento"]);
+							$("#modalEditarInscripcion #provinciaTE").val(respDet["provincia"]);
+							$("#modalEditarInscripcion #distritoTE").val(respDet["distrito"]);
+							$("#modalEditarInscripcion #nombreRE").val(respDet["representante"]);
+							$("#modalEditarInscripcion #RparentescoE").val(respDet["parentescoR"]);
+							$("#modalEditarInscripcion #correoRE").val(respDet["correoR"]);
+							$("#modalEditarInscripcion #direccionRE").val(respDet["direccionR"]);
+							$("#modalEditarInscripcion #dniRE").val(respDet["dniR"]);
+							$("#modalEditarInscripcion #telefonoR1E").val(respDet["celularR"]);
+
+							$("#modalEditarInscripcion #nombreColeE").val(respDet["colegio"]);
+							$("#modalEditarInscripcion #TEstAcademicoE").val(respDet["Ctipo"]);
+							$("#modalEditarInscripcion #especialiAcadmE").val(respDet["Cespecialidad"]);
+							$("#modalEditarInscripcion #calAcadmE").val(respDet["Cnota"]);
+							
+							//formularioE.reset();  formulario__grupo-incorrecto document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.remove('formulario__input-error-activo');
+
+							document.querySelectorAll('.formulario__input-error').forEach((input) => {
+								input.classList.remove('formulario__input-error-activo');
+							});
+							document.querySelectorAll('.formulario__grupo-incorrecto').forEach((icono) => {
+								icono.classList.remove('formulario__grupo-incorrecto');
+							});
+							document.querySelectorAll('.formulario__grupo-correcto').forEach((icono) => {
+								icono.classList.remove('formulario__grupo-correcto');
+							});
+
+							
+						}
+
+					})
+							
+				}
+
+			})
+					
+		}
+
+	})
+
+})
+
+/*=============================================
+GUARDAR CAMBIOS
+=============================================*/
+$("#modalEditarInscripcion .guardarCambiosPostul").click(function(){
+
+	if(campos.Tpostulante && campos.Tpopcion && campos.Tsopcion && campos.dniT && campos.nombreT && campos.apellidoTP && campos.apellidoTM
+		&& campos.correoT && campos.telefonoT1 && campos.direccionT && campos.departamentoT && campos.provinciaT && campos.distritoT
+		&& campos.nombreR && campos.dniR && campos.Rparentesco && campos.telefonoR1
+		&& campos.nombreCole && campos.TEstAcademico && campos.calAcadm){
+					
+			editarPostulantes();
+
+	}else{
+		toastr.error('Llene todos los campos requeridos.');
+		return;
+	}
+	
+})
+
+function editarPostulantes(){
+
+	var idInscrito = $("#modalEditarInscripcion #IDINSCRITO").val();
+	var idAttAdmin = $("#modalEditarInscripcion #IDATTADMINE").val();
+	var rutaEvento = $("#modalEditarInscripcion #RUTAEVENTE").val();
+
+	var Tpostulante = $("#modalEditarInscripcion #TpostulanteE").val();
+	var Tpopcion = $("#modalEditarInscripcion #PespecialidadE").val();
+	var Tsopcion = $("#modalEditarInscripcion #SespecialidadE").val();
+	var dniT = $("#modalEditarInscripcion #dniTE").val();
+	var nombreT = $("#modalEditarInscripcion #nombreTE").val();
+	var apellidoTP = $("#modalEditarInscripcion #apellidoTPE").val();
+	var apellidoTM = $("#modalEditarInscripcion #apellidoTME").val();
+	var fechaT = $("#modalEditarInscripcion #IfechaNacTE").val();
+
+	var fechaTT = moment(fechaT, "MM/DD/YYYY").format("YYYY-MM-DD");
+
+	
+	console.log(rutaEvento+" <<<>>>");
+
+	console.log(idInscrito);
+	console.log(idAttAdmin);
+	console.log(Tpostulante);
+	console.log(Tpopcion);
+	console.log(Tsopcion);
+	console.log(dniT);
+	console.log(nombreT);
+	console.log(apellidoTP);
+	console.log(apellidoTM);
+	//console.log(fechaT);
+	console.log(fechaTT);
+
+
+	var generoTT = null;
+	const genero = document.getElementById('generoTE');
+	//console.log(genero.checked);
+	if(genero.checked){
+		generoTT = "Hombre";
+	}else{
+		generoTT = "Mujer";
+	}
+	console.log(generoTT);
+
+
+	var correoT = $("#modalEditarInscripcion #correoTE").val();
+	var telefonoT1 = $("#modalEditarInscripcion #telefonoT1E").val();
+	var telefonoT2 = $("#modalEditarInscripcion #telefonoT2E").val();
+	var direccionT = $("#modalEditarInscripcion #direccionTE").val();
+	var departamentoT = $("#modalEditarInscripcion #departamentoTE").val();
+	var provinciaT = $("#modalEditarInscripcion #provinciaTE").val();
+	var distritoT = $("#modalEditarInscripcion #distritoTE").val();
+
+	console.log(correoT);
+	console.log(telefonoT1);
+	console.log(telefonoT2);
+	console.log(direccionT);
+	console.log(departamentoT);
+	console.log(provinciaT);
+	console.log(distritoT);
+
+	var nombreR = $("#modalEditarInscripcion #nombreRE").val();
+	var dniR = $("#modalEditarInscripcion #dniRE").val();
+	var correoR = $("#modalEditarInscripcion #correoRE").val();
+	var Rparentesco = $("#modalEditarInscripcion #RparentescoE").val();
+	var direccionR = $("#modalEditarInscripcion #direccionRE").val();
+	var telefonoR1 = $("#modalEditarInscripcion #telefonoR1E").val();
+
+	console.log(nombreR);
+	console.log(dniR);
+	console.log(correoR);
+	console.log(Rparentesco);
+	console.log(direccionR);
+	console.log(telefonoR1);
+
+	var nombreCole = $("#modalEditarInscripcion #nombreColeE").val();
+	var TEstAcademico = $("#modalEditarInscripcion #TEstAcademicoE").val();
+	var especialiAcadm = $("#modalEditarInscripcion #especialiAcadmE").val();
+	var calAcadm = $("#modalEditarInscripcion #calAcadmE").val();
+
+	console.log(nombreCole);
+	console.log(TEstAcademico);
+	console.log(especialiAcadm);
+	console.log(calAcadm);
+
+
+
+	var antiguaFotoPerfilT = $("#modalEditarInscripcion .antiguaFotoPerfilT").val();
+	var antiguaFotoVaucherP = $("#modalEditarInscripcion .antiguaFotoVaucherP").val();
+
+	console.log(imagenfotoPerfilT);
+	console.log(antiguaFotoPerfilT);
+
+	console.log(imagenfotoVaucherP);
+	console.log(antiguaFotoVaucherP);
+
+
+
+/*=====================================================*/
+
+	var datosInscr = new FormData();
+	datosInscr.append("idInscrito", idInscrito);
+	datosInscr.append("idAttAdmin", idAttAdmin);
+	datosInscr.append("Tpostulante", Tpostulante);
+	datosInscr.append("Tpopcion", Tpopcion);
+	datosInscr.append("Tsopcion", Tsopcion);
+
+	datosInscr.append("dniT", dniT);
+	datosInscr.append("nombreT", nombreT);
+	datosInscr.append("apellidoTP", apellidoTP);
+	datosInscr.append("apellidoTM", apellidoTM);
+	datosInscr.append("fechaTT", fechaTT); ///FEHA
+
+	datosInscr.append("generoT", generoTT);
+	datosInscr.append("correoT", correoT);
+	datosInscr.append("telefonoT1", telefonoT1);
+	datosInscr.append("telefonoT2", telefonoT2);
+	datosInscr.append("direccionT", direccionT);
+	datosInscr.append("departamentoT", departamentoT);
+	datosInscr.append("provinciaT", provinciaT);
+	datosInscr.append("distritoT", distritoT);
+
+	datosInscr.append("nombreR", nombreR);
+	datosInscr.append("dniR", dniR);
+	datosInscr.append("correoR", correoR);
+	datosInscr.append("Rparentesco", Rparentesco);
+	datosInscr.append("direccionR", direccionR);
+	datosInscr.append("telefonoR1", telefonoR1);
+
+	datosInscr.append("nombreCole", nombreCole);
+	datosInscr.append("TEstAcademico", TEstAcademico);
+	datosInscr.append("especialiAcadm", especialiAcadm);
+	datosInscr.append("calAcadm", calAcadm);
+
+	datosInscr.append("imagenfotoPerfilT", imagenfotoPerfilT);
+	datosInscr.append("antiguafotoPerfilT", antiguaFotoPerfilT);
+	datosInscr.append("imagenfotoVaucherP", imagenfotoVaucherP);
+	datosInscr.append("antiguafotoVaucherP", antiguaFotoVaucherP);
+
+   	$.ajax({
+		url:"ajax/inscripcion.ajax.php",
+		method: "POST",
+		data: datosInscr,
+		cache: false,
+		contentType: false,
+		processData: false,
+		success: function(respuesta){
+
+			console.log("RESPUESTA");
+			console.log(respuesta);
+
+			if(respuesta == "ok"){
+
+				Swal.fire({
+					title: 'Se ha Registrado Correctamente',
+					icon: 'success',
+					confirmButtonColor: '#3085d6',
+					confirmButtonText: 'Continuar'
+				}).then((result) => {
+					
+					window.location = rutaEvento+"-inscribir";
+					
+				})
+
+			}else{
+				Swal.fire({
+					icon: 'error',
+					title: 'Oops...',
+					text: 'Algo Salio Mal!'
+					})
+			}
+
+		}
+
+   	})
+
+}

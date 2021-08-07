@@ -6,7 +6,7 @@ require_once "../modelos/inscripcion.modelo.php";
 class AjaxInscripcion{
 
 	/*=============================================
-	GUARDAR EVENTO
+	GUARDAR INSCRIP
 	=============================================*/
 
 	public $idEvento;
@@ -21,6 +21,7 @@ class AjaxInscripcion{
 	public $apellidoTM;
 	public $fechaTT;
 	public $imagenfotoPerfilT;
+	public $antiguafotoPerfilT;
 
 	public $generoT;
 	public $correoT;
@@ -44,6 +45,7 @@ class AjaxInscripcion{
 	public $calAcadm;
 
 	public $imagenfotoVaucherP;
+	public $antiguafotoVaucherP;
 
 	public function  ajaxCrearInscripcion(){
 
@@ -86,6 +88,53 @@ class AjaxInscripcion{
 
 	}
 
+
+	/*=============================================
+	EDITAR INSCRIP
+	=============================================*/	
+
+	public function  ajaxEditarInscripcion(){
+
+		$datos = array(
+			"idInscrito"=>$this->idEvento,
+			"idAdmin"=>$this->idAttAdmin,
+			"Tpostulacion"=>$this->Tpostulante,
+			"Popcion"=>$this->Tpopcion,
+			"Sopcion"=>$this->Tsopcion,
+			"dni"=>$this->dniT,
+			"nombre"=>$this->nombreT,
+			"apellidoPat"=>$this->apellidoTP,
+			"apellidoMat"=>$this->apellidoTM,
+			"fecha"=>$this->fechaTT,
+			"foto"=>$this->imagenfotoPerfilT,
+			"antiguaFoto"=>$this->antiguafotoPerfilT,
+			"genero"=>$this->generoT,
+			"correo"=>$this->correoT,
+			"celularOne"=>$this->telefonoT1,
+			"celularTwo"=>$this->telefonoT2,
+			"direccion"=>$this->direccionT,
+			"departamento"=>$this->departamentoT,
+			"provincia"=>$this->provinciaT,
+			"distrito"=>$this->distritoT,
+			"representante"=>$this->nombreR,
+			"dniR"=>$this->dniR,
+			"correoR"=>$this->correoR,
+			"parentescoR"=>$this->Rparentesco,
+			"direccionR"=>$this->direccionR,
+			"celularR"=>$this->telefonoR1,
+			"colegio"=>$this->nombreCole,
+			"Ctipo"=>$this->TEstAcademico,
+			"Cespecialidad"=>$this->especialiAcadm,
+			"Cnota"=>$this->calAcadm,
+			"vaucher"=>$this->imagenfotoVaucherP,
+			"antiguoVaucher"=>$this->antiguafotoVaucherP
+		);
+
+		//$respuesta = ControladorInscripcion::ctrEditarInscripcion($datos);
+	
+		echo $respuesta;
+
+	}
 
 	
 	/*=============================================
@@ -198,6 +247,61 @@ if(isset($_POST["idIEvento"])){
 	$inscr -> ajaxCrearInscripcion();
 
 }
+
+
+/*=============================================
+EDITAR POSTULANTE
+=============================================*/
+if(isset($_POST["idInscrito"])){
+
+	$Einsc = new AjaxInscripcion();
+	$Einsc -> idEvento = $_POST["idInscrito"];
+	$Einsc -> idAttAdmin = $_POST["idAttAdmin"];
+	$Einsc -> Tpostulante = $_POST["Tpostulante"];
+	$Einsc -> Tpopcion = $_POST["Tpopcion"];
+	$Einsc -> Tsopcion = $_POST["Tsopcion"];
+	$Einsc -> dniT = $_POST["dniT"];
+	$Einsc -> nombreT = $_POST["nombreT"];
+	$Einsc -> apellidoTP = $_POST["apellidoTP"];
+	$Einsc -> apellidoTM = $_POST["apellidoTM"];
+	$Einsc -> fechaTT = $_POST["fechaTT"];
+	if(isset($_FILES["imagenfotoPerfilT"])){
+		$Einsc -> imagenfotoPerfilT = $_FILES["imagenfotoPerfilT"];
+	}else{
+		$Einsc -> imagenfotoPerfilT = null;
+	}
+	$Einsc -> antiguafotoPerfilT = $_POST["antiguafotoPerfilT"];
+
+	$Einsc -> generoT = $_POST["generoT"];
+	$Einsc -> correoT = $_POST["correoT"];
+	$Einsc -> telefonoT1 = $_POST["telefonoT1"];
+	$Einsc -> telefonoT2 = $_POST["telefonoT2"];
+	$Einsc -> direccionT = $_POST["direccionT"];
+	$Einsc -> departamentoT = $_POST["departamentoT"];
+	$Einsc -> provinciaT = $_POST["provinciaT"];
+	$Einsc -> distritoT = $_POST["distritoT"];
+	$Einsc -> nombreR = $_POST["nombreR"];
+	$Einsc -> dniR = $_POST["dniR"];
+	$Einsc -> correoR = $_POST["correoR"];
+	$Einsc -> Rparentesco = $_POST["Rparentesco"];
+	$Einsc -> direccionR = $_POST["direccionR"];
+	$Einsc -> telefonoR1 = $_POST["telefonoR1"];
+	$Einsc -> nombreCole = $_POST["nombreCole"];
+	$Einsc -> TEstAcademico = $_POST["TEstAcademico"];
+	$Einsc -> especialiAcadm = $_POST["especialiAcadm"];
+	$Einsc -> calAcadm = $_POST["calAcadm"];
+	if(isset($_FILES["imagenfotoVaucherP"])){
+		$Einsc -> imagenfotoVaucherP = $_FILES["imagenfotoVaucherP"];
+	}else{
+		$Einsc -> imagenfotoVaucherP = null;
+	}
+	$Einsc -> antiguafotoVaucherP = $_POST["antiguafotoVaucherP"];
+
+
+	$Einsc -> ajaxEditarInscripcion();
+
+}
+
 
 /*=============================================
 ACTIVAR INSCRIP

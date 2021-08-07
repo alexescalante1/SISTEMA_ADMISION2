@@ -115,7 +115,7 @@
                                             
                                                     $estado = "<button class='btn btn-xs btnActivar ".$colorEstado."' style='width:70px;' idInscripcion='".$value["idInscripcion"]."' estadoInscripcion='".$estadoI."'>".$textoEstado."</button>";
                                                     
-                                                    $acciones = "<div class='btn-group'><button class='btn btn-success btnVerInscripcion' idInscripcion='".$value["idInscripcion"]."' data-toggle='modal' data-target='#modalVerInscripcion'><i class='fa fa-eye'></i></button><button class='btn btn-warning btnEditarInscripcion' idPostulante='".$value["idPostulante"]."' data-toggle='modal' data-target='#modalEditarInscripcion'><i class='fa fa-edit'></i></button></div>";
+                                                    $acciones = "<div class='btn-group'><button class='btn btn-success btnVerInscripcion' idInscripcion='".$value["idInscripcion"]."' data-toggle='modal' data-target='#modalVerInscripcion'><i class='fa fa-eye'></i></button><button class='btn btn-warning btnEditarInscripcion' idInscripcion='".$value["idInscripcion"]."' data-toggle='modal' data-target='#modalEditarInscripcion'><i class='fa fa-edit'></i></button></div>";
 
                                                     echo '
                                                       <tr>
@@ -201,7 +201,12 @@
 
             <div class="col-md-10">
               <div class="row">
-
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>RECEPCIONADO POR:</label>
+                        <input type="text" class="form-control def-input nombreAdmin RecepAdminV" readonly>
+                    </div>
+                </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>INSCRIPCION EN:</label>
@@ -210,7 +215,7 @@
                     <div class="form-group">
                         <label>PRIMERA OPCION</label>
                         <select class="form-control def-input Popcion" disabled="disabled">
-                            <option value="">SELECCIONAR ESPECIALIDAD</option>
+                            <option >SELECCIONAR ESPECIALIDAD</option>
                             <?php
                                 foreach($especiali as $key => $value){
                                     echo '<option value="'.$value["idEspecialidad"].'">'.$value["titulo"].'</option>';
@@ -223,7 +228,7 @@
                     <div class="form-group">
                         <label>TIPO DE POSTULACION</label>
                         <select class="form-control def-input Tpostulacion" disabled="disabled">
-                            <option value="">SELECCIONAR TIPO</option>
+                            <option >SELECCIONAR TIPO</option>
                             <option value="normal">NORMAL</option>
                             <option value="beca">BECADO</option>
                             <option value="trasIn">TRASLADO INTERNO</option>
@@ -233,7 +238,7 @@
                     <div class="form-group">
                         <label>SEGUNDA OPCION</label>
                         <select class="form-control def-input Sopcion" disabled="disabled">
-                            <option value="">SELECCIONAR ESPECIALIDAD</option>
+                            <option >SELECCIONAR ESPECIALIDAD</option>
                             <?php
                                 foreach($especiali as $key => $value){
                                     echo '<option value="'.$value["idEspecialidad"].'">'.$value["titulo"].'</option>';
@@ -258,7 +263,9 @@
             </div>
 
           </div>
-          
+                                
+                <hr>
+
           <div class="row">
 
             <div class="col-md-10">
@@ -267,19 +274,19 @@
                     <div class="col-md-6">
                       <div class="form-group">
                           <label>NOMBRES Y APELLIDOS</label>
-                          <input type="text" class="form-control def-input nombresApellidos" value="" readonly>
+                          <input type="text" class="form-control def-input nombresApellidos"  readonly>
                       </div>
                     </div>
                     <div class="col-md-3">
                       <div class="form-group">
                           <label>DOCUMENTO DE IDENTIDAD</label>
-                          <input type="text" class="form-control def-input dniT" value="" readonly>
+                          <input type="text" class="form-control def-input dniT"  readonly>
                       </div>  
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
                             <label>FECHA DE NACIMIENTO</label>
-                            <input type="text" class="form-control def-input fechaT" value="" readonly>
+                            <input type="text" class="form-control def-input fechaT"  readonly>
                         </div>      
                     </div>
                 </div>
@@ -288,19 +295,19 @@
                     <div class="col-md-6">
                       <div class="form-group">
                           <label>CORREO ELECTRONICO</label>
-                          <input type="text" class="form-control def-input correoT" value="" readonly>
+                          <input type="text" class="form-control def-input correoT"  readonly>
                       </div>
                     </div>
                     <div class="col-md-3">
                       <div class="form-group">
                           <label>CELULAR 1</label>
-                          <input type="text" class="form-control def-input cel1T" value="" readonly>
+                          <input type="text" class="form-control def-input cel1T"  readonly>
                       </div>
                     </div>
                     <div class="col-md-3">
                       <div class="form-group">
                           <label>CELULAR 2</label>
-                          <input type="text" class="form-control def-input cel2T" value="" readonly>
+                          <input type="text" class="form-control def-input cel2T"  readonly>
                       </div>
                     </div>
                 </div>
@@ -309,7 +316,7 @@
                     <div class="col-md-6">
                       <div class="form-group">
                           <label>DIRECCION DOMICILIARIA</label>
-                          <input type="text" class="form-control def-input direccionT" value="" readonly>
+                          <input type="text" class="form-control def-input direccionT"  readonly>
                       </div>  
                     </div>
                     <div class="col-md-6">
@@ -353,7 +360,7 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <label>NOMBRES Y APELLIDOS DEL REPRESENTANTE</label>
-                      <input type="text" class="form-control def-input nombreR" value="" readonly>
+                      <input type="text" class="form-control def-input nombreR"  readonly>
                     </div>
                   </div>
 
@@ -361,7 +368,7 @@
                     <div class="form-group">
                       <label>PARENTESCO</label>
                       <select class="formulario__input form-control def-input parentescoR" disabled="disabled">
-                            <option value="">SELECCIONAR</option>
+                            <option >SELECCIONAR</option>
                             <option value="padre">PADRE</option>
                             <option value="madre">MADRE</option>
                             <option value="padreP">PADRE POLITICO</option>
@@ -379,14 +386,14 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <label>CORREO ELECTRONICO DEL REPRESENTANTE</label>
-                      <input type="text" class="form-control def-input correoR" value="" readonly>
+                      <input type="text" class="form-control def-input correoR"  readonly>
                     </div>
                   </div>
 
                   <div class="col-md-6">
                     <div class="form-group">
                       <label>DIRECCION DOMICILIARIA DEL REPRESENTANTE</label>
-                      <input type="text" class="form-control def-input direccionR" value="" readonly>
+                      <input type="text" class="form-control def-input direccionR"  readonly>
                     </div>
                   </div>
               </div>
@@ -395,7 +402,7 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <label>COLEGIO EN QUE SE GRADUO</label>
-                      <input type="text" class="form-control def-input colegio" value="" readonly>
+                      <input type="text" class="form-control def-input colegio"  readonly>
                     </div>
                   </div>
 
@@ -403,7 +410,7 @@
                     <div class="form-group">
                       <label>TIPO DE ESTABLECIMIENTO</label>
                       <select class="form-control def-input Ctipo" disabled="disabled">
-                            <option value="">SELECCIONAR</option>
+                            <option >SELECCIONAR</option>
                             <option value="publico">PUBLICO</option>
                             <option value="particular">PRIVADO</option>
                         </select>
@@ -413,7 +420,7 @@
                   <div class="col-md-3">
                     <div class="form-group">
                       <label>ESPECIALIDAD</label>
-                      <input type="text" class="form-control def-input Cespecialidad" value="" readonly>
+                      <input type="text" class="form-control def-input Cespecialidad"  readonly>
                     </div>
                   </div>
 
@@ -425,17 +432,17 @@
             <div class="col-md-2">
                 <div class="form-group">
                   <label>DNI R</label>
-                  <input type="text" class="form-control def-input dniR" value="" readonly>
+                  <input type="text" class="form-control def-input dniR"  readonly>
                 </div>                           
                 <div class="form-group">
                   <label>CELULAR R</label>
-                  <input type="text" class="form-control def-input celR" value="" readonly>
+                  <input type="text" class="form-control def-input celR"  readonly>
                 </div>
 
 
                 <div class="form-group">
                   <label>NOTA</label>
-                  <input type="text" class="form-control def-input nota" value="" readonly>
+                  <input type="text" class="form-control def-input nota"  readonly>
                 </div>
 
             </div>
@@ -482,11 +489,16 @@
                 <div class="row">
 
                     <div class="col-md-6">
+                        
+                        <div class="form-group">
+                            <label>RECEPCIONADO POR:</label>
+                            <input type="text" class="form-control def-input" id="adminRecep" readonly>
+                        </div>
 
                         <div class="form-group">
                             <label>INSCRIPCION EN:</label>
                             <input type="text" class="form-control def-input" value="<?php echo $rutaEventos["titulo"]; ?>" readonly>
-                            <input style="display:none" id="IDEVENTINSCRIPE" <?php echo 'value="'.$rutaEventos["idAdmision"].'"'; ?> >
+                            <input style="display:none" id="IDINSCRITO">
                             <input style="display:none" id="IDATTADMINE" <?php echo 'value="'.$_SESSION["id"].'"'; ?> >
                             <input style="display:none" id="RUTAEVENTE" <?php echo 'value="'.$rutaEventos["ruta"].'"'; ?> >
                         </div>
@@ -496,7 +508,7 @@
                             <div class="formulario__grupo-input">
                                 
                                 <select class="formulario__input form-control def-input" id="PespecialidadE">
-                                    <option value="">SELECCIONAR ESPECIALIDAD</option>
+                                    <option >SELECCIONAR ESPECIALIDAD</option>
                                     <?php
                                         foreach($especiali as $key => $value){
                                             echo '<option value="'.$value["idEspecialidad"].'">'.$value["titulo"].'</option>';
@@ -514,12 +526,17 @@
 
                     <div class="col-md-6">
 
+                        <div class="form-group">
+                            <label>MODIFICADO POR:</label>
+                            <input type="text" class="form-control def-input" <?php echo 'value="'.$_SESSION["nombre"].'"'; ?> readonly>
+                        </div>
+                    
                         <div class="formulario__grupo" id="grupo__TpostulanteE">
                             <label class="formulario__label">* TIPO DE POSTULACION</label>
                             <div class="formulario__grupo-input">
                                 
                                 <select class="formulario__input form-control def-input" id="TpostulanteE">
-                                    <option value="">SELECCIONAR TIPO</option>
+                                    <option >SELECCIONAR TIPO</option>
                                     <option value="normal">NORMAL</option>
                                     <option value="beca">BECADO</option>
                                     <option value="trasIn">TRASLADO INTERNO</option>
@@ -535,7 +552,7 @@
                             <div class="formulario__grupo-input">
                                 
                                 <select class="formulario__input form-control def-input" id="SespecialidadE">
-                                    <option value="">SELECCIONAR ESPECIALIDAD</option>
+                                    <option >SELECCIONAR ESPECIALIDAD</option>
                                     <?php
                                         foreach($especiali as $key => $value){
                                             echo '<option value="'.$value["idEspecialidad"].'">'.$value["titulo"].'</option>';
@@ -560,7 +577,7 @@
                     <div class="input-group mb-3">
                     
                         <input type="file" id="fileVPE" class="SelIM fotoVaucherP" accept="image/*">
-                        
+                        <input type="hidden" class="antiguaFotoVaucherP">
                         <label for="fileVPE" class="fileButton">
                             <i class="fas fa-file-image"></i> &nbsp; ADD (10MB)
                         </label>
@@ -758,7 +775,7 @@
                     <div class="input-group mb-3">
                     
                         <input type="file" id="filePTE" class="SelIM fotoPerfilT" accept="image/*">
-                        
+                        <input type="hidden" class="antiguaFotoPerfilT">
                         <label for="filePTE" class="fileButton">
                             <i class="fas fa-file-image"></i> &nbsp; ADD (10MB)
                         </label>
@@ -816,7 +833,7 @@
                             <div class="formulario__grupo-input">
                                 
                                 <select class="formulario__input form-control def-input" id="RparentescoE">
-                                    <option value="">SELECCIONAR</option>
+                                    <option >SELECCIONAR</option>
                                     <option value="padre">PADRE</option>
                                     <option value="madre">MADRE</option>
                                     <option value="padreP">PADRE POLITICO</option>
@@ -891,7 +908,7 @@
                                     <label class="formulario__label">TIPO DE ESTABLECIMIENTO</label>
                                     <div class="formulario__grupo-input">
                                         <select class="formulario__input form-control def-input" id="TEstAcademicoE">
-                                            <option value="">SELECCIONAR</option>
+                                            <option >SELECCIONAR</option>
                                             <option value="publico">PUBLICO</option>
                                             <option value="particular">PRIVADO</option>
                                         </select>
@@ -933,7 +950,7 @@
       </div>
       <div class="modal-footer justify-content-between">
         <button type="button" class="btn btn-default" data-dismiss="modal">CERRAR</button>
-        <button type="button" class="btn btn-primary guardarPublicacion">GUARDAR CAMBIOS</button>
+        <button type="button" class="btn btn-primary guardarCambiosPostul">GUARDAR CAMBIOS</button>
 
       </div>
     </div>
@@ -942,6 +959,7 @@
   <!-- /.modal-dialog -->
 </div>
 <!-- /.modal -->
+
 
 
 
