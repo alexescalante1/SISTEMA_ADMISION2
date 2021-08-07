@@ -130,7 +130,7 @@ class AjaxInscripcion{
 			"antiguoVaucher"=>$this->antiguafotoVaucherP
 		);
 
-		//$respuesta = ControladorInscripcion::ctrEditarInscripcion($datos);
+		$respuesta = ControladorInscripcion::ctrEditarInscripcion($datos);
 	
 		echo $respuesta;
 

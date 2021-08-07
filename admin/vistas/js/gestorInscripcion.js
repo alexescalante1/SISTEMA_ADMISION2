@@ -1279,7 +1279,7 @@ function editarPostulantes(){
 					confirmButtonText: 'Continuar'
 				}).then((result) => {
 					
-					window.location = rutaEvento+"-inscribir";
+					window.location = rutaEvento+"-ver";
 					
 				})
 

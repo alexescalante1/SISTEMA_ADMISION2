@@ -238,15 +238,20 @@ class ModeloInscripcion{
 	}
 
 	/*=============================================
-	EDITAR ESPECIALIDAD
+	EDITAR INSCRIP
 	=============================================*/
 
-	static public function mdlEditarEspecialidad($tabla, $datos){
+	static public function mdlEditarInscripcionCentral($tabla, $datos){
 
-		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET titulo = :titulo WHERE idEspecialidad = :idEspecialidad");
+		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET Tpostulacion = :Tpostulacion, Popcion = :Popcion, Sopcion = :Sopcion, vaucher = :vaucher, idAdmin = :idAdmin WHERE idInscripcion = :idInscripcion");
 
-		$stmt->bindParam(":titulo", $datos["tituloEspecialidad"], PDO::PARAM_STR);
-		$stmt -> bindParam(":idEspecialidad", $datos["idEspecialidad"], PDO::PARAM_INT);
+		$stmt->bindParam(":Tpostulacion", $datos["Tpostulacion"], PDO::PARAM_STR);
+		$stmt->bindParam(":Popcion", $datos["Popcion"], PDO::PARAM_STR);
+		$stmt->bindParam(":Sopcion", $datos["Sopcion"], PDO::PARAM_STR);
+		$stmt->bindParam(":vaucher", $datos["vaucher"], PDO::PARAM_STR);
+		$stmt->bindParam(":idAdmin", $datos["idAdmin"], PDO::PARAM_STR);
+
+		$stmt -> bindParam(":idInscripcion", $datos["idInscripcion"], PDO::PARAM_INT);
 
 		if($stmt->execute()){
 
@@ -255,7 +260,75 @@ class ModeloInscripcion{
 		}else{
 
 			return "error";
+	
+		}
+
+		$stmt->close();
+		$stmt = null;
+
+	}
+
+	static public function mdlEditarInscripcion($tabla, $datos){
 		
+		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET dni = :dni, nombre = :nombre, apellidoPat = :apellidoPat, apellidoMat = :apellidoMat, fecha = :fecha, foto = :foto WHERE idPostulante = :idPostulante");
+
+		$stmt->bindParam(":dni", $datos["dni"], PDO::PARAM_STR);
+		$stmt->bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
+		$stmt->bindParam(":apellidoPat", $datos["apellidoPat"], PDO::PARAM_STR);
+		$stmt->bindParam(":apellidoMat", $datos["apellidoMat"], PDO::PARAM_STR);
+		$stmt->bindParam(":fecha", $datos["fecha"], PDO::PARAM_STR);
+		$stmt->bindParam(":foto", $datos["foto"], PDO::PARAM_STR);
+
+		$stmt -> bindParam(":idPostulante", $datos["idPostulante"], PDO::PARAM_INT);
+
+		if($stmt->execute()){
+
+			return "ok";
+
+		}else{
+
+			return "error";
+	
+		}
+
+		$stmt->close();
+		$stmt = null;
+
+	}
+
+	static public function mdlEditarInscripcionDetalle($tabla, $datos){
+		
+		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET genero = :genero, correo = :correo, celularOne = :celularOne, celularTwo = :celularTwo, direccion = :direccion, departamento = :departamento, provincia = :provincia, distrito = :distrito, representante = :representante, dniR = :dniR, correoR = :correoR, parentescoR = :parentescoR, direccionR = :direccionR, celularR = :celularR, colegio = :colegio, Ctipo = :Ctipo, Cespecialidad = :Cespecialidad, Cnota = :Cnota WHERE idPostulante = :idPostulante");
+
+		$stmt->bindParam(":genero", $datos["genero"], PDO::PARAM_STR);
+		$stmt->bindParam(":correo", $datos["correo"], PDO::PARAM_STR);
+		$stmt->bindParam(":celularOne", $datos["celularOne"], PDO::PARAM_STR);
+		$stmt->bindParam(":celularTwo", $datos["celularTwo"], PDO::PARAM_STR);
+		$stmt->bindParam(":direccion", $datos["direccion"], PDO::PARAM_STR);
+		$stmt->bindParam(":departamento", $datos["departamento"], PDO::PARAM_STR);
+		$stmt->bindParam(":provincia", $datos["provincia"], PDO::PARAM_STR);
+		$stmt->bindParam(":distrito", $datos["distrito"], PDO::PARAM_STR);
+		$stmt->bindParam(":representante", $datos["representante"], PDO::PARAM_STR);
+		$stmt->bindParam(":dniR", $datos["dniR"], PDO::PARAM_STR);
+		$stmt->bindParam(":correoR", $datos["correoR"], PDO::PARAM_STR);
+		$stmt->bindParam(":parentescoR", $datos["parentescoR"], PDO::PARAM_STR);
+		$stmt->bindParam(":direccionR", $datos["direccionR"], PDO::PARAM_STR);
+		$stmt->bindParam(":celularR", $datos["celularR"], PDO::PARAM_STR);
+		$stmt->bindParam(":colegio", $datos["colegio"], PDO::PARAM_STR);
+		$stmt->bindParam(":Ctipo", $datos["Ctipo"], PDO::PARAM_STR);
+		$stmt->bindParam(":Cespecialidad", $datos["Cespecialidad"], PDO::PARAM_STR);
+		$stmt->bindParam(":Cnota", $datos["Cnota"], PDO::PARAM_STR);
+
+		$stmt -> bindParam(":idPostulante", $datos["idPostulante"], PDO::PARAM_INT);
+
+		if($stmt->execute()){
+
+			return "ok";
+
+		}else{
+
+			return "error";
+	
 		}
 
 		$stmt->close();

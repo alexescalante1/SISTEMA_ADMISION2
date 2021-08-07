@@ -5,7 +5,9 @@ $('#reservationdateINIT').datetimepicker({
 $('#reservationdateEND').datetimepicker({
     format: 'L'
 });
-
+$('#reservationdateINITE').datetimepicker({
+  format: 'L'
+});
 
 $('#timepickerHini').datetimepicker({
   format: 'LT'
