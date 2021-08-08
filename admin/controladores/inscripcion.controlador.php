@@ -71,7 +71,7 @@ class ControladorInscripcion{
 
 					$aleatorio = mt_rand(100,999);
 
-					$rutaFotoPrincipal = "../vistas/img/postulantes/".$respuesta[0].".jpg";
+					$rutaFotoPrincipal = "../vistas/img/postulantes/".$respuesta[0].$aleatorio.".jpg";
 
 					$origen = imagecreatefromjpeg($datos["foto"]["tmp_name"]);						
 
@@ -91,7 +91,7 @@ class ControladorInscripcion{
 
 					$aleatorio = mt_rand(100,999);
 
-					$rutaFotoPrincipal = "../vistas/img/postulantes/".$respuesta[0].".png";
+					$rutaFotoPrincipal = "../vistas/img/postulantes/".$respuesta[0].$aleatorio.".png";
 
 					$origen = imagecreatefrompng($datos["foto"]["tmp_name"]);						
 
@@ -182,7 +182,7 @@ class ControladorInscripcion{
 
 							$aleatorio = mt_rand(100,999);
 
-							$rutaFotoVaucher = "../vistas/img/vaucher/".$respuesta3[0].".jpg";
+							$rutaFotoVaucher = "../vistas/img/vaucher/".$respuesta3[0].$aleatorio.".jpg";
 
 							$origen = imagecreatefromjpeg($datos["vaucher"]["tmp_name"]);						
 
@@ -202,7 +202,7 @@ class ControladorInscripcion{
 
 							$aleatorio = mt_rand(100,999);
 
-							$rutaFotoVaucher = "../vistas/img/vaucher/".$respuesta3[0].".png";
+							$rutaFotoVaucher = "../vistas/img/vaucher/".$respuesta3[0].$aleatorio.".png";
 
 							$origen = imagecreatefrompng($datos["vaucher"]["tmp_name"]);						
 
@@ -271,7 +271,9 @@ class ControladorInscripcion{
 				GUARDAMOS LA IMAGEN EN EL DIRECTORIO
 				=============================================*/
 
-				$rutaFotoVaucher = "../vistas/img/vaucher/".$datos["idInscrito"].".jpg";
+				$aleatorio = mt_rand(100,999);
+
+				$rutaFotoVaucher = "../vistas/img/vaucher/".$datos["idInscrito"].$aleatorio.".jpg";
 
 				$origen = imagecreatefromjpeg($datos["vaucher"]["tmp_name"]);						
 
@@ -289,7 +291,9 @@ class ControladorInscripcion{
 				GUARDAMOS LA IMAGEN EN EL DIRECTORIO
 				=============================================*/
 
-				$rutaFotoVaucher = "../vistas/img/vaucher/".$datos["idInscrito"].".png";
+				$aleatorio = mt_rand(100,999);
+
+				$rutaFotoVaucher = "../vistas/img/vaucher/".$datos["idInscrito"].$aleatorio.".png";
 
 				$origen = imagecreatefrompng($datos["vaucher"]["tmp_name"]);						
 
@@ -356,7 +360,9 @@ class ControladorInscripcion{
 					GUARDAMOS LA IMAGEN EN EL DIRECTORIO
 					=============================================*/
 
-					$rutaFotoPrincipal = "../vistas/img/postulantes/".$traer["idPostulante"].".jpg";
+					$aleatorio = mt_rand(100,999);
+
+					$rutaFotoPrincipal = "../vistas/img/postulantes/".$traer["idPostulante"].$aleatorio.".jpg";
 
 					$origen = imagecreatefromjpeg($datos["foto"]["tmp_name"]);						
 
@@ -374,7 +380,9 @@ class ControladorInscripcion{
 					GUARDAMOS LA IMAGEN EN EL DIRECTORIO
 					=============================================*/
 
-					$rutaFotoPrincipal = "../vistas/img/postulantes/".$traer["idPostulante"].".png";
+					$aleatorio = mt_rand(100,999);
+
+					$rutaFotoPrincipal = "../vistas/img/postulantes/".$traer["idPostulante"].$aleatorio.".png";
 
 					$origen = imagecreatefrompng($datos["foto"]["tmp_name"]);						
 
