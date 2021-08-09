@@ -666,114 +666,129 @@
 
 
 
+        <!-- TABLE: LATEST ORDERS -->
         <div class="card">
 
-            <div class="card-header">
-                <h3 style="font-weight: bold;" class="card-title">INSCRITOS RECIENTEMENTE</h3>
-                <div class="card-tools">
+            <div class="card-header border-transparent">
+            <h3 style="font-weight: bold;" class="card-title">INSCRITOS RECIENTEMENTE</h3>
 
-                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                        <i class="fas fa-minus"></i>
-                    </button>
-
-                </div>
-                <!-- /.card-tools -->
+            <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                <i class="fas fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-tool" data-card-widget="maximize">
+                <i class="fas fa-expand"></i>
+                </button>
             </div>
-
+            </div>
             <!-- /.card-header -->
-            <div class="card-body">
-                
+
+            <div class="card-body p-0">
 
 
-
-                
                 <!-- Main content -->
                 <section class="content">
                         <div class="container-fluid">
-                          <div class="row">
+                        <div class="row">
                             <div class="col-12">
 
-                              <div class="card">
+                            <div class="card">
                                 
                                 
 
                                 <!-- /.card-header -->
                                 <div class="card-body">
-                                  <table id="tablaInscritos" class="table table-bordered table-striped">
-                                    <thead>
-                                    <tr>
-                                      <th style="width:10px">#</th>
-                                      <th style="width:50px">TIPO</th>
-                                      <th style="width:50px">DNI</th>
-                                      <th>NOMBRES</th>
-                                      <th style="width:50px">ESTADO</th>
-                                      <th style="width:120px">FECHA</th>
-                                      <th style="width:10px">OP</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    
-                                    <?php  
+                                
+                                    <table id="tablaInscritos" class="table table-bordered table-striped">
+                                        <thead>
+                                        <tr>
+                                        <th style="width:5px">#</th>
+                                        <th style="width:30px">COD</th>
+                                        <th style="width:30px">DNI</th>
+                                        <th>NOMBRE</th>
+                                        <th style="width:40px">TIPO</th>
+                                        <th style="width:50px">ESTADO</th>
+                                        <th style="width:60px">FECHA</th>
+                                        <th style="width:5px">OP</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
                                         
-                                        foreach($Objetos as $key => $value){
-
-                                            $Objetos2 = ControladorInscripcion::ctrMostrarInfo("postulante", "idPostulante", $value["idPostulante"]);
+                                        <?php  
                                             
-                                            if($value["estado"] == 0){
-                                                $colorEstado = "btn-danger";
-                                                $textoEstado = "INACTIVO";
-                                                $estadoI = 1;
-                                            }else{
-                                                $colorEstado = "btn-success";
-                                                $textoEstado = "ACTIVO";
-                                                $estadoI = 0;
+                                            foreach($Objetos as $key => $value){
+
+                                                $Objetos2 = ControladorInscripcion::ctrMostrarInfo("postulante", "idPostulante", $value["idPostulante"]);
+                                                
+                                                if($value["estado"] == 0){
+                                                    $colorEstado = "btn-danger";
+                                                    $textoEstado = "INACTIVO";
+                                                    $estadoI = 1;
+                                                }else{
+                                                    $colorEstado = "btn-success";
+                                                    $textoEstado = "ACTIVO";
+                                                    $estadoI = 0;
+                                                }
+                                        
+                                                $estado = "<button class='btn btn-xs btnActivar ".$colorEstado."' style='width:70px;' idInscripcion='".$value["idInscripcion"]."' estadoInscripcion='".$estadoI."'>".$textoEstado."</button>";
+                                                $acciones = "<div class='btn-group'><button class='btn btn-success btnVerInscripcion' idInscripcion='".$value["idInscripcion"]."' data-toggle='modal' data-target='#modalVerInscripcion'><i class='fa fa-eye'></i></button><button class='btn btn-warning btnEditarInscripcion' idInscripcion='".$value["idInscripcion"]."' data-toggle='modal' data-target='#modalEditarInscripcion'><i class='fa fa-edit'></i></button></div>";
+                                                
+                                                $Len = strlen($value["idInscripcion"]);
+                                                if($Len==2){
+                                                    $Len = "0000";
+                                                }else if($Len==3){
+                                                    $Len = "000";
+                                                }else if($Len==4){
+                                                    $Len = "00";
+                                                }else if($Len==5){
+                                                    $Len = "0";
+                                                }else{
+                                                    $Len = "";
+                                                }
+                                                
+                                                echo '
+                                                <tr>
+                                                    <td>'.$key.'</td>
+                                                    <td>'.$value["idAdmision"].$Len.$value["idInscripcion"].'</td>
+                                                    <td>'.$Objetos2["dni"].'</td>
+                                                    <td>'.$Objetos2["nombre"].', '.$Objetos2["apellidoPat"].' '.$Objetos2["apellidoMat"].'</td>
+                                                    <td style="text-transform:uppercase;">'.$value["Tpostulacion"].'</td>
+                                                    <td>'.$estado.'</td>
+                                                    <td>'.$value["fecha"].'</td>
+                                                    <td>'.$acciones.'</td>
+                                                </tr>
+                                                ';
                                             }
-                                    
-                                            $estado = "<button class='btn btn-xs btnActivar ".$colorEstado."' style='width:70px;' idInscripcion='".$value["idInscripcion"]."' estadoInscripcion='".$estadoI."'>".$textoEstado."</button>";
                                             
-                                            $acciones = "<div class='btn-group'><button class='btn btn-success btnVerInscripcion' idInscripcion='".$value["idInscripcion"]."' data-toggle='modal' data-target='#modalVerInscripcion'><i class='fa fa-eye'></i></button><button class='btn btn-warning btnEditarInscripcion' idInscripcion='".$value["idInscripcion"]."' data-toggle='modal' data-target='#modalEditarInscripcion'><i class='fa fa-edit'></i></button></div>";
-                                            echo '
-                                              <tr>
-                                                <td>'.$key.'</td>
-                                                <td style="text-transform:uppercase;">'.$value["Tpostulacion"].'</td>
-                                                <td>'.$Objetos2["dni"].'</td>
-                                                <td>'.$Objetos2["nombre"].', '.$Objetos2["apellidoPat"].' '.$Objetos2["apellidoMat"].'</td>
-                                                <td>'.$estado.'</td>
-                                                <td>'.$value["fecha"].'</td>
-                                                <td>'.$acciones.'</td>
-                                              </tr>
-                                              ';
-                                        }
-                                        
-                                    ?>
+                                        ?>
 
-                                    </tbody>
-                                    
-                                  </table>
+                                        </tbody>
+                                        
+                                    </table>
                                 </div>
                                 <!-- /.card-body -->
-                              </div>
-                              <!-- /.card -->
+                            </div>
+                            <!-- /.card -->
                             </div>
                             <!-- /.col -->
-                          </div>
-                          <!-- /.row -->
+                        </div>
+                        <!-- /.row -->
                         </div>
                         <!-- /.container-fluid -->
                 </section>
-                      <!-- /.content -->
+                <!-- /.content -->
 
 
             </div>
-            <!-- /.card-body -->
+            
+
             <div class="card-footer clearfix">
-                <a class="btn btn-default float-right" href="<?php echo $rutaEventos["ruta"]; ?>-ver">Mostrar Más ...</a>
+            <a class="btn btn-default float-right" href="<?php echo $rutaEventos["ruta"]; ?>-ver">Mostrar Más ...</a>
             </div>
             <!-- /.card-footer -->
+
         </div>
         <!-- /.card -->
-
-
 
 
 
@@ -804,7 +819,7 @@ document.addEventListener('DOMContentLoaded', function () {
   <div class="modal-dialog modal-xl">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title">POSTULANTE</h4>
+        <h5 style="font-weight: bold;" class="modal-title" id="TitleVDOM"></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -1060,7 +1075,7 @@ document.addEventListener('DOMContentLoaded', function () {
       </div>
       <div class="modal-footer justify-content-between">
         <button type="button" class="btn btn-default" data-dismiss="modal">CERRAR</button>
-        <button type="button" class="btn btn-primary">IMPRIMIR CONSTANCIA</button>
+        <button type="button" class="btn btn-primary" id="ImprimirConstancia">IMPRIMIR CONSTANCIA</button>
       </div>
     </div>
     <!-- /.modal-content -->
@@ -1073,7 +1088,7 @@ document.addEventListener('DOMContentLoaded', function () {
   <div class="modal-dialog modal-xl">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title">POSTULANTE</h4>
+      <h5 style="font-weight: bold;" class="modal-title" id="TitleEDOM"></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>

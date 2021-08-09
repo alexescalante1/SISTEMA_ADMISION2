@@ -84,18 +84,19 @@
                                         <table id="tablaInscritos" class="table table-bordered table-striped">
                                             <thead>
                                             <tr>
-                                              <th style="width:10px">#</th>
-                                              <th style="width:50px">TIPO</th>
-                                              <th style="width:50px">DNI</th>
-                                              <th>NOMBRES</th>
+                                              <th style="width:5px">#</th>
+                                              <th style="width:10px">COD</th>
+                                              <th style="width:30px">DNI</th>
+                                              <th>NOMBRE</th>
+                                              <th style="width:40px">TIPO</th>
                                               <th style="width:50px">ESTADO</th>
-                                              <th style="width:120px">FECHA</th>
-                                              <th style="width:10px">OP</th>
+                                              <th style="width:60px">FECHA</th>
+                                              <th style="width:5px">OP</th>
                                             </tr>
                                             </thead>
                                             <tbody>
                                             
-                                            <?php  
+                                            <?php
 
                                                 foreach($Objetos as $key => $value){
 
@@ -117,12 +118,26 @@
                                                     
                                                     $acciones = "<div class='btn-group'><button class='btn btn-success btnVerInscripcion' idInscripcion='".$value["idInscripcion"]."' data-toggle='modal' data-target='#modalVerInscripcion'><i class='fa fa-eye'></i></button><button class='btn btn-warning btnEditarInscripcion' idInscripcion='".$value["idInscripcion"]."' data-toggle='modal' data-target='#modalEditarInscripcion'><i class='fa fa-edit'></i></button></div>";
 
+                                                    $Len = strlen($value["idInscripcion"]);
+                                                    if($Len==2){
+                                                        $Len = "0000";
+                                                    }else if($Len==3){
+                                                        $Len = "000";
+                                                    }else if($Len==4){
+                                                        $Len = "00";
+                                                    }else if($Len==5){
+                                                        $Len = "0";
+                                                    }else{
+                                                        $Len = "";
+                                                    }
+
                                                     echo '
                                                       <tr>
                                                         <td>'.$key.'</td>
-                                                        <td style="text-transform:uppercase;">'.$value["Tpostulacion"].'</td>
+                                                        <td>'.$value["idAdmision"].$Len.$value["idInscripcion"].'</td>
                                                         <td>'.$idPostulant[$value["idPostulante"]]["dni"].'</td>
                                                         <td>'.$idPostulant[$value["idPostulante"]]["nombres"].'</td>
+                                                        <td style="text-transform:uppercase;">'.$value["Tpostulacion"].'</td>
                                                         <td>'.$estado.'</td>
                                                         <td>'.$value["fecha"].'</td>
                                                         <td>'.$acciones.'</td>
@@ -136,9 +151,10 @@
                                             <tfoot>
                                             <tr>
                                             <th>#</th>
-                                            <th>TIPO</th>
+                                            <th>COD</th>
                                             <th>DNI</th>
-                                            <th>NOMBRES</th>
+                                            <th>NOMBRE</th>
+                                            <th>TIPO</th>
                                             <th>ESTADO</th>
                                             <th>FECHA</th>
                                             <th>OP</th>
@@ -190,7 +206,7 @@
   <div class="modal-dialog modal-xl">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title">POSTULANTE</h4>
+        <h5 style="font-weight: bold;" class="modal-title" id="TitleVDOM"></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -210,7 +226,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>INSCRIPCION EN:</label>
-                        <input type="text" class="form-control def-input" value="<?php echo $rutaEventos["titulo"]; ?>" readonly>
+                        <input type="text" class="form-control def-input eAdmision" value="<?php echo $rutaEventos["titulo"]; ?>" readonly>
                     </div>
                     <div class="form-group">
                         <label>PRIMERA OPCION</label>
@@ -453,7 +469,7 @@
       </div>
       <div class="modal-footer justify-content-between">
         <button type="button" class="btn btn-default" data-dismiss="modal">CERRAR</button>
-        <button type="button" class="btn btn-primary">IMPRIMIR CONSTANCIA</button>
+        <button type="button" class="btn btn-primary" id="ImprimirConstancia">IMPRIMIR CONSTANCIA</button>
       </div>
     </div>
     <!-- /.modal-content -->
@@ -475,7 +491,7 @@
   <div class="modal-dialog modal-xl">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title">POSTULANTE</h4>
+        <h5 style="font-weight: bold;" class="modal-title" id="TitleEDOM"></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>

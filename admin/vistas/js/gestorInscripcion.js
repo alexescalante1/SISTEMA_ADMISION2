@@ -796,6 +796,8 @@ $('#tablaInscritos').on("click", ".btnVerInscripcion", function(){
 
 	var idInscripcion = $(this).attr("idInscripcion");
 
+	
+
 	var datos = new FormData();
 	datos.append("Ttabla", "inscripciones");
 	datos.append("Titem", "idInscripcion");
@@ -861,6 +863,21 @@ $('#tablaInscritos').on("click", ".btnVerInscripcion", function(){
 								}
 							})
 
+							var Len = respuesta["idInscripcion"].length;
+							var Cros = "";
+							if(Len==2){
+								Cros = "0000";
+							}else if(Len==3){
+								Cros = "000";
+							}else if(Len==4){
+								Cros = "00";
+							}else if(Len==5){
+								Cros = "0";
+							}
+
+							$('#TitleVDOM').html("CODIGO DE INSCRIPCION: "+respuesta["idAdmision"]+Cros+respuesta["idInscripcion"]);
+
+							
 
 							$("#modalVerInscripcion .Popcion").val(respuesta["Popcion"]);
 							$("#modalVerInscripcion .Sopcion").val(respuesta["Sopcion"]);
@@ -901,6 +918,10 @@ $('#tablaInscritos').on("click", ".btnVerInscripcion", function(){
 							$("#modalVerInscripcion .Cespecialidad").val(respDet["Cespecialidad"]);
 							$("#modalVerInscripcion .nota").val(respDet["Cnota"]);
 
+
+
+
+
 						}
 
 					})
@@ -919,6 +940,70 @@ $('#tablaInscritos').on("click", ".btnVerInscripcion", function(){
 })
 
 
+$("#ImprimirConstancia").click(function(){
+	
+	var eAdmision = $("#modalVerInscripcion .eAdmision").val();
+	var Popcion = $("#modalVerInscripcion .Popcion").val();
+	var Sopcion = $("#modalVerInscripcion .Sopcion").val();
+	var nombresApellidos = $("#modalVerInscripcion .nombresApellidos").val();
+	
+	console.log(eAdmision);
+	
+	
+	var datos = new FormData();
+	datos.append("eAdmision", eAdmision);
+	datos.append("Popcion", Popcion);
+	datos.append("Sopcion", Sopcion);
+	datos.append("nombresApellidos", nombresApellidos);
+	
+
+	window.open("print/fichaInscripcion.php?eAdmision="+eAdmision+"&Popcion="+Popcion+"&Sopcion="+Sopcion+"&nombresApellidos="+nombresApellidos, "popupId");
+	//window.location = "print/jquery.php?ruta=perfiles&Popcion="+Popcion+"&Sopcion="+Sopcion;
+
+
+
+	/*
+	$.ajax({
+		url:"ajax/inscripcion.ajax.php",
+		method: "POST",
+		data: datos,
+		cache: false,
+		contentType: false,
+		processData: false,
+		success: function(respuesta){
+
+			console.log("RESPUESTA");
+			console.log(respuesta);
+
+			if(respuesta == "ok"){
+
+				Swal.fire({
+					title: 'Se ha Registrado Correctamente',
+					icon: 'success',
+					confirmButtonColor: '#3085d6',
+					confirmButtonText: 'Continuar'
+				}).then((result) => {
+					
+					window.location = rutaEvento+"-inscribir";
+					
+				})
+
+			}else{
+				Swal.fire({
+					icon: 'error',
+					title: 'Oops...',
+					text: 'Algo Salio Mal!'
+					})
+			}
+
+		}
+
+	})
+*/
+	
+
+})
+
 
 
 
@@ -928,7 +1013,7 @@ $('#tablaInscritos').on("click", ".btnVerInscripcion", function(){
 
 
 /*=============================================
-EDITAR ARTICULO
+EDITAR INSCRIP
 =============================================*/
 
 $('#tablaInscritos').on("click", ".btnEditarInscripcion", function(){
@@ -1025,6 +1110,21 @@ $('#tablaInscritos').on("click", ".btnEditarInscripcion", function(){
 									$("#modalEditarInscripcion #adminRecep").val(respAdmin["nombre"]);
 								}
 							})
+
+							var Len = respuesta["idInscripcion"].length;
+							var Cros = "";
+							if(Len==2){
+								Cros = "0000";
+							}else if(Len==3){
+								Cros = "000";
+							}else if(Len==4){
+								Cros = "00";
+							}else if(Len==5){
+								Cros = "0";
+							}
+							
+							$('#TitleEDOM').html("CODIGO DE INSCRIPCION: "+respuesta["idAdmision"]+Cros+respuesta["idInscripcion"]);
+
 
 							$("#modalEditarInscripcion #PespecialidadE").val(respuesta["Popcion"]);
 							$("#modalEditarInscripcion #SespecialidadE").val(respuesta["Sopcion"]);
