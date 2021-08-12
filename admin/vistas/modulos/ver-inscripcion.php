@@ -3,6 +3,7 @@
     $especiali = ControladorAdmision::ctrMostrar("especialidad",null, null);
 
 ?>
+
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
@@ -221,6 +222,7 @@
                     <div class="form-group">
                         <label>RECEPCIONADO POR:</label>
                         <input type="text" class="form-control def-input nombreAdmin RecepAdminV" readonly>
+                        <input style="display:none" id="IDINSCRIP">
                     </div>
                 </div>
                 <div class="col-md-6">

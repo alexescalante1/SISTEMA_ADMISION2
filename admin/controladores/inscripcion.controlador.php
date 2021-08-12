@@ -152,77 +152,76 @@ class ControladorInscripcion{
 
 				$respuesta3 = ModeloInscripcion::mdlIngresarInscripcionCentral("inscripciones", $datosIIS);
 
+				/*=============================================
+				VALIDAR IMAGEN VAUCHER
+				=============================================*/
+
+				$rutaFotoVaucher = "../vistas/img/vaucher/default/Default.png";
+
+				if(isset($datos["vaucher"]["tmp_name"]) && !empty($datos["vaucher"]["tmp_name"])){
 
 					/*=============================================
-					VALIDAR IMAGEN VAUCHER
+					DEFINIMOS LAS MEDIDAS
 					=============================================*/
 
-					$rutaFotoVaucher = "../vistas/img/vaucher/default/Default.png";
+					list($ancho, $alto) = getimagesize($datos["vaucher"]["tmp_name"]);	
 
-					if(isset($datos["vaucher"]["tmp_name"]) && !empty($datos["vaucher"]["tmp_name"])){
+					$nuevoAncho = 800;
+					$nuevoAlto = 800;
 
-						/*=============================================
-						DEFINIMOS LAS MEDIDAS
-						=============================================*/
+					/*=============================================
+					DE ACUERDO AL TIPO DE IMAGEN APLICAMOS LAS FUNCIONES POR DEFECTO DE PHP
+					=============================================*/
 
-						list($ancho, $alto) = getimagesize($datos["vaucher"]["tmp_name"]);	
-
-						$nuevoAncho = 800;
-						$nuevoAlto = 800;
+					if($datos["vaucher"]["type"] == "image/jpeg"){
 
 						/*=============================================
-						DE ACUERDO AL TIPO DE IMAGEN APLICAMOS LAS FUNCIONES POR DEFECTO DE PHP
+						GUARDAMOS LA IMAGEN EN EL DIRECTORIO
 						=============================================*/
 
-						if($datos["vaucher"]["type"] == "image/jpeg"){
+						$aleatorio = mt_rand(100,999);
 
-							/*=============================================
-							GUARDAMOS LA IMAGEN EN EL DIRECTORIO
-							=============================================*/
+						$rutaFotoVaucher = "../vistas/img/vaucher/".$respuesta3[0].$aleatorio.".jpg";
 
-							$aleatorio = mt_rand(100,999);
+						$origen = imagecreatefromjpeg($datos["vaucher"]["tmp_name"]);						
 
-							$rutaFotoVaucher = "../vistas/img/vaucher/".$respuesta3[0].$aleatorio.".jpg";
+						$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
 
-							$origen = imagecreatefromjpeg($datos["vaucher"]["tmp_name"]);						
+						imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
 
-							$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
-
-							imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
-
-							imagejpeg($destino, $rutaFotoVaucher);
-
-						}
-
-						if($datos["vaucher"]["type"] == "image/png"){
-
-							/*=============================================
-							GUARDAMOS LA IMAGEN EN EL DIRECTORIO
-							=============================================*/
-
-							$aleatorio = mt_rand(100,999);
-
-							$rutaFotoVaucher = "../vistas/img/vaucher/".$respuesta3[0].$aleatorio.".png";
-
-							$origen = imagecreatefrompng($datos["vaucher"]["tmp_name"]);						
-
-							$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
-
-							imagealphablending($destino, FALSE);
-					
-							imagesavealpha($destino, TRUE);
-
-							imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
-
-							imagepng($destino, $rutaFotoVaucher);
-
-						}
+						imagejpeg($destino, $rutaFotoVaucher);
 
 					}
 
-				$RESPTA	= ModeloInscripcion::mdlActualizar("inscripciones", "vaucher",substr($rutaFotoVaucher,3), "idInscripcion", $respuesta3[0]);
+					if($datos["vaucher"]["type"] == "image/png"){
 
-				return $RESPTA;
+						/*=============================================
+						GUARDAMOS LA IMAGEN EN EL DIRECTORIO
+						=============================================*/
+
+						$aleatorio = mt_rand(100,999);
+
+						$rutaFotoVaucher = "../vistas/img/vaucher/".$respuesta3[0].$aleatorio.".png";
+
+						$origen = imagecreatefrompng($datos["vaucher"]["tmp_name"]);						
+
+						$destino = imagecreatetruecolor($nuevoAncho, $nuevoAlto);
+
+						imagealphablending($destino, FALSE);
+				
+						imagesavealpha($destino, TRUE);
+
+						imagecopyresized($destino, $origen, 0, 0, 0, 0, $nuevoAncho, $nuevoAlto, $ancho, $alto);
+
+						imagepng($destino, $rutaFotoVaucher);
+
+					}
+
+				}
+
+				ModeloInscripcion::mdlActualizar("inscripciones", "vaucher",substr($rutaFotoVaucher,3), "idInscripcion", $respuesta3[0]);
+
+				return $respuesta3[0];
 			}
 
 		}else{

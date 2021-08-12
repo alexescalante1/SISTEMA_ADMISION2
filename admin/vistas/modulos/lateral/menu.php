@@ -77,7 +77,7 @@ MENU
         <li class="nav-item">
           <a href="registrarFicha" class="nav-link">
             <i class="far fa-circle nav-icon"></i>
-            <p>Registrar Ficha</p>
+            <p>Registrar Respuestas</p>
           </a>
         </li>
         <li class="nav-item">

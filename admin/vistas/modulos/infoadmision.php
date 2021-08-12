@@ -573,6 +573,7 @@
 						<div class="row">
 							
 							<div class="col-md-2">
+
 								<div class="form-group">
 									<div class="input-group">
 										<div class="input-group-prepend">
@@ -590,6 +591,16 @@
 										
 									</div>
 								</div>
+
+								<div class="form-group">
+									<div class="input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text" style="color: White;background-color: black;">Pts</span>
+									</div>
+									<input style="font-weight: bold;color: White;background-color: DarkSlateGrey;" type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="3" class="form-control" name="pts-0" id="pts-0"  placeholder="0.0" required>
+									</div>
+								</div>
+
 							</div>
 
 

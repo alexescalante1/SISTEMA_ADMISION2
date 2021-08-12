@@ -739,6 +739,7 @@ if($('#idTIPOPRB').val()){
 
 					for(var i = 0; i < lista.length; i++){
 						$('#sol'+lista[i].num).val(lista[i].sol);
+						$('#pts'+lista[i].num).val(lista[i].pts);
 
 						$('#descrip'+lista[i].num).val(lista[i].descripcion);
 						$('#opciona'+lista[i].num).val(lista[i].Ra);
@@ -783,6 +784,7 @@ $('.SelectB').on("click", ".tipoPruebaSelc", function(){
 
 					for(var i = 0; i < lista.length; i++){
 						$('#sol'+lista[i].num).val(lista[i].sol);
+						$('#pts'+lista[i].num).val(lista[i].pts);
 
 						$('#descrip'+lista[i].num).val(lista[i].descripcion);
 						$('#opciona'+lista[i].num).val(lista[i].Ra);
@@ -817,9 +819,9 @@ $("#guardarEjerciciosA").click(function(){
 	=============================================*/
 	for(var k=1;k<=NumEjercicios;k++){
 
-		if($('#descrip'+k).val()&&$('#opciona'+k).val()&&$('#opcionb'+k).val()&&$('#opcionc'+k).val()&&$('#opciond'+k).val()&&$('#opcione'+k).val()){
+		if($('#pts'+k).val()&&$('#descrip'+k).val()&&$('#opciona'+k).val()&&$('#opcionb'+k).val()&&$('#opcionc'+k).val()&&$('#opciond'+k).val()&&$('#opcione'+k).val()){
 
-			listaProb.push({"num" : k, "sol" : $('#sol'+k).val(),"descripcion" : $('#descrip'+k).val(),"Ra" : $('#opciona'+k).val(),"Rb" : $('#opcionb'+k).val(),"Rc" : $('#opcionc'+k).val(),"Rd" : $('#opciond'+k).val(),"Re" : $('#opcione'+k).val()})
+			listaProb.push({"num" : k, "sol" : $('#sol'+k).val(), "pts" : $('#pts'+k).val(),"descripcion" : $('#descrip'+k).val(),"Ra" : $('#opciona'+k).val(),"Rb" : $('#opcionb'+k).val(),"Rc" : $('#opcionc'+k).val(),"Rd" : $('#opciond'+k).val(),"Re" : $('#opcione'+k).val()})
 			//listEjercicios = JSON.stringify(listaProb);
 
 		}else{

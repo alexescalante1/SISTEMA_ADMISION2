@@ -708,19 +708,34 @@ $("#guardarPostulant").click(function(){
 				console.log("RESPUESTA");
 				console.log(respuesta);
 
-				if(respuesta == "ok"){
+				if(respuesta != "error"){
 
 					Swal.fire({
 						title: 'Se ha Registrado Correctamente',
 						icon: 'success',
+						showCancelButton: true,
 						confirmButtonColor: '#3085d6',
-						confirmButtonText: 'Continuar'
-					}).then((result) => {
+						cancelButtonColor: '#2ECC71',
+						confirmButtonText: 'Continuar',
+						cancelButtonText: 'Imprimir Constancia'
+					  }).then((result) => {
+						if (result.isConfirmed) {
 						
-						window.location = rutaEvento+"-inscribir";
-						
-					})
+							window.location = rutaEvento+"-inscribir";
+								
+						}else{
 
+							PrintConstancia(respuesta);
+						
+							setInterval(
+								function(){
+									window.location = rutaEvento+"-inscribir";
+								},2000
+							);
+
+						}
+					  })
+					  
 				}else{
 					Swal.fire({
 						icon: 'error',
@@ -789,9 +804,6 @@ $('#tablaInscritos').on("click", ".btnActivar", function(){
 })
 
 
-
-
-
 $('#tablaInscritos').on("click", ".btnVerInscripcion", function(){
 
 	var idInscripcion = $(this).attr("idInscripcion");
@@ -845,6 +857,8 @@ $('#tablaInscritos').on("click", ".btnVerInscripcion", function(){
 						processData: false,
 						dataType: "json",
 						success: function(respDet){
+
+							$("#modalVerInscripcion #IDINSCRIP").val(idInscripcion);
 							
 							var datos4 = new FormData();
 							datos4.append("Ttabla", "administradores");
@@ -940,29 +954,24 @@ $('#tablaInscritos').on("click", ".btnVerInscripcion", function(){
 })
 
 
+/*=============================================
+IMPRIMIR CONSTANCIA
+=============================================*/
+
+
 $("#ImprimirConstancia").click(function(){
-	
-	var eAdmision = $("#modalVerInscripcion .eAdmision").val();
-	var Popcion = $("#modalVerInscripcion .Popcion").val();
-	var Sopcion = $("#modalVerInscripcion .Sopcion").val();
-	var nombresApellidos = $("#modalVerInscripcion .nombresApellidos").val();
-	
-	console.log(eAdmision);
-	
-	
+	PrintConstancia($("#IDINSCRIP").val());
+})
+
+function PrintConstancia(idInscrip){
+
+	/*=============================================
+	TRAER DATOS INSCRIPCION
+	=============================================*/
 	var datos = new FormData();
-	datos.append("eAdmision", eAdmision);
-	datos.append("Popcion", Popcion);
-	datos.append("Sopcion", Sopcion);
-	datos.append("nombresApellidos", nombresApellidos);
-	
-
-	window.open("print/fichaInscripcion.php?eAdmision="+eAdmision+"&Popcion="+Popcion+"&Sopcion="+Sopcion+"&nombresApellidos="+nombresApellidos, "popupId");
-	//window.location = "print/jquery.php?ruta=perfiles&Popcion="+Popcion+"&Sopcion="+Sopcion;
-
-
-
-	/*
+	datos.append("Ttabla", "inscripciones");
+	datos.append("Titem", "idInscripcion");
+	datos.append("TidV", idInscrip);
 	$.ajax({
 		url:"ajax/inscripcion.ajax.php",
 		method: "POST",
@@ -970,46 +979,109 @@ $("#ImprimirConstancia").click(function(){
 		cache: false,
 		contentType: false,
 		processData: false,
+		dataType: "json",
 		success: function(respuesta){
 
-			console.log("RESPUESTA");
-			console.log(respuesta);
+			/*=============================================
+			TRAER DATOS P OPCION
+			=============================================*/
+			var datosPe = new FormData();
+			datosPe.append("Ttabla", "especialidad");
+			datosPe.append("Titem", "idEspecialidad");
+			datosPe.append("TidV", respuesta["Popcion"]);
+			$.ajax({
+				url:"ajax/inscripcion.ajax.php",
+				method: "POST",
+				data: datosPe,
+				cache: false,
+				contentType: false,
+				processData: false,
+				dataType: "json",
+				success: function(resPe){
 
-			if(respuesta == "ok"){
+					/*=============================================
+					TRAER DATOS S OPCION
+					=============================================*/
+					var datosSe = new FormData();
+					datosSe.append("Ttabla", "especialidad");
+					datosSe.append("Titem", "idEspecialidad");
+					datosSe.append("TidV", respuesta["Sopcion"]);
+					$.ajax({
+						url:"ajax/inscripcion.ajax.php",
+						method: "POST",
+						data: datosSe,
+						cache: false,
+						contentType: false,
+						processData: false,
+						dataType: "json",
+						success: function(resSe){
 
-				Swal.fire({
-					title: 'Se ha Registrado Correctamente',
-					icon: 'success',
-					confirmButtonColor: '#3085d6',
-					confirmButtonText: 'Continuar'
-				}).then((result) => {
-					
-					window.location = rutaEvento+"-inscribir";
-					
-				})
+							/*=============================================
+							TRAER NOMBRE ADMISION
+							=============================================*/
+							var datosSe = new FormData();
+							datosSe.append("Ttabla", "eventoadmision");
+							datosSe.append("Titem", "idAdmision");
+							datosSe.append("TidV", respuesta["idAdmision"]);
+							$.ajax({
+								url:"ajax/inscripcion.ajax.php",
+								method: "POST",
+								data: datosSe,
+								cache: false,
+								contentType: false,
+								processData: false,
+								dataType: "json",
+								success: function(resEvnt){
+		
+									/*=============================================
+									TRAER DATOS POSTULANTE
+									=============================================*/
+									var datosSe = new FormData();
+									datosSe.append("Ttabla", "postulante");
+									datosSe.append("Titem", "idPostulante");
+									datosSe.append("TidV", respuesta["idPostulante"]);
+									$.ajax({
+										url:"ajax/inscripcion.ajax.php",
+										method: "POST",
+										data: datosSe,
+										cache: false,
+										contentType: false,
+										processData: false,
+										dataType: "json",
+										success: function(resPost){
+				
+											var Len = respuesta["idInscripcion"].length;
+											var Cros = "";
+											if(Len==2){Cros = "0000";
+											}else if(Len==3){Cros = "000";
+											}else if(Len==4){Cros = "00";
+											}else if(Len==5){Cros = "0";
+											}
+											
+											var nombresApellidos = resPost["nombre"]+" "+resPost["apellidoPat"]+" "+resPost["apellidoMat"];
+											var cod = respuesta["idAdmision"]+Cros+respuesta["idInscripcion"];
+											
+											window.open("print/fichaInscripcion.php?eAdmision="+resEvnt["titulo"]+"&Popcion="+resPe["titulo"]+"&Sopcion="+resSe["titulo"]+"&nombresApellidos="+nombresApellidos+"&cod="+cod, "popupId");
+		
+										}
+				
+									})
 
-			}else{
-				Swal.fire({
-					icon: 'error',
-					title: 'Oops...',
-					text: 'Algo Salio Mal!'
+								}
+							})
+
+						}
 					})
-			}
+
+				}
+			})
 
 		}
-
 	})
-*/
-	
 
-})
+	//window.location = "print/jquery.php?ruta=perfiles&Popcion="+Popcion+"&Sopcion="+Sopcion;
 
-
-
-
-
-
-
+}
 
 
 /*=============================================

@@ -830,7 +830,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
             <div class="col-md-10">
               <div class="row">
-
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>RECEPCIONADO POR:</label>
+                        <input type="text" class="form-control def-input nombreAdmin RecepAdminV" readonly>
+                        <input style="display:none" id="IDINSCRIP">
+                    </div>
+                </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>INSCRIPCION EN:</label>

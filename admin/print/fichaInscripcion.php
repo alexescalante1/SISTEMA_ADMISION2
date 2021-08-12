@@ -9,51 +9,135 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CONSTANCIA DE INSCRIPCION</title>
+    <title><?php echo $_GET["cod"]; ?></title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="printThis.js"></script>
+    
+    <!-- jQuery -->
+    <script src="../vistas/plugins/jquery/jquery.min.js"></script>
+
+    <!-- CSS
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/skeleton.css">
+
+
   </head>
   <body>
 
 
     <div id="pagina">
 
+      <div class="headerT">
+        <h3>INSTITULO DE EDUCACIÓN SUPERIOR TECNOLÓGICO HUANCANÉ</h3>
+        <h5 class="compact">VICERRECTORADO ACADÉMICO</h5>
+        <h4 class="compact">OFICINA DE INSCRIPCIÓN 2021</h4>
+        
+        <h3>CONSTANCIA</h3>
+      </div>
 
-      <?php
-        echo '<h1>'.$_GET["eAdmision"].'</h1>';
-        echo '<h2>'.$_GET["Popcion"].'</h2>';
-        echo '<h2>'.$_GET["Sopcion"].'</h2>';
-        echo '<h2>'.$_GET["nombresApellidos"].'</h2>';
-      ?>
       <table >
         <tr>
-          <td>dato1</td>
-          <td>dato2</td>
-          <td>dato3</td>
+          <td>MODALIDAD</td>
+          <td><?php echo $_GET["eAdmision"]; ?></td>
         </tr>
         <tr>
-          <td>dato4</td>
-          <td>dato5</td>
-          <td>dato6</td>
+          <td>CODIGO DE INSCRIPCION</td>
+          <td><?php echo $_GET["cod"]; ?></td>
+        </tr>
+        <tr>
+          <td>NOMBRES Y APELLIDOS</td>
+          <td><?php echo $_GET["nombresApellidos"]; ?></td>
+        </tr>
+        <tr>
+          <td>PRIMERA OPCION</td>
+          <td><?php echo $_GET["Popcion"]; ?></td>
+        </tr>
+        <tr>
+          <td>SEGUNDA OPCION</td>
+          <td><?php echo $_GET["Sopcion"]; ?></td>
         </tr>
       </table>
+
+      <p>Se hace de constatar que el presente alumno esta inscrito y cumple con los requisitos.</p>
+      <div class="headerT">
+        <p>Puno, 05 de Marzo del 2021.</p><br>
+
+
+        <p>___________________________</p>
+        <p class="compact">Estudiante</p>
+     
+      </div>
+      
+
+      <br><br>
+
+
+
+      <div class="headerT">
+        <h3>INSTITULO DE EDUCACIÓN SUPERIOR TECNOLÓGICO HUANCANÉ</h3>
+        <h5 class="compact">VICERRECTORADO ACADÉMICO</h5>
+        <h4 class="compact">OFICINA DE INSCRIPCIÓN 2021</h4>
+        
+        <h3>CONSTANCIA</h3>
+      </div>
+
+      <table >
+        <tr>
+          <td>MODALIDAD</td>
+          <td><?php echo $_GET["eAdmision"]; ?></td>
+        </tr>
+        <tr>
+          <td>CÓDIGO DE MATRÍCULA</td>
+          <td><?php echo $_GET["cod"]; ?></td>
+        </tr>
+        <tr>
+          <td>NOMBRES Y APELLIDOS</td>
+          <td><?php echo $_GET["nombresApellidos"]; ?></td>
+        </tr>
+        <tr>
+          <td>PRIMERA OPCIÓN</td>
+          <td><?php echo $_GET["Popcion"]; ?></td>
+        </tr>
+        <tr>
+          <td>SEGUNDA OPCIÓN</td>
+          <td><?php echo $_GET["Sopcion"]; ?></td>
+        </tr>
+      </table>
+
+      <p>Se hace de constatar que el presente alumno esta inscrito y cumple con los requisitos.</p>
+      <div class="headerT">
+        <p>Puno, 05 de Marzo del 2021.</p><br>
+
+
+        <p>___________________________</p>
+        <p class="compact">Estudiante</p>
+     
+      </div>
+
     </div>
 
+    <button id="print_btn" type="button">IMPRIMIR</button>
 
-    <!--<button id="print_btn" type="button">IMPRIMIR</button>-->
+
+
+
+    <script src="printThis.js"></script>
 
     <script>
-
+      
       /*
       $(document).ready(function () {
       	$('#print_btn').click(function () {
-      	  var arr = $('#pagina').printThis();
+      	  var arr = $('#pagina').printThis({
+            base: "http://localhost/SISTEMA_ADMISION2/admin/print/"
+          });
       	});
       });
       */
-      
-      window.onload = $('#pagina').printThis();
+
+      window.onload = $('#pagina').printThis({
+            base: "http://localhost/SISTEMA_ADMISION2/admin/print/"
+          });
 
     </script>
     
