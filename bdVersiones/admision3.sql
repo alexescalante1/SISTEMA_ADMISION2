@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-08-2021 a las 03:26:45
+-- Tiempo de generación: 08-08-2021 a las 04:35:17
 -- Versión del servidor: 10.4.14-MariaDB
 -- Versión de PHP: 7.2.34
 
@@ -46,8 +46,8 @@ CREATE TABLE `administradores` (
 --
 
 INSERT INTO `administradores` (`id`, `dniAdmin`, `userAdmin`, `nombre`, `email`, `foto`, `password`, `perfil`, `estado`, `dark`, `fecha`) VALUES
-(5, '73104785', '', 'Alex Escalante ONE', 'admin@gmail.com', 'vistas/img/perfiles/138.jpg', '$2a$07$asxx54ahjppf45sd87a5aunxs9bkpyGmGE/.vekdjFg83yRec789S', 'administrador', 1, 1, '2021-08-08 15:06:03'),
-(162, '73104795', '', 'Alex Escalante TWO', 'alexescalante921@gmail.com', 'vistas/img/perfiles/844.png', '$2a$07$asxx54ahjppf45sd87a5aubFblDrx5VgsL7udWc9pTLp1r8BxczhK', 'administrador', 1, 0, '2021-08-08 14:04:34'),
+(5, '73104785', '', 'Alex Escalante ONE', 'admin@gmail.com', 'vistas/img/perfiles/138.jpg', '$2a$07$asxx54ahjppf45sd87a5aunxs9bkpyGmGE/.vekdjFg83yRec789S', 'administrador', 1, 1, '2021-08-08 02:31:29'),
+(162, '73104795', '', 'Alex Escalante TWO', 'alexescalante921@gmail.com', 'vistas/img/perfiles/844.png', '$2a$07$asxx54ahjppf45sd87a5aubFblDrx5VgsL7udWc9pTLp1r8BxczhK', 'administrador', 1, 0, '2021-07-28 05:10:03'),
 (165, '73545894', '', 'Fredy Marin Rojas', 'laboral@gmail.com', 'vistas/img/perfiles/972.jpg', '$2a$07$asxx54ahjppf45sd87a5auR6AmIR5N5CndGl8MnjTyLo5SYcp56Qe', 'laboratorista', 1, 1, '2021-07-11 18:18:54'),
 (166, '15489562', '', 'Ana Maria', 'ana@gmail.com', 'vistas/img/perfiles/357.jpg', '$2a$07$asxx54ahjppf45sd87a5auzGfz9GaOjSPJ5jEDpHii9vSQEEqY1Zm', 'laboratorista', 0, 1, '2021-08-07 19:05:10');
 
@@ -153,7 +153,7 @@ CREATE TABLE `examen` (
 --
 
 INSERT INTO `examen` (`idExamen`, `ruta`, `titulo`, `cantidad`, `problemas`, `idAdmision`) VALUES
-(134, '', 'TIPO A', 2, '[{\"num\":1,\"sol\":\"3\",\"pts\":\"15\",\"descripcion\":\"alex\",\"Ra\":\"q\",\"Rb\":\"w\",\"Rc\":\"e\",\"Rd\":\"r\",\"Re\":\"t\"},{\"num\":2,\"sol\":\"4\",\"pts\":\"956\",\"descripcion\":\"escalante maron\",\"Ra\":\"a\",\"Rb\":\"s\",\"Rc\":\"d\",\"Rd\":\"f\",\"Re\":\"g\"}]', 168),
+(134, '', 'TIPO A', 2, '[{\"num\":1,\"sol\":\"3\",\"descripcion\":\"alex\",\"Ra\":\"q\",\"Rb\":\"w\",\"Rc\":\"e\",\"Rd\":\"r\",\"Re\":\"t\"},{\"num\":2,\"sol\":\"4\",\"descripcion\":\"escalante maron\",\"Ra\":\"a\",\"Rb\":\"s\",\"Rc\":\"d\",\"Rd\":\"f\",\"Re\":\"g\"}]', 168),
 (135, '', 'TIPO B', 60, '', 168);
 
 -- --------------------------------------------------------
@@ -180,8 +180,9 @@ CREATE TABLE `inscripciones` (
 --
 
 INSERT INTO `inscripciones` (`idInscripcion`, `Tpostulacion`, `Popcion`, `Sopcion`, `vaucher`, `estado`, `fecha`, `idAdmision`, `idPostulante`, `idAdmin`) VALUES
-(23, 'beca', 5, 11, 'vistas/img/vaucher/23249.jpg', 1, '2021-08-11 23:08:53', 168, 37, 5),
-(24, 'normal', 6, 10, 'vistas/img/vaucher/24919.jpg', 1, '2021-08-08 01:54:22', 168, 38, 5);
+(23, 'beca', 5, 11, 'vistas/img/vaucher/23198.jpg', 0, '2021-08-08 01:53:49', 168, 37, 5),
+(24, 'normal', 6, 10, 'vistas/img/vaucher/24919.jpg', 1, '2021-08-08 01:54:22', 168, 38, 5),
+(25, 'beca', 10, 5, 'vistas/img/vaucher/25346.jpg', 1, '2021-08-08 02:33:11', 168, 39, 5);
 
 -- --------------------------------------------------------
 
@@ -255,25 +256,9 @@ CREATE TABLE `postulante` (
 --
 
 INSERT INTO `postulante` (`idPostulante`, `dni`, `nombre`, `apellidoPat`, `apellidoMat`, `fecha`, `foto`) VALUES
-(37, '73104785', 'ALEX FREDY', 'ESCALANTE', 'MARON', '1999-03-26', 'vistas/img/postulantes/37807.jpg'),
+(37, '73104785', 'LUZ', 'ESCALANTE', 'MARON', '1999-03-26', 'vistas/img/postulantes/37535.png'),
 (38, '88847555', 'MIRIAN ROXANA', 'FLORES', 'ROZALES', '2021-08-26', 'vistas/img/postulantes/38621.jpg'),
-(39, '85479956', 'DENIS', 'VELAZCO', 'ALMARADO', '2021-08-18', 'vistas/img/postulantes/39536.jpg'),
-(40, '84787845', 'FREDDY', 'WE', 'ER', '2021-08-12', 'vistas/img/postulantes/40887.jpg'),
-(41, '34124312', 'ASASDF', 'ASDDASASD', 'ASDASDASD', '2021-08-03', 'vistas/img/postulantes/41993.jpg'),
-(42, '23423342', 'WQEQWEQWE', 'QWEQWE', 'QWEQWE', '2021-08-11', 'vistas/img/postulantes/42407.jpg'),
-(43, '23423342', 'WQEQWEQWE', 'QWEQWE', 'QWEQWE', '2021-08-11', 'vistas/img/postulantes/43544.jpg'),
-(44, '23423342', 'WQEQWEQWE', 'QWEQWE', 'QWEQWE', '2021-08-11', 'vistas/img/postulantes/44395.jpg'),
-(45, '12121212', 'AAS', 'ASAS', 'ASAS', '2021-08-18', 'vistas/img/postulantes/45142.jpg'),
-(46, '23123123', 'QWEQWEQW', 'EQWEQWE', 'QWEQWEQWE', '2021-08-02', 'vistas/img/postulantes/46828.jpg'),
-(47, '31231231', 'WQEQWE', 'QWEQWE', 'QWEQWE', '2021-08-09', 'vistas/img/postulantes/47884.jpg'),
-(48, '23123123', 'QWEQWE', 'QWEQWE', 'QWEQWE', '2021-08-11', 'vistas/img/postulantes/48640.jpg'),
-(49, '31231231', 'WERWER', 'WERWERWER', 'WERWERWER', '2021-02-17', 'vistas/img/postulantes/49462.jpg'),
-(50, '23312123', 'SDASD', 'ASDASD', 'ASDASD', '2021-08-05', 'vistas/img/postulantes/50187.jpg'),
-(51, '12312312', 'ASDASD', 'DASD', 'ASDASD', '2021-08-11', 'vistas/img/postulantes/51177.jpg'),
-(52, '12412333', 'ASDD', 'DASD', 'ASDASD', '2021-08-27', 'vistas/img/postulantes/52631.jpg'),
-(53, '12321321', 'EQWEQWE', 'QWEQWE', 'QWEQWE', '2021-08-11', 'vistas/img/postulantes/53681.jpg'),
-(54, '23322331', 'QWEQWE', 'QWE', 'QWE', '2021-08-03', 'vistas/img/postulantes/54644.jpg'),
-(55, '21312123', 'ASD', 'DSAS', 'ASD', '2021-08-10', 'vistas/img/postulantes/55965.jpg');
+(39, '85479956', 'DENIS', 'VELAZCO', 'ALMARADO', '2021-08-18', 'vistas/img/postulantes/39536.jpg');
 
 -- --------------------------------------------------------
 
@@ -309,25 +294,9 @@ CREATE TABLE `postulantedetalle` (
 --
 
 INSERT INTO `postulantedetalle` (`idPostulanteD`, `idPostulante`, `genero`, `correo`, `celularOne`, `celularTwo`, `direccion`, `departamento`, `provincia`, `distrito`, `representante`, `dniR`, `correoR`, `parentescoR`, `direccionR`, `celularR`, `colegio`, `Ctipo`, `Cespecialidad`, `Cnota`) VALUES
-(28, 37, 'Hombre', 'alex@gmail.com', '978308554', '445454548', 'AV. LAS TORRES Nº452', 'PUNO', 'PUNO', 'PUNO', 'LOURDES', '84541215', 'lourdes@gmail.com', 'madre', 'ME TOO', '111111111', 'GRAN UNIDAD ESCOLAR SAN CARLOS PUNO', 'publico', 'ELECTRONICA', 16),
+(28, 37, 'Mujer', 'alex@gmail.com', '848777874', '445454548', 'AV. LAS TORRES Nº452', 'PUNO', 'PUNO', 'PUNO', 'LOURDES', '84541215', 'lourdes@gmail.com', 'madre', 'ME TOO', '111111111', 'GRAN UNIDAD ESCOLAR SAN CARLOS PUNO', 'publico', 'ELECTRONICA', 16),
 (29, 38, 'Mujer', 'miriam@gmail.com', '847555115', '784874877', 'AV. NICOLAS DE PIEROLA Nº234', 'PUNO', 'PUNO', 'PUNO', 'CARLOS VENAVIDEZ CCOPA', '88451125', 'carlos@gmail.com', 'otro', 'ME TOO', '845784545', 'SANTA ROSA DE LIMA', 'publico', '', 18),
-(30, 39, 'Hombre', 'denis@gmail.com', '231231231', '234334534', 'AV. ORG NE', 'PUNO', 'PUNO', 'PUNO', 'REPRESENTANTE', '95845551', 'representante@gmail.com', 'padre', '', '151548484', 'MIGUEL GRAU', 'publico', '', 15),
-(31, 40, 'Mujer', 'asd@asd.asd', '231231231', '312312312', 'AV. FREEDD', 'WEQE', 'QEWWE', 'WER', 'XDE', '34434242', 'my@gmai.com', 'madre', 'XDES', '111111111', 'LA VIEJA CONFIABLE', 'particular', 'SDSDDD', 7),
-(32, 41, 'Hombre', 'asdasd34asdasd.asdasd@sadasd.asdsa', '123123123', '123123123', '23123123', 'SDFSDFSDF', 'SDFSDF', 'SDFSDF', 'SRRR', '22334233', 'sfdsdf@sad.com', 'madre', 'ASDASDSAD', '123123123', 'ASDASDASD', 'particular', 'ASDASDASD', 23),
-(33, 42, 'Hombre', 'weewrwsd@asdas.asdsda', '343242342', '423423423', '4DFSDF', 'FFFFF', 'SFSDFSDF', 'FSDFSDF', 'DFDF', '34545534', 'sdfsd@sdfd.csa', 'madre', 'ASDASDASD', '123233231', 'DFDFDF', 'publico', '', 23),
-(34, 43, 'Hombre', 'weewrwsd@asdas.asdsda', '343242342', '423423423', '4DFSDF', 'FFFFF', 'SFSDFSDF', 'FSDFSDF', 'DFDF', '34545534', 'sdfsd@sdfd.csa', 'madre', 'ASDASDASD', '123233231', 'DFDFDF', 'publico', '', 23),
-(35, 44, 'Hombre', 'weewrwsd@asdas.asdsda', '343242342', '423423423', '4DFSDF', 'FFFFF', 'SFSDFSDF', 'FSDFSDF', 'DFDF', '34545534', 'sdfsd@sdfd.csa', 'madre', 'ASDASDASD', '123233231', 'DFDFDF', 'publico', '', 23),
-(36, 45, 'Mujer', 'sqqwwq@asddsa.comasd', '123123123', '312333333', 'SADASDASD', 'DASDASASD', 'SADAS', 'DASDASD', 'WEWE', '11221212', 'wqqwqw@gdf.comqq', 'madre', '', '321312312', 'QWEQWEQWE', 'particular', '', 23),
-(37, 46, 'Mujer', 'qweqwe@qweqw.cas', '312312312', '123123123', 'ASDDASD', 'ASDD', 'DDDDAA', 'ASAA', 'DASDAS', '21312312', 'dasd@asdas.comasd', 'madre', 'W3ASDAS', '213123132', 'ASDASD', 'publico', '', 12),
-(38, 47, 'Hombre', 'dfg@sad.asd', '231312312', '312123123', 'ASDASDASD', 'ASDASDASD', 'ASDASD', 'ADSDASD', 'ADSASD', '21312312', '', 'madre', '', '231212313', 'SDASS', 'publico', '', 12),
-(39, 48, 'Hombre', 'qweqwe@qwe.qwe', '233123123', '', 'ASDASDASD', 'ASDD', 'ASDASD', 'ASDASD', 'ASDASD', '12231132', '', 'madre', '', '121212121', 'QWQASDASD', 'publico', '', 21),
-(40, 49, 'Hombre', 'werwer@rwerwe.wer', '234324324', '343242342', 'WERWASDDSA', 'ASDSD', 'ASDASD', 'ASD', 'WQQWE', '23434234', '', 'padre', '', '324324342', '234234', 'particular', '', 23),
-(41, 50, 'Hombre', 'sad@asd.asd', '213123123', '', 'QEQWEQWE', 'QWEQWE', 'WEQEQWE', 'QWEQWE', 'QWEQWEQWE', '21312312', '', 'madre', '', '122112122', 'SADASDASD', 'publico', '', 23),
-(42, 51, 'Hombre', 'asdd@asd.casd', '231231231', '', 'SDADASD', 'ASDDDAA', 'ASDASAA', 'ASDASD', 'ASDASDASSD', '23123123', 'asdasdasd@sadasd.asd', 'madre', '', '123123232', 'ASDASDASDDADS', 'publico', '', 12),
-(43, 52, 'Hombre', 'asdasd@asdasd.asdasd', '123231231', '', 'ADSADASD', 'ASDASD', 'ASDASD', 'ASDDASD', 'ASDASD', '21312312', '', 'madre', '', '123312312', 'ASDASDASD', 'particular', '', 21),
-(44, 53, 'Hombre', 'weqeqe@qwe.wqe', '312312312', '213123123', 'ASDASASDD', 'ASDASD', 'ASDASD', 'ASDASD', 'ASDASD', '12312312', '', 'padreP', '', '123123231', 'ASASDASDASDS', 'particular', '', 23),
-(45, 54, 'Hombre', 'qweqwe@qwe.qwe', '123213123', '', 'ASDDSAD', 'DSAASD', 'ASDDAS', 'ASDASD', 'ASDASD', '12323233', '', 'madre', '', '123323232', 'ASDASD', 'publico', '', 12),
-(46, 55, 'Hombre', 'asdasdasd@asd.asd', '123321123', '', 'SASDASD', 'ASDASD', 'ASD', 'ASD', 'ASD', '12312312', '', 'padre', '', '123123123', 'ASDASDASDASD', 'publico', '', 12);
+(30, 39, 'Hombre', 'denis@gmail.com', '231231231', '234334534', 'AV. ORG NE', 'PUNO', 'PUNO', 'PUNO', 'REPRESENTANTE', '95845551', 'representante@gmail.com', 'padre', '', '151548484', 'MIGUEL GRAU', 'publico', '', 15);
 
 --
 -- Índices para tablas volcadas
@@ -438,7 +407,7 @@ ALTER TABLE `examen`
 -- AUTO_INCREMENT de la tabla `inscripciones`
 --
 ALTER TABLE `inscripciones`
-  MODIFY `idInscripcion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `idInscripcion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT de la tabla `notificacion`
@@ -456,13 +425,13 @@ ALTER TABLE `plantilla`
 -- AUTO_INCREMENT de la tabla `postulante`
 --
 ALTER TABLE `postulante`
-  MODIFY `idPostulante` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `idPostulante` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT de la tabla `postulantedetalle`
 --
 ALTER TABLE `postulantedetalle`
-  MODIFY `idPostulanteD` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `idPostulanteD` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- Restricciones para tablas volcadas
