@@ -82,7 +82,6 @@
 					
                     <div class="bs-stepper">
 
-
                         <div class="bs-stepper-header" role="tablist">
 
                         <!-- your steps here -->

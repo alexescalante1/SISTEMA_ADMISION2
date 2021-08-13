@@ -75,7 +75,7 @@ MENU
       </a>
       <ul class="nav nav-treeview">
         <li class="nav-item">
-          <a href="registrarFicha" class="nav-link">
+          <a href="regRes" class="nav-link">
             <i class="far fa-circle nav-icon"></i>
             <p>Registrar Respuestas</p>
           </a>

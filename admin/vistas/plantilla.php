@@ -86,7 +86,7 @@ session_start();
    
     <!-- Preloader -->
     <div class="preloader flex-column justify-content-center align-items-center">
-      <h2 style="font-weight: bold;" class="animation__wobble">:V</h2>
+      <h2 style="font-weight: bold;" class="animation__wobble">:v</h2>
     </div>
     
     ';
@@ -110,6 +110,8 @@ session_start();
      =============================================*/
 
      $rutas = array();
+     $buscRuta = array("-inscribir", "-ver", "-respuestas", "-result");
+     $encontrado = false;
 
      if(isset($_GET["ruta"])){
 
@@ -120,76 +122,56 @@ session_start();
         URL'S AMIGABLES IFO ARTICULOS
         =============================================*/
 
-        $rutaEventos = ControladorAdmision::ctrMostrarInfoAdmision($item, $rutas[0]);
-
         if($_GET["ruta"]== "inicio" ||
            $_GET["ruta"]== "inscripcion" ||
+           $_GET["ruta"]== "regRes" ||
            $_GET["ruta"]== "evento" ||
            $_GET["ruta"]== "perfiles" ||
            $_GET["ruta"]== "salir"){
 
           include "modulos/".$_GET["ruta"].".php";
 
-        }else if(isset($rutaEventos)){
-
-          if($rutas[0] == $rutaEventos["ruta"]){
-
-            include "modulos/infoadmision.php";
-
-          }else{
-
-            $newphrase = str_replace("-inscribir", "", $rutas[0]);
-            $rutaEventos = ControladorAdmision::ctrMostrarInfoAdmision($item, $newphrase);
-           
-            if($newphrase == $rutaEventos["ruta"]){
-              
-              include "modulos/inscribir-postulante.php";
-  
-            }else{
-
-              $newphrase = str_replace("-ver", "", $rutas[0]);
-              $rutaEventos = ControladorAdmision::ctrMostrarInfoAdmision($item, $newphrase);
-             
-              if($newphrase == $rutaEventos["ruta"]){
-                
-                include "modulos/ver-inscripcion.php";
-    
-              }else{
-
-                include "modulos/error404.php";
-      
-              }
-    
-            }
-
-          }
-
         }else{
-
-          include "modulos/error404.php";
-
+          foreach ($buscRuta as $key => $valor) {
+            $posicionCoincidencia = strpos($rutas[0], $valor);
+            if ($posicionCoincidencia !== false){
+              $encontrado = $key+1;break;
+            }
+          }
+          
+          $newphrase = str_replace("-inscribir", "", $rutas[0]);
+          $newphrase = str_replace("-ver", "", $newphrase);
+          $newphrase = str_replace("-respuestas", "", $newphrase);
+  
+          $rutaEventos = ControladorAdmision::ctrMostrarInfoAdmision($item, $newphrase);
+  
+          if($newphrase == $rutaEventos["ruta"]){
+            if($encontrado == 1){
+              include "modulos/inscribir-postulante.php";
+            }else if($encontrado == 2){
+              include "modulos/ver-inscripcion.php";
+            }else if($encontrado == 3){
+              include "modulos/respuestas.php";
+            }else{
+              include "modulos/infoadmision.php";
+            }
+          }else{
+            include "modulos/error404.php";
+          }
         }
-        
 
      }else{
-
        include "modulos/inicio.php";
-
      }
 
     /*=============================================
     FOOTER
     =============================================*/
     include "modulos/footer.php";
-
-
     echo '</div>';
 
-
  }else{
-
   include "modulos/login.php";
-
  }
 
  

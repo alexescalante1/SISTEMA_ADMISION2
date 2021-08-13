@@ -160,3 +160,15 @@
 	border-radius: 5px;
 	cursor: pointer;
 }
+
+
+.spaceR{
+	padding-right: 4%;
+	padding-bottom: 5%;
+}
+
+
+.marginMin{
+	padding-right: -10px;
+	padding-left: 10px;
+}

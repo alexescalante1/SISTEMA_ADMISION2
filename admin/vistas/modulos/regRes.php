@@ -5,12 +5,12 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0">INSCRIPCIONES</h1>
+          <h1 class="m-0">REGISTRO DE RESPUESTAS</h1>
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="inicio">INICIO</a></li>
-            <li class="breadcrumb-item active">INSCRIPCIONES</li>
+            <li class="breadcrumb-item active">REGISTRO DE RESPUESTAS</li>
           </ol>
         </div><!-- /.col -->
       </div><!-- /.row -->
@@ -79,7 +79,7 @@
                                                     $admicion = ControladorAdmision::ctrMostrar("eventoadmision","estado",1);
 
                                                     foreach ($admicion as $key => $value) {
-                                                        $accionesFinal = "<div class='btn-group'><a href='".$admicion[$key]["ruta"]."-inscribir'><button class='btn btn-block btn-success'><i class='fa fa-edit'></i></button></a><a href='".$admicion[$key]["ruta"]."-ver' style='margin-left:-2px;'><button class='btn btn-block btn-info'><i class='fa fa-bars'></i></button></a></div>";
+                                                        $accionesFinal = "<div class='btn-group'><a href='".$admicion[$key]["ruta"]."-respuestas'><button class='btn btn-block btn-success'><i class='fa fa-check'></i></button></a></div>";
                                                         echo '
                                                         <tr>
                                                             <td>'.$accionesFinal.'</td>
