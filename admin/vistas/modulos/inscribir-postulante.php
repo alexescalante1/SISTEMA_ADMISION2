@@ -282,8 +282,7 @@
                                                 </div>
                                                 <p class="formulario__input-error">Solo puede contener letras, de 1 a 15 caracteres.</p>
                                             </div>
-                                                            
-
+                                               
                                         </div>
                                         
                                         <div class="col-md-2">

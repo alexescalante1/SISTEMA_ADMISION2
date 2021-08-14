@@ -36,6 +36,37 @@ class ModeloAdmision{
 	}
 
 	/*=============================================
+	MOSTRAR RES INGRESANTES
+	=============================================*/
+	static public function mdlMostrarResIngresant($tabla, $item, $valor){
+
+		if($item != null){
+
+			$stmt = Conexion::conectar()->prepare("SELECT res.pnts,res.valid,res.cp,res.cs,inscr.Tpostulacion,inscr.Popcion,inscr.Sopcion, postul.dni, postul.nombre,postul.apellidoPat,postul.apellidoMat FROM $tabla res INNER JOIN inscripciones inscr ON res.idInscripcion = inscr.idInscripcion INNER JOIN postulante postul ON inscr.idPostulante = postul.idPostulante WHERE res.$item = :$item");
+			
+			$stmt -> bindParam(":".$item, $valor, PDO::PARAM_STR);
+
+			$stmt -> execute();
+
+			return $stmt -> fetchAll();
+
+		}else{
+
+			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla");
+
+			$stmt -> execute();
+
+			return $stmt -> fetchAll();
+
+		}
+
+		$stmt -> close();
+		
+		$stmt = null;
+	
+	}
+
+	/*=============================================
 	MOSTRAR INFOARTICULO
 	=============================================*/
 
@@ -211,6 +242,38 @@ class ModeloAdmision{
 		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(titulo) VALUES (:titulo)");
 
 		$stmt->bindParam(":titulo", $datos["titulo"], PDO::PARAM_STR);
+
+		if($stmt->execute()){
+
+			return "ok";
+
+		}else{
+
+			return "error";
+		
+		}
+
+		$stmt->close();
+		$stmt = null;
+
+	}
+
+	/*=============================================
+	CREAR RESPUESTAS POST
+	=============================================*/
+
+	static public function mdlIngresarRespP($tabla, $datos){
+
+		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(pnts, datos, idExam, valid, cp, cs, idAdmision, idInscripcion) VALUES (:pnts, :datos, :idExam, :valid, :cp, :cs, :idAdmision, :idInscripcion)");
+
+		$stmt->bindParam(":pnts", $datos["pnts"], PDO::PARAM_STR);
+		$stmt->bindParam(":datos", $datos["datos"], PDO::PARAM_STR);
+		$stmt->bindParam(":idExam", $datos["idExam"], PDO::PARAM_STR);
+		$stmt->bindParam(":valid", $datos["valid"], PDO::PARAM_STR);
+		$stmt->bindParam(":cp", $datos["cp"], PDO::PARAM_STR);
+		$stmt->bindParam(":cs", $datos["cs"], PDO::PARAM_STR);
+		$stmt->bindParam(":idAdmision", $datos["idAdmision"], PDO::PARAM_STR);
+		$stmt->bindParam(":idInscripcion", $datos["idInscripcion"], PDO::PARAM_STR);
 
 		if($stmt->execute()){
 

@@ -15,6 +15,18 @@ class ControladorAdmision{
 	}
 
 	/*=============================================
+	MOSTRAR RES INGRES
+	=============================================*/
+	
+	static public function ctrMostrarResIngres($tabla, $item, $valor){
+
+		$respuesta = ModeloAdmision::mdlMostrarResIngresant($tabla, $item, $valor);
+
+		return $respuesta;
+
+	}
+
+	/*=============================================
 	MOSTRAR ESPECIALIDAD
 	=============================================*/
 	
@@ -156,6 +168,18 @@ class ControladorAdmision{
 			return;
 
 		}
+
+	}
+
+	/*=============================================
+	CREAR TIPO PRUEBA
+	=============================================*/
+
+	static public function ctrCrearRespP($datos){
+
+		$respuesta = ModeloAdmision::mdlIngresarRespP("respuestas", $datos);
+
+		return $respuesta;
 
 	}
 

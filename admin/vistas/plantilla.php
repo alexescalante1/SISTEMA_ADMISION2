@@ -91,17 +91,14 @@ session_start();
     
     ';
 
-
      /*=============================================
      CABEZOTE
      =============================================*/
-
      include "modulos/cabezote.php";
 
     /*=============================================
      LATERAL
      =============================================*/
-
      include "modulos/lateral.php";
 
      
@@ -110,7 +107,7 @@ session_start();
      =============================================*/
 
      $rutas = array();
-     $buscRuta = array("-inscribir", "-ver", "-respuestas", "-result");
+     $buscRuta = array("-inscribir", "-ver", "-respuestas", "-ingresantes");
      $encontrado = false;
 
      if(isset($_GET["ruta"])){
@@ -125,6 +122,7 @@ session_start();
         if($_GET["ruta"]== "inicio" ||
            $_GET["ruta"]== "inscripcion" ||
            $_GET["ruta"]== "regRes" ||
+           $_GET["ruta"]== "ingresantes" ||
            $_GET["ruta"]== "evento" ||
            $_GET["ruta"]== "perfiles" ||
            $_GET["ruta"]== "salir"){
@@ -142,6 +140,7 @@ session_start();
           $newphrase = str_replace("-inscribir", "", $rutas[0]);
           $newphrase = str_replace("-ver", "", $newphrase);
           $newphrase = str_replace("-respuestas", "", $newphrase);
+          $newphrase = str_replace("-ingresantes", "", $newphrase);
   
           $rutaEventos = ControladorAdmision::ctrMostrarInfoAdmision($item, $newphrase);
   
@@ -152,6 +151,8 @@ session_start();
               include "modulos/ver-inscripcion.php";
             }else if($encontrado == 3){
               include "modulos/respuestas.php";
+            }else if($encontrado == 4){
+              include "modulos/ingresantes-postulante.php";
             }else{
               include "modulos/infoadmision.php";
             }
@@ -186,6 +187,7 @@ session_start();
         <script src="vistas/js/gestorAdmision.js"></script>
         <script src="vistas/js/gestorAdministradores.js"></script>
         <script src="vistas/js/gestorNotificaciones.js"></script>
+        <script src="vistas/js/gestorSolucion.js"></script>
         
         <!-- ./wrapper -->
 

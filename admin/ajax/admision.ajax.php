@@ -295,6 +295,32 @@ class AjaxAdmision{
 	}
 
 
+	/*=============================================
+	GUARDAR RESPUESTAS
+	=============================================*/	
+	public $ptosEx;
+	public $datosProb;
+
+	public function  ajaxIngresarResp(){
+
+		$datos = array(
+			"pnts"=>$this->ptosEx,
+			"datos"=>$this->datosProb,
+			"idExam"=>$this->idEprueba,
+			"valid"=>0,
+			"cp"=>0,
+			"cs"=>0,
+			"idAdmision"=>$this->idEAdm,
+			"idInscripcion"=>$this->idEspecialidad
+		);
+
+		$respuesta = ControladorAdmision::ctrCrearRespP($datos);
+
+		echo $respuesta;
+
+	}
+
+
 }
 
 
@@ -487,6 +513,22 @@ if(isset($_POST["MidEAdmi"])){
 	$MeAd -> Mfini = $_POST["Finit"];
 	$MeAd -> Mffin = $_POST["Ffin"];
 	$MeAd -> ajaxMEAdmision();
+
+}
+
+
+/*=============================================
+INGRESAR RESPUESTAS
+=============================================*/
+if(isset($_POST["ptosEx"])){
+
+	$inRes = new AjaxAdmision();
+	$inRes -> ptosEx = $_POST["ptosEx"];
+	$inRes -> datosProb = $_POST["datosProb"];
+	$inRes -> idEprueba = $_POST["idExam"];
+	$inRes -> idEAdm = $_POST["idAdmision"];
+	$inRes -> idEspecialidad = $_POST["idInscripcion"];
+	$inRes -> ajaxIngresarResp();
 
 }
 
