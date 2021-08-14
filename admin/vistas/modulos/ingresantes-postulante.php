@@ -62,7 +62,7 @@
 		<div class="card card-success">
 
 			<div class="card-header">
-				<h3 style="font-weight: bold;" class="card-title">EXAMEN</h3>
+				<h3 style="font-weight: bold;" class="card-title">LISTA DE INGRESANTES</h3>
 				<div class="card-tools">
 
 					<button type="button" class="btn btn-tool" data-card-widget="maximize">
@@ -102,19 +102,19 @@
 					$resIngres = ControladorAdmision::ctrMostrarResIngres("respuestas","idAdmision", $rutaEventos[0]);
 				
 					foreach($resIngres as $key => $value){
+						echo $value["idRespuestas"]." <== ID<br>";
 						echo $value["pnts"]." ";
 						echo $value["valid"]." ";
-						echo $value["cp"]." ";
-						echo $value["cs"]."<br>";
+						echo $value["idEspIngreso"]."<br>";
 						echo $value["Tpostulacion"].", ";
-						echo $arr[$value["Popcion"]][0].", ";
-						echo $arr[$value["Sopcion"]][0]."<br>";
+						echo $value["Popcion"].", ";
+						echo $value["Sopcion"]."<br>";
 						echo $value["dni"]." ";
 						echo $value["nombre"]." ";
 						echo $value["apellidoPat"]." ";
 						echo $value["apellidoMat"]." ";
 
-						echo "<br><br>";
+						echo "<br>";
 
 
 
@@ -131,35 +131,74 @@
 						echo $arr[$value["Popcion"]][3]." === ";
 						echo $arr[$value["Sopcion"]][3];
 
-						echo "<br><br>";
+						echo "<br>";
 
-
+						
 						if($value["pnts"]>=$arr[$value["Popcion"]][3]){
 							echo "INGRESASTE!! PRIMERA OPCION";
 							if($value["Tpostulacion"]=="beca"){
-								echo $arr[$value["Popcion"]][1]."<br>";
+								echo $arr[$value["Popcion"]][1];
+								ModeloAdmision::mdlActualizarEstIngreso("respuestas","valid", 5,"idEspIngreso",$value["Popcion"],"idRespuestas",$value["idRespuestas"]);
+
+
+
+
+								$cnt = ModeloAdmision::mdlContarIngresantes("respuestas","valid", 5,"idEspIngreso",$value["Popcion"],"idAdmision", $rutaEventos[0]);
+								echo $cnt[0]." <= CONT";
 								///VALIDAR TU OPCION
+
+
+
+
 							}else if($value["Tpostulacion"]=="normal"){
-								echo $arr[$value["Popcion"]][2]."";
+								echo $arr[$value["Popcion"]][2];
+								ModeloAdmision::mdlActualizarEstIngreso("respuestas","valid", 1,"idEspIngreso",$value["Popcion"],"idRespuestas",$value["idRespuestas"]);
+								
+								
+								
+								$cnt = ModeloAdmision::mdlContarIngresantes("respuestas","valid", 1,"idEspIngreso",$value["Popcion"],"idAdmision", $rutaEventos[0]);
+								echo $cnt[0]." <= CONT";
 								///VALIDAR TU OPCION
+
+
+
 							}
 						}else if($value["pnts"]>=$arr[$value["Sopcion"]][3]){
 							echo "INGRESASTE!! SEGUNDA OPCION";
 							if($value["Tpostulacion"]=="beca"){
-								echo $arr[$value["Sopcion"]][1]."";
+								echo $arr[$value["Sopcion"]][1];
+								ModeloAdmision::mdlActualizarEstIngreso("respuestas","valid", 6,"idEspIngreso",$value["Sopcion"],"idRespuestas",$value["idRespuestas"]);
+								
+								
+								
+								
+								$cnt = ModeloAdmision::mdlContarIngresantes("respuestas","valid", 6,"idEspIngreso",$value["Sopcion"],"idAdmision", $rutaEventos[0]);
+								echo $cnt[0]." <= CONT";
 								///VALIDAR TU OPCION
+
+
+
+
+
 							}else if($value["Tpostulacion"]=="normal"){
-								echo $arr[$value["Sopcion"]][2]."";
+								echo $arr[$value["Sopcion"]][2];
+								ModeloAdmision::mdlActualizarEstIngreso("respuestas","valid", 2,"idEspIngreso",$value["Sopcion"],"idRespuestas",$value["idRespuestas"]);
+								
+								
+								
+								$cnt = ModeloAdmision::mdlContarIngresantes("respuestas","valid", 2,"idEspIngreso",$value["Sopcion"],"idAdmision", $rutaEventos[0]);
+								echo $cnt[0]." <= CONT";
 								///VALIDAR TU OPCION
+
+
+
 							}
 						}else{
 							echo "NO INGRESASTE";
+							ModeloAdmision::mdlActualizarEstIngreso("respuestas","valid", 0,"idEspIngreso",0,"idRespuestas",$value["idRespuestas"]);
 						}
 
-
-
-
-						echo "<br><br>";
+						echo "<br><br><br>";
 
 					}
 
@@ -167,6 +206,26 @@
 				?>
 
 				
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 			</div>

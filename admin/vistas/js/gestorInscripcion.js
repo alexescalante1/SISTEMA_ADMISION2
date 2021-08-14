@@ -501,54 +501,80 @@ $(".fotoVaucherP").change(function(){
 
 })
 
+
+
+$("#dniT").change(function(){
+  	
+	var dniPost = $(this).val();
+
+	/*=============================================
+	TRAER DATOS POSTULANTE
+	=============================================*/
+	var datosSe = new FormData();
+	datosSe.append("Ttabla", "postulante");
+	datosSe.append("Titem", "dni");
+	datosSe.append("TidV", dniPost);
+	$.ajax({
+		url:"ajax/inscripcion.ajax.php",
+		method: "POST",
+		data: datosSe,
+		cache: false,
+		contentType: false,
+		processData: false,
+		dataType: "json",
+		success: function(resPost){
+
+			if(resPost){
+
+				$("#dniT").val("");
+				document.getElementById(`grupo__dniT`).classList.add('formulario__grupo-incorrecto');
+				document.getElementById(`grupo__dniT`).classList.remove('formulario__grupo-correcto');
+				document.querySelector(`#grupo__dniT i`).classList.add('fa-times-circle');
+				document.querySelector(`#grupo__dniT i`).classList.remove('fa-check-circle');
+				campos["dniT"] = false;
+
+				Swal.fire({
+					icon: 'warning',
+					title: 'ESTE POSTULANTE YA EXISTE',
+					showConfirmButton: false,
+					timer: 1500
+					})
+			}
+			
+		}
+
+	})
+
+})
+
 /*=============================================
 //  VALIDAR PASOS
 =============================================*/
 
-$("#next1").click(function(){
+$('#formulario').on("click", "#next1", function(){
+
+//$("#next1").click(function(){
  
     var fechaT = $("#IfechaNacT").val();
     var fotoT = $("#filePT").val();
 
     if(!fechaT){
-        toastr.warning('Defina la fecha de Nacimiento.')
-    }
-    if(!fotoT){
-        toastr.warning('Adjunte la foto del perfil.')
-    }
-
-    if(campos.Tpostulante && campos.Tpopcion && campos.Tsopcion && campos.dniT && campos.nombreT && campos.apellidoTP && campos.apellidoTM && fechaT && fotoT){
+        toastr.error('Defina la fecha de Nacimiento.')
+    }else if(!fotoT){
+        toastr.error('Adjunte la foto del perfil.')
+    }else if(campos.Tpostulante && campos.Tpopcion && campos.Tsopcion && campos.dniT && campos.nombreT && campos.apellidoTP && campos.apellidoTM && campos.correoT && campos.telefonoT1 && campos.direccionT && campos.departamentoT && campos.provinciaT && campos.distritoT && fechaT && fotoT){
         stepper.next();
         //formulario.reset();
-	} else {
+	}else {
         toastr.error('Todos los campos requeridos deben estar llenos.');
 	}
 
 })
 
-$("#next2").click(function(){
+$('#formulario').on("click", "#next2", function(){
+//$("#next2").click(function(){
  
-    if(campos.correoT && campos.telefonoT1 && campos.direccionT && campos.departamentoT && campos.provinciaT && campos.distritoT){
-        stepper.next();
-	} else {
-        toastr.error('Todos los campos requeridos deben estar llenos.');
-	}
-
-})
-
-$("#next3").click(function(){
- 
-    if(campos.nombreR && campos.dniR && campos.Rparentesco && campos.telefonoR1){
-        stepper.next();
-	} else {
-        toastr.error('Todos los campos requeridos deben estar llenos.');
-	}
-
-})
-
-$("#next4").click(function(){
- 
-    if(campos.nombreCole && campos.TEstAcademico && campos.calAcadm){
+    if(campos.nombreR && campos.dniR && campos.Rparentesco && campos.telefonoR1 && campos.nombreCole && campos.TEstAcademico){
         stepper.next();
 	} else {
         toastr.error('Todos los campos requeridos deben estar llenos.');
@@ -559,8 +585,8 @@ $("#next4").click(function(){
 /*=============================================
 //  GUARDAR POSTULANTE
 =============================================*/
-
-$("#guardarPostulant").click(function(){
+$('#formulario').on("click", "#guardarPostulant", function(){
+//$("#guardarPostulant").click(function(){
 
 	var idEvento = $("#IDEVENTINSCRIP").val();
     var idAttAdmin = $("#IDATTADMIN").val();

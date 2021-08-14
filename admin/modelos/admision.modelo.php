@@ -42,7 +42,7 @@ class ModeloAdmision{
 
 		if($item != null){
 
-			$stmt = Conexion::conectar()->prepare("SELECT res.pnts,res.valid,res.cp,res.cs,inscr.Tpostulacion,inscr.Popcion,inscr.Sopcion, postul.dni, postul.nombre,postul.apellidoPat,postul.apellidoMat FROM $tabla res INNER JOIN inscripciones inscr ON res.idInscripcion = inscr.idInscripcion INNER JOIN postulante postul ON inscr.idPostulante = postul.idPostulante WHERE res.$item = :$item");
+			$stmt = Conexion::conectar()->prepare("SELECT res.idRespuestas,res.pnts,res.valid,res.idEspIngreso,inscr.Tpostulacion,inscr.Popcion,inscr.Sopcion, postul.dni, postul.nombre,postul.apellidoPat,postul.apellidoMat FROM $tabla res INNER JOIN inscripciones inscr ON res.idInscripcion = inscr.idInscripcion INNER JOIN postulante postul ON inscr.idPostulante = postul.idPostulante WHERE res.$item = :$item");
 			
 			$stmt -> bindParam(":".$item, $valor, PDO::PARAM_STR);
 
@@ -264,14 +264,13 @@ class ModeloAdmision{
 
 	static public function mdlIngresarRespP($tabla, $datos){
 
-		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(pnts, datos, idExam, valid, cp, cs, idAdmision, idInscripcion) VALUES (:pnts, :datos, :idExam, :valid, :cp, :cs, :idAdmision, :idInscripcion)");
+		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(pnts, datos, idExam, valid, idEspIngreso, idAdmision, idInscripcion) VALUES (:pnts, :datos, :idExam, :valid, :idEspIngreso, :idAdmision, :idInscripcion)");
 
 		$stmt->bindParam(":pnts", $datos["pnts"], PDO::PARAM_STR);
 		$stmt->bindParam(":datos", $datos["datos"], PDO::PARAM_STR);
 		$stmt->bindParam(":idExam", $datos["idExam"], PDO::PARAM_STR);
 		$stmt->bindParam(":valid", $datos["valid"], PDO::PARAM_STR);
-		$stmt->bindParam(":cp", $datos["cp"], PDO::PARAM_STR);
-		$stmt->bindParam(":cs", $datos["cs"], PDO::PARAM_STR);
+		$stmt->bindParam(":idEspIngreso", $datos["idEspIngreso"], PDO::PARAM_STR);
 		$stmt->bindParam(":idAdmision", $datos["idAdmision"], PDO::PARAM_STR);
 		$stmt->bindParam(":idInscripcion", $datos["idInscripcion"], PDO::PARAM_STR);
 
@@ -335,6 +334,34 @@ class ModeloAdmision{
 		$stmt->close();
 		$stmt = null;
 
+	}
+
+	/*=============================================
+	ACTUALIZAR ESTADO INGRESO
+	=============================================*/
+
+	static public function mdlActualizarEstIngreso($tabla, $item1, $valor1, $item2, $valor2, $item3, $valor3){
+
+		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET $item1 = :$item1, $item2 = :$item2 WHERE $item3 = :$item3");
+
+		$stmt -> bindParam(":".$item1, $valor1, PDO::PARAM_STR);
+		$stmt -> bindParam(":".$item2, $valor2, PDO::PARAM_STR);
+		$stmt -> bindParam(":".$item3, $valor3, PDO::PARAM_STR);
+
+		if($stmt -> execute()){
+
+			return "ok";
+		
+		}else{
+
+			return "error";	
+
+		}
+
+		$stmt -> close();
+
+		$stmt = null;
+		
 	}
 	
 	/*=============================================
@@ -442,6 +469,29 @@ class ModeloAdmision{
 		}
 
 		$stmt->close();
+		$stmt = null;
+
+	}
+
+	/*=============================================
+	CODIGO INGRESANTES
+	=============================================*/
+
+	static public function mdlContarIngresantes($tabla, $item, $valor, $item2, $valor2, $item3, $valor3){
+
+		$stmt = Conexion::conectar()->prepare("SELECT count(*) FROM $tabla WHERE $item = :$item");
+		$stmt = Conexion::conectar()->prepare("SELECT COUNT(*) FROM $tabla WHERE $item = :$item AND $item2 = :$item2 AND $item3 = :$item3");
+
+		$stmt -> bindParam(":".$item, $valor, PDO::PARAM_STR);
+		$stmt -> bindParam(":".$item2, $valor2, PDO::PARAM_STR);
+		$stmt -> bindParam(":".$item3, $valor3, PDO::PARAM_STR);
+
+		$stmt -> execute();
+
+		return $stmt -> fetch();
+
+		$stmt -> close();
+
 		$stmt = null;
 
 	}

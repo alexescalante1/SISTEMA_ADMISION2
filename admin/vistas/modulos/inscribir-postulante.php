@@ -84,45 +84,29 @@
 
                         <div class="bs-stepper-header" role="tablist">
 
-                        <!-- your steps here -->
-                        <div class="step" data-target="#general-part">
-                            <button type="button" class="step-trigger" role="tab" aria-controls="general-part" id="general-part-trigger">
-                            <span class="bs-stepper-circle">1</span>
-                            <span class="bs-stepper-label">GENERAL</span>
-                            </button>
-                        </div>
-                        <div class="line"></div>
+                            <!-- your steps here -->
+                            <div class="step" data-target="#general-part">
+                                <button type="button" class="step-trigger" role="tab" aria-controls="general-part" id="general-part-trigger">
+                                <span class="bs-stepper-circle">1</span>
+                                <span class="bs-stepper-label">PRINCIPAL</span>
+                                </button>
+                            </div>
+                            <div class="line"></div>
 
-                        <div class="step" data-target="#contac-part">
-                            <button type="button" class="step-trigger" role="tab" aria-controls="contac-part" id="contac-part-trigger">
-                            <span class="bs-stepper-circle">2</span>
-                            <span class="bs-stepper-label">CONTACTO</span>
-                            </button>
-                        </div>
-                        <div class="line"></div>
+                            <div class="step" data-target="#contac-part">
+                                <button type="button" class="step-trigger" role="tab" aria-controls="contac-part" id="contac-part-trigger">
+                                <span class="bs-stepper-circle">2</span>
+                                <span class="bs-stepper-label">SECUNDARIO</span>
+                                </button>
+                            </div>
+                            <div class="line"></div>
 
-                        <div class="step" data-target="#family-part">
-                            <button type="button" class="step-trigger" role="tab" aria-controls="family-part" id="family-part-trigger">
-                            <span class="bs-stepper-circle">3</span>
-                            <span class="bs-stepper-label">REPRESENTANTE</span>
-                            </button>
-                        </div>
-                        <div class="line"></div>
-
-                        <div class="step" data-target="#academic-part">
-                            <button type="button" class="step-trigger" role="tab" aria-controls="academic-part" id="academic-part-trigger">
-                            <span class="bs-stepper-circle">4</span>
-                            <span class="bs-stepper-label">ACADEMICO</span>
-                            </button>
-                        </div>
-                        <div class="line"></div>
-
-                        <div class="step" data-target="#require-part">
-                            <button type="button" class="step-trigger" role="tab" aria-controls="require-part" id="require-part-trigger">
-                            <span class="bs-stepper-circle">5</span>
-                            <span class="bs-stepper-label">REQUISITOS</span>
-                            </button>
-                        </div>
+                            <div class="step" data-target="#require-part">
+                                <button type="button" class="step-trigger" role="tab" aria-controls="require-part" id="require-part-trigger">
+                                <span class="bs-stepper-circle">3</span>
+                                <span class="bs-stepper-label">REQUISITOS</span>
+                                </button>
+                            </div>
 
                         </div>
 
@@ -133,7 +117,6 @@
 
                                 <!-- your steps content here -->
                                 <div id="general-part" class="content" role="tabpanel" aria-labelledby="general-part-trigger">
-
 
                                     <div class="row">
 
@@ -218,15 +201,13 @@
                                         </div>
 
                                     </div>
-
                                     <hr>
-
                                     <div class="row">
 
                                         <div class="col-md-10">
                                             
                                             <div class="row">
-                                                <div class="col-md-9">
+                                                <div class="col-md-6">
                                                     <!-- Grupo: Usuario -->
                                                     <div class="formulario__grupo" id="grupo__dniT">
                                                         <label class="formulario__label">* DOCUMENTO DE IDENTIDAD</label>
@@ -238,7 +219,7 @@
                                                     </div>    
                                                 </div>
 
-                                                <div class="col-md-3">
+                                                <div class="col-md-6">
                                                     <!-- Date -->
                                                     <div class="form-group">
                                                     <label>* FECHA DE NACIMIENTO</label>
@@ -253,35 +234,163 @@
                                                 </div>
                                             </div>
 
-                                            <!-- Grupo: Usuario -->
-                                            <div class="formulario__grupo" id="grupo__nombreT">
-                                                <label class="formulario__label">* NOMBRES</label>
-                                                <div class="formulario__grupo-input">
-                                                    <input type="text" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" class="formulario__input form-control" name="nombreT" id="nombreT" placeholder="INGRESAR EL NOMBRE">
-                                                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <!-- Grupo: Usuario -->
+                                                    <div class="formulario__grupo" id="grupo__nombreT">
+                                                        <label class="formulario__label">* NOMBRES</label>
+                                                        <div class="formulario__grupo-input">
+                                                            <input type="text" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" class="formulario__input form-control" name="nombreT" id="nombreT" placeholder="INGRESAR EL NOMBRE">
+                                                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                                                        </div>
+                                                        <p class="formulario__input-error">Solo puede contener letras, de 1 a 15 caracteres.</p>
+                                                    </div>
                                                 </div>
-                                                <p class="formulario__input-error">Solo puede contener letras, de 1 a 15 caracteres.</p>
+                                                <div class="col-md-4">
+                                                    <!-- Grupo: Usuario -->
+                                                    <div class="formulario__grupo" id="grupo__apellidoTP">
+                                                        <label class="formulario__label">* APELLIDO PATERNO</label>
+                                                        <div class="formulario__grupo-input">
+                                                            <input type="text" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" class="formulario__input form-control" name="apellidoTP" id="apellidoTP" placeholder="INGRESAR EL APELLIDO PATERNO">
+                                                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                                                        </div>
+                                                        <p class="formulario__input-error">Solo puede contener letras, de 1 a 15 caracteres.</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <!-- Grupo: Usuario -->
+                                                    <div class="formulario__grupo" id="grupo__apellidoTM">
+                                                        <label class="formulario__label">* APELLIDO MATERNO</label>
+                                                        <div class="formulario__grupo-input">
+                                                            <input type="text" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" class="formulario__input form-control" name="apellidoTM" id="apellidoTM" placeholder="INGRESAR EL APELLIDO MATERNO">
+                                                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                                                        </div>
+                                                        <p class="formulario__input-error">Solo puede contener letras, de 1 a 15 caracteres.</p>
+                                                    </div>
+                                                </div>
                                             </div>
 
-                                            <!-- Grupo: Usuario -->
-                                            <div class="formulario__grupo" id="grupo__apellidoTP">
-                                                <label class="formulario__label">* APELLIDO PATERNO</label>
-                                                <div class="formulario__grupo-input">
-                                                    <input type="text" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" class="formulario__input form-control" name="apellidoTP" id="apellidoTP" placeholder="INGRESAR EL APELLIDO PATERNO">
-                                                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+
+
+
+
+
+
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                        <!-- Grupo: Usuario -->
+                                                        <div class="formulario__grupo" id="grupo__correoT">
+                                                            <label class="formulario__label">* CORREO ELECTRONICO</label>
+                                                            <div class="formulario__grupo-input">
+                                                                <input type="email" class="formulario__input form-control" name="correoT" id="correoT" placeholder="ex: myname@example.com">
+                                                                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                                                            </div>
+                                                            <p class="formulario__input-error">Solo puede contener letras, de 1 a 15 caracteres.</p>
+                                                        </div>
                                                 </div>
-                                                <p class="formulario__input-error">Solo puede contener letras, de 1 a 15 caracteres.</p>
+                                                <div class="col-md-6">
+                                                        <!-- Grupo: Usuario -->
+                                                        <div class="formulario__grupo" id="grupo__direccionT">
+                                                            <label class="formulario__label">* DIRECCION DOMICILIARIA</label>
+                                                            <div class="formulario__grupo-input">
+                                                                <input type="text" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" class="formulario__input form-control" name="direccionT" id="direccionT" placeholder="ex: Av. example Nº123">
+                                                                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                                                            </div>
+                                                            <p class="formulario__input-error">Solo puede contener letras, de 1 a 15 caracteres.</p>
+                                                        </div>
+                                                </div>
                                             </div>
 
-                                            <!-- Grupo: Usuario -->
-                                            <div class="formulario__grupo" id="grupo__apellidoTM">
-                                                <label class="formulario__label">* APELLIDO MATERNO</label>
-                                                <div class="formulario__grupo-input">
-                                                    <input type="text" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" class="formulario__input form-control" name="apellidoTM" id="apellidoTM" placeholder="INGRESAR EL APELLIDO MATERNO">
-                                                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <!-- Grupo: Usuario -->
+                                                            <div class="formulario__grupo" id="grupo__telefonoT1">
+                                                                <label class="formulario__label">* CELULAR 1</label>
+                                                                <div class="formulario__grupo-input">
+                                                                    <input type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="9" class="formulario__input form-control" name="telefonoT1" id="telefonoT1" placeholder="NUMERO">
+                                                                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                                                                </div>
+                                                                <p class="formulario__input-error">Solo se admiten numeros, de 9 digitos.</p>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-6">
+
+                                                            <!-- Grupo: Usuario -->
+                                                            <div class="formulario__grupo" id="grupo__telefonoT2">
+                                                                <label class="formulario__label">CELULAR 2</label>
+                                                                <div class="formulario__grupo-input">
+                                                                    <input type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="9" class="formulario__input form-control" name="telefonoT2" id="telefonoT2" placeholder="NUMERO">
+                                                                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                                                                </div>
+                                                                <p class="formulario__input-error">Solo se admiten numeros, de 9 digitos.</p>
+                                                            </div>
+
+
+                                                        </div>
+                                                        
+                                                    </div>
                                                 </div>
-                                                <p class="formulario__input-error">Solo puede contener letras, de 1 a 15 caracteres.</p>
+
+                                                <div class="col-md-8">
+                                                    <div class="row">
+                                                        <div class="col-md-4">
+                                                            <!-- Grupo: Usuario -->
+                                                            <div class="formulario__grupo" id="grupo__departamentoT">
+                                                                <label class="formulario__label">* DEPARTAMENTO</label>
+                                                                <div class="formulario__grupo-input">
+                                                                    <input type="text" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" class="formulario__input form-control" name="departamentoT" id="departamentoT" placeholder="PUNO">
+                                                                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                                                                </div>
+                                                                <p class="formulario__input-error">Solo puede contener letras, de 1 a 15 caracteres.</p>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-4">
+                                                            <!-- Grupo: Usuario -->
+                                                            <div class="formulario__grupo" id="grupo__provinciaT">
+                                                                <label class="formulario__label">* PROVINCIA</label>
+                                                                <div class="formulario__grupo-input">
+                                                                    <input type="text" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" class="formulario__input form-control" name="provinciaT" id="provinciaT" placeholder="PUNO">
+                                                                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                                                                </div>
+                                                                <p class="formulario__input-error">Solo puede contener letras, de 1 a 15 caracteres.</p>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-4">
+                                                            <!-- Grupo: Usuario -->
+                                                            <div class="formulario__grupo" id="grupo__distritoT">
+                                                                <label class="formulario__label">* DISTRITO</label>
+                                                                <div class="formulario__grupo-input">
+                                                                    <input type="text" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" class="formulario__input form-control" name="distritoT" id="distritoT" placeholder="PUNO">
+                                                                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                                                                </div>
+                                                                <p class="formulario__input-error">Solo puede contener letras, de 1 a 15 caracteres.</p>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                                
                                             </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                                                
                                         </div>
                                         
@@ -315,130 +424,12 @@
 
                                     </div>
                                     
-
-
-                                    
-
                                     <button style="margin-bottom: 20px;" class="btn btn-primary float-right" id="next1">Siguiente</button>
                                 </div>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
                                 <div id="contac-part" class="content" role="tabpanel" aria-labelledby="contac-part-trigger">
-                                    
-                                    <!-- Grupo: Usuario -->
-                                    <div class="formulario__grupo" id="grupo__correoT">
-                                        <label class="formulario__label">* CORREO ELECTRONICO</label>
-                                        <div class="formulario__grupo-input">
-                                            <input type="email" class="formulario__input form-control" name="correoT" id="correoT" placeholder="ex: myname@example.com">
-                                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
-                                        </div>
-                                        <p class="formulario__input-error">Solo puede contener letras, de 1 a 15 caracteres.</p>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <!-- Grupo: Usuario -->
-                                            <div class="formulario__grupo" id="grupo__telefonoT1">
-                                                <label class="formulario__label">* CELULAR 1</label>
-                                                <div class="formulario__grupo-input">
-                                                    <input type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="9" class="formulario__input form-control" name="telefonoT1" id="telefonoT1" placeholder="INGRESAR EL NUMERO">
-                                                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
-                                                </div>
-                                                <p class="formulario__input-error">Solo se admiten numeros, de 9 digitos.</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-6">
-
-                                            <!-- Grupo: Usuario -->
-                                            <div class="formulario__grupo" id="grupo__telefonoT2">
-                                                <label class="formulario__label">CELULAR 2</label>
-                                                <div class="formulario__grupo-input">
-                                                    <input type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="9" class="formulario__input form-control" name="telefonoT2" id="telefonoT2" placeholder="INGRESAR EL NUMERO">
-                                                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
-                                                </div>
-                                                <p class="formulario__input-error">Solo se admiten numeros, de 9 digitos.</p>
-                                            </div>
-
-
-                                        </div>
-                                        
-                                    </div>
-
-                                    <!-- Grupo: Usuario -->
-                                    <div class="formulario__grupo" id="grupo__direccionT">
-                                        <label class="formulario__label">* DIRECCION DOMICILIARIA</label>
-                                        <div class="formulario__grupo-input">
-                                            <input type="text" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" class="formulario__input form-control" name="direccionT" id="direccionT" placeholder="ex: Av. example Nº123">
-                                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
-                                        </div>
-                                        <p class="formulario__input-error">Solo puede contener letras, de 1 a 15 caracteres.</p>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <!-- Grupo: Usuario -->
-                                            <div class="formulario__grupo" id="grupo__departamentoT">
-                                                <label class="formulario__label">* DEPARTAMENTO</label>
-                                                <div class="formulario__grupo-input">
-                                                    <input type="text" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" class="formulario__input form-control" name="departamentoT" id="departamentoT" placeholder="PUNO">
-                                                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
-                                                </div>
-                                                <p class="formulario__input-error">Solo puede contener letras, de 1 a 15 caracteres.</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-4">
-                                            <!-- Grupo: Usuario -->
-                                            <div class="formulario__grupo" id="grupo__provinciaT">
-                                                <label class="formulario__label">* PROVINCIA</label>
-                                                <div class="formulario__grupo-input">
-                                                    <input type="text" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" class="formulario__input form-control" name="provinciaT" id="provinciaT" placeholder="PUNO">
-                                                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
-                                                </div>
-                                                <p class="formulario__input-error">Solo puede contener letras, de 1 a 15 caracteres.</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-4">
-                                            <!-- Grupo: Usuario -->
-                                            <div class="formulario__grupo" id="grupo__distritoT">
-                                                <label class="formulario__label">* DISTRITO</label>
-                                                <div class="formulario__grupo-input">
-                                                    <input type="text" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" class="formulario__input form-control" name="distritoT" id="distritoT" placeholder="PUNO">
-                                                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
-                                                </div>
-                                                <p class="formulario__input-error">Solo puede contener letras, de 1 a 15 caracteres.</p>
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-                                    
-                                    <button class="btn btn-primary float-right" id="next2">Siguiente</button>
-                                    <button class="btn btn-danger" onclick="stepper.previous()">Atras</button>
-                                </div>
-
-
-
-
-
-
-
-
-
-                                <div id="family-part" class="content" role="tabpanel" aria-labelledby="family-part-trigger">
                                     
 
                                     <div class="row">
@@ -475,7 +466,7 @@
                                             
                                                 <!-- Grupo: Usuario -->
                                                 <div class="formulario__grupo" id="grupo__correoR">
-                                                    <label class="formulario__label">* CORREO ELECTRONICO DEL REPRESENTANTE</label>
+                                                    <label class="formulario__label">CORREO ELECTRONICO DEL REPRESENTANTE</label>
                                                     <div class="formulario__grupo-input">
                                                         <input type="email" class="formulario__input form-control" name="correoR" id="correoR" placeholder="ex: myname@example.com">
                                                         <i class="formulario__validacion-estado fas fa-times-circle"></i>
@@ -487,7 +478,7 @@
 
                                         <div class="col-md-4">
                                                 <div class="formulario__grupo" id="grupo__Rparentesco">
-                                                    <label class="formulario__label">PARENTESCO</label>
+                                                    <label class="formulario__label">* PARENTESCO</label>
                                                     <div class="formulario__grupo-input">
                                                         
                                                         <select class="formulario__input form-control def-input" id="Rparentesco">
@@ -511,7 +502,7 @@
                                         <div class="col-md-8">
                                                 <!-- Grupo: Usuario -->
                                                 <div class="formulario__grupo" id="grupo__direccionR">
-                                                    <label class="formulario__label">* DIRECCION DOMICILIARIA DEL REPRESENTANTE</label>
+                                                    <label class="formulario__label">DIRECCION DOMICILIARIA DEL REPRESENTANTE</label>
                                                     <div class="formulario__grupo-input">
                                                         <input type="text" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" class="formulario__input form-control" name="direccionR" id="direccionR" placeholder="ex: Av. example Nº123">
                                                         <i class="formulario__validacion-estado fas fa-times-circle"></i>
@@ -523,7 +514,7 @@
                                         <div class="col-md-4">
                                                 <!-- Grupo: Usuario -->
                                                 <div class="formulario__grupo" id="grupo__telefonoR1">
-                                                    <label class="formulario__label">* CELULAR 1 DEL REPRESENTANTE</label>
+                                                    <label class="formulario__label">* CELULAR DEL REPRESENTANTE</label>
                                                     <div class="formulario__grupo-input">
                                                         <input type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="9" class="formulario__input form-control" name="telefonoR1" id="telefonoR1" placeholder="INGRESAR EL NUMERO">
                                                         <i class="formulario__validacion-estado fas fa-times-circle"></i>
@@ -532,15 +523,9 @@
                                                 </div>
                                         </div>
                                     </div>
-
-                                    <button class="btn btn-primary float-right" id="next3">Siguiente</button>
-                                    <button class="btn btn-danger" onclick="stepper.previous()">Atras</button>
-                                </div>
-
-
-
-                                <div id="academic-part" class="content" role="tabpanel" aria-labelledby="academic-part-trigger">
                                     
+                                    <hr>
+
                                     <div class="row">
                                         <div class="col-md-8">
                                             <!-- Grupo: Usuario -->
@@ -556,7 +541,7 @@
 
                                         <div class="col-md-4">
                                             <div class="formulario__grupo" id="grupo__TEstAcademico">
-                                                <label class="formulario__label">TIPO DE ESTABLECIMIENTO</label>
+                                                <label class="formulario__label">* TIPO DE ESTABLECIMIENTO</label>
                                                 <div class="formulario__grupo-input">
                                                     <select class="formulario__input form-control def-input" id="TEstAcademico">
                                                         <option value="">SELECCIONAR</option>
@@ -585,7 +570,7 @@
                                         <div class="col-md-4">
                                                 <!-- Grupo: Usuario -->
                                                 <div class="formulario__grupo" id="grupo__calAcadm">
-                                                    <label class="formulario__label">CALIFICACION DE GRADO</label>
+                                                    <label class="formulario__label">PROMEDIO FINAL</label>
                                                     <div class="formulario__grupo-input">
                                                         <input type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="2" class="formulario__input form-control" name="calAcadm" id="calAcadm" placeholder="NOTA">
                                                         <i class="formulario__validacion-estado fas fa-times-circle"></i>
@@ -594,25 +579,19 @@
                                                 </div>
                                         </div>
                                     </div>
-                                
 
                                     
-
-
-
-
-                                    <button class="btn btn-primary float-right" id="next4">Siguiente</button>
+                                    <button class="btn btn-primary float-right" id="next2">Siguiente</button>
                                     <button class="btn btn-danger" onclick="stepper.previous()">Atras</button>
                                 </div>
-
 
                                 <div id="require-part" class="content" role="tabpanel" aria-labelledby="require-part-trigger">
                                     
                                     <div class="row">
-                                        <div class="col-md-9">
+                                        <div class="col-md-4">
                                             
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="formulario__label">* VAUCHER DE PAGO</label>
                                                 <div class="input-group mb-3">

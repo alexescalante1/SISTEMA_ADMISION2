@@ -308,8 +308,7 @@ class AjaxAdmision{
 			"datos"=>$this->datosProb,
 			"idExam"=>$this->idEprueba,
 			"valid"=>0,
-			"cp"=>0,
-			"cs"=>0,
+			"idEspIngreso"=>0,
 			"idAdmision"=>$this->idEAdm,
 			"idInscripcion"=>$this->idEspecialidad
 		);
