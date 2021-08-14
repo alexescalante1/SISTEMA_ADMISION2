@@ -107,7 +107,7 @@ session_start();
      =============================================*/
 
      $rutas = array();
-     $buscRuta = array("-inscribir", "-ver", "-respuestas", "-ingresantes");
+     $buscRuta = array("-inscribir", "-ver", "-respuestas", "-ingresantes", "-repPostu");
      $encontrado = false;
 
      if(isset($_GET["ruta"])){
@@ -124,6 +124,7 @@ session_start();
            $_GET["ruta"]== "regRes" ||
            $_GET["ruta"]== "ingresantes" ||
            $_GET["ruta"]== "evento" ||
+           $_GET["ruta"]== "reportePostulant" ||
            $_GET["ruta"]== "perfiles" ||
            $_GET["ruta"]== "salir"){
 
@@ -141,6 +142,7 @@ session_start();
           $newphrase = str_replace("-ver", "", $newphrase);
           $newphrase = str_replace("-respuestas", "", $newphrase);
           $newphrase = str_replace("-ingresantes", "", $newphrase);
+          $newphrase = str_replace("-repPostu", "", $newphrase);
   
           $rutaEventos = ControladorAdmision::ctrMostrarInfoAdmision($item, $newphrase);
   
@@ -153,6 +155,8 @@ session_start();
               include "modulos/respuestas.php";
             }else if($encontrado == 4){
               include "modulos/ingresantes-postulante.php";
+            }else if($encontrado == 5){
+              include "modulos/reportes-postulante.php";
             }else{
               include "modulos/infoadmision.php";
             }

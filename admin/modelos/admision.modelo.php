@@ -67,6 +67,45 @@ class ModeloAdmision{
 	}
 
 	/*=============================================
+	MOSTRAR RES INGRESANTES
+	=============================================*/
+	static public function mdlMostrarIngresantEspc($tabla, $item, $valor, $item2, $valor2){
+
+		$stmt = Conexion::conectar()->prepare("SELECT res.pnts,res.valid,inscr.idAdmision,inscr.idPostulante, postul.dni, postul.nombre,postul.apellidoPat,postul.apellidoMat,inscr.fecha FROM $tabla res INNER JOIN inscripciones inscr ON res.idInscripcion = inscr.idInscripcion INNER JOIN postulante postul ON inscr.idPostulante = postul.idPostulante WHERE res.$item = :$item AND res.$item2 = :$item2 ORDER BY res.pnts DESC");
+		
+		$stmt -> bindParam(":".$item, $valor, PDO::PARAM_STR);
+		$stmt -> bindParam(":".$item2, $valor2, PDO::PARAM_STR);
+
+		$stmt -> execute();
+
+		return $stmt -> fetchAll();
+
+		$stmt -> close();
+		
+		$stmt = null;
+	
+	}
+
+	/*=============================================
+	MOSTRAR REPORTE POSTUL
+	=============================================*/
+	static public function mdlMostrarReportPostul($item, $valor){
+
+		$stmt = Conexion::conectar()->prepare("SELECT insc.Tpostulacion,esp.titulo,esptwo.titulo,insc.vaucher,insc.estado,insc.fecha,insc.idInscripcion,postul.dni,postul.nombre,postul.apellidoPat,postul.apellidoMat,postul.foto,postdeta.genero,postdeta.correo,postdeta.celularOne,postdeta.celularTwo,postdeta.direccion,postdeta.departamento,postdeta.provincia,postdeta.distrito,postdeta.representante,postdeta.dniR,postdeta.correoR,postdeta.parentescoR,postdeta.direccionR,postdeta.celularR,postdeta.colegio,postdeta.Ctipo,postdeta.Cespecialidad,postdeta.Cnota FROM inscripciones insc INNER JOIN postulante postul ON insc.idPostulante = postul.idPostulante INNER JOIN postulantedetalle postdeta ON postul.idPostulante = postdeta.idPostulante INNER JOIN especialidad esp ON esp.idEspecialidad = insc.Popcion INNER JOIN especialidad esptwo ON esptwo.idEspecialidad = insc.Sopcion WHERE insc.$item = :$item");
+		
+		$stmt -> bindParam(":".$item, $valor, PDO::PARAM_STR);
+
+		$stmt -> execute();
+
+		return $stmt -> fetchAll();
+
+		$stmt -> close();
+		
+		$stmt = null;
+	
+	}
+
+	/*=============================================
 	MOSTRAR INFOARTICULO
 	=============================================*/
 
@@ -477,10 +516,10 @@ class ModeloAdmision{
 	CODIGO INGRESANTES
 	=============================================*/
 
-	static public function mdlContarIngresantes($tabla, $item, $valor, $item2, $valor2, $item3, $valor3){
+	static public function mdlContarIngresantes($tabla, $expre, $item, $valor, $item2, $valor2, $item3, $valor3){
 
-		$stmt = Conexion::conectar()->prepare("SELECT count(*) FROM $tabla WHERE $item = :$item");
-		$stmt = Conexion::conectar()->prepare("SELECT COUNT(*) FROM $tabla WHERE $item = :$item AND $item2 = :$item2 AND $item3 = :$item3");
+		//$stmt = Conexion::conectar()->prepare("SELECT count(*) FROM $tabla WHERE $item = :$item");
+		$stmt = Conexion::conectar()->prepare("SELECT COUNT(*) FROM $tabla WHERE $item $expre :$item AND $item2 = :$item2 AND $item3 = :$item3");
 
 		$stmt -> bindParam(":".$item, $valor, PDO::PARAM_STR);
 		$stmt -> bindParam(":".$item2, $valor2, PDO::PARAM_STR);
@@ -494,6 +533,26 @@ class ModeloAdmision{
 
 		$stmt = null;
 
+	}
+
+	/*=============================================
+	MOSTRAR INGRESANTES RESTANTES
+	=============================================*/
+	static public function mdlMostrarIngresantRest($tabla, $item, $valor, $item2, $valor2, $base){
+
+		$stmt = Conexion::conectar()->prepare("SELECT res.idRespuestas,res.pnts,res.valid,inscr.Sopcion FROM $tabla res INNER JOIN inscripciones inscr ON res.idInscripcion = inscr.idInscripcion WHERE res.$item = :$item AND res.$item2 = :$item2 ORDER BY res.pnts DESC LIMIT $base, 500");
+		
+		$stmt -> bindParam(":".$item, $valor, PDO::PARAM_STR);
+		$stmt -> bindParam(":".$item2, $valor2, PDO::PARAM_STR);
+
+		$stmt -> execute();
+
+		return $stmt -> fetchAll();
+
+		$stmt -> close();
+		
+		$stmt = null;
+	
 	}
 
 }

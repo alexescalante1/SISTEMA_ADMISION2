@@ -56,13 +56,28 @@ MENU
     </li>
 
     <li class="nav-item">
-      <a href="reportes" class="nav-link">
-        <i class="nav-icon fas fa-clipboard-check"></i>
+      <a href="#" class="nav-link">
+        <i class="nav-icon fas fa-copy"></i>
         <p>
           Reportes
-          <span class="right badge badge-success">New</span>
+          <i class="fas fa-angle-left right"></i>
         </p>
       </a>
+      <ul class="nav nav-treeview">
+        <li class="nav-item">
+          <a href="reportePostulant" class="nav-link">
+            <i class="far fa-circle nav-icon"></i>
+            <p>Postulantes</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="reportePostulant" class="nav-link">
+            <i class="far fa-circle nav-icon"></i>
+            <p>Ingresantes</p>
+          </a>
+        </li>
+        
+      </ul>
     </li>
 
     <li class="nav-item">

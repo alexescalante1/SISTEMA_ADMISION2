@@ -153,31 +153,31 @@
 										<div class="icheck-success d-inline">
 											<input type="radio" name="r-0" value="1" id="rsa-0">
 											<label for="rsa-0" class="spaceR">
-											-0A
+											A
 											</label>
 										</div>
 										<div class="icheck-success d-inline">
 											<input type="radio" name="r-0" value="2" id="rsb-0">
 											<label for="rsb-0" class="spaceR">
-											-0B
+											B
 											</label>
 										</div>
 										<div class="icheck-success d-inline">
 											<input type="radio" name="r-0" value="3" id="rsc-0">
 											<label for="rsc-0" class="spaceR">
-											-0C
+											C
 											</label>
 										</div>
 										<div class="icheck-success d-inline">
 											<input type="radio" name="r-0" value="4" id="rsd-0">
 											<label for="rsd-0" class="spaceR">
-											-0D
+											D
 											</label>
 										</div>
 										<div class="icheck-success d-inline">
 											<input type="radio" name="r-0" value="5" id="rse-0">
 											<label for="rse-0" class="spaceR">
-											-0E
+											E
 											</label>
 										</div>
 
