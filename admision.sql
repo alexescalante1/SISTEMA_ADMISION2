@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-08-2021 a las 03:26:45
+-- Tiempo de generación: 14-08-2021 a las 22:13:00
 -- Versión del servidor: 10.4.14-MariaDB
 -- Versión de PHP: 7.2.34
 
@@ -46,7 +46,7 @@ CREATE TABLE `administradores` (
 --
 
 INSERT INTO `administradores` (`id`, `dniAdmin`, `userAdmin`, `nombre`, `email`, `foto`, `password`, `perfil`, `estado`, `dark`, `fecha`) VALUES
-(5, '73104785', '', 'Alex Escalante ONE', 'admin@gmail.com', 'vistas/img/perfiles/138.jpg', '$2a$07$asxx54ahjppf45sd87a5aunxs9bkpyGmGE/.vekdjFg83yRec789S', 'administrador', 1, 1, '2021-08-08 15:06:03'),
+(5, '73104785', '', 'Alex Escalante ONE', 'admin@gmail.com', 'vistas/img/perfiles/138.jpg', '$2a$07$asxx54ahjppf45sd87a5aunxs9bkpyGmGE/.vekdjFg83yRec789S', 'administrador', 1, 1, '2021-08-14 18:37:18'),
 (162, '73104795', '', 'Alex Escalante TWO', 'alexescalante921@gmail.com', 'vistas/img/perfiles/844.png', '$2a$07$asxx54ahjppf45sd87a5aubFblDrx5VgsL7udWc9pTLp1r8BxczhK', 'administrador', 1, 0, '2021-08-08 14:04:34'),
 (165, '73545894', '', 'Fredy Marin Rojas', 'laboral@gmail.com', 'vistas/img/perfiles/972.jpg', '$2a$07$asxx54ahjppf45sd87a5auR6AmIR5N5CndGl8MnjTyLo5SYcp56Qe', 'laboratorista', 1, 1, '2021-07-11 18:18:54'),
 (166, '15489562', '', 'Ana Maria', 'ana@gmail.com', 'vistas/img/perfiles/357.jpg', '$2a$07$asxx54ahjppf45sd87a5auzGfz9GaOjSPJ5jEDpHii9vSQEEqY1Zm', 'laboratorista', 0, 1, '2021-08-07 19:05:10');
@@ -73,18 +73,22 @@ CREATE TABLE `cupos` (
 --
 
 INSERT INTO `cupos` (`idCupos`, `cupoBeca`, `cupoNormal`, `cupoTrasladosI`, `cupoTrasladosE`, `puntaje`, `idEspecialidad`, `idAdmision`) VALUES
-(757, 0, 0, 0, 0, 0, 5, 166),
-(758, 0, 0, 0, 0, 0, 6, 166),
-(759, 0, 0, 0, 0, 0, 11, 166),
-(760, 0, 0, 0, 0, 0, 10, 166),
-(761, 0, 0, 0, 0, 0, 5, 167),
-(762, 0, 0, 0, 0, 0, 6, 167),
-(763, 0, 0, 0, 0, 0, 11, 167),
-(764, 0, 0, 0, 0, 0, 10, 167),
-(765, 1, 5, 0, 0, 9, 5, 168),
-(766, 2, 6, 0, 0, 10, 6, 168),
-(767, 3, 7, 0, 0, 11, 11, 168),
-(768, 4, 8, 0, 0, 12, 10, 168);
+(773, 0, 0, 0, 0, 0, 5, 170),
+(774, 0, 0, 0, 0, 0, 6, 170),
+(775, 0, 0, 0, 0, 0, 11, 170),
+(776, 0, 0, 0, 0, 0, 10, 170),
+(777, 0, 0, 0, 0, 0, 5, 171),
+(778, 0, 0, 0, 0, 0, 6, 171),
+(779, 0, 0, 0, 0, 0, 11, 171),
+(780, 0, 0, 0, 0, 0, 10, 171),
+(781, 0, 0, 0, 0, 0, 5, 172),
+(782, 0, 0, 0, 0, 0, 6, 172),
+(783, 0, 0, 0, 0, 0, 11, 172),
+(784, 0, 0, 0, 0, 0, 10, 172),
+(785, 1, 2, 0, 0, 1400, 5, 173),
+(786, 2, 2, 0, 0, 700, 6, 173),
+(787, 2, 3, 0, 0, 800, 11, 173),
+(788, 2, 1, 0, 0, 1000, 10, 173);
 
 -- --------------------------------------------------------
 
@@ -129,9 +133,10 @@ CREATE TABLE `eventoadmision` (
 --
 
 INSERT INTO `eventoadmision` (`idAdmision`, `ruta`, `titulo`, `fecha`, `finit`, `ffin`, `estado`) VALUES
-(166, 'examen-enero-2021', 'EXAMEN ENERO 2021', '2021-08-07 18:46:57', '0000-00-00', '0000-00-00', 0),
-(167, 'examen-junio-2021', 'EXAMEN JUNIO 2021', '2021-08-07 18:47:10', '0000-00-00', '0000-00-00', 0),
-(168, 'examen-septiembre-2021', 'EXAMEN SEPTIEMBRE 2021', '2021-08-07 18:47:27', '2021-08-01', '2021-08-31', 1);
+(170, 'examen-enero-2021', 'EXAMEN ENERO 2021', '2021-08-14 06:32:13', '0000-00-00', '0000-00-00', 0),
+(171, 'examen-marzo-2021', 'EXAMEN MARZO 2021', '2021-08-14 06:32:32', '0000-00-00', '0000-00-00', 0),
+(172, 'examen-junio-2021', 'EXAMEN JUNIO 2021', '2021-08-14 06:32:52', '0000-00-00', '0000-00-00', 0),
+(173, 'examen-septiembre-2021', 'EXAMEN SEPTIEMBRE 2021', '2021-08-14 06:33:07', '2021-08-01', '2021-08-31', 1);
 
 -- --------------------------------------------------------
 
@@ -153,8 +158,9 @@ CREATE TABLE `examen` (
 --
 
 INSERT INTO `examen` (`idExamen`, `ruta`, `titulo`, `cantidad`, `problemas`, `idAdmision`) VALUES
-(134, '', 'TIPO A', 2, '[{\"num\":1,\"sol\":\"3\",\"pts\":\"15\",\"descripcion\":\"alex\",\"Ra\":\"q\",\"Rb\":\"w\",\"Rc\":\"e\",\"Rd\":\"r\",\"Re\":\"t\"},{\"num\":2,\"sol\":\"4\",\"pts\":\"956\",\"descripcion\":\"escalante maron\",\"Ra\":\"a\",\"Rb\":\"s\",\"Rc\":\"d\",\"Rd\":\"f\",\"Re\":\"g\"}]', 168),
-(135, '', 'TIPO B', 60, '', 168);
+(138, '', 'TIPO A', 60, '', 172),
+(139, '', 'TIPO A', 20, '[{\"num\":1,\"sol\":\"1\",\"pts\":\"100\",\"descripcion\":\"¿Cuál es el tema central del texto?\",\"Ra\":\"Los condicionantes de los problemas de salud mental en España *\",\"Rb\":\"Los factores de la demencia en una ciudad española como Madrid\",\"Rc\":\"El efecto negativo de la experiencia en los problemas de salud mental\",\"Rd\":\"Los graves problemas de salud mental y su incidencia en la educación\",\"Re\":\"Los graves problemas de salud mental y su incidencia\"},{\"num\":2,\"sol\":\"3\",\"pts\":\"100\",\"descripcion\":\"En el texto, el verbo ESTIMAR tiene el sentido de\",\"Ra\":\"calcular\",\"Rb\":\"proyectar\",\"Rc\":\"deducir\",\"Rd\":\"valorar\",\"Re\":\"integrar\"},{\"num\":3,\"sol\":\"4\",\"pts\":\"100\",\"descripcion\":\"Al examinar las preguntas del sondeo llevado a cabo en Madrid, se establece que los\\nproblemas de salud mental son de índole\\n\\nI. multifactorial.\\nII. ecológica.\\nIII. idiosincrásica.\",\"Ra\":\"I\",\"Rb\":\"I Y II\",\"Rc\":\"III\",\"Rd\":\"VIII\",\"Re\":\"IV\"},{\"num\":4,\"sol\":\"3\",\"pts\":\"100\",\"descripcion\":\"Se colige del texto que, si se soslayara el componente emocional en la salud pública,\",\"Ra\":\"habría un riesgo para el desarrollo de problemas mentales. *\",\"Rb\":\"el mal de la esquizofrenia se dispararía a cifras inimaginables.\",\"Rc\":\"sería muy difícil que una depresión llegue a un cuadro grave.\",\"Rd\":\"solamente se podría controlar fenómenos de histeria colectiva.\",\"Re\":\"solamente se podría controlar fenómenos  F\"},{\"num\":5,\"sol\":\"3\",\"pts\":\"100\",\"descripcion\":\"Si, en el sondeo realizado, los madrileños hubiesen respondido mayoritariamente que el\\nentorno de su ciudad era excelente,\",\"Ra\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rb\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rc\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rd\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Re\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\"},{\"num\":6,\"sol\":\"3\",\"pts\":\"100\",\"descripcion\":\"Si, en el sondeo realizado, los madrileños hubiesen respondido mayoritariamente que el\\nentorno de su ciudad era excelente,\",\"Ra\":\"V\",\"Rb\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rc\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rd\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Re\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\"},{\"num\":7,\"sol\":\"4\",\"pts\":\"100\",\"descripcion\":\"Si, en el sondeo realizado, los madrileños hubiesen respondido mayoritariamente que el\\nentorno de su ciudad era excelente,\",\"Ra\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rb\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rc\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rd\":\"V\",\"Re\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\"},{\"num\":8,\"sol\":\"5\",\"pts\":\"100\",\"descripcion\":\"Si, en el sondeo realizado, los madrileños hubiesen respondido mayoritariamente que el\\nentorno de su ciudad era excelente,\",\"Ra\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rb\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rc\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rd\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Re\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\"},{\"num\":9,\"sol\":\"2\",\"pts\":\"100\",\"descripcion\":\"Si, en el sondeo realizado, los madrileños hubiesen respondido mayoritariamente que el\\nentorno de su ciudad era excelente,\",\"Ra\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rb\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rc\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rd\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Re\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\"},{\"num\":10,\"sol\":\"1\",\"pts\":\"100\",\"descripcion\":\"Si, en el sondeo realizado, los madrileños hubiesen respondido mayoritariamente que el\\nentorno de su ciudad era excelente,\",\"Ra\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rb\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rc\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rd\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Re\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\"},{\"num\":11,\"sol\":\"2\",\"pts\":\"100\",\"descripcion\":\"Si, en el sondeo realizado, los madrileños hubiesen respondido mayoritariamente que el\\nentorno de su ciudad era excelente,\",\"Ra\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rb\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rc\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rd\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Re\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\"},{\"num\":12,\"sol\":\"3\",\"pts\":\"100\",\"descripcion\":\"Si, en el sondeo realizado, los madrileños hubiesen respondido mayoritariamente que el\\nentorno de su ciudad era excelente,\",\"Ra\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rb\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rc\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rd\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Re\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\"},{\"num\":13,\"sol\":\"4\",\"pts\":\"100\",\"descripcion\":\"Si, en el sondeo realizado, los madrileños hubiesen respondido mayoritariamente que el\\nentorno de su ciudad era excelente,\",\"Ra\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rb\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rc\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rd\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Re\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\"},{\"num\":14,\"sol\":\"5\",\"pts\":\"100\",\"descripcion\":\"Si, en el sondeo realizado, los madrileños hubiesen respondido mayoritariamente que el\\nentorno de su ciudad era excelente,\",\"Ra\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rb\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rc\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rd\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Re\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\"},{\"num\":15,\"sol\":\"4\",\"pts\":\"100\",\"descripcion\":\"Si, en el sondeo realizado, los madrileños hubiesen respondido mayoritariamente que el\\nentorno de su ciudad era excelente,\",\"Ra\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rb\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rc\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rd\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Re\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\"},{\"num\":16,\"sol\":\"3\",\"pts\":\"100\",\"descripcion\":\"Si, en el sondeo realizado, los madrileños hubiesen respondido mayoritariamente que el\\nentorno de su ciudad era excelente,\",\"Ra\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rb\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rc\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rd\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Re\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\"},{\"num\":17,\"sol\":\"2\",\"pts\":\"100\",\"descripcion\":\"Si, en el sondeo realizado, los madrileños hubiesen respondido mayoritariamente que el\\nentorno de su ciudad era excelente,\",\"Ra\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rb\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rc\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rd\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Re\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\"},{\"num\":18,\"sol\":\"1\",\"pts\":\"100\",\"descripcion\":\"Si, en el sondeo realizado, los madrileños hubiesen respondido mayoritariamente que el\\nentorno de su ciudad era excelente,\",\"Ra\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rb\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rc\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rd\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Re\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\"},{\"num\":19,\"sol\":\"5\",\"pts\":\"100\",\"descripcion\":\"Si, en el sondeo realizado, los madrileños hubiesen respondido mayoritariamente que el\\nentorno de su ciudad era excelente,\",\"Ra\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rb\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rc\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rd\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Re\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\"},{\"num\":20,\"sol\":\"5\",\"pts\":\"100\",\"descripcion\":\"Si, en el sondeo realizado, los madrileños hubiesen respondido mayoritariamente que el\\nentorno de su ciudad era excelente,\",\"Ra\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rb\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rc\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rd\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Re\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\"}]', 173),
+(140, '', 'TIPO B', 60, '', 173);
 
 -- --------------------------------------------------------
 
@@ -180,8 +186,16 @@ CREATE TABLE `inscripciones` (
 --
 
 INSERT INTO `inscripciones` (`idInscripcion`, `Tpostulacion`, `Popcion`, `Sopcion`, `vaucher`, `estado`, `fecha`, `idAdmision`, `idPostulante`, `idAdmin`) VALUES
-(23, 'beca', 5, 11, 'vistas/img/vaucher/23249.jpg', 1, '2021-08-11 23:08:53', 168, 37, 5),
-(24, 'normal', 6, 10, 'vistas/img/vaucher/24919.jpg', 1, '2021-08-08 01:54:22', 168, 38, 5);
+(46, 'normal', 5, 6, 'vistas/img/vaucher/46890.jpg', 1, '2021-08-14 06:51:47', 173, 60, 5),
+(47, 'normal', 6, 10, 'vistas/img/vaucher/47491.jpg', 1, '2021-08-14 06:58:18', 173, 61, 5),
+(48, 'normal', 10, 11, 'vistas/img/vaucher/48563.png', 1, '2021-08-14 07:03:35', 173, 62, 5),
+(49, 'normal', 5, 10, 'vistas/img/vaucher/49534.jpg', 1, '2021-08-14 07:10:32', 173, 63, 5),
+(50, 'normal', 6, 10, 'vistas/img/vaucher/50730.jpg', 1, '2021-08-14 07:12:39', 173, 64, 5),
+(51, 'beca', 5, 6, 'vistas/img/vaucher/51749.png', 1, '2021-08-14 08:16:14', 173, 65, 5),
+(52, 'beca', 5, 6, 'vistas/img/vaucher/52268.jpg', 1, '2021-08-14 07:21:03', 173, 66, 5),
+(53, 'normal', 5, 6, 'vistas/img/vaucher/53828.jpg', 1, '2021-08-14 07:23:20', 173, 67, 5),
+(54, 'normal', 5, 6, 'vistas/img/vaucher/54410.jpg', 1, '2021-08-14 08:21:38', 173, 68, 5),
+(55, 'normal', 6, 10, 'vistas/img/vaucher/55466.jpg', 1, '2021-08-14 07:27:52', 173, 69, 5);
 
 -- --------------------------------------------------------
 
@@ -255,25 +269,16 @@ CREATE TABLE `postulante` (
 --
 
 INSERT INTO `postulante` (`idPostulante`, `dni`, `nombre`, `apellidoPat`, `apellidoMat`, `fecha`, `foto`) VALUES
-(37, '73104785', 'ALEX FREDY', 'ESCALANTE', 'MARON', '1999-03-26', 'vistas/img/postulantes/37807.jpg'),
-(38, '88847555', 'MIRIAN ROXANA', 'FLORES', 'ROZALES', '2021-08-26', 'vistas/img/postulantes/38621.jpg'),
-(39, '85479956', 'DENIS', 'VELAZCO', 'ALMARADO', '2021-08-18', 'vistas/img/postulantes/39536.jpg'),
-(40, '84787845', 'FREDDY', 'WE', 'ER', '2021-08-12', 'vistas/img/postulantes/40887.jpg'),
-(41, '34124312', 'ASASDF', 'ASDDASASD', 'ASDASDASD', '2021-08-03', 'vistas/img/postulantes/41993.jpg'),
-(42, '23423342', 'WQEQWEQWE', 'QWEQWE', 'QWEQWE', '2021-08-11', 'vistas/img/postulantes/42407.jpg'),
-(43, '23423342', 'WQEQWEQWE', 'QWEQWE', 'QWEQWE', '2021-08-11', 'vistas/img/postulantes/43544.jpg'),
-(44, '23423342', 'WQEQWEQWE', 'QWEQWE', 'QWEQWE', '2021-08-11', 'vistas/img/postulantes/44395.jpg'),
-(45, '12121212', 'AAS', 'ASAS', 'ASAS', '2021-08-18', 'vistas/img/postulantes/45142.jpg'),
-(46, '23123123', 'QWEQWEQW', 'EQWEQWE', 'QWEQWEQWE', '2021-08-02', 'vistas/img/postulantes/46828.jpg'),
-(47, '31231231', 'WQEQWE', 'QWEQWE', 'QWEQWE', '2021-08-09', 'vistas/img/postulantes/47884.jpg'),
-(48, '23123123', 'QWEQWE', 'QWEQWE', 'QWEQWE', '2021-08-11', 'vistas/img/postulantes/48640.jpg'),
-(49, '31231231', 'WERWER', 'WERWERWER', 'WERWERWER', '2021-02-17', 'vistas/img/postulantes/49462.jpg'),
-(50, '23312123', 'SDASD', 'ASDASD', 'ASDASD', '2021-08-05', 'vistas/img/postulantes/50187.jpg'),
-(51, '12312312', 'ASDASD', 'DASD', 'ASDASD', '2021-08-11', 'vistas/img/postulantes/51177.jpg'),
-(52, '12412333', 'ASDD', 'DASD', 'ASDASD', '2021-08-27', 'vistas/img/postulantes/52631.jpg'),
-(53, '12321321', 'EQWEQWE', 'QWEQWE', 'QWEQWE', '2021-08-11', 'vistas/img/postulantes/53681.jpg'),
-(54, '23322331', 'QWEQWE', 'QWE', 'QWE', '2021-08-03', 'vistas/img/postulantes/54644.jpg'),
-(55, '21312123', 'ASD', 'DSAS', 'ASD', '2021-08-10', 'vistas/img/postulantes/55965.jpg');
+(60, '73104785', 'ALEX FREDY', 'ESCALANTE', 'MARON', '1999-03-26', 'vistas/img/postulantes/60460.jpg'),
+(61, '73104786', 'MARILUZ', 'ESPINOZA', 'MENDOZA', '2021-08-09', 'vistas/img/postulantes/61388.jpg'),
+(62, '73104781', 'YOTSUBA', 'NINO', 'MIKU', '2021-08-11', 'vistas/img/postulantes/62395.jpg'),
+(63, '73104782', 'CARLOS', 'ALCANTARA ', 'MESA', '2021-08-11', 'vistas/img/postulantes/63555.jpg'),
+(64, '73104783', 'RIMIAN', 'ROZAL', 'ADREESS', '2021-08-05', 'vistas/img/postulantes/64982.jpg'),
+(65, '73104784', 'WILLSON', 'VARGAS', 'CALLA', '2021-08-11', 'vistas/img/postulantes/65386.jpg'),
+(66, '73104787', 'NAOFUMI', 'IWATANI', 'TATE', '2021-08-18', 'vistas/img/postulantes/66937.jpg'),
+(67, '73104788', 'RAPHTALIA', 'NAOF', 'TATE', '2021-08-17', 'vistas/img/postulantes/67919.jpg'),
+(68, '73104789', 'BILL', 'GATES', 'MHS', '2021-08-11', 'vistas/img/postulantes/68381.jpg'),
+(69, '73104790', 'YEMIRA', 'TICONA', 'SOTO', '2021-08-10', 'vistas/img/postulantes/69296.jpg');
 
 -- --------------------------------------------------------
 
@@ -309,25 +314,49 @@ CREATE TABLE `postulantedetalle` (
 --
 
 INSERT INTO `postulantedetalle` (`idPostulanteD`, `idPostulante`, `genero`, `correo`, `celularOne`, `celularTwo`, `direccion`, `departamento`, `provincia`, `distrito`, `representante`, `dniR`, `correoR`, `parentescoR`, `direccionR`, `celularR`, `colegio`, `Ctipo`, `Cespecialidad`, `Cnota`) VALUES
-(28, 37, 'Hombre', 'alex@gmail.com', '978308554', '445454548', 'AV. LAS TORRES Nº452', 'PUNO', 'PUNO', 'PUNO', 'LOURDES', '84541215', 'lourdes@gmail.com', 'madre', 'ME TOO', '111111111', 'GRAN UNIDAD ESCOLAR SAN CARLOS PUNO', 'publico', 'ELECTRONICA', 16),
-(29, 38, 'Mujer', 'miriam@gmail.com', '847555115', '784874877', 'AV. NICOLAS DE PIEROLA Nº234', 'PUNO', 'PUNO', 'PUNO', 'CARLOS VENAVIDEZ CCOPA', '88451125', 'carlos@gmail.com', 'otro', 'ME TOO', '845784545', 'SANTA ROSA DE LIMA', 'publico', '', 18),
-(30, 39, 'Hombre', 'denis@gmail.com', '231231231', '234334534', 'AV. ORG NE', 'PUNO', 'PUNO', 'PUNO', 'REPRESENTANTE', '95845551', 'representante@gmail.com', 'padre', '', '151548484', 'MIGUEL GRAU', 'publico', '', 15),
-(31, 40, 'Mujer', 'asd@asd.asd', '231231231', '312312312', 'AV. FREEDD', 'WEQE', 'QEWWE', 'WER', 'XDE', '34434242', 'my@gmai.com', 'madre', 'XDES', '111111111', 'LA VIEJA CONFIABLE', 'particular', 'SDSDDD', 7),
-(32, 41, 'Hombre', 'asdasd34asdasd.asdasd@sadasd.asdsa', '123123123', '123123123', '23123123', 'SDFSDFSDF', 'SDFSDF', 'SDFSDF', 'SRRR', '22334233', 'sfdsdf@sad.com', 'madre', 'ASDASDSAD', '123123123', 'ASDASDASD', 'particular', 'ASDASDASD', 23),
-(33, 42, 'Hombre', 'weewrwsd@asdas.asdsda', '343242342', '423423423', '4DFSDF', 'FFFFF', 'SFSDFSDF', 'FSDFSDF', 'DFDF', '34545534', 'sdfsd@sdfd.csa', 'madre', 'ASDASDASD', '123233231', 'DFDFDF', 'publico', '', 23),
-(34, 43, 'Hombre', 'weewrwsd@asdas.asdsda', '343242342', '423423423', '4DFSDF', 'FFFFF', 'SFSDFSDF', 'FSDFSDF', 'DFDF', '34545534', 'sdfsd@sdfd.csa', 'madre', 'ASDASDASD', '123233231', 'DFDFDF', 'publico', '', 23),
-(35, 44, 'Hombre', 'weewrwsd@asdas.asdsda', '343242342', '423423423', '4DFSDF', 'FFFFF', 'SFSDFSDF', 'FSDFSDF', 'DFDF', '34545534', 'sdfsd@sdfd.csa', 'madre', 'ASDASDASD', '123233231', 'DFDFDF', 'publico', '', 23),
-(36, 45, 'Mujer', 'sqqwwq@asddsa.comasd', '123123123', '312333333', 'SADASDASD', 'DASDASASD', 'SADAS', 'DASDASD', 'WEWE', '11221212', 'wqqwqw@gdf.comqq', 'madre', '', '321312312', 'QWEQWEQWE', 'particular', '', 23),
-(37, 46, 'Mujer', 'qweqwe@qweqw.cas', '312312312', '123123123', 'ASDDASD', 'ASDD', 'DDDDAA', 'ASAA', 'DASDAS', '21312312', 'dasd@asdas.comasd', 'madre', 'W3ASDAS', '213123132', 'ASDASD', 'publico', '', 12),
-(38, 47, 'Hombre', 'dfg@sad.asd', '231312312', '312123123', 'ASDASDASD', 'ASDASDASD', 'ASDASD', 'ADSDASD', 'ADSASD', '21312312', '', 'madre', '', '231212313', 'SDASS', 'publico', '', 12),
-(39, 48, 'Hombre', 'qweqwe@qwe.qwe', '233123123', '', 'ASDASDASD', 'ASDD', 'ASDASD', 'ASDASD', 'ASDASD', '12231132', '', 'madre', '', '121212121', 'QWQASDASD', 'publico', '', 21),
-(40, 49, 'Hombre', 'werwer@rwerwe.wer', '234324324', '343242342', 'WERWASDDSA', 'ASDSD', 'ASDASD', 'ASD', 'WQQWE', '23434234', '', 'padre', '', '324324342', '234234', 'particular', '', 23),
-(41, 50, 'Hombre', 'sad@asd.asd', '213123123', '', 'QEQWEQWE', 'QWEQWE', 'WEQEQWE', 'QWEQWE', 'QWEQWEQWE', '21312312', '', 'madre', '', '122112122', 'SADASDASD', 'publico', '', 23),
-(42, 51, 'Hombre', 'asdd@asd.casd', '231231231', '', 'SDADASD', 'ASDDDAA', 'ASDASAA', 'ASDASD', 'ASDASDASSD', '23123123', 'asdasdasd@sadasd.asd', 'madre', '', '123123232', 'ASDASDASDDADS', 'publico', '', 12),
-(43, 52, 'Hombre', 'asdasd@asdasd.asdasd', '123231231', '', 'ADSADASD', 'ASDASD', 'ASDASD', 'ASDDASD', 'ASDASD', '21312312', '', 'madre', '', '123312312', 'ASDASDASD', 'particular', '', 21),
-(44, 53, 'Hombre', 'weqeqe@qwe.wqe', '312312312', '213123123', 'ASDASASDD', 'ASDASD', 'ASDASD', 'ASDASD', 'ASDASD', '12312312', '', 'padreP', '', '123123231', 'ASASDASDASDS', 'particular', '', 23),
-(45, 54, 'Hombre', 'qweqwe@qwe.qwe', '123213123', '', 'ASDDSAD', 'DSAASD', 'ASDDAS', 'ASDASD', 'ASDASD', '12323233', '', 'madre', '', '123323232', 'ASDASD', 'publico', '', 12),
-(46, 55, 'Hombre', 'asdasdasd@asd.asd', '123321123', '', 'SASDASD', 'ASDASD', 'ASD', 'ASD', 'ASD', '12312312', '', 'padre', '', '123123123', 'ASDASDASDASD', 'publico', '', 12);
+(51, 60, 'Hombre', 'alex@gmail.com', '978308554', '', 'AV.ORGULLO AYMARA Nº452', 'PUNO', 'PUNO', 'PUNO', 'LOURDES MARON MAMANI', '73104748', '', 'madre', '', '845121212', 'GRAN UNIDAD ESCOLAR SAN CARLOS', 'publico', '', 0),
+(52, 61, 'Mujer', 'mariluz@gmail.com', '151515151', '', 'AV.RF', 'PUNO', 'PUNO', 'PUNO', 'ENRIQUE ESCALANTE CHOQUE', '84512121', '', 'padre', '', '848454515', 'MARIA AUXILIADORA', 'publico', '', 0),
+(53, 62, 'Mujer', 'hd@as.s', '123131313', '', 'AV.ERDA', 'P', 'P', 'P', 'JUAN ESPINOZA', '84559556', '', 'padre', '', '551511111', 'GLORIOSO SAN CARLOS', 'publico', '', 0),
+(54, 63, 'Hombre', 'car@dsf.s', '151512151', '', 'ASDASD', 'P', 'P', 'P', 'JUAN', '88445454', '', 'madreP', '', '155111122', 'MARIATEGUI', 'publico', '', 0),
+(55, 64, 'Hombre', 'rox@s.sa', '123123123', '', 'SV XSA', 'P', 'P', 'P', 'MIKU', '48454554', '', 'madre', '', '123111123', 'BELLESN', 'particular', '', 0),
+(56, 65, 'Hombre', 'willson@gmil.com', '121111111', '', 'AV.NO SE DONDE', 'P', 'P', 'J', 'ICHIKA', '11232312', '', 'madre', '', '777788444', 'SEOUL', 'particular', '', 0),
+(57, 66, 'Hombre', 'naofumi@gmail.com', '777744444', '', 'AV.TOKIO ', 'J', 'J', 'J', 'RAPTHTALIA', '84454541', '', 'otro', '', '544488888', 'TOKIO', 'particular', '', 0),
+(58, 67, 'Mujer', 'raf@g.s', '888888888', '', 'AV.SD', 'J', 'J', 'J', 'RAFP', '88444565', 'faara@as.s', 'hermano', '', '555554151', 'IDK SA', 'publico', '', 0),
+(59, 68, 'Hombre', 'biill@g.cs', '222222222', '', 'HELLO', 'E', 'E', 'E', 'ALEX', '78848448', '', 'padre', '', '122121212', 'COLES', 'publico', '', 0),
+(60, 69, 'Hombre', 'yem@g.a', '111111111', '', 'AV IDK', 'P', 'P', 'P', 'CARLOS NICOLAS COPERNICO', '84548794', '', 'padre', '', '884544442', 'IN MDA', 'particular', '', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `respuestas`
+--
+
+CREATE TABLE `respuestas` (
+  `idRespuestas` int(11) NOT NULL,
+  `pnts` int(11) NOT NULL,
+  `datos` text NOT NULL,
+  `idExam` int(11) NOT NULL,
+  `valid` int(1) NOT NULL,
+  `idEspIngreso` int(1) NOT NULL,
+  `idAdmision` int(11) NOT NULL,
+  `idInscripcion` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `respuestas`
+--
+
+INSERT INTO `respuestas` (`idRespuestas`, `pnts`, `datos`, `idExam`, `valid`, `idEspIngreso`, `idAdmision`, `idInscripcion`) VALUES
+(15, 900, '[{\"num\":1,\"sol\":1},{\"num\":2,\"sol\":2},{\"num\":3,\"sol\":3},{\"num\":4,\"sol\":2},{\"num\":5,\"sol\":3},{\"num\":6,\"sol\":3},{\"num\":7,\"sol\":2},{\"num\":8,\"sol\":3},{\"num\":9,\"sol\":2},{\"num\":10,\"sol\":1},{\"num\":11,\"sol\":2},{\"num\":12,\"sol\":3},{\"num\":13,\"sol\":5},{\"num\":14,\"sol\":4},{\"num\":15,\"sol\":3},{\"num\":16,\"sol\":2},{\"num\":17,\"sol\":1},{\"num\":18,\"sol\":1},{\"num\":19,\"sol\":2},{\"num\":20,\"sol\":5}]', 139, 2, 11, 173, 48),
+(16, 1700, '[{\"num\":1,\"sol\":1},{\"num\":2,\"sol\":3},{\"num\":3,\"sol\":4},{\"num\":4,\"sol\":3},{\"num\":5,\"sol\":3},{\"num\":6,\"sol\":3},{\"num\":7,\"sol\":4},{\"num\":8,\"sol\":5},{\"num\":9,\"sol\":2},{\"num\":10,\"sol\":1},{\"num\":11,\"sol\":2},{\"num\":12,\"sol\":3},{\"num\":13,\"sol\":4},{\"num\":14,\"sol\":5},{\"num\":15,\"sol\":4},{\"num\":16,\"sol\":3},{\"num\":17,\"sol\":2},{\"num\":18,\"sol\":5},{\"num\":19,\"sol\":1},{\"num\":20,\"sol\":1}]', 139, 1, 5, 173, 46),
+(17, 400, '[{\"num\":1,\"sol\":1},{\"num\":2,\"sol\":1},{\"num\":3,\"sol\":2},{\"num\":4,\"sol\":2},{\"num\":5,\"sol\":2},{\"num\":6,\"sol\":2},{\"num\":7,\"sol\":2},{\"num\":8,\"sol\":3},{\"num\":9,\"sol\":2},{\"num\":10,\"sol\":3},{\"num\":11,\"sol\":3},{\"num\":12,\"sol\":2},{\"num\":13,\"sol\":2},{\"num\":14,\"sol\":5},{\"num\":15,\"sol\":2},{\"num\":16,\"sol\":2},{\"num\":17,\"sol\":2},{\"num\":18,\"sol\":3},{\"num\":19,\"sol\":2},{\"num\":20,\"sol\":2}]', 139, 0, 0, 173, 49),
+(18, 1000, '[{\"num\":1,\"sol\":1},{\"num\":2,\"sol\":1},{\"num\":3,\"sol\":2},{\"num\":4,\"sol\":2},{\"num\":5,\"sol\":2},{\"num\":6,\"sol\":3},{\"num\":7,\"sol\":2},{\"num\":8,\"sol\":3},{\"num\":9,\"sol\":2},{\"num\":10,\"sol\":1},{\"num\":11,\"sol\":2},{\"num\":12,\"sol\":3},{\"num\":13,\"sol\":4},{\"num\":14,\"sol\":5},{\"num\":15,\"sol\":5},{\"num\":16,\"sol\":3},{\"num\":17,\"sol\":1},{\"num\":18,\"sol\":5},{\"num\":19,\"sol\":5},{\"num\":20,\"sol\":2}]', 139, 2, 10, 173, 50),
+(19, 800, '[{\"num\":1,\"sol\":1},{\"num\":2,\"sol\":2},{\"num\":3,\"sol\":2},{\"num\":4,\"sol\":3},{\"num\":5,\"sol\":2},{\"num\":6,\"sol\":2},{\"num\":7,\"sol\":2},{\"num\":8,\"sol\":1},{\"num\":9,\"sol\":1},{\"num\":10,\"sol\":1},{\"num\":11,\"sol\":2},{\"num\":12,\"sol\":3},{\"num\":13,\"sol\":4},{\"num\":14,\"sol\":5},{\"num\":15,\"sol\":2},{\"num\":16,\"sol\":2},{\"num\":17,\"sol\":1},{\"num\":18,\"sol\":1},{\"num\":19,\"sol\":1},{\"num\":20,\"sol\":1}]', 139, 6, 6, 173, 51),
+(20, 1100, '[{\"num\":1,\"sol\":1},{\"num\":2,\"sol\":2},{\"num\":3,\"sol\":2},{\"num\":4,\"sol\":1},{\"num\":5,\"sol\":1},{\"num\":6,\"sol\":1},{\"num\":7,\"sol\":2},{\"num\":8,\"sol\":2},{\"num\":9,\"sol\":2},{\"num\":10,\"sol\":1},{\"num\":11,\"sol\":2},{\"num\":12,\"sol\":3},{\"num\":13,\"sol\":4},{\"num\":14,\"sol\":5},{\"num\":15,\"sol\":4},{\"num\":16,\"sol\":3},{\"num\":17,\"sol\":2},{\"num\":18,\"sol\":1},{\"num\":19,\"sol\":2},{\"num\":20,\"sol\":2}]', 139, 1, 6, 173, 47),
+(21, 400, '[{\"num\":1,\"sol\":3},{\"num\":2,\"sol\":2},{\"num\":3,\"sol\":2},{\"num\":4,\"sol\":3},{\"num\":5,\"sol\":3},{\"num\":6,\"sol\":2},{\"num\":7,\"sol\":2},{\"num\":8,\"sol\":2},{\"num\":9,\"sol\":2},{\"num\":10,\"sol\":2},{\"num\":11,\"sol\":1},{\"num\":12,\"sol\":2},{\"num\":13,\"sol\":2},{\"num\":14,\"sol\":3},{\"num\":15,\"sol\":3},{\"num\":16,\"sol\":2},{\"num\":17,\"sol\":2},{\"num\":18,\"sol\":2},{\"num\":19,\"sol\":2},{\"num\":20,\"sol\":1}]', 139, 0, 0, 173, 52),
+(22, 400, '[{\"num\":1,\"sol\":3},{\"num\":2,\"sol\":3},{\"num\":3,\"sol\":2},{\"num\":4,\"sol\":2},{\"num\":5,\"sol\":2},{\"num\":6,\"sol\":1},{\"num\":7,\"sol\":2},{\"num\":8,\"sol\":2},{\"num\":9,\"sol\":3},{\"num\":10,\"sol\":1},{\"num\":11,\"sol\":1},{\"num\":12,\"sol\":2},{\"num\":13,\"sol\":2},{\"num\":14,\"sol\":2},{\"num\":15,\"sol\":5},{\"num\":16,\"sol\":2},{\"num\":17,\"sol\":2},{\"num\":18,\"sol\":1},{\"num\":19,\"sol\":1},{\"num\":20,\"sol\":2}]', 139, 0, 0, 173, 53),
+(23, 2000, '[{\"num\":1,\"sol\":1},{\"num\":2,\"sol\":3},{\"num\":3,\"sol\":4},{\"num\":4,\"sol\":3},{\"num\":5,\"sol\":3},{\"num\":6,\"sol\":3},{\"num\":7,\"sol\":4},{\"num\":8,\"sol\":5},{\"num\":9,\"sol\":2},{\"num\":10,\"sol\":1},{\"num\":11,\"sol\":2},{\"num\":12,\"sol\":3},{\"num\":13,\"sol\":4},{\"num\":14,\"sol\":5},{\"num\":15,\"sol\":4},{\"num\":16,\"sol\":3},{\"num\":17,\"sol\":2},{\"num\":18,\"sol\":1},{\"num\":19,\"sol\":5},{\"num\":20,\"sol\":5}]', 139, 1, 5, 173, 54),
+(24, 1300, '[{\"num\":1,\"sol\":1},{\"num\":2,\"sol\":3},{\"num\":3,\"sol\":4},{\"num\":4,\"sol\":3},{\"num\":5,\"sol\":3},{\"num\":6,\"sol\":3},{\"num\":7,\"sol\":4},{\"num\":8,\"sol\":5},{\"num\":9,\"sol\":3},{\"num\":10,\"sol\":5},{\"num\":11,\"sol\":2},{\"num\":12,\"sol\":3},{\"num\":13,\"sol\":4},{\"num\":14,\"sol\":5},{\"num\":15,\"sol\":1},{\"num\":16,\"sol\":2},{\"num\":17,\"sol\":2},{\"num\":18,\"sol\":2},{\"num\":19,\"sol\":3},{\"num\":20,\"sol\":1}]', 139, 1, 6, 173, 55);
 
 --
 -- Índices para tablas volcadas
@@ -401,6 +430,13 @@ ALTER TABLE `postulantedetalle`
   ADD KEY `postulanteRDetalle` (`idPostulante`);
 
 --
+-- Indices de la tabla `respuestas`
+--
+ALTER TABLE `respuestas`
+  ADD PRIMARY KEY (`idRespuestas`),
+  ADD KEY `respInscrip` (`idInscripcion`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -414,7 +450,7 @@ ALTER TABLE `administradores`
 -- AUTO_INCREMENT de la tabla `cupos`
 --
 ALTER TABLE `cupos`
-  MODIFY `idCupos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=773;
+  MODIFY `idCupos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=789;
 
 --
 -- AUTO_INCREMENT de la tabla `especialidad`
@@ -426,19 +462,19 @@ ALTER TABLE `especialidad`
 -- AUTO_INCREMENT de la tabla `eventoadmision`
 --
 ALTER TABLE `eventoadmision`
-  MODIFY `idAdmision` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=170;
+  MODIFY `idAdmision` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=174;
 
 --
 -- AUTO_INCREMENT de la tabla `examen`
 --
 ALTER TABLE `examen`
-  MODIFY `idExamen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=137;
+  MODIFY `idExamen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=141;
 
 --
 -- AUTO_INCREMENT de la tabla `inscripciones`
 --
 ALTER TABLE `inscripciones`
-  MODIFY `idInscripcion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `idInscripcion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT de la tabla `notificacion`
@@ -456,13 +492,19 @@ ALTER TABLE `plantilla`
 -- AUTO_INCREMENT de la tabla `postulante`
 --
 ALTER TABLE `postulante`
-  MODIFY `idPostulante` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `idPostulante` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
 
 --
 -- AUTO_INCREMENT de la tabla `postulantedetalle`
 --
 ALTER TABLE `postulantedetalle`
-  MODIFY `idPostulanteD` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `idPostulanteD` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+
+--
+-- AUTO_INCREMENT de la tabla `respuestas`
+--
+ALTER TABLE `respuestas`
+  MODIFY `idRespuestas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- Restricciones para tablas volcadas
@@ -494,6 +536,12 @@ ALTER TABLE `inscripciones`
 --
 ALTER TABLE `postulantedetalle`
   ADD CONSTRAINT `postulanteRDetalle` FOREIGN KEY (`idPostulante`) REFERENCES `postulante` (`idPostulante`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `respuestas`
+--
+ALTER TABLE `respuestas`
+  ADD CONSTRAINT `respInscrip` FOREIGN KEY (`idInscripcion`) REFERENCES `inscripciones` (`idInscripcion`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
