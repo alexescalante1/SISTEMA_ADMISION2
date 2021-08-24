@@ -87,11 +87,11 @@ $(".guardarEvento").click(function(){
 
 	}else{
 
-		swal({
-	      title: "Llenar todos los campos obligatorios",
-	      type: "error",
-	      confirmButtonText: "¡Cerrar!"
-	    });
+		Swal.fire({
+			icon: 'error',
+			title: 'Oops...',
+			text: 'Llenar el campo'
+		  })
 
 		return;
 	}

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-08-2021 a las 00:19:34
+-- Tiempo de generación: 21-08-2021 a las 10:48:10
 -- Versión del servidor: 10.4.14-MariaDB
 -- Versión de PHP: 7.2.34
 
@@ -46,10 +46,9 @@ CREATE TABLE `administradores` (
 --
 
 INSERT INTO `administradores` (`id`, `dniAdmin`, `userAdmin`, `nombre`, `email`, `foto`, `password`, `perfil`, `estado`, `dark`, `fecha`) VALUES
-(5, '73104785', '', 'Alex Escalante ONE', 'admin@gmail.com', 'vistas/img/perfiles/138.jpg', '$2a$07$asxx54ahjppf45sd87a5aunxs9bkpyGmGE/.vekdjFg83yRec789S', 'administrador', 1, 1, '2021-08-23 21:03:32'),
+(5, '73104785', '', 'Alex Escalante ONE', 'admin@gmail.com', 'vistas/img/perfiles/138.jpg', '$2a$07$asxx54ahjppf45sd87a5aunxs9bkpyGmGE/.vekdjFg83yRec789S', 'administrador', 1, 1, '2021-08-15 17:41:05'),
 (162, '73104795', '', 'Alex Escalante TWO', 'alexescalante921@gmail.com', 'vistas/img/perfiles/844.png', '$2a$07$asxx54ahjppf45sd87a5aubFblDrx5VgsL7udWc9pTLp1r8BxczhK', 'laboratorista', 1, 0, '2021-08-15 19:19:33'),
-(165, '73545894', '', 'Fredy Marin Rojas', 'laboral@gmail.com', 'vistas/img/perfiles/972.jpg', '$2a$07$asxx54ahjppf45sd87a5auR6AmIR5N5CndGl8MnjTyLo5SYcp56Qe', 'laboratorista', 1, 1, '2021-07-11 18:18:54'),
-(168, '71544848', '', 'User Test', 'test@gmail.com', 'vistas/img/perfiles/592.png', '$2a$07$asxx54ahjppf45sd87a5audjuNLZpiad8K/u8JtTcWtPBNJt2m/DS', 'administrador', 1, 0, '2021-08-24 22:18:23');
+(165, '73545894', '', 'Fredy Marin Rojas', 'laboral@gmail.com', 'vistas/img/perfiles/972.jpg', '$2a$07$asxx54ahjppf45sd87a5auR6AmIR5N5CndGl8MnjTyLo5SYcp56Qe', 'laboratorista', 1, 1, '2021-07-11 18:18:54');
 
 -- --------------------------------------------------------
 
@@ -87,8 +86,8 @@ INSERT INTO `cupos` (`idCupos`, `cupoBeca`, `cupoNormal`, `cupoTrasladosI`, `cup
 (784, 0, 0, 0, 0, 0, 10, 172),
 (785, 1, 2, 0, 0, 1400, 5, 173),
 (786, 2, 2, 0, 0, 700, 6, 173),
-(787, 2, 3, 0, 0, 1000, 11, 173),
-(788, 2, 3, 0, 0, 1000, 10, 173);
+(787, 2, 3, 0, 0, 800, 11, 173),
+(788, 2, 3, 0, 0, 500, 10, 173);
 
 -- --------------------------------------------------------
 
@@ -160,8 +159,7 @@ CREATE TABLE `examen` (
 INSERT INTO `examen` (`idExamen`, `ruta`, `titulo`, `cantidad`, `problemas`, `idAdmision`) VALUES
 (138, '', 'TIPO A', 60, '', 172),
 (139, '', 'TIPO A', 20, '[{\"num\":1,\"sol\":\"1\",\"pts\":\"100\",\"descripcion\":\"El crecimiento de las demandas energéticas y de alimentos por la población humana está provocando grandes cambios en las condiciones abióticas de nuestro planeta. Uno de estos cambios es el incremento de la temperatura global promedio, habiendo sido el 2016 el año más caluroso de la última década. Este incremento de temperatura se debe, principalmente:\",\"Ra\":\"al exagerado uso de fertilizantes en la agricultura.\",\"Rb\":\"a la extracción y uso excesivo de combustibles fósiles\",\"Rc\":\"el aumento del uso de radiación UV por la industria\",\"Rd\":\"al incremento de la fotosíntesis por la arborización.\",\"Re\":\"al desplazamiento y cambio de las corrientes marinas.\"},{\"num\":2,\"sol\":\"3\",\"pts\":\"100\",\"descripcion\":\"Señale la organela que presenta numerosas enzimas oxidasas y catalasas:\",\"Ra\":\"lisosoma\",\"Rb\":\"cloroplasto\",\"Rc\":\"ribosoma\",\"Rd\":\"peroxisoma\",\"Re\":\"aparato de golgi\"},{\"num\":3,\"sol\":\"4\",\"pts\":\"100\",\"descripcion\":\"Al examinar las preguntas del sondeo llevado a cabo en Madrid, se establece que los\\nproblemas de salud mental son de índole\\n\\nI. multifactorial.\\nII. ecológica.\\nIII. idiosincrásica.\",\"Ra\":\"I\",\"Rb\":\"I Y II\",\"Rc\":\"III\",\"Rd\":\"VIII\",\"Re\":\"IV\"},{\"num\":4,\"sol\":\"3\",\"pts\":\"100\",\"descripcion\":\"En una urna hay 10 bolas rojas, 12 azules, 15 verdes, ¿como mínimo cuál es el número de bolas que debo sacar para obtener 8 del mismo color?\",\"Ra\":\"20\",\"Rb\":\"25\",\"Rc\":\"22\",\"Rd\":\"23\",\"Re\":\"18\"},{\"num\":5,\"sol\":\"3\",\"pts\":\"100\",\"descripcion\":\"Si, en el sondeo realizado, los madrileños hubiesen respondido mayoritariamente que el\\nentorno de su ciudad era excelente,\",\"Ra\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rb\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rc\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rd\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Re\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\"},{\"num\":6,\"sol\":\"3\",\"pts\":\"100\",\"descripcion\":\"Si, en el sondeo realizado, los madrileños hubiesen respondido mayoritariamente que el\\nentorno de su ciudad era excelente,\",\"Ra\":\"V\",\"Rb\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rc\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rd\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Re\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\"},{\"num\":7,\"sol\":\"4\",\"pts\":\"100\",\"descripcion\":\"Si, en el sondeo realizado, los madrileños hubiesen respondido mayoritariamente que el\\nentorno de su ciudad era excelente,\",\"Ra\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rb\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rc\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rd\":\"V\",\"Re\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\"},{\"num\":8,\"sol\":\"5\",\"pts\":\"100\",\"descripcion\":\"Si, en el sondeo realizado, los madrileños hubiesen respondido mayoritariamente que el\\nentorno de su ciudad era excelente,\",\"Ra\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rb\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rc\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rd\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Re\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\"},{\"num\":9,\"sol\":\"2\",\"pts\":\"100\",\"descripcion\":\"Si, en el sondeo realizado, los madrileños hubiesen respondido mayoritariamente que el\\nentorno de su ciudad era excelente,\",\"Ra\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rb\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rc\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rd\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Re\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\"},{\"num\":10,\"sol\":\"1\",\"pts\":\"100\",\"descripcion\":\"Si, en el sondeo realizado, los madrileños hubiesen respondido mayoritariamente que el\\nentorno de su ciudad era excelente,\",\"Ra\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rb\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rc\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rd\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Re\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\"},{\"num\":11,\"sol\":\"2\",\"pts\":\"100\",\"descripcion\":\"Si, en el sondeo realizado, los madrileños hubiesen respondido mayoritariamente que el\\nentorno de su ciudad era excelente,\",\"Ra\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rb\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rc\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rd\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Re\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\"},{\"num\":12,\"sol\":\"3\",\"pts\":\"100\",\"descripcion\":\"Si, en el sondeo realizado, los madrileños hubiesen respondido mayoritariamente que el\\nentorno de su ciudad era excelente,\",\"Ra\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rb\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rc\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rd\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Re\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\"},{\"num\":13,\"sol\":\"4\",\"pts\":\"100\",\"descripcion\":\"Si, en el sondeo realizado, los madrileños hubiesen respondido mayoritariamente que el\\nentorno de su ciudad era excelente,\",\"Ra\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rb\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rc\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rd\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Re\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\"},{\"num\":14,\"sol\":\"5\",\"pts\":\"100\",\"descripcion\":\"Si, en el sondeo realizado, los madrileños hubiesen respondido mayoritariamente que el\\nentorno de su ciudad era excelente,\",\"Ra\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rb\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rc\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rd\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Re\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\"},{\"num\":15,\"sol\":\"4\",\"pts\":\"100\",\"descripcion\":\"Si, en el sondeo realizado, los madrileños hubiesen respondido mayoritariamente que el\\nentorno de su ciudad era excelente,\",\"Ra\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rb\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rc\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rd\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Re\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\"},{\"num\":16,\"sol\":\"3\",\"pts\":\"100\",\"descripcion\":\"Si, en el sondeo realizado, los madrileños hubiesen respondido mayoritariamente que el\\nentorno de su ciudad era excelente,\",\"Ra\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rb\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rc\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rd\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Re\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\"},{\"num\":17,\"sol\":\"2\",\"pts\":\"100\",\"descripcion\":\"Si, en el sondeo realizado, los madrileños hubiesen respondido mayoritariamente que el\\nentorno de su ciudad era excelente,\",\"Ra\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rb\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rc\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rd\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Re\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\"},{\"num\":18,\"sol\":\"1\",\"pts\":\"100\",\"descripcion\":\"Si, en el sondeo realizado, los madrileños hubiesen respondido mayoritariamente que el\\nentorno de su ciudad era excelente,\",\"Ra\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rb\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rc\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rd\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Re\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\"},{\"num\":19,\"sol\":\"5\",\"pts\":\"100\",\"descripcion\":\"Si, en el sondeo realizado, los madrileños hubiesen respondido mayoritariamente que el\\nentorno de su ciudad era excelente,\",\"Ra\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rb\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rc\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rd\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Re\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\"},{\"num\":20,\"sol\":\"5\",\"pts\":\"100\",\"descripcion\":\"Si, en el sondeo realizado, los madrileños hubiesen respondido mayoritariamente que el\\nentorno de su ciudad era excelente,\",\"Ra\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rb\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rc\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Rd\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\",\"Re\":\"significaría que, desde su percepción, Madrid maneja bien el ruido ambiental\"}]', 173),
-(140, '', 'TIPO B', 60, '', 173),
-(141, '', 'TIPO C', 60, '', 173);
+(140, '', 'TIPO B', 60, '', 173);
 
 -- --------------------------------------------------------
 
@@ -196,9 +194,7 @@ INSERT INTO `inscripciones` (`idInscripcion`, `Tpostulacion`, `Popcion`, `Sopcio
 (52, 'beca', 5, 6, 'vistas/img/vaucher/52268.jpg', 1, '2021-08-14 07:21:03', 173, 66, 5),
 (53, 'normal', 5, 6, 'vistas/img/vaucher/53828.jpg', 1, '2021-08-14 07:23:20', 173, 67, 5),
 (54, 'normal', 5, 6, 'vistas/img/vaucher/54410.jpg', 1, '2021-08-14 08:21:38', 173, 68, 5),
-(55, 'normal', 6, 10, 'vistas/img/vaucher/55466.jpg', 1, '2021-08-14 07:27:52', 173, 69, 5),
-(56, 'normal', 5, 6, 'vistas/img/vaucher/56732.jpg', 1, '2021-08-23 20:54:54', 173, 70, 5),
-(57, 'beca', 5, 11, 'vistas/img/vaucher/57975.jpg', 1, '2021-08-23 20:55:02', 173, 71, 5);
+(55, 'normal', 6, 10, 'vistas/img/vaucher/55466.jpg', 1, '2021-08-14 07:27:52', 173, 69, 5);
 
 -- --------------------------------------------------------
 
@@ -281,9 +277,7 @@ INSERT INTO `postulante` (`idPostulante`, `dni`, `nombre`, `apellidoPat`, `apell
 (66, '73104787', 'NAOFUMI', 'IWATANI', 'TATE', '2021-08-18', 'vistas/img/postulantes/66937.jpg'),
 (67, '73104788', 'RAPHTALIA', 'NAOF', 'TATE', '2021-08-17', 'vistas/img/postulantes/67919.jpg'),
 (68, '73104789', 'BILL', 'GATES', 'MHS', '2021-08-11', 'vistas/img/postulantes/68381.jpg'),
-(69, '73104790', 'YEMIRA', 'TICONA', 'SOTO', '2021-08-10', 'vistas/img/postulantes/69296.jpg'),
-(70, '73215154', 'CARLOS', 'MARIN', 'MARIN', '2021-08-11', 'vistas/img/postulantes/70401.jpg'),
-(71, '73104795', 'JUAN', 'ESCALANTE', 'ZAPANA', '2021-08-11', 'vistas/img/postulantes/71671.jpg');
+(69, '73104790', 'YEMIRA', 'TICONA', 'SOTO', '2021-08-10', 'vistas/img/postulantes/69296.jpg');
 
 -- --------------------------------------------------------
 
@@ -328,9 +322,7 @@ INSERT INTO `postulantedetalle` (`idPostulanteD`, `idPostulante`, `genero`, `cor
 (57, 66, 'Hombre', 'naofumi@gmail.com', '777744444', '', 'AV.TOKIO ', 'J', 'J', 'J', 'RAPTHTALIA', '84454541', '', 'otro', '', '544488888', 'TOKIO', 'particular', '', 0),
 (58, 67, 'Mujer', 'raf@g.s', '888888888', '', 'AV.SD', 'J', 'J', 'J', 'RAFP', '88444565', 'faara@as.s', 'hermano', '', '555554151', 'IDK SA', 'publico', '', 0),
 (59, 68, 'Hombre', 'biill@g.cs', '222222222', '', 'HELLO', 'E', 'E', 'E', 'ALEX', '78848448', '', 'padre', '', '122121212', 'COLES', 'publico', '', 0),
-(60, 69, 'Hombre', 'yem@g.a', '111111111', '', 'AV IDK', 'P', 'P', 'P', 'CARLOS NICOLAS COPERNICO', '84548794', '', 'padre', '', '884544442', 'IN MDA', 'particular', '', 0),
-(61, 70, 'Hombre', 'carlos@gmail.com', '213124234', '232342342', 'AV.LOS ALAMOS', 'PUNO', 'PUNO', 'PUNO', 'RICARDO MANZANEDA PINEDA', '18474145', '', 'otro', '', '951444848', 'GRAN UNIDAD ESCOLAR SAN CARLOS', 'publico', '', 16),
-(62, 71, 'Hombre', 'juan@gmail.com', '951487454', '', 'AV. LOS ALAMOS', 'PUNO', 'PUNO', 'PUNO', 'LOURDES MAROPN MAMANI', '78451265', '', 'madre', '', '951448456', 'GRAN UNIDAD ESCOLAR SAN CARLOS', 'publico', '', 0);
+(60, 69, 'Hombre', 'yem@g.a', '111111111', '', 'AV IDK', 'P', 'P', 'P', 'CARLOS NICOLAS COPERNICO', '84548794', '', 'padre', '', '884544442', 'IN MDA', 'particular', '', 0);
 
 -- --------------------------------------------------------
 
@@ -354,7 +346,7 @@ CREATE TABLE `respuestas` (
 --
 
 INSERT INTO `respuestas` (`idRespuestas`, `pnts`, `datos`, `idExam`, `valid`, `idEspIngreso`, `idAdmision`, `idInscripcion`) VALUES
-(15, 900, '[{\"num\":1,\"sol\":1},{\"num\":2,\"sol\":2},{\"num\":3,\"sol\":3},{\"num\":4,\"sol\":2},{\"num\":5,\"sol\":3},{\"num\":6,\"sol\":3},{\"num\":7,\"sol\":2},{\"num\":8,\"sol\":3},{\"num\":9,\"sol\":2},{\"num\":10,\"sol\":1},{\"num\":11,\"sol\":2},{\"num\":12,\"sol\":3},{\"num\":13,\"sol\":5},{\"num\":14,\"sol\":4},{\"num\":15,\"sol\":3},{\"num\":16,\"sol\":2},{\"num\":17,\"sol\":1},{\"num\":18,\"sol\":1},{\"num\":19,\"sol\":2},{\"num\":20,\"sol\":5}]', 139, 0, 0, 173, 48),
+(15, 900, '[{\"num\":1,\"sol\":1},{\"num\":2,\"sol\":2},{\"num\":3,\"sol\":3},{\"num\":4,\"sol\":2},{\"num\":5,\"sol\":3},{\"num\":6,\"sol\":3},{\"num\":7,\"sol\":2},{\"num\":8,\"sol\":3},{\"num\":9,\"sol\":2},{\"num\":10,\"sol\":1},{\"num\":11,\"sol\":2},{\"num\":12,\"sol\":3},{\"num\":13,\"sol\":5},{\"num\":14,\"sol\":4},{\"num\":15,\"sol\":3},{\"num\":16,\"sol\":2},{\"num\":17,\"sol\":1},{\"num\":18,\"sol\":1},{\"num\":19,\"sol\":2},{\"num\":20,\"sol\":5}]', 139, 1, 10, 173, 48),
 (16, 1700, '[{\"num\":1,\"sol\":1},{\"num\":2,\"sol\":3},{\"num\":3,\"sol\":4},{\"num\":4,\"sol\":3},{\"num\":5,\"sol\":3},{\"num\":6,\"sol\":3},{\"num\":7,\"sol\":4},{\"num\":8,\"sol\":5},{\"num\":9,\"sol\":2},{\"num\":10,\"sol\":1},{\"num\":11,\"sol\":2},{\"num\":12,\"sol\":3},{\"num\":13,\"sol\":4},{\"num\":14,\"sol\":5},{\"num\":15,\"sol\":4},{\"num\":16,\"sol\":3},{\"num\":17,\"sol\":2},{\"num\":18,\"sol\":5},{\"num\":19,\"sol\":1},{\"num\":20,\"sol\":1}]', 139, 1, 5, 173, 46),
 (17, 400, '[{\"num\":1,\"sol\":1},{\"num\":2,\"sol\":1},{\"num\":3,\"sol\":2},{\"num\":4,\"sol\":2},{\"num\":5,\"sol\":2},{\"num\":6,\"sol\":2},{\"num\":7,\"sol\":2},{\"num\":8,\"sol\":3},{\"num\":9,\"sol\":2},{\"num\":10,\"sol\":3},{\"num\":11,\"sol\":3},{\"num\":12,\"sol\":2},{\"num\":13,\"sol\":2},{\"num\":14,\"sol\":5},{\"num\":15,\"sol\":2},{\"num\":16,\"sol\":2},{\"num\":17,\"sol\":2},{\"num\":18,\"sol\":3},{\"num\":19,\"sol\":2},{\"num\":20,\"sol\":2}]', 139, 0, 0, 173, 49),
 (18, 1000, '[{\"num\":1,\"sol\":1},{\"num\":2,\"sol\":1},{\"num\":3,\"sol\":2},{\"num\":4,\"sol\":2},{\"num\":5,\"sol\":2},{\"num\":6,\"sol\":3},{\"num\":7,\"sol\":2},{\"num\":8,\"sol\":3},{\"num\":9,\"sol\":2},{\"num\":10,\"sol\":1},{\"num\":11,\"sol\":2},{\"num\":12,\"sol\":3},{\"num\":13,\"sol\":4},{\"num\":14,\"sol\":5},{\"num\":15,\"sol\":5},{\"num\":16,\"sol\":3},{\"num\":17,\"sol\":1},{\"num\":18,\"sol\":5},{\"num\":19,\"sol\":5},{\"num\":20,\"sol\":2}]', 139, 2, 10, 173, 50),
@@ -363,8 +355,7 @@ INSERT INTO `respuestas` (`idRespuestas`, `pnts`, `datos`, `idExam`, `valid`, `i
 (21, 400, '[{\"num\":1,\"sol\":3},{\"num\":2,\"sol\":2},{\"num\":3,\"sol\":2},{\"num\":4,\"sol\":3},{\"num\":5,\"sol\":3},{\"num\":6,\"sol\":2},{\"num\":7,\"sol\":2},{\"num\":8,\"sol\":2},{\"num\":9,\"sol\":2},{\"num\":10,\"sol\":2},{\"num\":11,\"sol\":1},{\"num\":12,\"sol\":2},{\"num\":13,\"sol\":2},{\"num\":14,\"sol\":3},{\"num\":15,\"sol\":3},{\"num\":16,\"sol\":2},{\"num\":17,\"sol\":2},{\"num\":18,\"sol\":2},{\"num\":19,\"sol\":2},{\"num\":20,\"sol\":1}]', 139, 0, 0, 173, 52),
 (22, 400, '[{\"num\":1,\"sol\":3},{\"num\":2,\"sol\":3},{\"num\":3,\"sol\":2},{\"num\":4,\"sol\":2},{\"num\":5,\"sol\":2},{\"num\":6,\"sol\":1},{\"num\":7,\"sol\":2},{\"num\":8,\"sol\":2},{\"num\":9,\"sol\":3},{\"num\":10,\"sol\":1},{\"num\":11,\"sol\":1},{\"num\":12,\"sol\":2},{\"num\":13,\"sol\":2},{\"num\":14,\"sol\":2},{\"num\":15,\"sol\":5},{\"num\":16,\"sol\":2},{\"num\":17,\"sol\":2},{\"num\":18,\"sol\":1},{\"num\":19,\"sol\":1},{\"num\":20,\"sol\":2}]', 139, 0, 0, 173, 53),
 (23, 2000, '[{\"num\":1,\"sol\":1},{\"num\":2,\"sol\":3},{\"num\":3,\"sol\":4},{\"num\":4,\"sol\":3},{\"num\":5,\"sol\":3},{\"num\":6,\"sol\":3},{\"num\":7,\"sol\":4},{\"num\":8,\"sol\":5},{\"num\":9,\"sol\":2},{\"num\":10,\"sol\":1},{\"num\":11,\"sol\":2},{\"num\":12,\"sol\":3},{\"num\":13,\"sol\":4},{\"num\":14,\"sol\":5},{\"num\":15,\"sol\":4},{\"num\":16,\"sol\":3},{\"num\":17,\"sol\":2},{\"num\":18,\"sol\":1},{\"num\":19,\"sol\":5},{\"num\":20,\"sol\":5}]', 139, 1, 5, 173, 54),
-(24, 1300, '[{\"num\":1,\"sol\":1},{\"num\":2,\"sol\":3},{\"num\":3,\"sol\":4},{\"num\":4,\"sol\":3},{\"num\":5,\"sol\":3},{\"num\":6,\"sol\":3},{\"num\":7,\"sol\":4},{\"num\":8,\"sol\":5},{\"num\":9,\"sol\":3},{\"num\":10,\"sol\":5},{\"num\":11,\"sol\":2},{\"num\":12,\"sol\":3},{\"num\":13,\"sol\":4},{\"num\":14,\"sol\":5},{\"num\":15,\"sol\":1},{\"num\":16,\"sol\":2},{\"num\":17,\"sol\":2},{\"num\":18,\"sol\":2},{\"num\":19,\"sol\":3},{\"num\":20,\"sol\":1}]', 139, 1, 6, 173, 55),
-(25, 1700, '[{\"num\":1,\"sol\":1},{\"num\":2,\"sol\":3},{\"num\":3,\"sol\":4},{\"num\":4,\"sol\":4},{\"num\":5,\"sol\":3},{\"num\":6,\"sol\":3},{\"num\":7,\"sol\":4},{\"num\":8,\"sol\":5},{\"num\":9,\"sol\":2},{\"num\":10,\"sol\":1},{\"num\":11,\"sol\":2},{\"num\":12,\"sol\":3},{\"num\":13,\"sol\":4},{\"num\":14,\"sol\":5},{\"num\":15,\"sol\":4},{\"num\":16,\"sol\":3},{\"num\":17,\"sol\":2},{\"num\":18,\"sol\":1},{\"num\":19,\"sol\":1},{\"num\":20,\"sol\":1}]', 139, 5, 5, 173, 57);
+(24, 1300, '[{\"num\":1,\"sol\":1},{\"num\":2,\"sol\":3},{\"num\":3,\"sol\":4},{\"num\":4,\"sol\":3},{\"num\":5,\"sol\":3},{\"num\":6,\"sol\":3},{\"num\":7,\"sol\":4},{\"num\":8,\"sol\":5},{\"num\":9,\"sol\":3},{\"num\":10,\"sol\":5},{\"num\":11,\"sol\":2},{\"num\":12,\"sol\":3},{\"num\":13,\"sol\":4},{\"num\":14,\"sol\":5},{\"num\":15,\"sol\":1},{\"num\":16,\"sol\":2},{\"num\":17,\"sol\":2},{\"num\":18,\"sol\":2},{\"num\":19,\"sol\":3},{\"num\":20,\"sol\":1}]', 139, 1, 6, 173, 55);
 
 --
 -- Índices para tablas volcadas
@@ -452,13 +443,13 @@ ALTER TABLE `respuestas`
 -- AUTO_INCREMENT de la tabla `administradores`
 --
 ALTER TABLE `administradores`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=169;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=168;
 
 --
 -- AUTO_INCREMENT de la tabla `cupos`
 --
 ALTER TABLE `cupos`
-  MODIFY `idCupos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=801;
+  MODIFY `idCupos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=797;
 
 --
 -- AUTO_INCREMENT de la tabla `especialidad`
@@ -470,19 +461,19 @@ ALTER TABLE `especialidad`
 -- AUTO_INCREMENT de la tabla `eventoadmision`
 --
 ALTER TABLE `eventoadmision`
-  MODIFY `idAdmision` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=177;
+  MODIFY `idAdmision` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=176;
 
 --
 -- AUTO_INCREMENT de la tabla `examen`
 --
 ALTER TABLE `examen`
-  MODIFY `idExamen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=142;
+  MODIFY `idExamen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=141;
 
 --
 -- AUTO_INCREMENT de la tabla `inscripciones`
 --
 ALTER TABLE `inscripciones`
-  MODIFY `idInscripcion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `idInscripcion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT de la tabla `notificacion`
@@ -500,19 +491,19 @@ ALTER TABLE `plantilla`
 -- AUTO_INCREMENT de la tabla `postulante`
 --
 ALTER TABLE `postulante`
-  MODIFY `idPostulante` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+  MODIFY `idPostulante` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
 
 --
 -- AUTO_INCREMENT de la tabla `postulantedetalle`
 --
 ALTER TABLE `postulantedetalle`
-  MODIFY `idPostulanteD` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+  MODIFY `idPostulanteD` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT de la tabla `respuestas`
 --
 ALTER TABLE `respuestas`
-  MODIFY `idRespuestas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `idRespuestas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- Restricciones para tablas volcadas

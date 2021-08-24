@@ -76,7 +76,7 @@
                                             
                                             <?php
 
-                                                    $admicion = ControladorAdmision::ctrMostrar("eventoadmision","estado",1);
+                                                    $admicion = ControladorAdmision::ctrMostrar("eventoadmision",null,null);
 
                                                     foreach ($admicion as $key => $value) {
                                                         $accionesFinal = "<div class='btn-group'><a href='".$admicion[$key]["ruta"]."-repPostu'><button class='btn btn-block btn-success'><i class='fa fa-eye'></i></button></a></div>";

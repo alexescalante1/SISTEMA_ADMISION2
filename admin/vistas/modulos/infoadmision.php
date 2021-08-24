@@ -532,7 +532,7 @@
 										<div class="input-group">
 										
 											<div class="input-group-prepend">
-												<span class="input-group-text">CANTIDAD</span>
+												<span class="input-group-text">NUM</span>
 											</div>
 		
 											<select class="form-control input-lg" id="numero-ejercicios" oninput="camposEjercicio();">

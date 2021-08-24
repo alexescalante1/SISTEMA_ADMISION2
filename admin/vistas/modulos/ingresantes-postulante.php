@@ -38,7 +38,7 @@
 
 										<span class="label label-default" style="font-weight:100; margin-left:5px;font-weight: bold;">
 
-											<a href="regRes"><i class="fa fa-mail-reply" ></i> ATRAS</a>
+											<a href="ingresantes"><i class="fa fa-mail-reply" ></i> ATRAS</a>
 
 										</span>
 
@@ -361,17 +361,17 @@
 										
 									</table>
 									
-									
 									<script>
 
-									$(function () {
-										$("#tablab'.$value["idEspecialidad"].'").DataTable({
-											"responsive": true, "lengthChange": false, "autoWidth": false,
-											"buttons": ["copy", "excel", "pdf", "print", "colvis"]
-										}).buttons().container().appendTo("#tablab'.$value["idEspecialidad"].'_wrapper .col-md-6:eq(0)");
-									});
-
+										$(function () {
+											$("#tablab'.$value["idEspecialidad"].'").DataTable({
+												"responsive": true, "lengthChange": false, "autoWidth": false,
+												"buttons": ["copy", "excel", "pdf", "print"]
+											}).buttons().container().appendTo("#tablab'.$value["idEspecialidad"].'_wrapper .col-md-6:eq(0)");
+										});
+	
 									</script>
+
 									
 									';
 								}
@@ -390,7 +390,7 @@
 									$opc = "";
 
 									echo '
-									<table id="tabla'.$value["idEspecialidad"].'" class="table table-bordered table-striped">
+									<table id="tablan'.$value["idEspecialidad"].'" class="table table-bordered table-striped">
 										<thead>
 										<tr>
 											<th style="width:5px">#</th>
@@ -436,16 +436,15 @@
 										
 									</table>
 									
-									
 									<script>
-
-									$(function () {
-										$("#tabla'.$value["idEspecialidad"].'").DataTable({
-											"responsive": true, "lengthChange": false, "autoWidth": false,
-											"buttons": ["copy", "excel", "pdf", "print", "colvis"]
-										}).buttons().container().appendTo("#tabla'.$value["idEspecialidad"].'_wrapper .col-md-6:eq(0)");
-									});
-
+								
+										$(function () {
+											$("#tablan'.$value["idEspecialidad"].'").DataTable({
+												"responsive": true, "lengthChange": false, "autoWidth": false,
+												"buttons": ["copy", "excel", "pdf", "print"]
+											}).buttons().container().appendTo("#tablan'.$value["idEspecialidad"].'_wrapper .col-md-6:eq(0)");
+										});
+		
 									</script>
 									
 									';

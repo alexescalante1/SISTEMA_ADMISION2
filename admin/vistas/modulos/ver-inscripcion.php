@@ -557,8 +557,8 @@
                                     <option >SELECCIONAR TIPO</option>
                                     <option value="normal">NORMAL</option>
                                     <option value="beca">BECADO</option>
-                                    <option value="trasIn">TRASLADO INTERNO</option>
-                                    <option value="trasEx">TRASLADO EXTERNO</option>
+                                    <!--<option value="trasIn">TRASLADO INTERNO</option>
+                                    <option value="trasEx">TRASLADO EXTERNO</option>-->
                                 </select>
 
                             </div>
